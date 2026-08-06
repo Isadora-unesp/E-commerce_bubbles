@@ -8,28 +8,28 @@
         </head>
     <body>
         <header>
-            <!-- Logo -->
+            <img src="" alt="logo" class="logo">
             <!-- barra de pesquisa-->
-            <!-- Login -->
-            <!-- Carrinho -->
+            <!-- botao Login -->
+            <!-- botao Carrinho -->
         </header>
         <nav>
 
         </nav>
         <main>
-            <div class="banner-principal">
+            <section class="banner-principal">
             <!-- Texto.                                              Imagem  -->
-            <!-- botão conheça mais -->
-            </div>
-            <div class="banner-categorias">
-                                                                    <!--Botão ver todas-->
+            <!-- botao conheca mais -->
+            </section>
+            <section class="banner-categorias">
+                                                                    <!--Botao ver todas-->
             <!-- linha horizontal de fotos (rolagem), bolinhas-->
-            </div>
-            <div class="banner-ingredientes">
+            </section>
+            <section class="banner-ingredientes">
                 <!-- botao saiba mais-->
-            </div>
-            <div>
-                <!-- Rolagem, quadradinho, foto, nome, preço, botão adicionar ao carrinho.-->                                    <!-- Botão ver todas-->
+            </section>
+            <section>
+                <!-- Rolagem, quadradinho, foto, nome, preco, botao adicionar ao carrinho.-->                                    <!-- Botao ver todas-->
                 <div class="produtos">
 
                 </div>
@@ -48,7 +48,7 @@
                 <div class="produtos">
                     
                 </div>
-            </div>
+            </section>
         </main>
         <footer>
 
