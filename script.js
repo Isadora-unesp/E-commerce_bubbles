@@ -1,15 +1,19 @@
-// =========================
-// BUSCA DE PRODUTOS
-// =========================
-
-const campoBusca = document.getElementById("campoBusca");
+const campoBusca = document.getElementById("campoPesquisa");
 const botaoBusca = document.getElementById("botaoBusca");
+
+function removerAcentos(texto) {
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
 
 function pesquisarProduto() {
 
-    const pesquisa = campoBusca.value
-        .trim()
-        .toLowerCase();
+    if (!campoBusca) return;
+
+    const pesquisa = removerAcentos(
+        campoBusca.value.trim().toLowerCase()
+    );
 
     const produtos = document.querySelectorAll(".produto");
 
@@ -17,11 +21,13 @@ function pesquisarProduto() {
 
     produtos.forEach(produto => {
 
-        const nome = produto
-            .getAttribute("data-nome")
-            .toLowerCase();
+        const nomeProduto = produto.getAttribute("data-nome") || "";
 
-        if (nome.includes(pesquisa)) {
+        const nome = removerAcentos(
+            nomeProduto.toLowerCase()
+        );
+
+        if (pesquisa === "" || nome.includes(pesquisa)) {
 
             produto.style.display = "";
 
@@ -37,12 +43,7 @@ function pesquisarProduto() {
 
     mostrarMensagemBusca(!encontrou && pesquisa !== "");
 }
-
-
-// =========================
-// MENSAGEM DE PRODUTO NÃO ENCONTRADO
-// =========================
-
+ 
 function mostrarMensagemBusca(mostrar) {
 
     let mensagem = document.getElementById("mensagemBusca");
@@ -55,58 +56,47 @@ function mostrarMensagemBusca(mostrar) {
 
             mensagem.id = "mensagemBusca";
 
-            mensagem.textContent =
-                "Nenhum produto encontrado.";
+            mensagem.textContent = "Nenhum produto encontrado.";
 
-            document
-                .querySelector(".produtos")
-                .appendChild(mensagem);
+            const container =
+                document.querySelector(".produtos-scroll");
+
+            if (container) {
+                container.appendChild(mensagem);
+            }
         }
 
     } else {
 
-        if (mensagem) {
-
-            mensagem.remove();
-
+        if (mensagem) { 
+            mensagem.remove(); 
         }
 
     }
 }
-
-
-// =========================
-// PESQUISAR AO CLICAR NA LUPA
-// =========================
-
+ 
 if (botaoBusca) {
 
-    botaoBusca.addEventListener("click", pesquisarProduto);
+    botaoBusca.addEventListener("click", function () {
+        pesquisarProduto();
+    });
 
 }
-
-
-// =========================
-// PESQUISAR AO APERTAR ENTER
-// =========================
-
+ 
 if (campoBusca) {
 
     campoBusca.addEventListener("keydown", function(event) {
 
         if (event.key === "Enter") {
 
+            event.preventDefault();
+
             pesquisarProduto();
 
         }
 
     });
-
-
-    // =========================
-    // PESQUISAR ENQUANTO DIGITA
-    // =========================
-
+ 
     campoBusca.addEventListener("input", function() {
 
         pesquisarProduto();
@@ -114,12 +104,7 @@ if (campoBusca) {
     });
 
 }
-
-
-// =========================
-// CARRINHO
-// =========================
-
+ 
 function adicionarCarrinho(nomeProduto) {
 
     alert(nomeProduto + " foi adicionado ao carrinho!");

@@ -43,8 +43,7 @@ $produtos = [
 </head>
 
 <body>
-
-    <!-- CABEÇALHO -->
+ 
     <header class="header">
 
         <div class="logo">
@@ -100,9 +99,7 @@ $produtos = [
         </div>
 
     </header>
-
-
-    <!-- BANNER PRINCIPAL -->
+ 
     <main>
 
         <section class="hero">
@@ -137,9 +134,7 @@ $produtos = [
             </div>
 
         </section>
-
-
-        <!-- BENEFÍCIOS -->
+ 
         <section class="beneficios">
 
             <div class="beneficio">
@@ -181,9 +176,7 @@ $produtos = [
             </div>
 
         </section>
-
-
-        <!-- TIPOS DE SABONETE -->
+ 
         <section class="categorias">
 
             <div class="categoria categoria-massageador">
@@ -233,8 +226,7 @@ $produtos = [
             </div>
 
         </section>
-
-        <!-- INGREDIENTES -->
+ 
         <section class="ingredientes" id="ingredientes">
             <div class="ingredientes-imagem">
                 <img
@@ -259,8 +251,7 @@ $produtos = [
                 </a>
             </div>
         </section>
-
-        <!-- PRODUTOS -->
+ 
         <section class="produtos" id="produtos">
 
             <div class="titulo-secao">
@@ -321,7 +312,6 @@ $produtos = [
 
     </main>
 
-    <!-- RODAPÉ -->
     <footer id="contato">
 
         <div class="footer-logo">
