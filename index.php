@@ -3,26 +3,31 @@
 $produtos = [
     [
         "nome" => "Sabonete Frutas Vermelhas",
+        "descricao" => "Fragrância doce e frutada, com uma combinação delicada de morango e frutas vermelhas. 90g",
         "preco" => 00.00,
         "imagem" => "img/morango.jpg"
     ],
     [
         "nome" => "Sabonete Maracujá",
+        "descricao" => "Fragrância refrescante de maracujá, ideal para deixar a pele perfumada. 90g",
         "preco" => 00.00,
         "imagem" => "img/maracuja.jpg"
     ],
     [
         "nome" => "Sabonete Mirtilo",
+        "descricao" => "Fragrância suave e marcante de mirtilo, trazendo um toque frutado para o seu momento de cuidado. 90g",
         "preco" => 00.00,
         "imagem" => "img/mirtilo.jpg"
     ],
     [
         "nome" => "Sabonete Coco",
+        "descricao" => "Fragrância suave de coco que proporciona uma sensação de frescor e cuidado durante o banho. 90g",
         "preco" => 00.00,
         "imagem" => "img/coco.jpg"
     ],
     [
-        "nome" => "Sabonete Citríco",
+        "nome" => "Sabonete Cítrico",
+        "descricao" => "Fragrância refrescante com notas cítricas, perfeita para trazer uma sensação de energia e frescor. 90g",
         "preco" => 00.00,
         "imagem" => "img/citrico.jpg"
     ],
@@ -133,78 +138,32 @@ $produtos = [
                 <img src="img/banner.png" alt="Sabonetes artesanais Fruit Bubbles">
             </div>
 
-        </section>
+        </section> 
+
+        <br></br>
  
-        <section class="beneficios">
-
-            <div class="beneficio">
-                <span class="beneficio-icone">🌿</span>
-
-                <div>
-                    <strong>Ingredientes naturais</strong>
-                    <p>Fórmulas suaves e seguras para sua pele</p>
-                </div>
-            </div>
-
-
-            <div class="beneficio">
-                <span class="beneficio-icone">♡</span>
-
-                <div>
-                    <strong>Feito com carinho</strong>
-                    <p>Produção artesanal em pequenos lotes</p>
-                </div>
-            </div>
-
-            <div class="beneficio">
-                <span class="beneficio-icone">🍃</span>
-
-                <div>
-                    <strong>Sem parabenos</strong>
-                    <p>Mais cuidado para você</p>
-                </div>
-            </div>
-
-
-            <div class="beneficio">
-                <span class="beneficio-icone">♻</span>
-
-                <div>
-                    <strong>Embalagens sustentáveis</strong>
-                    <p>Cuidado com você e o planeta</p>
-                </div>
-            </div>
-
-        </section>
- 
-        <section class="categorias">
-
-            <div class="categoria categoria-massageador">
-
+        <section class="categorias"> 
+            <div class="categoria categoria-massageador"> 
                 <div class="categoria-texto">
                     <h2>
                         Sabonete<br>
                         massageador
                     </h2>
+
                     <p>
                         Com texturas que massageiam e esfoliam
                         suavemente, promovendo relaxamento
                         e renovação da pele.
                     </p>
+
                     <a href="#produtos" class="botao pequeno">
                         Ver produtos
+                        <span>→</span>
                     </a>
-                </div>
+                </div> 
+            </div> 
 
-                <img
-                    src="img/massageador.jpg"
-                    alt="Sabonete massageador"
-                >
-
-            </div>
-
-
-            <div class="categoria categoria-barra">
+            <div class="categoria categoria-barra"> 
                 <div class="categoria-texto">
                     <h2>
                         Sabonete<br>
@@ -216,42 +175,12 @@ $produtos = [
                     </p>
                     <a href="#produtos" class="botao verde pequeno">
                         Ver produtos
+                        <span>→</span>
                     </a>
-                </div>
-
-                <img
-                    src="img/barra.jpg"
-                    alt="Sabonetes em barra"
-                >
-            </div>
-
+                </div> 
+            </div> 
         </section>
- 
-        <section class="ingredientes" id="ingredientes">
-            <div class="ingredientes-imagem">
-                <img
-                    src="img/ingrediente.png"
-                    alt="Ingredientes naturais utilizados nos sabonetes"
-                >
-            </div>
-
-            <div class="ingredientes-texto">
-                <h2>
-                    Ingredientes<br>
-                    que fazem a diferença
-                </h2>
-                <p>
-                    Selecionamos cuidadosamente ingredientes
-                    naturais e nutritivos para criar sabonetes
-                    que respeitam sua pele e o meio ambiente.
-                </p>
-                <a href="ingredientes.php" class="botao verde">
-                    Ir para ingredientes
-                    <span>→</span>
-                </a>
-            </div>
-        </section>
- 
+  
         <section class="produtos" id="produtos">
 
             <div class="titulo-secao">
@@ -278,9 +207,14 @@ $produtos = [
                         </div>
 
                         <div class="produto-info">
+
                             <h3>
                                 <?= $produto['nome'] ?>
                             </h3>
+
+                            <p class="produto-descricao">
+                                <?= $produto['descricao'] ?>
+                            </p>
 
                             <div class="produto-final">
 
@@ -308,6 +242,31 @@ $produtos = [
 
             </div>
 
+        </section>
+
+        <section class="ingredientes" id="ingredientes">
+            <div class="ingredientes-imagem">
+                <img
+                    src="img/ingrediente.png"
+                    alt="Ingredientes naturais utilizados nos sabonetes"
+                    >
+            </div>
+
+            <div class="ingredientes-texto">
+                <h2>
+                    Ingredientes<br>
+                    que fazem a diferença
+                </h2>
+                <p>
+                    Selecionamos cuidadosamente ingredientes
+                    naturais e nutritivos para criar sabonetes
+                    que respeitam sua pele e o meio ambiente.
+                </p>
+                <a href="ingredientes.php" class="botao verde">
+                    Ir para ingredientes
+                    <span>→</span>
+                </a>
+            </div>
         </section>
 
     </main>
@@ -348,7 +307,7 @@ $produtos = [
         </div>
 
         <div class="copyright">
-            © 2026 Fruit Bubbles.
+            E-commerce 2026 Fruit Bubbles.
             Todos os direitos reservados.
         </div>
 
