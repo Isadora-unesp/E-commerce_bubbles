@@ -10,7 +10,7 @@
    <title> Cadastro </title>
 
 
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="styleCLP.css">
 </head>
 
 
@@ -89,7 +89,7 @@
 
            <p class="login">
                Já possui uma conta?
-               <a href="#">Entrar</a>
+               <a href="login.php">Entrar</a>
            </p>
 
 

@@ -101,3 +101,83 @@ button:hover {
 .login a:hover {
     text-decoration: underline;
 }
+
+/* MENSAGENS E LINKS ESPECÍFICOS */
+.mensagem {
+    text-align: center;
+    color: #525252;
+    margin-bottom: 20px;
+}
+
+.esqueceu-senha {
+    display: inline-block;
+    margin-top: 6px;
+    color: #46220f;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.esqueceu-senha:hover {
+    text-decoration: underline;
+}
+
+/* PERFIL */
+.perfil {
+    width: 100%;
+    max-width: 700px;
+    background-color: #FFF2E8;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(132, 117, 186, 0.12);
+}
+
+.perfil h1 {
+    text-align: center;
+    color: #46220f;
+    margin-bottom: 8px;
+}
+
+.informacoes {
+    margin-top: 18px;
+    display: grid;
+    gap: 12px;
+}
+
+.informacoes .campo {
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(70,34,15,0.08);
+}
+
+.informacoes .titulo {
+    display: block;
+    font-weight: bold;
+    color: #525252;
+    margin-bottom: 6px;
+}
+
+.botoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.botoes .editar, .botoes .sair {
+    flex: 1;
+    display: inline-block;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background: #F86464;
+    color: #fff;
+}
+
+.botoes .editar:hover,
+.botoes .sair:hover {
+    transform: translateY(-2px);
+}
