@@ -95,7 +95,7 @@ $produtos = [
 
             </div>
 
-            <a href="loginUsuario.php" class="icone" aria-label="Minha conta">
+            <a href="login.php" class="icone" aria-label="Minha conta">
                 <svg viewBox="0 0 24 24">
                     <circle cx="12" cy="8" r="4"></circle>
                     <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
