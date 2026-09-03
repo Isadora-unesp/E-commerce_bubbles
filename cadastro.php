@@ -80,7 +80,7 @@
 
 
                <button type="submit">
-                   CADASTRAR-SE
+                   <a href="perfil.php">CADASTRAR-SE</a>
                </button>
 
 

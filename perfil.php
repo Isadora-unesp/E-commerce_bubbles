@@ -65,7 +65,7 @@
 
                <a class="editar" href="editar_perfil.php">Editar Perfil</a>
 
-               <a class="sair" href="logout.php">Sair</a>
+               <a class="sair" href="logout.php">Logout</a>
 
            </div>
 
