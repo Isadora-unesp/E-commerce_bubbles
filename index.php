@@ -375,7 +375,7 @@ $produtos = [
             </p>
 
             <br></br>
-            <a href="sobre.php" class="botao verde">
+            <a href="sobrenos.php" class="botao verde">
                 Conheça nossa história
                 <span>→</span>
             </a>
