@@ -2,36 +2,31 @@
 
 $produtos = [
     [
-        "nome" => "Frutas Vermelhas",
-        "descricao" => "Fragrância doce e frutada, com uma combinação delicada de morango e frutas vermelhas.",
+        "nome" => "Frutas Vermelhas", 
         "peso" => "90 g",
         "preco" => 12.50,
         "imagem" => "img/morango.jpg"
     ],
     [
-        "nome" => "Maracujá",
-        "descricao" => "Fragrância refrescante de maracujá, ideal para deixar a pele perfumada.",
+        "nome" => "Maracujá", 
         "peso" => "90 g",
         "preco" => 11.90,
         "imagem" => "img/maracuja.jpg"
     ],
     [
-        "nome" => "Mirtilo",
-        "descricao" => "Fragrância suave e marcante de mirtilo, trazendo um toque frutado.",
+        "nome" => "Mirtilo", 
         "peso" => "90 g",
         "preco" => 13.20,
         "imagem" => "img/mirtilo.jpg"
     ],
     [
-        "nome" => "Coco",
-        "descricao" => "Fragrância suave de coco que proporciona frescor e cuidado durante o banho.",
+        "nome" => "Coco", 
         "peso" => "120 g",
         "preco" => 10.50,
         "imagem" => "img/coco.jpg"
     ],
     [
-        "nome" => "Cítrico",
-        "descricao" => "Fragrância refrescante com notas cítricas, perfeita para trazer energia e frescor.",
+        "nome" => "Cítrico", 
         "peso" => "90 g",
         "preco" => 10.80,
         "imagem" => "img/citrico.jpg"
@@ -457,9 +452,7 @@ $produtos = [
 
             <div class="diferencial">
 
-                <div class="diferencial-icone">
-                    🍓
-                </div>
+                
 
                 <div>
                     <h3>Artesanal</h3>

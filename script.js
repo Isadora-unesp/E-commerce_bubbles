@@ -224,7 +224,7 @@ function mostrarProdutosCarrinho() {
 
         item.classList.add("item-carrinho");
 
-        item.innerHTML = `
+        /*item.innerHTML = `
 
             <div class="item-carrinho-info">
                 <h3>
@@ -271,6 +271,78 @@ function mostrarProdutosCarrinho() {
                     Excluir
                 </button>
             </div>
+        `;*/
+
+        item.innerHTML = `
+
+            <div class="item-carrinho-topo">
+
+                <h3>
+                    ${nomeProduto}
+                </h3>
+
+                <div class="item-carrinho-acoes">
+
+                    <div class="item-carrinho-quantidade">
+
+                        <button 
+                            type="button"
+                            onclick="alterarQuantidade(
+                                '${nomeProduto.replace(/'/g, "\\'")}',
+                                -1
+                            )"
+                        >
+                            −
+                        </button>
+
+                        <span>
+                            ${quantidade}
+                        </span>
+
+                        <button 
+                            type="button"
+                            onclick="alterarQuantidade(
+                                '${nomeProduto.replace(/'/g, "\\'")}',
+                                1
+                            )"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                    <button 
+                        type="button"
+                        class="excluir-produto"
+                        onclick="excluirProduto(
+                            '${nomeProduto.replace(/'/g, "\\'")}'
+                        )"
+                    >
+                        Excluir
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="item-carrinho-info">
+
+                <span class="preco-unitario">
+                    R$ ${preco.toFixed(2).replace(".", ",")}
+                </span>
+
+            </div>
+
+
+            <div class="item-carrinho-total">
+
+                <strong>
+                    R$ ${totalProduto.toFixed(2).replace(".", ",")}
+                </strong>
+
+            </div>
+
         `;
 
         container.appendChild(item);
