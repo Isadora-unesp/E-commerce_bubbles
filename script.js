@@ -497,3 +497,26 @@ if (botaoProdutosMobile) {
     });
 
 }
+
+
+/*Confirmar exclusão de conta*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var linksExclusao = document.querySelectorAll(".confirmar-exclusao");
+
+    linksExclusao.forEach(function (link) {
+
+        link.addEventListener("click", function (evento) {
+
+            var confirmou = confirm("Tem certeza que deseja excluir sua conta? Essa ação não pode ser desfeita.");
+
+            if (!confirmou) {
+                evento.preventDefault();
+            }
+
+        });
+
+    });
+
+});

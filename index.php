@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $produtos = [
     [
         "nome" => "Frutas Vermelhas", 
@@ -49,84 +51,7 @@ $produtos = [
 
 <body>
 
-<header class="header">
-
-    <button
-        type="button"
-        class="menu-mobile"
-        id="botaoMenuMobile"
-        aria-label="Abrir menu"
-    >
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <a href="index.php" class="logo">
-        <img src="img/logo2.png" alt="Fruit Bubbles">
-    </a>
-
-    <nav class="menu">
-        <a href="index.php" class="ativo">Início</a>
-        <a href="produtos.php">Produtos</a>
-        <a href="ingredientes.php">Ingredientes</a>
-        <a href="sobre.php">Sobre nós</a>
-    </nav>
-
-    <div class="acoes">
-
-        <div class="pesquisa">
-
-            <input
-                type="text"
-                id="campoPesquisa"
-                placeholder="Buscar produtos..."
-                autocomplete="off"
-            >
-
-            <button
-                type="button"
-                id="botaoBusca"
-                aria-label="Pesquisar"
-            >
-                <svg viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="7"></circle>
-                    <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
-                </svg>
-            </button>
-
-        </div>
-
-        <a href="login.php" class="icone" aria-label="Minha conta">
-
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="4"></circle>
-                <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
-            </svg>
-
-        </a>
-
-        <button
-            type="button"
-            class="carrinho"
-            id="botaoCarrinho"
-            aria-label="Carrinho"
-        >
-
-            <svg viewBox="0 0 24 24">
-                <path d="M3 4h2l2.5 11h10L20 7H6"></path>
-                <circle cx="9" cy="19" r="1.5"></circle>
-                <circle cx="17" cy="19" r="1.5"></circle>
-            </svg>
-
-            <span id="contadorCarrinho">0</span>
-
-        </button>
-
-    </div>
-
-</header>
-
+<?php include '_cabecalho.php'; ?>
 
 <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
 
@@ -544,67 +469,7 @@ $produtos = [
 
 </main>
 
-
-<!-- FOOTER -->
-
-<footer id="contato">
-
-    <div class="footer-logo">
-
-        <div class="logo">
-
-            <img
-                src="img/logo2.png"
-                alt="Fruit Bubbles"
-            >
-
-        </div>
-
-        <p>
-            Sabonetes artesanais feitos com ingredientes
-            naturais e muito amor para cuidar de você.
-        </p>
-
-        <div class="redes">
-
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-            <a href="#">YouTube</a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-coluna">
-
-        <h3>Navegação</h3>
-
-        <a href="index.php">Início</a>
-        <a href="produtos.php">Produtos</a>
-        <a href="ingredientes.php">Ingredientes</a>
-        <a href="sobre.php">Sobre nós</a>
-
-    </div>
-
-
-    <div class="footer-coluna">
-
-        <h3>Ajuda</h3>
-
-        <a href="#">Formas de pagamento</a>
-        <a href="#">Entrega</a>
-        <a href="#">Trocas e devoluções</a>
-        <a href="#">Dúvidas frequentes</a>
-
-    </div>
-
-    <div class="copyright">
-        2026 Fruit Bubbles: E-commerce.
-    </div>
-
-</footer>
-
+<?php include '_footer.php'; ?>
 
 <script src="script.js" defer></script>
 
