@@ -44,64 +44,142 @@ $telefone = $linha['telefone'];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Alterar Usuário</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="styleCRUD.css">
+
 </head>
 
 <body>
 
-<div class="container">
+    <main class="container">
 
-    <h2>Alterar Usuário</h2>
+        <header class="pagina-header">
 
-    <form action="updateUsuario.php" method="post">
+            <h1>Alterar Usuário</h1>
 
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <p>
+                Altere os dados do usuário abaixo.
+            </p>
 
-        <label>Nome</label>
+        </header>
 
-        <input type="text"
-               name="nome"
-               maxlength="80"
-               value="<?php echo htmlspecialchars($nome); ?>"
-               required>
 
-        <label>Email</label>
+        <form
+            class="formulario"
+            action="updateUsuario.php"
+            method="post"
+        >
 
-        <input type="email"
-               name="email"
-               maxlength="100"
-               value="<?php echo htmlspecialchars($email); ?>"
-               required>
+            <input
+                type="hidden"
+                name="id"
+                value="<?php echo htmlspecialchars($id); ?>"
+            >
 
-        <label>Nova Senha</label>
 
-        <input type="password"
-               name="senha"
-               placeholder="Deixe vazio para manter a senha atual">
+            <div class="campo">
 
-        <label>Telefone</label>
+                <label for="nome">
+                    Nome
+                </label>
 
-        <input type="text"
-               name="telefone"
-               maxlength="20"
-               value="<?php echo htmlspecialchars($telefone); ?>">
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    maxlength="80"
+                    value="<?php echo htmlspecialchars($nome); ?>"
+                    required
+                >
 
-        <input type="submit" value="Alterar">
+            </div>
 
-    </form>
 
-    <div class="menu">
+            <div class="campo">
 
-        <a href="usuario.php">Voltar</a>
+                <label for="email">
+                    Email
+                </label>
 
-    </div>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    maxlength="100"
+                    value="<?php echo htmlspecialchars($email); ?>"
+                    required
+                >
 
-</div>
+            </div>
+
+
+            <div class="campo">
+
+                <label for="senha">
+                    Nova Senha
+                </label>
+
+                <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Deixe vazio para manter a senha atual"
+                >
+
+                <small>
+                    Preencha somente se quiser alterar a senha.
+                </small>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="telefone">
+                    Telefone
+                </label>
+
+                <input
+                    type="text"
+                    id="telefone"
+                    name="telefone"
+                    maxlength="20"
+                    value="<?php echo htmlspecialchars($telefone); ?>"
+                >
+
+            </div>
+
+
+            <div class="acoes-formulario">
+
+                <a
+                    href="usuario.php"
+                    class="btn-voltar"
+                >
+                    Voltar
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn-alterar"
+                >
+                    Alterar
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
 
 </body>
 
