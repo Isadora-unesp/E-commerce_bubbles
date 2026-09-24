@@ -37,7 +37,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 placeholder="Buscar produtos..."
                 autocomplete="off"
             >
-            <button type="button" id="botaoBusca" aria-label="Pesquisar">
+            <button type="button" id="botaoAbrirBusca" aria-label="Pesquisar produtos">
                 <svg viewBox="0 0 24 24">
                     <circle cx="11" cy="11" r="7"></circle>
                     <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
