@@ -1,0 +1,379 @@
+/* ===== Página de produto — Fruit Bubbles =====
+   Usado junto com o style.css */
+
+:root {
+    --amarelo: #FFC164;
+    --creme: #FFF2E8;
+    --marrom: #46220F;
+    --coral: #F86464;
+    --verde: #758C42;
+    --serif: Georgia, "Times New Roman", serif;
+}
+
+.pagina-produto {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 5% 72px;
+    color: var(--marrom);
+}
+
+/* Evita que itens do grid "estufem" a tela */
+.detalhe > *,
+.detalhe-info > *,
+.info-card > *,
+.outros-grade > * {
+    min-width: 0;
+}
+
+.pagina-produto h1,
+.pagina-produto h2,
+.pagina-produto h3,
+.pagina-produto p {
+    overflow-wrap: break-word;
+}
+
+.pagina-produto button:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 2px;
+}
+
+
+/* ===== Caminho (Início / Produtos / ...) ===== */
+
+.caminho {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+.caminho a { color: var(--verde); }
+.caminho a:hover { text-decoration: underline; }
+
+
+/* ===== Área principal: fotos + informações ===== */
+
+.detalhe {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: start;
+}
+
+
+/* ===== Carrossel de fotos ===== */
+
+.slideshow {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--creme);
+}
+
+.slide { display: none; }
+.slide.ativo {
+    display: block;
+    animation: aparecer .6s ease;
+}
+@keyframes aparecer { from { opacity: .3; } to { opacity: 1; } }
+
+.slide img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.slide-contador {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 4px 12px;
+    border-radius: 30px;
+    background: rgba(255, 253, 249, .85);
+    font-size: 13px;
+}
+
+.seta-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 253, 249, .85);
+    color: var(--marrom);
+    font-size: 20px;
+    transition: .3s;
+}
+.seta-slide:hover { background: var(--coral); color: #fff; }
+.seta-slide.anterior { left: 12px; }
+.seta-slide.proximo { right: 12px; }
+
+.pontos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+.ponto {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border-radius: 12px;
+    background: #e3d5cb;
+    transition: .3s;
+}
+.ponto.ativo {
+    width: 28px;
+    background: var(--coral);
+}
+
+
+/* ===== Informações do produto ===== */
+
+.detalhe-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detalhe-info .subtitulo {
+    display: block;
+    color: var(--verde);
+}
+
+.detalhe-info h1 {
+    font-family: var(--serif);
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 1.1;
+    margin-top: 8px;
+}
+
+.resumo {
+    max-width: 52ch;
+    line-height: 1.7;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.beneficios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+.beneficios li {
+    padding: 7px 14px;
+    border-radius: 30px;
+    background: var(--creme);
+    font-size: 13px;
+}
+
+.preco {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--coral);
+}
+
+.bloco-opcao {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.bloco-opcao > span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.peso-btn {
+    width: fit-content;
+    padding: 9px 20px;
+    border-radius: 30px;
+    background: var(--verde);
+    color: #fff;
+    font-size: 14px;
+}
+
+.quantidade {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid #ddd2cb;
+    border-radius: 30px;
+    background: #fff;
+    overflow: hidden;
+}
+.quantidade button {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    color: var(--marrom);
+    font-size: 20px;
+}
+.quantidade button:hover { background: var(--creme); }
+.quantidade span {
+    min-width: 36px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.comprar {
+    width: 100%;
+    height: 54px;
+    border-radius: 12px;
+    background: var(--coral);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: .3s;
+}
+.comprar:hover { background: var(--verde); }
+
+
+/* ===== Descrição, modo de uso e ingredientes ===== */
+
+.info-card {
+    margin-top: 72px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    background: var(--creme);
+    border-radius: 24px;
+}
+.info-card h2 {
+    font-family: var(--serif);
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+.info-card h2:not(:first-child) { margin-top: 28px; }
+.info-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    max-width: 60ch;
+}
+.info-card ul {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+    font-size: 15px;
+}
+.info-card li {
+    position: relative;
+    padding-left: 22px;
+}
+.info-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .5em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--verde);
+}
+.info-card .coluna + .coluna {
+    padding-left: 40px;
+    border-left: 1px solid rgba(70, 34, 15, .25);
+}
+
+
+/* ===== Outros sabonetes ===== */
+
+.outros { margin-top: 72px; }
+.outros .titulo-secao {
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.outros-grade {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.outro-card {
+    display: block;
+    padding: 14px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    transition: .3s;
+}
+.outro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(60, 40, 30, .15);
+}
+.outro-card:nth-child(1) { background: var(--coral); }
+.outro-card:nth-child(2) { background: var(--amarelo); color: var(--marrom); }
+.outro-card:nth-child(3) { background: var(--verde); }
+.outro-card:nth-child(4) { background: var(--marrom); }
+
+.outro-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 10px;
+}
+.outro-card h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+
+/* ===== Responsivo (do maior para o menor) ===== */
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .detalhe { gap: 36px; }
+    .info-card { gap: 32px; padding: 32px; }
+    .info-card .coluna + .coluna { padding-left: 28px; }
+}
+
+/* Tablet pequeno: tudo em uma coluna */
+@media (max-width: 900px) {
+    .detalhe { grid-template-columns: 1fr; gap: 32px; }
+    .slideshow-coluna { max-width: 520px; width: 100%; margin: 0 auto; }
+    .info-card { grid-template-columns: 1fr; padding: 28px; gap: 28px; }
+    .info-card .coluna + .coluna {
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 28px;
+        border-top: 1px solid rgba(70, 34, 15, .25);
+    }
+    .outros-grade { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+    .caminho { font-size: 13px; margin-bottom: 18px; }
+    .slideshow { border-radius: 18px; }
+    .seta-slide { width: 36px; height: 36px; font-size: 16px; }
+    .info-card { padding: 22px 18px; margin-top: 48px; border-radius: 18px; }
+    .info-card h2 { font-size: 20px; }
+    .outros { margin-top: 48px; }
+    .outro-card { padding: 10px; border-radius: 16px; }
+    .outro-card h3 { font-size: 15px; }
+}
+
+/* Celular médio */
+@media (max-width: 480px) {
+    .pagina-produto { padding: 16px 4% 56px; }
+    .preco { font-size: 30px; }
+    .outros-grade { gap: 12px; }
+}
+
+/* Celular pequeno */
+@media (max-width: 360px) {
+    .outros-grade { grid-template-columns: 1fr; }
+    .beneficios li { font-size: 12px; padding: 6px 12px; }
+}
