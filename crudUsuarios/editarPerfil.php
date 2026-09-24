@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 
-include("util.php");
+include("../util.php");
 
 
 $conn = conecta();

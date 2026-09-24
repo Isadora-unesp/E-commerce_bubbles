@@ -7,7 +7,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     exit;
 }
 
-include("util.php");
+include("../util.php");
 
 $conn = conecta();
 
@@ -35,7 +35,7 @@ $total = count($usuarios);
 
     <title>Lista de Usuários</title>
 
-    <link rel="stylesheet" href="styleCRUD.css">
+    <link rel="stylesheet" href="styleCrudUsuarios.css">
 
 </head>
 
@@ -173,8 +173,8 @@ $total = count($usuarios);
 
         <footer class="menu">
 
-            <a href="index.php" class="btn">
-                Sair
+            <a href="../admin.php" class="btn">
+                Voltar
             </a>
 
         </footer>

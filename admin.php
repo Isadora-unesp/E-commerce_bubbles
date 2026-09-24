@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
     <title>Painel Administrativo</title>
 
-    <link rel="stylesheet" href="styleCRUD.css">
+    <link rel="stylesheet" href="crudUsuarios/styleCrudUsuarios.css">
 
 </head>
 
@@ -32,7 +32,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
             <!-- Usuários -->
 
-            <a href="listarUsuario.php" class="admin-bloco">
+            <a href="crudUsuarios/listarUsuario.php" class="admin-bloco">
 
 
                 <div class="admin-conteudo">
@@ -49,11 +49,11 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
             <!-- Produtos -->
 
-            <a href="listarProdutos.php" class="admin-bloco">
+            <a href="crudProdutos/listarProdutos.php" class="admin-bloco">
 
                 <div class="admin-conteudo">
 
-                    <h2>Entradas</h2>
+                    <h2>Produtos</h2>
 
                     <p>
                         Visualizar e gerenciar os produtos cadastrados.

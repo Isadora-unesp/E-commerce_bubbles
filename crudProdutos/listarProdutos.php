@@ -66,6 +66,9 @@ $total = $select->rowCount();
         <br>
         <a href="adicionarProduto.php">Adicionar Produto</a>
     </div>
+    <div class="menu">
+        <a href="../admin.php" class="voltar">Voltar</a>
+    </div>
 
 </div>
 

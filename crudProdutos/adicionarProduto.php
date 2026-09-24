@@ -34,6 +34,9 @@
         <input type="submit" value="Salvar">
     </form>
 
+    <div class="menu">
+        <a href="listarProdutos.php" class="voltar">Voltar</a>
+    </div>
 
 </div>
 

@@ -12,7 +12,7 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-include("util.php");
+include("../util.php");
 
 $conn = conecta();
 
@@ -54,7 +54,7 @@ $telefone = $linha['telefone'];
 
     <title>Alterar Usuário</title>
 
-    <link rel="stylesheet" href="styleCRUD.css">
+    <link rel="stylesheet" href="styleCrudUsuarios.css">
 
 </head>
 
@@ -162,8 +162,8 @@ $telefone = $linha['telefone'];
             <div class="acoes-formulario">
 
                 <a
-                    href="usuario.php"
-                    class="btn-voltar"
+                    href="../admin.php"
+                    class="btn"
                 >
                     Voltar
                 </a>
