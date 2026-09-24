@@ -11,7 +11,7 @@ $produtos = [
     ],
     [
         "nome" => "Maracujá", 
-        "peso" => "90 g",
+        "peso" => "150 g",
         "preco" => 11.90,
         "imagem" => "img/maracuja.jpg"
     ],
@@ -23,7 +23,7 @@ $produtos = [
     ],
     [
         "nome" => "Coco", 
-        "peso" => "120 g",
+        "peso" => "150 g",
         "preco" => 10.50,
         "imagem" => "img/coco.jpg"
     ],
@@ -257,7 +257,6 @@ $produtos = [
 
         </section>
 
-
         <!-- categorias -->
         <section class="categorias">
 
@@ -309,8 +308,7 @@ $produtos = [
             </a>
 
         </section>
-
-
+ 
         <!-- ingredientes -->
         <section class="ingredientes">
 
@@ -349,75 +347,141 @@ $produtos = [
 
         <!-- diferenciais -->
         <section class="diferenciais">
-
-            <div class="titulo-secao">
-
-                <div class="titulo-decoracao"></div>
-
+            
+            <div class="titulo-secao"> 
+                <div class="titulo-decoracao"></div> 
                 <h2>
                     Por que escolher a
                     <em>Fruit Bubbles?</em>
                 </h2>
-
-                <div class="titulo-decoracao"></div>
-
+                <div class="titulo-decoracao"></div> 
             </div>
-
-
-            <div class="diferenciais-lista">
-
+ 
+            <div class="diferenciais-lista"> 
                 <div class="diferencial">
-
-                    <div class="diferencial-icone">
-                        🍓
+                    <div class="diferencial-icone diferencial-morango">
+                        <svg viewBox="0 0 64 64" aria-hidden="true"> 
+                            <path
+                                d="M32 17
+                                C26 12 21 12 18 14
+                                C22 16 24 19 25 22
+                                C28 20 30 19 32 19
+                                C34 19 37 20 39 22
+                                C40 18 43 16 47 14
+                                C42 12 37 13 32 17Z"
+                                fill="#66825a"
+                            /> 
+                            <path
+                                d="M18 24
+                                C18 18 24 16 32 16
+                                C40 16 46 18 46 24
+                                C46 34 39 46 32 52
+                                C25 46 18 34 18 24Z"
+                                fill="#f86464"
+                            /> 
+                            <ellipse cx="25" cy="27" rx="1.4" ry="2" fill="#fff2e8"/>
+                            <ellipse cx="32" cy="25" rx="1.4" ry="2" fill="#fff2e8"/>
+                            <ellipse cx="39" cy="28" rx="1.4" ry="2" fill="#fff2e8"/>
+                            <ellipse cx="28" cy="35" rx="1.4" ry="2" fill="#fff2e8"/>
+                            <ellipse cx="36" cy="35" rx="1.4" ry="2" fill="#fff2e8"/>
+                            <ellipse cx="32" cy="43" rx="1.4" ry="2" fill="#fff2e8"/>
+                        </svg>
                     </div>
 
                     <div>
-                        <h3>Artesanal</h3>
-
+                        <h3>Artesanal</h3> 
                         <p>
                             Feito à mão, com muito cuidado e carinho.
                         </p>
-                    </div>
-
+                    </div> 
                 </div>
-
-
+ 
                 <div class="diferencial">
-
-                    <div class="diferencial-icone">
-                        🍊
+                    <div class="diferencial-icone diferencial-laranja">
+                        <svg viewBox="0 0 64 64" aria-hidden="true"> 
+                            <path
+                                d="M31 18
+                                C34 10 43 8 49 12
+                                C45 18 39 21 32 20Z"
+                                fill="#66825a"
+                            /> 
+                            <path
+                                d="M32 21 C32 17 31 14 29 11"
+                                fill="none"
+                                stroke="#56744d"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                            /> 
+                            <circle
+                                cx="32"
+                                cy="35"
+                                r="17"
+                                fill="#f4a63a"
+                            /> 
+                            <circle
+                                cx="27"
+                                cy="29"
+                                r="6"
+                                fill="#ffc866"
+                                opacity="0.55"
+                            />
+                        </svg>
                     </div>
 
                     <div>
-                        <h3>Fragrâncias agradáveis</h3>
-
+                        <h3>Fragrâncias agradáveis</h3> 
                         <p>
                             Aromas que transformam o seu banho em um momento especial.
                         </p>
-                    </div>
-
+                    </div> 
                 </div>
-
-
+ 
                 <div class="diferencial">
-
-                    <div class="diferencial-icone">
-                        🥥
+                    <div class="diferencial-icone diferencial-coco">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <circle
+                                cx="32"
+                                cy="32"
+                                r="20"
+                                fill="#9a6549"
+                            />
+                            <circle
+                                cx="32"
+                                cy="32"
+                                r="15"
+                                fill="#fff8eb"
+                            />
+                            <circle
+                                cx="32"
+                                cy="32"
+                                r="11"
+                                fill="#f3ead6"
+                            />
+                            <path
+                                d="M18 22 C14 29 14 36 18 43"
+                                fill="none"
+                                stroke="#784a37"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                            <path
+                                d="M46 21 C51 29 51 36 46 44"
+                                fill="none"
+                                stroke="#784a37"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
                     </div>
 
-                    <div>
-                        <h3>Autocuidado</h3>
-
+                    <div> 
+                        <h3>Autocuidado</h3> 
                         <p>
                             Mais bem-estar, frescor e cuidado para a pele.
                         </p>
                     </div>
-
-                </div>
-
-            </div>
-
+                </div> 
+            </div> 
         </section>
 
 
