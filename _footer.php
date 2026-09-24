@@ -1,57 +1,54 @@
-<footer id="contato">
+<footer class="footer-fruit" id="contato">
 
-    <div class="footer-logo">
+    <div class="footer-fruit-conteudo">
 
-        <div class="logo">
+        <div class="footer-fruit-marca">
 
-            <img
-                src="img/logo2.png"
-                alt="Fruit Bubbles"
-            >
+            <div class="footer-fruit-logo">
+
+                <span class="footer-bolha b1"></span>
+                <span class="footer-bolha b2"></span>
+                <span class="footer-bolha b3"></span>
+                <span class="footer-bolha b4"></span>
+
+                <span class="footer-fruit-palavra">
+                    Fruit
+                </span>
+
+                <span class="footer-bubbles-palavra">
+                    Bubbles
+                </span>
+
+            </div>
 
         </div>
 
-        <p>
-            Sabonetes artesanais feitos com ingredientes
-            naturais e muito amor para cuidar de você.
-        </p>
+        <div class="footer-fruit-info">
 
-        <div class="redes">
+            <p>
+                Sabonetes artesanais feitos com carinho,
+                fragrâncias frutadas e ingredientes selecionados
+                para transformar seu banho em um momento especial.
+            </p>
 
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-            <a href="#">YouTube</a>
+            <div class="footer-fruit-redes">
+                <a href="#">Instagram</a>
+            </div>
 
         </div>
 
-    </div>
+        <div class="footer-fruit-nav">
+            <h3>Navegação</h3>
+            <a href="index.php">Início</a>
+            <a href="produtos.php">Produtos</a>
+            <a href="ingredientes.php">Ingredientes</a>
+            <a href="sobrenos.php">Sobre nós</a>
+        </div>
 
+    </div> 
 
-    <div class="footer-coluna">
-
-        <h3>Navegação</h3>
-
-        <a href="index.php">Início</a>
-        <a href="produtos.php">Produtos</a>
-        <a href="ingredientes.php">Ingredientes</a>
-        <a href="sobre.php">Sobre nós</a>
-
-    </div>
-
-
-    <div class="footer-coluna">
-
-        <h3>Ajuda</h3>
-
-        <a href="#">Formas de pagamento</a>
-        <a href="#">Entrega</a>
-        <a href="#">Trocas e devoluções</a>
-        <a href="#">Dúvidas frequentes</a>
-
-    </div>
-
-    <div class="copyright">
-        2026 Fruit Bubbles: E-commerce.
+    <div class="footer-fruit-final">
+        <p>2026 Fruit Bubbles — E-commerce.</p>
     </div>
 
 </footer>
