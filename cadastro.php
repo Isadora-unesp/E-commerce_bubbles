@@ -19,7 +19,7 @@
        <div class="cadastro">
 
 
-           <h1>Cadastre-se na Fruit Bubbles</h1>
+           <h1>Cadastre-se na<br><span>Fruit Bubbles</span></h1>
            <p class="subtitulo">
                Crie sua conta e descubra nossos produtos!
            </p>
