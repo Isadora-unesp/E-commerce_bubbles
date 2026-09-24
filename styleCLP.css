@@ -9,6 +9,37 @@ body {
     background-color: white;
 }
 
+.voltar-index {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(70, 34, 15, 0.12);
+    color: #46220f;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(132, 117, 186, 0.14);
+    transition: all 0.2s ease;
+}
+
+.voltar-index span {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.voltar-index:hover {
+    background: #F86464;
+    color: white;
+    transform: translateY(-2px);
+}
+
 .container {
     min-height: 100vh;
     display: flex;
@@ -83,6 +114,15 @@ button {
 button:hover {
     background-color: #e94f4f;
     transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .voltar-index {
+        top: 14px;
+        left: 14px;
+        padding: 8px 12px;
+        font-size: 0.82rem;
+    }
 }
 
 /* TEXTO DE LOGIN */

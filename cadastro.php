@@ -9,6 +9,9 @@
 </head>
 <body>
 
+   <a href="index.php" class="voltar-index" aria-label="Voltar para a página inicial">
+       <span>←</span> Voltar
+   </a>
 
    <main class="container">
 
