@@ -1,0 +1,233 @@
+<?php
+// Carrega as funções utilitárias do sistema
+require_once "util.php";
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabonete Cítrico | Fruit Bubbles</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleSAB.css">
+</head>
+
+<body>
+
+    <!-- INCLUSÃO DO CABEÇALHO EM PHP -->
+    <?php include_once "_cabecalho.php"; ?>
+
+    <!-- MENU MOBILE -->
+    <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
+
+    <aside class="menu-lateral-mobile" id="menuLateralMobile">
+        <div class="menu-mobile-cabecalho">
+            <h2>Menu</h2>
+            <button type="button" id="fecharMenuMobile" aria-label="Fechar menu">×</button>
+        </div>
+
+        <nav class="menu-mobile-itens">
+            <div class="menu-mobile-produtos">
+                <button type="button" id="botaoProdutosMobile" class="menu-mobile-item">
+                    <span>Produtos</span>
+                    <span class="seta">⌄</span>
+                </button>
+                <div class="submenu-mobile" id="submenuProdutosMobile">
+                    <a href="produtos.php">Todos os produtos</a>
+                    <a href="produtos.php?categoria=massageador">Sabonete massageador</a>
+                    <a href="produtos.php?categoria=barra">Sabonete em barra</a>
+                </div>
+            </div>
+            <a href="ingredientes.php" class="menu-mobile-item">Ingredientes</a>
+            <a href="sobrenos.php" class="menu-mobile-item">Sobre nós</a>
+        </nav>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL DA PÁGINA -->
+    <main class="pagina-produto">
+
+        <nav class="caminho" aria-label="Você está em">
+            <a href="index.php">Início</a>
+            <span>/</span>
+            <a href="produtos.php">Produtos</a>
+            <span>/</span>
+            <span>Sabonete Cítrico</span>
+        </nav>
+
+        <section class="detalhe">
+
+            <!-- CARROSSEL DE FOTOS -->
+            <div class="slideshow-coluna">
+                <div class="slideshow">
+                    <div class="slide ativo">
+                        <span class="slide-contador">1 / 3</span>
+                        <img src="img/citrico.jpg" alt="Sabonete Cítrico, foto 1">
+                    </div>
+                    <div class="slide">
+                        <span class="slide-contador">2 / 3</span>
+                        <img src="img/citrico.jpg" alt="Sabonete Cítrico, foto 2">
+                    </div>
+                    <div class="slide">
+                        <span class="slide-contador">3 / 3</span>
+                        <img src="img/citrico.jpg" alt="Sabonete Cítrico, foto 3">
+                    </div>
+
+                    <button type="button" class="seta-slide anterior" id="slideAnterior" aria-label="Foto anterior">&#10094;</button>
+                    <button type="button" class="seta-slide proximo" id="slideProximo" aria-label="Próxima foto">&#10095;</button>
+                </div>
+
+                <div class="pontos">
+                    <button type="button" class="ponto ativo" aria-label="Foto 1"></button>
+                    <button type="button" class="ponto" aria-label="Foto 2"></button>
+                    <button type="button" class="ponto" aria-label="Foto 3"></button>
+                </div>
+            </div>
+
+            <!-- INFORMAÇÕES DO PRODUTO -->
+            <div class="detalhe-info">
+
+                <div>
+                    <span class="subtitulo">SABONETE ARTESANAL</span>
+                    <h1>Sabonete Cítrico</h1>
+                    <p class="resumo">
+                        Sabonete artesanal com extrato natural de frutas cítricas.
+                        Limpa, perfuma e revigora a pele.
+                    </p>
+                </div>
+
+                <ul class="beneficios">
+                    <li>Ingredientes naturais</li>
+                    <li>Não testado em animais</li>
+                    <li>Vegano</li>
+                    <li>Hidratação natural</li>
+                </ul>
+
+                <p class="preco">R$ 9,00</p>
+
+                <div class="bloco-opcao">
+                    <span>Peso</span>
+                    <button type="button" class="peso-btn">90 g</button>
+                </div>
+
+                <div class="bloco-opcao">
+                    <span>Quantidade</span>
+                    <div class="quantidade">
+                        <button type="button" id="menosQtd" aria-label="Diminuir quantidade">−</button>
+                        <span id="qtdValor">1</span>
+                        <button type="button" id="maisQtd" aria-label="Aumentar quantidade">+</button>
+                    </div>
+                </div>
+
+                <button type="button" class="comprar" id="botaoComprar">
+                    Adicionar ao carrinho
+                </button>
+
+            </div>
+        </section>
+
+        <!-- DESCRIÇÃO -->
+        <section class="info-card">
+            <div class="coluna">
+                <h2>Descrição do produto</h2>
+                <p>
+                    Nosso sabonete Cítrico é feito artesanalmente com ingredientes naturais
+                    que limpam delicadamente e deixam a pele macia, hidratada e levemente perfumada.
+                </p>
+                <p>
+                    O extrato natural de frutas cítricas é rico em vitaminas e antioxidantes,
+                    trazendo frescor e vitalidade para o seu dia a dia.
+                </p>
+                <ul>
+                    <li>Limpeza suave e eficaz</li>
+                    <li>Hidratação profunda</li>
+                    <li>Aroma cítrico revigorante</li>
+                    <li>Ideal para todos os tipos de pele</li>
+                </ul>
+            </div>
+
+            <div class="coluna">
+                <h2>Modo de uso</h2>
+                <p>
+                    Umedeça o sabonete e a pele. Massageie suavemente até formar espuma.
+                    Enxágue em seguida. Uso diário.
+                </p>
+
+                <h2>Ingredientes</h2>
+                <p>
+                    Base vegetal, óleo de coco, óleo de palma, extrato natural de frutas cítricas,
+                    manteiga de karité, glicerina vegetal, fragrância natural e vitamina E.
+                </p>
+            </div>
+        </section>
+
+        <!-- OUTROS SABONETES -->
+        <section class="outros">
+            <div class="titulo-secao">
+                <h2>Conheça nossos outros sabonetes</h2>
+                <a href="produtos.php" class="ver-todos">Ver todos →</a>
+            </div>
+
+            <div class="outros-grade">
+                <a href="produto.php" class="outro-card">
+                    <img src="img/morango.jpg" alt="Sabonete Frutas Vermelhas">
+                    <h3>Frutas Vermelhas</h3>
+                    <strong>R$ 15,00</strong>
+                </a>
+                <a href="produto.php" class="outro-card">
+                    <img src="img/maracuja.jpg" alt="Sabonete Maracujá">
+                    <h3>Maracujá</h3>
+                    <strong>R$ 9,00</strong>
+                </a>
+                <a href="produto.php" class="outro-card">
+                    <img src="img/mirtilo.jpg" alt="Sabonete Mirtilo">
+                    <h3>Mirtilo</h3>
+                    <strong>R$ 10,00</strong>
+                </a>
+                <a href="produto.php" class="outro-card">
+                    <img src="img/coco.jpg" alt="Sabonete Coco">
+                    <h3>Coco</h3>
+                    <strong>R$ 12,00</strong>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INCLUSÃO DO RODAPÉ EM PHP -->
+    <?php include_once "_footer.php"; ?>
+
+    <!-- CARRINHO LATERAL -->
+    <div class="fundo-carrinho" id="fundoCarrinho"></div>
+
+    <aside class="carrinho-lateral" id="carrinhoLateral">
+        <div class="carrinho-cabecalho">
+            <h2>Seu carrinho</h2>
+            <button type="button" class="fechar-carrinho" id="fecharCarrinho">×</button>
+        </div>
+
+        <div class="carrinho-produtos" id="carrinhoProdutos"></div>
+
+        <div class="carrinho-rodape">
+            <div class="carrinho-total">
+                <span>Total:</span>
+                <strong id="totalCarrinho">R$ 0,00</strong>
+            </div>
+
+            <button type="button" class="continuar-comprando" id="continuarComprando">
+                Continuar comprando
+            </button>
+
+            <button type="button" class="finalizar-compra" onclick="window.location.href='carrinho.php'">
+                Finalizar compra
+            </button>
+        </div>
+    </aside>
+
+    <script src="script.js" defer></script>
+
+    <?php include_once "_footer.php"; ?>
+
+</body>
+</html>

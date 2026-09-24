@@ -8,35 +8,35 @@ $produtos = [
         "peso" => "90 g",
         "preco" => 12.50,
         "imagem" => "img/morango.jpg",
-        "pagina" => "sab1.php"
+        "pagina" => "produtosIndividuais/sab1.php"
     ],
     [
         "nome" => "Maracujá",
         "peso" => "150 g",
         "preco" => 11.90,
         "imagem" => "img/maracuja.jpg",
-        "pagina" => "sab2.php"
+        "pagina" => "produtosIndividuais/sab2.php"
     ],
     [
         "nome" => "Mirtilo",
         "peso" => "90 g",
         "preco" => 13.20,
         "imagem" => "img/mirtilo.jpg",
-        "pagina" => "sab3.php"
+        "pagina" => "produtosIndividuais/sab3.php"
     ],
     [
         "nome" => "Coco",
         "peso" => "150 g",
         "preco" => 10.50,
         "imagem" => "img/coco.jpg",
-        "pagina" => "sab4.php"
+        "pagina" => "produtosIndividuais/sab4.php"
     ],
     [
         "nome" => "Cítrico",
         "peso" => "90 g",
         "preco" => 10.80,
         "imagem" => "img/citrico.jpg",
-        "pagina" => "sab5.php"
+        "pagina" => "produtosIndividuais/sab5.php"
     ]
 ];
 

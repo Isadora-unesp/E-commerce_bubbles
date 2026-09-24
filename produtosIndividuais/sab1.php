@@ -27,43 +27,50 @@ require_once "../util.php";
     <aside class="menu-lateral-mobile" id="menuLateralMobile">
 
         <div class="menu-mobile-cabecalho">
+
             <h2>Menu</h2>
 
             <button
                 type="button"
                 id="fecharMenuMobile"
-                aria-label="Fechar menu">
+                aria-label="Fechar menu"
+            >
                 ×
             </button>
+
         </div>
 
         <nav class="menu-mobile-itens">
+
+            <a href="index.php" class="menu-mobile-item">
+                Início
+            </a>
 
             <div class="menu-mobile-produtos">
 
                 <button
                     type="button"
                     id="botaoProdutosMobile"
-                    class="menu-mobile-item">
-
+                    class="menu-mobile-item"
+                >
                     <span>Produtos</span>
                     <span class="seta">⌄</span>
-
                 </button>
 
                 <div
                     class="submenu-mobile"
-                    id="submenuProdutosMobile">
+                    id="submenuProdutosMobile"
+                >
 
-                    <a href="../produtos.php">
+                    <a href="produtos.php">
                         Todos os produtos
                     </a>
 
-                    <a href="../produtos.php?categoria=massageador">
+                    <a href="produtos.php?categoria=massageador">
                         Sabonete massageador
                     </a>
 
-                    <a href="../produtos.php?categoria=barra">
+                    <a href="produtos.php?categoria=barra">
                         Sabonete em barra
                     </a>
 
@@ -71,13 +78,23 @@ require_once "../util.php";
 
             </div>
 
-            <a href="../ingredientes.php" class="menu-mobile-item">
+            <a href="ingredientes.php" class="menu-mobile-item">
                 Ingredientes
             </a>
 
-            <a href="../sobrenos.php" class="menu-mobile-item">
+            <a href="sobrenos.php" class="menu-mobile-item">
                 Sobre nós
             </a>
+
+            <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
+                <a href="perfilUsuario.php" class="menu-mobile-item">
+                    👤 Perfil
+                </a>
+            <?php } else { ?>
+                <a href="login.php" class="menu-mobile-item">
+                    👤 Perfil
+                </a>
+            <?php } ?>
 
         </nav>
 
