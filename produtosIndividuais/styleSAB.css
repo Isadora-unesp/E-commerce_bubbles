@@ -17,6 +17,10 @@
     color: var(--marrom);
 }
 
+.pagina-produto button {
+    border: none;
+}
+
 /* Evita que itens do grid "estufem" a tela */
 .detalhe > *,
 .detalhe-info > *,
@@ -202,7 +206,7 @@
     display: inline-flex;
     align-items: center;
     width: fit-content;
-    border: 1px solid #ddd2cb;
+    border: 1px solid #46220F;
     border-radius: 30px;
     background: #fff;
     overflow: hidden;
@@ -304,6 +308,7 @@
     padding: 14px;
     border-radius: 20px;
     text-align: center;
+    background-color: var(--verde);
     color: #fff;
     transition: .3s;
 }
@@ -311,10 +316,7 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(60, 40, 30, .15);
 }
-.outro-card:nth-child(1) { background: var(--coral); }
-.outro-card:nth-child(2) { background: var(--amarelo); color: var(--marrom); }
-.outro-card:nth-child(3) { background: var(--verde); }
-.outro-card:nth-child(4) { background: var(--marrom); }
+
 
 .outro-card img {
     width: 100%;

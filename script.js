@@ -520,3 +520,68 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+// CARROSSEL DE FOTOS DOS PRODUTO
+
+function iniciarCarrossel() {
+
+    const fotos = document.querySelectorAll(".slide");
+    const pontos = document.querySelectorAll(".ponto");
+    const botaoAnterior = document.getElementById("slideAnterior");
+    const botaoProximo = document.getElementById("slideProximo");
+
+    if (!fotos.length || !pontos.length || !botaoAnterior || !botaoProximo) {
+        return;
+    }
+
+    let fotoAtual = 0;
+
+    function mostrarFoto(numero) {
+
+        fotoAtual = (numero + fotos.length) % fotos.length;
+
+        fotos.forEach(function (foto, i) {
+
+            foto.classList.toggle(
+                "ativo",
+                i === fotoAtual
+            );
+
+        });
+
+        pontos.forEach(function (ponto, i) {
+
+            ponto.classList.toggle(
+                "ativo",
+                i === fotoAtual
+            );
+
+        });
+
+    }
+
+    botaoAnterior.addEventListener("click", function () {
+
+        mostrarFoto(fotoAtual - 1);
+
+    });
+
+    botaoProximo.addEventListener("click", function () {
+
+        mostrarFoto(fotoAtual + 1);
+
+    });
+
+    pontos.forEach(function (ponto, i) {
+
+        ponto.addEventListener("click", function () {
+
+            mostrarFoto(i);
+
+        });
+
+    });
+
+}
+
+iniciarCarrossel();

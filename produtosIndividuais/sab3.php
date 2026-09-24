@@ -1,3 +1,7 @@
+<?php
+// Carrega as funções utilitárias do sistema
+require_once "util.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,50 +11,13 @@
     <title>Sabonete Cítrico | Fruit Bubbles</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="produto.css">
+    <link rel="stylesheet" href="styleSAB.css">
 </head>
 
 <body>
 
-    <!-- CABEÇALHO -->
-    <header class="header">
-        <button type="button" class="menu-mobile" id="botaoMenuMobile" aria-label="Abrir menu">
-            <span></span><span></span><span></span>
-        </button>
-
-        <a href="index.php" class="logo">
-            <img src="img/logo2.png" alt="Fruit Bubbles">
-        </a>
-
-        <nav class="menu">
-            <a href="index.php">Início</a>
-            <a href="produtos.php">Produtos</a>
-            <a href="ingredientes.php">Ingredientes</a>
-            <a href="sobre.php">Sobre nós</a>
-        </nav>
-
-        <div class="acoes">
-            <div class="pesquisa">
-                <input type="text" id="campoPesquisa" placeholder="Buscar produtos..." autocomplete="off">
-                <button type="button" id="botaoBusca" aria-label="Pesquisar">
-                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
-                </button>
-            </div>
-
-            <a href="login.php" class="icone" aria-label="Minha conta">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path></svg>
-            </a>
-
-            <button type="button" class="carrinho" id="botaoCarrinho" aria-label="Carrinho">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M3 4h2l2.5 11h10L20 7H6"></path>
-                    <circle cx="9" cy="19" r="1.5"></circle>
-                    <circle cx="17" cy="19" r="1.5"></circle>
-                </svg>
-                <span id="contadorCarrinho">0</span>
-            </button>
-        </div>
-    </header>
+    <!-- INCLUSÃO DO CABEÇALHO EM PHP -->
+    <?php include_once "_cabecalho.php"; ?>
 
     <!-- MENU MOBILE -->
     <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
@@ -74,12 +41,11 @@
                 </div>
             </div>
             <a href="ingredientes.php" class="menu-mobile-item">Ingredientes</a>
-            <a href="sobre.php" class="menu-mobile-item">Sobre nós</a>
+            <a href="sobrenos.php" class="menu-mobile-item">Sobre nós</a>
         </nav>
     </aside>
 
-
-    <!-- CONTEÚDO -->
+    <!-- CONTEÚDO PRINCIPAL DA PÁGINA -->
     <main class="pagina-produto">
 
         <nav class="caminho" aria-label="Você está em">
@@ -119,7 +85,7 @@
                 </div>
             </div>
 
-            <!-- INFORMAÇÕES -->
+            <!-- INFORMAÇÕES DO PRODUTO -->
             <div class="detalhe-info">
 
                 <div>
@@ -204,22 +170,22 @@
             </div>
 
             <div class="outros-grade">
-                <a href="produto.html" class="outro-card">
+                <a href="produto.php" class="outro-card">
                     <img src="img/morango.jpg" alt="Sabonete Frutas Vermelhas">
                     <h3>Frutas Vermelhas</h3>
                     <strong>R$ 15,00</strong>
                 </a>
-                <a href="produto.html" class="outro-card">
+                <a href="produto.php" class="outro-card">
                     <img src="img/maracuja.jpg" alt="Sabonete Maracujá">
                     <h3>Maracujá</h3>
                     <strong>R$ 9,00</strong>
                 </a>
-                <a href="produto.html" class="outro-card">
+                <a href="produto.php" class="outro-card">
                     <img src="img/mirtilo.jpg" alt="Sabonete Mirtilo">
                     <h3>Mirtilo</h3>
                     <strong>R$ 10,00</strong>
                 </a>
-                <a href="produto.html" class="outro-card">
+                <a href="produto.php" class="outro-card">
                     <img src="img/coco.jpg" alt="Sabonete Coco">
                     <h3>Coco</h3>
                     <strong>R$ 12,00</strong>
@@ -229,39 +195,8 @@
 
     </main>
 
-
-    <!-- RODAPÉ -->
-    <footer id="contato">
-        <div class="footer-logo">
-            <div class="logo">
-                <img src="img/logo2.png" alt="Fruit Bubbles - Sabonetes Artesanais">
-            </div>
-            <p>Sabonetes artesanais feitos com ingredientes naturais e muito amor para cuidar de você.</p>
-            <div class="redes">
-                <a href="#">Instagram</a>
-                <a href="#">TikTok</a>
-            </div>
-        </div>
-
-        <div class="footer-coluna">
-            <h3>Institucional</h3>
-            <a href="sobre.php">Sobre nós</a>
-            <a href="ingredientes.php">Nossos ingredientes</a>
-            <a href="#">Sustentabilidade</a>
-            <a href="#">Contato</a>
-        </div>
-
-        <div class="footer-coluna">
-            <h3>Formas de pagamento</h3>
-            <div class="pagamentos">
-                <span>Dinheiro</span>
-                <span>PIX</span>
-            </div>
-        </div>
-
-        <div class="copyright">E-commerce 2026 Fruit Bubbles.</div>
-    </footer>
-
+    <!-- INCLUSÃO DO RODAPÉ EM PHP -->
+    <?php include_once "_footer.php"; ?>
 
     <!-- CARRINHO LATERAL -->
     <div class="fundo-carrinho" id="fundoCarrinho"></div>
@@ -290,68 +225,9 @@
         </div>
     </aside>
 
-
     <script src="script.js" defer></script>
 
-    <!-- JS só desta página: carrossel, quantidade e botão de comprar -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-            /* ----- CARROSSEL DE FOTOS ----- */
-            var fotos = document.querySelectorAll('.slide');
-            var pontos = document.querySelectorAll('.ponto');
-            var fotoAtual = 0;
-
-            // Mostra a foto de número "numero" (0, 1, 2...) e esconde as outras
-            function mostrarFoto(numero) {
-                // O cálculo faz voltar para a última/primeira foto quando passa do limite
-                fotoAtual = (numero + fotos.length) % fotos.length;
-
-                fotos.forEach(function (foto, i) {
-                    foto.classList.toggle('ativo', i === fotoAtual);
-                });
-                pontos.forEach(function (ponto, i) {
-                    ponto.classList.toggle('ativo', i === fotoAtual);
-                });
-            }
-
-            document.getElementById('slideAnterior').addEventListener('click', function () {
-                mostrarFoto(fotoAtual - 1);
-            });
-            document.getElementById('slideProximo').addEventListener('click', function () {
-                mostrarFoto(fotoAtual + 1);
-            });
-            pontos.forEach(function (ponto, i) {
-                ponto.addEventListener('click', function () {
-                    mostrarFoto(i);
-                });
-            });
-
-
-            /* ----- QUANTIDADE (mínimo 1, máximo 20) ----- */
-            var quantidade = 1;
-            var textoQuantidade = document.getElementById('qtdValor');
-
-            document.getElementById('menosQtd').addEventListener('click', function () {
-                quantidade = Math.max(1, quantidade - 1);
-                textoQuantidade.textContent = quantidade;
-            });
-            document.getElementById('maisQtd').addEventListener('click', function () {
-                quantidade = Math.min(20, quantidade + 1);
-                textoQuantidade.textContent = quantidade;
-            });
-
-
-            /* ----- ADICIONAR AO CARRINHO (função vem do script.js) ----- */
-            var botaoComprar = document.getElementById('botaoComprar');
-
-            botaoComprar.addEventListener('click', function () {
-                for (var i = 0; i < quantidade; i++) {
-                    adicionarCarrinho('Sabonete Cítrico', botaoComprar);
-                }
-            });
-        });
-    </script>
+    <?php include_once "_footer.php"; ?>
 
 </body>
 </html>

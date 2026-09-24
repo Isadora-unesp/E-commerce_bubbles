@@ -4,34 +4,39 @@ session_start();
 
 $produtos = [
     [
-        "nome" => "Frutas Vermelhas", 
+        "nome" => "Frutas Vermelhas",
         "peso" => "90 g",
         "preco" => 12.50,
-        "imagem" => "img/morango.jpg"
+        "imagem" => "img/morango.jpg",
+        "pagina" => "sab1.php"
     ],
     [
-        "nome" => "Maracujá", 
+        "nome" => "Maracujá",
         "peso" => "150 g",
         "preco" => 11.90,
-        "imagem" => "img/maracuja.jpg"
+        "imagem" => "img/maracuja.jpg",
+        "pagina" => "sab2.php"
     ],
     [
-        "nome" => "Mirtilo", 
+        "nome" => "Mirtilo",
         "peso" => "90 g",
         "preco" => 13.20,
-        "imagem" => "img/mirtilo.jpg"
+        "imagem" => "img/mirtilo.jpg",
+        "pagina" => "sab3.php"
     ],
     [
-        "nome" => "Coco", 
+        "nome" => "Coco",
         "peso" => "150 g",
         "preco" => 10.50,
-        "imagem" => "img/coco.jpg"
+        "imagem" => "img/coco.jpg",
+        "pagina" => "sab4.php"
     ],
     [
-        "nome" => "Cítrico", 
+        "nome" => "Cítrico",
         "peso" => "90 g",
         "preco" => 10.80,
-        "imagem" => "img/citrico.jpg"
+        "imagem" => "img/citrico.jpg",
+        "pagina" => "sab5.php"
     ]
 ];
 
@@ -208,6 +213,8 @@ $produtos = [
                         class="produto"
                         data-nome="<?= strtolower($produto['nome']) ?>"
                         data-preco="<?= $produto['preco'] ?>"
+                        onclick="window.location.href='<?= $produto['pagina'] ?>'"
+                        style="cursor: pointer;"
                     >
 
                         <div class="produto-imagem">
@@ -242,7 +249,7 @@ $produtos = [
                             <button
                                 class="adicionar"
                                 data-produto="<?= htmlspecialchars($produto['nome']) ?>"
-                                onclick="adicionarCarrinho('<?= htmlspecialchars($produto['nome'], ENT_QUOTES) ?>', this)"
+                                onclick="event.stopPropagation(); adicionarCarrinho('<?= htmlspecialchars($produto['nome'], ENT_QUOTES) ?>', this)"
                             >
                                 Adicionar ao carrinho
                             </button>

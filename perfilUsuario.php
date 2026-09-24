@@ -3,11 +3,11 @@
 session_start();
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 
-include("util.php");
+include("../util.php");
 
 $conn = conecta();
 
@@ -54,6 +54,7 @@ $telefone = $linha['telefone'];
         <section class="perfil">
 
             <h1>Meu Perfil</h1>
+
             <p class="mensagem">
                 Veja suas informações pessoais
             </p>
@@ -64,10 +65,12 @@ $telefone = $linha['telefone'];
                     <span class="titulo">Nome</span>
                     <p><?php echo htmlspecialchars($nome); ?></p>
                 </div>
+
                 <div class="campo">
                     <span class="titulo">Email</span>
                     <p><?php echo htmlspecialchars($email); ?></p>
                 </div>
+
                 <div class="campo">
                     <span class="titulo">Telefone</span>
                     <p><?php echo htmlspecialchars($telefone); ?></p>
@@ -77,9 +80,13 @@ $telefone = $linha['telefone'];
 
             <div class="botoes">
 
-                <a class="editar" href="editarPerfil.php">Editar Perfil</a>
+                <a class="editar" href="editarPerfil.php">
+                    Editar Perfil
+                </a>
 
-                <a class="sair" href="logout.php">Logout</a>
+                <a class="sair" href="logout.php">
+                    Logout
+                </a>
 
             </div>
 
