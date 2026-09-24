@@ -4,14 +4,9 @@
 session_start();
 
 
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
-    exit;
-}
-
-
 include("../util.php");
 
+SaiSeHacker();
 
 $conn = conecta();
 
@@ -60,7 +55,7 @@ $telefone = $linha['telefone'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil | Fruit Bubbles</title>
-    <link rel="stylesheet" href="styleCLP.css">
+    <link rel="stylesheet" href="../styleCLP.css">
 </head>
 
 
@@ -121,7 +116,7 @@ $telefone = $linha['telefone'];
                     <input class="editar" type="submit" value="Salvar">
 
 
-                    <a class="sair" href="perfilUsuario.php">Cancelar</a>
+                    <a class="sair" href="../perfilUsuario.php">Cancelar</a>
 
 
                 </div>

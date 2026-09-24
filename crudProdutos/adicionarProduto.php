@@ -1,3 +1,10 @@
+<?php
+include("../util.php");
+
+session_start();
+
+SaiSeHacker();?>
+
 <!DOCTYPE html>
 <html>
 <head>

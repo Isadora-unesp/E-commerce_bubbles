@@ -2,12 +2,8 @@
 
 session_start();
 
-if (!isset($_SESSION['admin']) && !isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
-    exit;
-}
-
 include("../util.php");
+SaiSeHacker();
 
 $conn = conecta();
 
@@ -64,7 +60,7 @@ try {
     if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
         header("Location: usuario.php");
     } else {
-        header("Location: perfilUsuario.php");
+        header("Location: ../perfilUsuario.php");
     }
 
     exit;

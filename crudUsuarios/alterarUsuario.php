@@ -1,18 +1,15 @@
 <?php
+include("../util.php");
 
 session_start();
 
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
-    header("Location: index.php");
-    exit;
-}
+SaiSeHacker();
 
 if (!isset($_GET['id'])) {
     header("Location: usuario.php");
     exit;
 }
 
-include("../util.php");
 
 $conn = conecta();
 
@@ -162,7 +159,7 @@ $telefone = $linha['telefone'];
             <div class="acoes-formulario">
 
                 <a
-                    href="../admin.php"
+                    href="listarUsuario.php"
                     class="btn"
                 >
                     Voltar

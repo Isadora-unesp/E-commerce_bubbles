@@ -53,16 +53,20 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <?php } ?>
 
-        <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
-            <a href="perfilUsuario.php" class="icone" aria-label="Minha conta">
-        <?php } else { ?>
-            <a href="login.php" class="icone" aria-label="Minha conta">
+        <?php if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) { ?>
+
+            <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
+                <a href="perfilUsuario.php" class="icone" aria-label="Minha conta">
+            <?php } else { ?>
+                <a href="login.php" class="icone" aria-label="Minha conta">
+            <?php } ?>
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
+                </svg>
+            </a>
+
         <?php } ?>
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="4"></circle>
-                <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
-            </svg>
-        </a>
 
         <button
             type="button"

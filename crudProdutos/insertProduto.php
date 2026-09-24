@@ -1,6 +1,10 @@
 <?php
 include("../util.php");
 
+session_start();
+
+SaiSeHacker();
+
 if (empty($_POST)) {
     header("Location: adicionarProduto.php");
     exit;

@@ -5,6 +5,7 @@ session_start();
 
 
 include("../util.php");
+SaiSeHacker();
 
 
 if (empty($_POST)) {
@@ -48,7 +49,7 @@ try {
     $_SESSION['logado'] = true;
 
 
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 
 

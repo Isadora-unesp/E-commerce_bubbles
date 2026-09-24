@@ -5,6 +5,7 @@ session_start();
 
 
 include("../util.php");
+SaiSeHacker();
 
 
 $adminEmail = "admin@gmail.com";
@@ -24,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin'] = true;
 
 
-        header("Location: usuario.php");
+        header("Location: ../index.php");
         exit;
 
 
@@ -55,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['usuario_id'] = $linha['id_usuario'];
 
 
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit;
 
 

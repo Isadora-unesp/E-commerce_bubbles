@@ -1,6 +1,10 @@
 <?php
 include("../util.php");
 
+session_start();
+
+SaiSeHacker();
+
 $conn = conecta();
 
 $varSQL = "UPDATE produto 

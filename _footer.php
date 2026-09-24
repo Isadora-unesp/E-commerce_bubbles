@@ -32,7 +32,7 @@
             </p>
 
             <div class="footer-fruit-redes">
-                <a href="#">Instagram</a>
+                <a href="https://www.instagram.com/fruit.bubbles_ltda/">Instagram</a>
             </div>
 
         </div>

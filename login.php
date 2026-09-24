@@ -35,7 +35,7 @@
 
            <?php } ?>
 
-           <form method="post" action="loginUsuario.php">
+           <form method="post" action="crudUsuarios/loginUsuario.php">
 
                <div class="campo">
                    <label for="email">Email</label>

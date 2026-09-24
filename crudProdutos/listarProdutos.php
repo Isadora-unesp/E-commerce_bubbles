@@ -1,6 +1,10 @@
 <?php
 include("../util.php");
 
+session_start();
+
+SaiSeHacker();
+
 $conn = conecta();
 
 $varSQL = "SELECT * FROM produto WHERE (excluido = false OR excluido IS NULL) ORDER BY id_produto";

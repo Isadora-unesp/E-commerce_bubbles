@@ -5,7 +5,9 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Inicia ou retoma a sessão HTTP
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Define estoque mínimo padrão na sessão, se ainda não existir
 if (!isset($_SESSION['estoqueMinimo'])) {
@@ -33,19 +35,6 @@ function conecta($paramStringConexao = "")
     return $c;
 }
 
-// Verifica se o usuário logado é administrador.
-function SaiSeHacker()
-{
-    $autorizadoAdmin =
-    ( ( isset( $_SESSION['sessaoAdmin'] ) ) and
-    ( $_SESSION['sessaoAdmin'] == true ) );
-    // se nao for
-    if ( !$autorizadoAdmin ) {
-    header ("location: /index.php");
-
-    exit; //// finaliza !!!
-    }
-}
 
 
 // Retorna o caminho físico da raiz do projeto
@@ -209,6 +198,17 @@ function EnviaEmail($pEmailDestino, $pAssunto, $pHtml,
     return $enviado;
 }
 */
+
+function SaiSeHacker() {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
+        header("Location: ../index.php");
+        exit;
+    }
+}
 
 ?>
 

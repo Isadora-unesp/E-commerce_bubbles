@@ -1,6 +1,9 @@
 <?php
-
 include("../util.php");
+
+session_start();
+
+SaiSeHacker();
 
 $conn = conecta();
 $id = $_GET['id'];
