@@ -2,6 +2,10 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+// Prefixo dos caminhos: "" nas páginas da raiz, "../" nas páginas de subpastas.
+// A página que faz o include pode definir $base antes (ex.: $base = "../";)
+$base = $base ?? "";
 ?>
 
 <header class="header">
@@ -17,21 +21,21 @@ if (session_status() === PHP_SESSION_NONE) {
         <span></span>
     </button>
 
-    <a href="index.php" class="logo">
-        <img src="img/logo2.png" alt="Fruit Bubbles">
+    <a href="<?= $base ?>index.php" class="logo">
+        <img src="<?= $base ?>img/logo2.png" alt="Fruit Bubbles">
     </a>
 
     <nav class="menu">
-        <a href="index.php" class="ativo">Início</a>
-        <a href="produtos.php">Produtos</a>
-        <a href="ingredientes.php">Ingredientes</a>
-        <a href="sobrenos.php">Sobre nós</a>
+        <a href="<?= $base ?>index.php" class="ativo">Início</a>
+        <a href="<?= $base ?>produtos.php">Produtos</a>
+        <a href="<?= $base ?>ingredientes.php">Ingredientes</a>
+        <a href="<?= $base ?>sobrenos.php">Sobre nós</a>
     </nav>
 
     <div class="acoes">
 
         <div class="pesquisa">
-        
+
             <button type="button" id="botaoAbrirBusca" aria-label="Pesquisar produtos">
                 <svg viewBox="0 0 24 24">
                     <circle cx="11" cy="11" r="7"></circle>
@@ -42,7 +46,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) { ?>
 
-            <a href="admin.php" class="icone" aria-label="Painel administrativo">
+            <a href="<?= $base ?>admin.php" class="icone" aria-label="Painel administrativo">
                 <svg viewBox="0 0 24 24">
                     <rect x="3" y="3" width="7" height="7"></rect>
                     <rect x="14" y="3" width="7" height="7"></rect>
@@ -56,9 +60,9 @@ if (session_status() === PHP_SESSION_NONE) {
         <?php if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) { ?>
 
             <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
-                <a href="perfilUsuario.php" class="icone" aria-label="Minha conta">
+                <a href="<?= $base ?>perfilUsuario.php" class="icone" aria-label="Minha conta">
             <?php } else { ?>
-                <a href="login.php" class="icone" aria-label="Minha conta">
+                <a href="<?= $base ?>login.php" class="icone" aria-label="Minha conta">
             <?php } ?>
                 <svg viewBox="0 0 24 24">
                     <circle cx="12" cy="8" r="4"></circle>

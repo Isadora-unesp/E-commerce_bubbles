@@ -1,3 +1,8 @@
+<?php
+// Prefixo dos caminhos: "" nas páginas da raiz, "../" nas páginas de subpastas.
+$base = $base ?? "";
+?>
+
 <footer class="footer-fruit" id="contato">
 
     <div class="footer-fruit-conteudo">
@@ -39,13 +44,13 @@
 
         <div class="footer-fruit-nav">
             <h3>Navegação</h3>
-            <a href="index.php">Início</a>
-            <a href="produtos.php">Produtos</a>
-            <a href="ingredientes.php">Ingredientes</a>
-            <a href="sobrenos.php">Sobre nós</a>
+            <a href="<?= $base ?>index.php">Início</a>
+            <a href="<?= $base ?>produtos.php">Produtos</a>
+            <a href="<?= $base ?>ingredientes.php">Ingredientes</a>
+            <a href="<?= $base ?>sobrenos.php">Sobre nós</a>
         </div>
 
-    </div> 
+    </div>
 
     <div class="footer-fruit-final">
         <p>2026 Fruit Bubbles — E-commerce.</p>
