@@ -58,6 +58,104 @@ $produtos = [
 
     <?php include '_cabecalho.php'; ?>
 
+    <div class="fundo-pesquisa" id="fundoPesquisa"></div>
+
+    <section class="painel-pesquisa" id="painelPesquisa">
+
+        <div class="pesquisa-topo">
+            <div class="pesquisa-campo">
+                <input
+                    type="text"
+                    id="campoPesquisa"
+                    placeholder="O que você está buscando?"
+                    autocomplete="off"
+                >
+                <button type="button" id="botaoPesquisar" aria-label="Pesquisar">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <button
+                type="button"
+                class="fechar-pesquisa"
+                id="fecharPesquisa"
+                aria-label="Fechar pesquisa"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="pesquisa-conteudo">
+
+            <p class="pesquisa-instrucao" id="pesquisaInstrucao">
+                Digite o nome de um sabonete para pesquisar.
+            </p>
+
+            <h2 class="pesquisa-titulo" id="tituloResultado"></h2>
+
+            <div class="resultados-pesquisa" id="resultadosPesquisa">
+
+                <?php foreach ($produtos as $produto): ?>
+                    <div
+                        class="produto-pesquisa"
+                        data-nome="<?= htmlspecialchars(strtolower($produto['nome'])) ?>"
+                    >
+
+                        <div class="produto-pesquisa-imagem">
+
+                            <img
+                                src="<?= htmlspecialchars($produto['imagem']) ?>"
+                                alt="<?= htmlspecialchars($produto['nome']) ?>"
+                            >
+
+                        </div>
+
+                        <div class="produto-pesquisa-info">
+
+                            <span class="produto-pesquisa-tipo">
+                                Fruit Bubbles
+                            </span>
+
+                            <h3>
+                                <?= htmlspecialchars($produto['nome']) ?>
+                            </h3>
+
+                            <span class="produto-pesquisa-peso">
+                                <?= htmlspecialchars($produto['peso']) ?>
+                            </span>
+
+                            <strong>
+                                R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="produto-pesquisa-comprar"
+                                onclick="adicionarCarrinho(
+                                    '<?= addslashes($produto['nome']) ?>',
+                                    this
+                                )"
+                            >
+                                Adicionar ao carrinho
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+
+            <p class="nenhum-resultado" id="nenhumResultado">
+                Nenhum produto encontrado.
+            </p>
+        </div>
+    </section>
+
     <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
 
     <aside class="menu-lateral-mobile" id="menuLateralMobile">

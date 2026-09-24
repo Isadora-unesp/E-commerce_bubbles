@@ -1,37 +1,134 @@
-const campoBusca = document.getElementById("campoPesquisa");
-const botaoBusca = document.getElementById("botaoBusca");
+/* =========================================================
+   PESQUISA
+========================================================= */
 
-function removerAcentos(texto) {
-    return texto
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+const botaoAbrirBusca = document.getElementById("botaoAbrirBusca");
+const painelPesquisa = document.getElementById("painelPesquisa");
+const fundoPesquisa = document.getElementById("fundoPesquisa");
+const fecharPesquisa = document.getElementById("fecharPesquisa");
+
+const campoPesquisa = document.getElementById("campoPesquisa");
+const botaoPesquisar = document.getElementById("botaoPesquisar");
+
+const resultadosPesquisa = document.getElementById("resultadosPesquisa");
+const pesquisaInstrucao = document.getElementById("pesquisaInstrucao");
+const tituloResultado = document.getElementById("tituloResultado");
+const nenhumResultado = document.getElementById("nenhumResultado");
+
+
+/* =========================
+   ABRIR PESQUISA
+========================= */
+
+if (botaoAbrirBusca) {
+
+    botaoAbrirBusca.addEventListener("click", function () {
+
+        painelPesquisa.classList.add("ativo");
+        fundoPesquisa.classList.add("ativo");
+
+        document.body.style.overflow = "hidden";
+
+        setTimeout(function () {
+            campoPesquisa.focus();
+        }, 200);
+
+    });
+
 }
 
-function pesquisarProduto() {
 
-    if (!campoBusca) return;
+/* =========================
+   FECHAR PESQUISA
+========================= */
 
-    const pesquisa = removerAcentos(
-        campoBusca.value.trim().toLowerCase()
-    );
+function fecharPainelPesquisa() {
 
-    const produtos = document.querySelectorAll(".produto");
+    painelPesquisa.classList.remove("ativo");
+    fundoPesquisa.classList.remove("ativo");
 
-    let encontrou = false;
+    document.body.style.overflow = "";
 
-    produtos.forEach(produto => {
+}
 
-        const nomeProduto = produto.getAttribute("data-nome") || "";
 
-        const nome = removerAcentos(
-            nomeProduto.toLowerCase()
-        );
+if (fecharPesquisa) {
 
-        if (pesquisa === "" || nome.includes(pesquisa)) {
+    fecharPesquisa.addEventListener("click", fecharPainelPesquisa);
 
-            produto.style.display = "";
+}
 
-            encontrou = true;
+
+if (fundoPesquisa) {
+
+    fundoPesquisa.addEventListener("click", fecharPainelPesquisa);
+
+}
+
+
+/* =========================
+   NORMALIZAR TEXTO
+========================= */
+
+function normalizarPesquisa(texto) {
+
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+/* =========================
+   PESQUISAR
+========================= */
+
+function pesquisarProdutos() {
+
+    const textoDigitado = campoPesquisa.value.trim();
+
+    const textoPesquisa = normalizarPesquisa(textoDigitado);
+
+    const produtosPesquisa =
+        document.querySelectorAll(".produto-pesquisa");
+
+
+    /* SE NÃO DIGITOU NADA */
+
+    if (textoPesquisa === "") {
+
+        resultadosPesquisa.classList.remove("ativo");
+
+        pesquisaInstrucao.style.display = "block";
+
+        tituloResultado.textContent = "";
+
+        nenhumResultado.style.display = "none";
+
+        return;
+    }
+
+
+    let encontrados = 0;
+
+
+    /* PROCURA OS PRODUTOS */
+
+    produtosPesquisa.forEach(function (produto) {
+
+        const nomeProduto =
+            produto.getAttribute("data-nome") || "";
+
+        const nomeNormalizado =
+            normalizarPesquisa(nomeProduto);
+
+
+        if (nomeNormalizado.includes(textoPesquisa)) {
+
+            produto.style.display = "block";
+
+            encontrados++;
 
         } else {
 
@@ -41,66 +138,73 @@ function pesquisarProduto() {
 
     });
 
-    mostrarMensagemBusca(!encontrou && pesquisa !== "");
-}
- 
-function mostrarMensagemBusca(mostrar) {
 
-    let mensagem = document.getElementById("mensagemBusca");
+    /* ESCONDE TEXTO INICIAL */
 
-    if (mostrar) {
+    pesquisaInstrucao.style.display = "none";
 
-        if (!mensagem) {
 
-            mensagem = document.createElement("p");
+    /* TÍTULO */
 
-            mensagem.id = "mensagemBusca";
+    tituloResultado.textContent =
+        'Resultados para "' + textoDigitado + '"';
 
-            mensagem.textContent = "Nenhum produto encontrado.";
 
-            const container =
-                document.querySelector(".produtos-scroll");
+    /* TEM RESULTADO */
 
-            if (container) {
-                container.appendChild(mensagem);
-            }
-        }
+    if (encontrados > 0) {
 
-    } else {
+        resultadosPesquisa.classList.add("ativo");
 
-        if (mensagem) { 
-            mensagem.remove(); 
-        }
+        nenhumResultado.style.display = "none";
 
     }
-}
- 
-if (botaoBusca) {
 
-    botaoBusca.addEventListener("click", function () {
-        pesquisarProduto();
+    /* NÃO TEM RESULTADO */
+
+    else {
+
+        resultadosPesquisa.classList.remove("ativo");
+
+        nenhumResultado.style.display = "block";
+
+    }
+
+}
+
+/* =========================
+   CLICAR NA LUPA
+========================= */
+
+if (botaoPesquisar) {
+
+    botaoPesquisar.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        pesquisarProdutos();
+
     });
 
 }
- 
-if (campoBusca) {
 
-    campoBusca.addEventListener("keydown", function(event) {
+if (campoPesquisa) {
+
+    campoPesquisa.addEventListener("keydown", function (event) {
 
         if (event.key === "Enter") {
 
             event.preventDefault();
 
-            pesquisarProduto();
+            pesquisarProdutos();
 
         }
 
-    });
- 
-    campoBusca.addEventListener("input", function() {
+        if (event.key === "Escape") {
 
-        pesquisarProduto();
+            fecharPainelPesquisa();
 
+        }
     });
 
 }
