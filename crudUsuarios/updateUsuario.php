@@ -58,9 +58,9 @@ try {
     $update->execute();
 
     if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-        header("Location: usuario.php");
+        header("Location: /crudUsuarios/listarUsuario.php");
     } else {
-        header("Location: ../perfilUsuario.php");
+        header("Location: /perfilUsuario.php");
     }
 
     exit;

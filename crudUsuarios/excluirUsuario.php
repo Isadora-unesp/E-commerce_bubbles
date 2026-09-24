@@ -11,7 +11,7 @@ $conn = conecta();
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
 
     if (!isset($_GET['id'])) {
-        header("Location: usuario.php");
+        header("Location: /crudUsuarios/listarUsuario.php");
         exit;
     }
 
@@ -38,11 +38,11 @@ if (isset($_SESSION['usuario_id'])) {
 
     session_destroy();
 
-    header("Location: index.php");
+    header("Location: /index.php");
 
 } else {
 
-    header("Location: usuario.php");
+    header("Location: /crudUsuarios/listarUsuario.php");
 
 }
 

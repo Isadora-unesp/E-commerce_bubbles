@@ -13,7 +13,7 @@
 
     <h2>Cadastrar Usuário</h2>
 
-    <form action="insertUsuario.php" method="post">
+    <form action="/crudUsuarios/insertUsuario.php" method="post">
 
         <label>Nome completo</label>
         <input type="text" name="nome" maxlength="80" required>

@@ -4,12 +4,11 @@
 session_start();
 
 
-include("../util.php");
-SaiSeHacker();
+include __DIR__ . '/../util.php';
 
 
-if (empty($_POST)) {
-    header("Location: cadastro.php");
+    if (empty($_POST)) {
+    header("Location: /cadastro.php");
     exit;
 }
 
@@ -49,7 +48,7 @@ try {
     $_SESSION['logado'] = true;
 
 
-    header("Location: ../index.php");
+    header("Location: /index.php");
     exit;
 
 
@@ -57,9 +56,9 @@ try {
 
 
     if ($e->getCode() == "23505") {
-        header("Location: cadastro.php?erro=email");
+        header("Location: /cadastro.php?erro=email");
     } else {
-        header("Location: cadastro.php?erro=geral");
+        header("Location: /cadastro.php?erro=geral");
     }
 
     exit;

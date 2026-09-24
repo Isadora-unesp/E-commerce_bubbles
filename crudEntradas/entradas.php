@@ -1,6 +1,6 @@
 <?php
 
-include("util.php");
+include __DIR__ . '/../util.php';
 
 $conn = conecta();
 

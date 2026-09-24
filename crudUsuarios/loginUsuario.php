@@ -4,8 +4,7 @@
 session_start();
 
 
-include("../util.php");
-SaiSeHacker();
+include __DIR__ . '/../util.php';
 
 
 $adminEmail = "admin@gmail.com";
@@ -25,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin'] = true;
 
 
-        header("Location: ../index.php");
+        header("Location: /index.php");
         exit;
 
 
@@ -63,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
 
 
-        header("Location: login.php?erro=1");
+        header("Location: /crudUsuarios/login.php?erro=1");
         exit;
 
 

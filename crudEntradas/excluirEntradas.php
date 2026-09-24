@@ -1,6 +1,6 @@
 <?php
 
-include("util.php");
+include __DIR__ . '/../util.php';
 
 $conn = conecta();
 
@@ -15,7 +15,7 @@ $delete->bindParam(':id', $id);
 
 $delete->execute();
 
-header("Location: entradas.php");
+    header("Location: /crudEntradas/entradas.php");
 exit;
 
 ?>

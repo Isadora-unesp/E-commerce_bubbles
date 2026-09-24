@@ -40,7 +40,7 @@
            <?php } ?>
 
 
-           <form action="insertUsuario.php" method="post">
+           <form action="/crudUsuarios/insertUsuario.php" method="post">
                <div class="campo">
                    <label for="nome">Nome completo</label>
 

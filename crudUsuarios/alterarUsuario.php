@@ -6,7 +6,7 @@ session_start();
 SaiSeHacker();
 
 if (!isset($_GET['id'])) {
-    header("Location: usuario.php");
+    header("Location: /crudUsuarios/listarUsuario.php");
     exit;
 }
 

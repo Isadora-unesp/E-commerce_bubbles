@@ -3,18 +3,18 @@
 session_start();
 
 if (!isset($_SESSION['admin']) && !isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
+    header("Location: /index.php");
     exit;
 }
 
-include("util.php");
+include __DIR__ . '/../util.php';
 
 $conn = conecta();
 
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
 
     if (!isset($_GET['id'])) {
-        header("Location: usuario.php");
+        header("Location: /crudUsuarios/listarUsuario.php");
         exit;
     }
 
@@ -41,11 +41,11 @@ if (isset($_SESSION['usuario_id'])) {
 
     session_destroy();
 
-    header("Location: index.php");
+    header("Location: /index.php");
 
 } else {
 
-    header("Location: usuario.php");
+    header("Location: /crudUsuarios/listarUsuario.php");
 
 }
 
