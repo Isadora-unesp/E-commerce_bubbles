@@ -405,19 +405,8 @@ session_start();
 
     </div>
 
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer>
-
-        <p>
-            © 2026 Fruit Bubbles — Sabonetes Artesanais
-        </p>
-
-    </footer>
-
+<!-- rodapé -->
+    <?php include_once "../_footer.php"; ?>
 
     <!-- JAVASCRIPT -->
 
