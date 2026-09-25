@@ -24,524 +24,524 @@ $base = $base ?? "";
 
 <body>
 
-    <?php include_once "_cabecalho.php"; ?>
+<?php include_once "_cabecalho.php"; ?>
 
 
-    <main class="sobre-page">
+<main class="sobre-page">
 
-        <section class="sobre-hero">
+    <section class="sobre-hero">
 
-            <div class="hero-decor hero-decor-1"></div>
+        <div class="hero-decor hero-decor-1"></div>
 
-            <div class="hero-decor hero-decor-2"></div>
+        <div class="hero-decor hero-decor-2"></div>
 
-            <div class="sobre-hero-content">
+        <div class="sobre-hero-content">
 
-                <span class="sobre-eyebrow">
-                    CONHEÇA NOSSA HISTÓRIA
+            <span class="sobre-eyebrow">
+                CONHEÇA NOSSA HISTÓRIA
+            </span>
+
+            <h1>
+                Sobre
+                <span>
+                    <em>nós</em>
                 </span>
+            </h1>
 
-                <h1>
-                    Sobre
-                    <span>
-                        <em>nós</em>
-                    </span>
-                </h1>
+            <p>
+                Somos mais do que sabonetes. Somos o encontro
+                entre a natureza, o cuidado e o prazer de se sentir bem.
+            </p>
 
-                <p>
-                    Somos mais do que sabonetes. Somos o encontro
-                    entre a natureza, o cuidado e o prazer de se sentir bem.
-                </p>
+            <a
+                href="#essencia"
+                class="sobre-btn"
+            >
+                Conheça nossa essência
 
-                <a
-                    href="#essencia"
-                    class="sobre-btn"
-                >
-                    Conheça nossa essência
-
-                    <span>
-                        ↓
-                    </span>
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <section
-            class="essencia-section"
-            id="essencia"
-        >
-
-            <div class="essencia-image">
-
-                <img
-                    src="<?= $base ?>img/essencia.jpg"
-                    alt="Produtos Fruit Bubbles"
-                >
-
-            </div>
-
-            <div class="essencia-content">
-
-                <span class="section-label">
-                    • NOSSA ESSÊNCIA
+                <span>
+                    ↓
                 </span>
+            </a>
 
-                <h2>
-                    O que nos
-                    <span class="titulo-coral">
-                        <em>move</em>
-                    </span>
-                </h2>
+        </div>
 
-                <p>
-                    Acreditamos que o autocuidado é um ato de amor.
-                    Por isso, criamos sabonetes artesanais que unem
-                    ingredientes naturais, fragrâncias inesquecíveis
-                    e o frescor das frutas, transformando o simples
-                    em algo especial.
-                </p>
-
-                <p class="essencia-destaque">
-                    Porque cuidar de você também é natural.
-                </p>
-
-            </div>
+    </section>
 
 
-            <div class="mvv-container">
+    <section
+        class="essencia-section"
+        id="essencia"
+    >
 
-                <div class="mvv-card missao-card">
+        <div class="essencia-image">
 
-                    <div class="mvv-conteudo">
+            <img
+                src="<?= $base ?>img/essencia.jpg"
+                alt="Produtos Fruit Bubbles"
+            >
 
-                        <span class="mvv-label">
-                            NOSSO PROPÓSITO
-                        </span>
+        </div>
 
-                        <h3 class="titulo-missao">
-                            Missão
-                        </h3>
+        <div class="essencia-content">
 
-                        <p>
-                            Criar experiências de autocuidado através
-                            de sabonetes artesanais que valorizam a
-                            natureza, o bem-estar e pequenos momentos
-                            de prazer no dia a dia.
-                        </p>
+            <span class="section-label">
+                • NOSSA ESSÊNCIA
+            </span>
 
-                    </div>
-
-                </div>
-
-
-                <div class="mvv-card visao-card">
-
-                    <div class="mvv-conteudo">
-
-                        <span class="mvv-label">
-                            ONDE QUEREMOS CHEGAR
-                        </span>
-
-                        <h3 class="titulo-visao">
-                            Visão
-                        </h3>
-
-                        <p>
-                            Ser uma marca reconhecida por transformar
-                            o banho em uma experiência leve, especial
-                            e cheia de personalidade.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="mvv-card valores-card">
-
-                    <div class="mvv-conteudo">
-
-                        <span class="mvv-label">
-                            O QUE ACREDITAMOS
-                        </span>
-
-                        <h3 class="titulo-valores">
-                            Valores
-                        </h3>
-
-                        <ul>
-
-                            <li>
-                                Cuidado
-                            </li>
-
-                            <li>
-                                Naturalidade
-                            </li>
-
-                            <li>
-                                Criatividade
-                            </li>
-
-                            <li>
-                                Qualidade
-                            </li>
-
-                            <li>
-                                Afeto
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="processo-section">
-
-            <div class="processo-decor"></div>
-
-            <div class="processo-intro">
-
-                <span class="section-label">
-                    • NOSSO PROCESSO
+            <h2>
+                O que nos
+                <span class="titulo-coral">
+                    <em>move</em>
                 </span>
+            </h2>
 
-                <h2>
+            <p>
+                Acreditamos que o autocuidado é um ato de amor.
+                Por isso, criamos sabonetes artesanais que unem
+                ingredientes naturais, fragrâncias inesquecíveis
+                e o frescor das frutas, transformando o simples
+                em algo especial.
+            </p>
 
-                    <span class="processo-verde">
-                        <em>Do fruto</em>
+            <p class="essencia-destaque">
+                Porque cuidar de você também é natural.
+            </p>
+
+        </div>
+
+
+        <div class="mvv-container">
+
+            <div class="mvv-card missao-card">
+
+                <div class="mvv-conteudo">
+
+                    <span class="mvv-label">
+                        NOSSO PROPÓSITO
                     </span>
 
-                    <span class="processo-coral">
-                        <em>ao seu banho</em>
-                    </span>
-
-                </h2>
-
-                <p>
-                    Cada sabonete nasce de um processo cuidadoso,
-                    pensado para transformar ingredientes selecionados
-                    em um momento único de bem-estar.
-                </p>
-
-                <a
-                    href="#"
-                    class="sobre-btn processo-btn"
-                >
-                    Conheça nosso processo
-
-                    <span>
-                        →
-                    </span>
-                </a>
-
-            </div>
-
-
-            <div class="processo-etapas">
-
-                <div class="processo-item">
-
-                    <div class="processo-numero">
-                        01
-                    </div>
-
-                    <h4>
-                        Seleção dos ingredientes
-                    </h4>
+                    <h3 class="titulo-missao">
+                        Missão
+                    </h3>
 
                     <p>
-                        Escolhemos cuidadosamente cada ingrediente
-                        que fará parte dos nossos sabonetes.
-                    </p>
-
-                </div>
-
-
-                <div class="processo-item">
-
-                    <div class="processo-numero processo-numero-lilas">
-                        02
-                    </div>
-
-                    <h4>
-                        Produção artesanal
-                    </h4>
-
-                    <p>
-                        Cada sabonete é produzido com cuidado,
-                        atenção e dedicação em cada etapa.
-                    </p>
-
-                </div>
-
-
-                <div class="processo-item">
-
-                    <div class="processo-numero processo-numero-verde">
-                        03
-                    </div>
-
-                    <h4>
-                        Cura e qualidade
-                    </h4>
-
-                    <p>
-                        Revisamos cada detalhe para garantir
-                        qualidade antes que o produto chegue até você.
-                    </p>
-
-                </div>
-
-
-                <div class="processo-item">
-
-                    <div class="processo-numero processo-numero-lilas">
-                        04
-                    </div>
-
-                    <h4>
-                        Seu momento de bem-estar
-                    </h4>
-
-                    <p>
-                        O resultado chega até você para transformar
-                        um simples banho em um momento especial.
+                        Criar experiências de autocuidado através
+                        de sabonetes artesanais que valorizam a
+                        natureza, o bem-estar e pequenos momentos
+                        de prazer no dia a dia.
                     </p>
 
                 </div>
 
             </div>
 
-        </section>
+
+            <div class="mvv-card visao-card">
+
+                <div class="mvv-conteudo">
+
+                    <span class="mvv-label">
+                        ONDE QUEREMOS CHEGAR
+                    </span>
+
+                    <h3 class="titulo-visao">
+                        Visão
+                    </h3>
+
+                    <p>
+                        Ser uma marca reconhecida por transformar
+                        o banho em uma experiência leve, especial
+                        e cheia de personalidade.
+                    </p>
+
+                </div>
+
+            </div>
 
 
-        <section class="time-equipe-section">
+            <div class="mvv-card valores-card">
 
-            <div class="time-equipe-cabecalho">
+                <div class="mvv-conteudo">
 
-                <span class="section-label">
-                    • QUEM ESTÁ POR TRÁS
+                    <span class="mvv-label">
+                        O QUE ACREDITAMOS
+                    </span>
+
+                    <h3 class="titulo-valores">
+                        Valores
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Cuidado
+                        </li>
+
+                        <li>
+                            Naturalidade
+                        </li>
+
+                        <li>
+                            Criatividade
+                        </li>
+
+                        <li>
+                            Qualidade
+                        </li>
+
+                        <li>
+                            Afeto
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="processo-section">
+
+        <div class="processo-decor"></div>
+
+        <div class="processo-intro">
+
+            <span class="section-label">
+                • NOSSO PROCESSO
+            </span>
+
+            <h2>
+
+                <span class="processo-verde">
+                    <em>Do fruto</em>
                 </span>
 
-                <h2>
-                    <em>Nosso time</em>
-                </h2>
+                <span class="processo-coral">
+                    <em>ao seu banho</em>
+                </span>
+
+            </h2>
+
+            <p>
+                Cada sabonete nasce de um processo cuidadoso,
+                pensado para transformar ingredientes selecionados
+                em um momento único de bem-estar.
+            </p>
+
+            <a
+                href="#"
+                class="sobre-btn processo-btn"
+            >
+                Conheça nosso processo
+
+                <span>
+                    →
+                </span>
+            </a>
+
+        </div>
+
+
+        <div class="processo-etapas">
+
+            <div class="processo-item">
+
+                <div class="processo-numero">
+                    01
+                </div>
+
+                <h4>
+                    Seleção dos ingredientes
+                </h4>
 
                 <p>
-                    Por trás de cada sabonete existe um time apaixonado
-                    por criatividade, cuidado e pelo desejo de transformar
-                    pequenos momentos em experiências especiais.
+                    Escolhemos cuidadosamente cada ingrediente
+                    que fará parte dos nossos sabonetes.
                 </p>
 
             </div>
 
 
-            <div class="time-cards">
-
-                <article class="time-card">
-
-                    <div class="time-card-foto">
-
-                        <img
-                            src="<?= $base ?>img/bianca.png"
-                            alt="Foto de Bianca Penteado"
-                        >
-
-                    </div>
-
-                    <div class="time-card-info">
-
-                        <span class="time-card-cargo">
-                            Gerente financeiro
-                        </span>
-
-                        <h3>
-                            Bianca Penteado
-                        </h3>
-
-                        <p>
-                            Controle das finanças, tabelas,
-                            planilhas e lucros.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="time-card">
-
-                    <div class="time-card-foto">
-
-                        <img
-                            src="<?= $base ?>img/time/livia.jpg"
-                            alt="Foto de Lívia Comora"
-                        >
-
-                    </div>
-
-                    <div class="time-card-info">
-
-                        <span class="time-card-cargo">
-                            Gerente de produção
-                        </span>
-
-                        <h3>
-                            Lívia Comora
-                        </h3>
-
-                        <p>
-                            Ingredientes, como fazer
-                            e supervisão da produção.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="time-card">
-
-                    <div class="time-card-foto">
-
-                        <img
-                            src="<?= $base ?>img/time/isadora.jpg"
-                            alt="Foto de Isadora Adorno"
-                        >
-
-                    </div>
-
-                    <div class="time-card-info">
-
-                        <span class="time-card-cargo">
-                            Gerente de informática
-                        </span>
-
-                        <h3>
-                            Isadora Adorno
-                        </h3>
-
-                        <p>
-                            Controle de estoque, sites,
-                            redes sociais e relatórios.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="time-card">
-
-                    <div class="time-card-foto">
-
-                        <img
-                            src="<?= $base ?>img/time/mirella.jpg"
-                            alt="Foto de Mirella Quadros"
-                        >
-
-                    </div>
-
-                    <div class="time-card-info">
-
-                        <span class="time-card-cargo">
-                            Gerente de recursos humanos
-                        </span>
-
-                        <h3>
-                            Mirella Quadros
-                        </h3>
-
-                        <p>
-                            Garantir a paz e a harmonia
-                            da equipe.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="time-card">
-
-                    <div class="time-card-foto">
-
-                        <img
-                            src="<?= $base ?>img/time/isabella.jpg"
-                            alt="Foto de Isabella Cury"
-                        >
-
-                    </div>
-
-                    <div class="time-card-info">
-
-                        <span class="time-card-cargo">
-                            Gerente de vendas
-                        </span>
-
-                        <h3>
-                            Isabella Cury
-                        </h3>
-
-                        <p>
-                            Cuidar dos preços, promoções
-                            e canais de vendas.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="time-card">
-
-                    <div class="time-card-foto">
-
-                        <img
-                            src="<?= $base ?>img/time/heloysa.jpg"
-                            alt="Foto de Heloysa Moraes"
-                        >
-
-                    </div>
-
-                    <div class="time-card-info">
-
-                        <span class="time-card-cargo">
-                            Gerente de qualidade
-                        </span>
-
-                        <h3>
-                            Heloysa Moraes
-                        </h3>
-
-                        <p>
-                            Garantir os padrões
-                            e buscar melhorias.
-                        </p>
-
-                    </div>
-
-                </article>
+            <div class="processo-item">
+
+                <div class="processo-numero processo-numero-lilas">
+                    02
+                </div>
+
+                <h4>
+                    Produção artesanal
+                </h4>
+
+                <p>
+                    Cada sabonete é produzido com cuidado,
+                    atenção e dedicação em cada etapa.
+                </p>
 
             </div>
 
-        </section>
 
-    </main>
+            <div class="processo-item">
 
-    <?php include_once "_footer.php"; ?>
+                <div class="processo-numero processo-numero-verde">
+                    03
+                </div>
 
-    <script src="<?= $base ?>script.js"></script>
+                <h4>
+                    Cura e qualidade
+                </h4>
+
+                <p>
+                    Revisamos cada detalhe para garantir
+                    qualidade antes que o produto chegue até você.
+                </p>
+
+            </div>
+
+
+            <div class="processo-item">
+
+                <div class="processo-numero processo-numero-lilas">
+                    04
+                </div>
+
+                <h4>
+                    Seu momento de bem-estar
+                </h4>
+
+                <p>
+                    O resultado chega até você para transformar
+                    um simples banho em um momento especial.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="time-equipe-section">
+
+        <div class="time-equipe-cabecalho">
+
+            <span class="section-label">
+                • QUEM ESTÁ POR TRÁS
+            </span>
+
+            <h2>
+                <em>Nosso time</em>
+            </h2>
+
+            <p>
+                Por trás de cada sabonete existe um time apaixonado
+                por criatividade, cuidado e pelo desejo de transformar
+                pequenos momentos em experiências especiais.
+            </p>
+
+        </div>
+
+
+        <div class="time-cards">
+
+            <article class="time-card">
+
+                <div class="time-card-foto">
+
+                    <img
+                        src="<?= $base ?>img/bianca.png"
+                        alt="Foto de Bianca Penteado"
+                    >
+
+                </div>
+
+                <div class="time-card-info">
+
+                    <span class="time-card-cargo">
+                        Gerente financeiro
+                    </span>
+
+                    <h3>
+                        Bianca Penteado
+                    </h3>
+
+                    <p>
+                        Controle das finanças, tabelas,
+                        planilhas e lucros.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="time-card">
+
+                <div class="time-card-foto">
+
+                    <img
+                        src="<?= $base ?>img/time/livia.jpg"
+                        alt="Foto de Lívia Comora"
+                    >
+
+                </div>
+
+                <div class="time-card-info">
+
+                    <span class="time-card-cargo">
+                        Gerente de produção
+                    </span>
+
+                    <h3>
+                        Lívia Comora
+                    </h3>
+
+                    <p>
+                        Ingredientes, como fazer
+                        e supervisão da produção.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="time-card">
+
+                <div class="time-card-foto">
+
+                    <img
+                        src="<?= $base ?>img/time/isadora.jpg"
+                        alt="Foto de Isadora Adorno"
+                    >
+
+                </div>
+
+                <div class="time-card-info">
+
+                    <span class="time-card-cargo">
+                        Gerente de informática
+                    </span>
+
+                    <h3>
+                        Isadora Adorno
+                    </h3>
+
+                    <p>
+                        Controle de estoque, sites,
+                        redes sociais e relatórios.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="time-card">
+
+                <div class="time-card-foto">
+
+                    <img
+                        src="<?= $base ?>img/time/mirella.jpg"
+                        alt="Foto de Mirella Quadros"
+                    >
+
+                </div>
+
+                <div class="time-card-info">
+
+                    <span class="time-card-cargo">
+                        Gerente de recursos humanos
+                    </span>
+
+                    <h3>
+                        Mirella Quadros
+                    </h3>
+
+                    <p>
+                        Garantir a paz e a harmonia
+                        da equipe.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="time-card">
+
+                <div class="time-card-foto">
+
+                    <img
+                        src="<?= $base ?>img/time/isabella.jpg"
+                        alt="Foto de Isabella Cury"
+                    >
+
+                </div>
+
+                <div class="time-card-info">
+
+                    <span class="time-card-cargo">
+                        Gerente de vendas
+                    </span>
+
+                    <h3>
+                        Isabella Cury
+                    </h3>
+
+                    <p>
+                        Cuidar dos preços, promoções
+                        e canais de vendas.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="time-card">
+
+                <div class="time-card-foto">
+
+                    <img
+                        src="<?= $base ?>img/time/heloysa.jpg"
+                        alt="Foto de Heloysa Moraes"
+                    >
+
+                </div>
+
+                <div class="time-card-info">
+
+                    <span class="time-card-cargo">
+                        Gerente de qualidade
+                    </span>
+
+                    <h3>
+                        Heloysa Moraes
+                    </h3>
+
+                    <p>
+                        Garantir os padrões
+                        e buscar melhorias.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+<?php include_once "_footer.php"; ?>
+
+<script src="<?= $base ?>script.js"></script>
 
 </body>
 
