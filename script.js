@@ -1,211 +1,211 @@
 /* =========================================================
-   PESQUISA
+   PESQUISA DE PRODUTOS
 ========================================================= */
 
-const botaoAbrirBusca = document.getElementById("botaoAbrirBusca");
-const painelPesquisa = document.getElementById("painelPesquisa");
-const fundoPesquisa = document.getElementById("fundoPesquisa");
-const fecharPesquisa = document.getElementById("fecharPesquisa");
+const buscaCabecalho =
+    document.getElementById("buscaCabecalho");
 
-const campoPesquisa = document.getElementById("campoPesquisa");
-const botaoPesquisar = document.getElementById("botaoPesquisar");
-
-const resultadosPesquisa = document.getElementById("resultadosPesquisa");
-const pesquisaInstrucao = document.getElementById("pesquisaInstrucao");
-const tituloResultado = document.getElementById("tituloResultado");
-const nenhumResultado = document.getElementById("nenhumResultado");
+const botaoAbrirBusca =
+    document.getElementById("botaoAbrirBusca");
 
 
-/* =========================
-   ABRIR PESQUISA
-========================= */
-
-if (botaoAbrirBusca) {
-
-    botaoAbrirBusca.addEventListener("click", function () {
-
-        painelPesquisa.classList.add("ativo");
-        fundoPesquisa.classList.add("ativo");
-
-        document.body.style.overflow = "hidden";
-
-        setTimeout(function () {
-            campoPesquisa.focus();
-        }, 200);
-
-    });
-
-}
-
-
-/* =========================
-   FECHAR PESQUISA
-========================= */
-
-function fecharPainelPesquisa() {
-
-    painelPesquisa.classList.remove("ativo");
-    fundoPesquisa.classList.remove("ativo");
-
-    document.body.style.overflow = "";
-
-}
-
-
-if (fecharPesquisa) {
-
-    fecharPesquisa.addEventListener("click", fecharPainelPesquisa);
-
-}
-
-
-if (fundoPesquisa) {
-
-    fundoPesquisa.addEventListener("click", fecharPainelPesquisa);
-
-}
-
-
-/* =========================
+/* =========================================================
    NORMALIZAR TEXTO
-========================= */
+   Remove acentos e transforma em minúsculo
+========================================================= */
 
 function normalizarPesquisa(texto) {
 
     return texto
         .toLowerCase()
+        .trim()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
 
 }
 
 
-/* =========================
-   PESQUISAR
-========================= */
+/* =========================================================
+   PESQUISAR PRODUTO
+========================================================= */
 
-function pesquisarProdutos() {
+function pesquisarProdutoCabecalho() {
 
-    const textoDigitado = campoPesquisa.value.trim();
-
-    const textoPesquisa = normalizarPesquisa(textoDigitado);
-
-    const produtosPesquisa =
-        document.querySelectorAll(".produto-pesquisa");
+    if (!buscaCabecalho) {
+        return;
+    }
 
 
-    /* SE NÃO DIGITOU NADA */
+    const pesquisa =
+        normalizarPesquisa(buscaCabecalho.value);
 
-    if (textoPesquisa === "") {
 
-        resultadosPesquisa.classList.remove("ativo");
+    /* Se não digitou nada */
 
-        pesquisaInstrucao.style.display = "block";
+    if (pesquisa === "") {
 
-        tituloResultado.textContent = "";
+        alert("Digite o nome de um sabonete.");
 
-        nenhumResultado.style.display = "none";
+        buscaCabecalho.focus();
 
         return;
     }
 
 
-    let encontrados = 0;
+    /* =====================================================
+       PRODUTOS
+    ===================================================== */
+
+    const produtos = {
+
+        /* FRUTAS VERMELHAS */
+
+        "frutas vermelhas":
+            "produtosIndividuais/sab1.php",
+
+        "frutas vermelha":
+            "produtosIndividuais/sab1.php",
+
+        "morango":
+            "produtosIndividuais/sab1.php",
 
 
-    /* PROCURA OS PRODUTOS */
+        /* MARACUJÁ */
 
-    produtosPesquisa.forEach(function (produto) {
+        "maracuja":
+            "produtosIndividuais/sab2.php",
 
-        const nomeProduto =
-            produto.getAttribute("data-nome") || "";
+        "massageador maracuja":
+            "produtosIndividuais/sab2.php",
 
-        const nomeNormalizado =
-            normalizarPesquisa(nomeProduto);
-
-
-        if (nomeNormalizado.includes(textoPesquisa)) {
-
-            produto.style.display = "block";
-
-            encontrados++;
-
-        } else {
-
-            produto.style.display = "none";
-
-        }
-
-    });
+        "maracuja massageador":
+            "produtosIndividuais/sab2.php",
 
 
-    /* ESCONDE TEXTO INICIAL */
+        /* MIRTILO */
 
-    pesquisaInstrucao.style.display = "none";
-
-
-    /* TÍTULO */
-
-    tituloResultado.textContent =
-        'Resultados para "' + textoDigitado + '"';
+        "mirtilo":
+            "produtosIndividuais/sab3.php",
 
 
-    /* TEM RESULTADO */
+        /* COCO */
 
-    if (encontrados > 0) {
+        "coco":
+            "produtosIndividuais/sab4.php",
 
-        resultadosPesquisa.classList.add("ativo");
+        "massageador coco":
+            "produtosIndividuais/sab4.php",
 
-        nenhumResultado.style.display = "none";
+        "coco massageador":
+            "produtosIndividuais/sab4.php",
 
+
+        /* CÍTRICO */
+
+        "citrico":
+            "produtosIndividuais/sab5.php",
+
+        "laranja":
+            "produtosIndividuais/sab5.php",
+
+        "limao":
+            "produtosIndividuais/sab5.php",
+
+        "laranja limao":
+            "produtosIndividuais/sab5.php",
+
+        "laranja e limao":
+            "produtosIndividuais/sab5.php"
+
+    };
+
+
+    /* =====================================================
+       VERIFICA SE O PRODUTO EXISTE
+    ===================================================== */
+
+    const paginaProduto = produtos[pesquisa];
+
+
+    if (!paginaProduto) {
+
+        alert(
+            'Não encontramos o sabonete "' +
+            buscaCabecalho.value.trim() +
+            '".'
+        );
+
+        return;
     }
 
-    /* NÃO TEM RESULTADO */
+
+    /* =====================================================
+       DESCOBRIR SE ESTAMOS EM produtosIndividuais
+    ===================================================== */
+
+    const estaEmProdutosIndividuais =
+        window.location.pathname.includes(
+            "/produtosIndividuais/"
+        );
+
+
+    /*
+       Se já estivermos dentro da pasta produtosIndividuais,
+       não precisamos colocar produtosIndividuais/ novamente.
+    */
+
+    if (estaEmProdutosIndividuais) {
+
+        const arquivo =
+            paginaProduto.split("/").pop();
+
+        window.location.href = arquivo;
+
+    }
 
     else {
 
-        resultadosPesquisa.classList.remove("ativo");
-
-        nenhumResultado.style.display = "block";
+        window.location.href = paginaProduto;
 
     }
 
 }
 
-/* =========================
-   CLICAR NA LUPA
-========================= */
 
-if (botaoPesquisar) {
+/* =========================================================
+   ENTER
+========================================================= */
 
-    botaoPesquisar.addEventListener("click", function (event) {
+if (buscaCabecalho) {
 
-        event.preventDefault();
+    buscaCabecalho.addEventListener(
+        "keydown",
+        function (event) {
 
-        pesquisarProdutos();
+            if (event.key === "Enter") {
 
-    });
+                event.preventDefault();
+
+                pesquisarProdutoCabecalho();
+
+            }
+
+        }
+    );
 
 }
 
-if (campoPesquisa) {
 
-    campoPesquisa.addEventListener("keydown", function (event) {
+/* =========================================================
+   CLICAR NA LUPA
+========================================================= */
 
-        if (event.key === "Enter") {
+if (botaoAbrirBusca) {
 
-            event.preventDefault();
-
-            pesquisarProdutos();
-
-        }
-
-        if (event.key === "Escape") {
-
-            fecharPainelPesquisa();
-
-        }
-    });
+    botaoAbrirBusca.addEventListener(
+        "click",
+        pesquisarProdutoCabecalho
+    );
 
 }
 

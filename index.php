@@ -4,28 +4,28 @@ session_start();
 
 $produtos = [
     [
-        "nome" => "Fraguna",
+        "nome" => "Frutas Vermelhas",
         "peso" => "90 g",
         "preco" => 12.50,
         "imagem" => "img/morango.jpg",
         "pagina" => "produtosIndividuais/sab1.php"
     ],
     [
-        "nome" => "Passion",
+        "nome" => "Maracujá",
         "peso" => "150 g",
         "preco" => 11.90,
         "imagem" => "img/maracuja.jpg",
         "pagina" => "produtosIndividuais/sab2.php"
     ], 
     [
-        "nome" => "Coconut",
+        "nome" => "Coco",
         "peso" => "150 g",
         "preco" => 10.50,
         "imagem" => "img/coco.jpg",
         "pagina" => "produtosIndividuais/sab4.php"
     ],
     [
-        "nome" => "Citrina",
+        "nome" => "Cítrico",
         "peso" => "90 g",
         "preco" => 10.80,
         "imagem" => "img/citrico.jpg",
@@ -249,7 +249,7 @@ $produtos = [
                     e todo o cuidado que sua pele merece.
                 </p>
 
-                <a href="#produtos" class="botao">
+                <a href="produtos.php" class="botao">
                     Conheça nossos produtos
                     <span>→</span>
                 </a>
@@ -353,59 +353,7 @@ $produtos = [
 
             </div>
 
-        </section>
-
-        <!-- categorias -->
-        <section class="categorias">
-
-            <a
-                href="produtos.php?categoria=barra"
-                class="categoria categoria-barra"
-            >
-
-                <div class="categoria-texto">
-
-                    <h3>
-                        Sabonetes em barra
-                    </h3>
-
-                    <p>
-                        Limpeza e suavidade para o seu dia a dia
-                    </p>
-
-                </div>
-
-                <span class="categoria-seta">
-                    ›
-                </span>
-
-            </a>
-
-
-            <a
-                href="produtos.php?categoria=massageador"
-                class="categoria categoria-massageador"
-            >
-
-                <div class="categoria-texto">
-
-                    <h3>
-                        Sabonetes massageadores
-                    </h3>
-
-                    <p>
-                        Relaxamento e bem-estar em cada banho
-                    </p>
-
-                </div>
-
-                <span class="categoria-seta">
-                    ›
-                </span>
-
-            </a>
-
-        </section>
+        </section> 
  
         <!-- ingredientes -->
         <section class="ingredientes">

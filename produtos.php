@@ -12,99 +12,12 @@ session_start();
     <title>Produtos | Fruit Bubbles</title>
 
     <link rel="stylesheet" href="produto.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
-    <header class="header">
-
-        <a href="index.php" class="logo">
-            <img src="img/logo.png" alt="Fruit Bubbles">
-        </a>
-
-        <nav class="menu">
-            <a href="index.php">Início</a>
-            <a href="produtos.php" class="ativo">Produtos</a>
-            <a href="ingredientes.php">Ingredientes</a>
-            <a href="sobre.php">Sobre nós</a>
-        </nav>
-
-        <div class="acoes">
-
-            <!-- BUSCA -->
-            <div class="pesquisa">
-
-                <input
-                    type="text"
-                    id="campoPesquisa"
-                    placeholder="Buscar sabonete..."
-                    autocomplete="off"
-                >
-
-                <button
-                    type="button"
-                    id="botaoBusca"
-                    aria-label="Pesquisar"
-                >
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="7"></circle>
-                        <line
-                            x1="16.5"
-                            y1="16.5"
-                            x2="21"
-                            y2="21"
-                        ></line>
-                    </svg>
-                </button>
-
-                <div
-                    id="suggestions-dropdown"
-                    class="suggestions-dropdown"
-                ></div>
-
-            </div>
-
-
-            <!-- CONTA -->
-            <a
-                href="login.php"
-                class="icone"
-                aria-label="Minha conta"
-            >
-                <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="8" r="4"></circle>
-                    <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
-                </svg>
-            </a>
-
-
-            <!-- CARRINHO -->
-            <a
-                href="carrinho.php"
-                class="carrinho"
-                aria-label="Carrinho"
-            >
-                <svg viewBox="0 0 24 24">
-                    <path d="M3 4h2l2.5 11h10L20 7H6"></path>
-                    <circle cx="9" cy="19" r="1.5"></circle>
-                    <circle cx="17" cy="19" r="1.5"></circle>
-                </svg>
-
-                <span id="cart-count">0</span>
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- =====================================================
-         CONTEÚDO
-    ====================================================== -->
+    
+    <?php include_once "_cabecalho.php"; ?> 
 
     <main>
 
@@ -405,12 +318,9 @@ session_start();
 
     </div>
 
-<!-- rodapé -->
-    <?php include_once "../_footer.php"; ?>
-
-    <!-- JAVASCRIPT -->
-
-    <script src="scriptProduto.js"></script>
+    <?php include_once "_footer.php"; ?>
+ 
+    <script src="script.js" defer></script> 
 
 </body>
 </html>
