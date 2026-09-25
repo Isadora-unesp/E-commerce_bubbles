@@ -6,6 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Prefixo dos caminhos: "" nas páginas da raiz, "../" nas páginas de subpastas.
 // A página que faz o include pode definir $base antes (ex.: $base = "../";)
 $base = $base ?? "";
+$paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 ?>
 
 <header class="header">
@@ -26,10 +27,10 @@ $base = $base ?? "";
     </a>
 
     <nav class="menu">
-        <a href="<?= $base ?>index.php" class="ativo">Início</a>
-        <a href="<?= $base ?>produtos.php">Produtos</a>
-        <a href="<?= $base ?>ingredientes.php">Ingredientes</a>
-        <a href="<?= $base ?>sobrenos.php">Sobre nós</a>
+        <a href="<?= $base ?>index.php" class="<?= $paginaAtual === 'index.php' ? 'ativo' : '' ?>">Início</a>
+        <a href="<?= $base ?>produtos.php" class="<?= $paginaAtual === 'produtos.php' ? 'ativo' : '' ?>">Produtos</a>
+        <a href="<?= $base ?>ingredientes.php" class="<?= $paginaAtual === 'ingredientes.php' ? 'ativo' : '' ?>">Ingredientes</a>
+        <a href="<?= $base ?>sobrenos.php" class="<?= $paginaAtual === 'sobrenos.php' ? 'ativo' : '' ?>">Sobre nós</a>
     </nav>
 
     <div class="acoes">
