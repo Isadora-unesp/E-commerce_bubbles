@@ -1,6 +1,15 @@
 <?php
 
-include __DIR__ . '/../util.php';
+session_start();
+
+include("../util.php");
+
+SaiSeHacker();
+
+if (!isset($_GET['id'])) {
+    header("Location: listarEntradas.php");
+    exit;
+}
 
 $conn = conecta();
 
@@ -13,9 +22,18 @@ $delete = $conn->prepare($varSQL);
 
 $delete->bindParam(':id', $id);
 
-$delete->execute();
+try {
 
-    header("Location: /crudEntradas/entradas.php");
-exit;
+    $delete->execute();
+
+    header("Location: listarEntradas.php");
+    exit;
+
+} catch (PDOException $e) {
+
+    echo "Erro ao excluir a entrada: " . $e->getMessage();
+    exit;
+
+}
 
 ?>

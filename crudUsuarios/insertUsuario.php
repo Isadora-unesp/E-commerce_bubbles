@@ -1,16 +1,10 @@
 <?php
 
-
 session_start();
 
+include("../util.php");
 
-include __DIR__ . '/../util.php';
-
-
-    if (empty($_POST)) {
-    header("Location: /cadastro.php");
-    exit;
-}
+SaiSeHacker();
 
 
 try {

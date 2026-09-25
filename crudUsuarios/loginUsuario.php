@@ -1,10 +1,10 @@
 <?php
 
-
 session_start();
 
+include("../util.php");
 
-include __DIR__ . '/../util.php';
+SaiSeHacker();
 
 
 $adminEmail = "admin@gmail.com";

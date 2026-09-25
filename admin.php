@@ -65,7 +65,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
             <!-- Entradas -->
 
-            <a href="listarEntradas.php" class="admin-bloco">
+            <a href="crudEntradas/listarEntradas.php" class="admin-bloco">
 
                 <div class="admin-conteudo">
 

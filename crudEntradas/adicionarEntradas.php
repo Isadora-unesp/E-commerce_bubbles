@@ -6,42 +6,14 @@ include("../util.php");
 
 SaiSeHacker();
 
-if (!isset($_GET['id'])) {
-    header("Location: entradas.php");
-    exit;
-}
-
 $conn = conecta();
 
-$id = $_GET['id'];
+$varSQL = "SELECT id_produto, descricao
+           FROM produto
+           WHERE (excluido = false OR excluido IS NULL)
+           ORDER BY descricao";
 
-$varSQL = "SELECT *
-           FROM entrada
-           WHERE id_entrada = :id";
-
-$select = $conn->prepare($varSQL);
-$select->bindParam(':id', $id);
-$select->execute();
-
-$linha = $select->fetch(PDO::FETCH_ASSOC);
-
-if (!$linha) {
-    echo "Entrada não encontrada.";
-    exit;
-}
-
-$id = $linha['id_entrada'];
-$quantidade = $linha['quantidade'];
-$custo_unitario = $linha['custo_unitario'];
-$obs = $linha['obs'];
-$fk_produto = $linha['fk_produto'];
-
-$varSQLProdutos = "SELECT id_produto, descricao
-                   FROM produto
-                   WHERE (excluido = false OR excluido IS NULL)
-                   ORDER BY descricao";
-
-$selectProdutos = $conn->query($varSQLProdutos);
+$select = $conn->query($varSQL);
 
 ?>
 
@@ -54,7 +26,7 @@ $selectProdutos = $conn->query($varSQLProdutos);
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Alterar Entrada</title>
+    <title>Adicionar Entrada</title>
 
     <link rel="stylesheet" href="styleCrudEntradas.css">
 
@@ -66,10 +38,10 @@ $selectProdutos = $conn->query($varSQLProdutos);
 
         <header class="pagina-header">
 
-            <h1>Alterar Entrada</h1>
+            <h1>Adicionar Entrada</h1>
 
             <p>
-                Atualize os dados da entrada abaixo.
+                Registre a entrada de um produto no estoque.
             </p>
 
         </header>
@@ -77,16 +49,9 @@ $selectProdutos = $conn->query($varSQLProdutos);
 
         <form
             class="formulario"
-            action="updateEntradas.php"
+            action="insertEntradas.php"
             method="post"
         >
-
-            <input
-                type="hidden"
-                name="id"
-                value="<?php echo htmlspecialchars($id); ?>"
-            >
-
 
             <div class="campo">
 
@@ -100,12 +65,11 @@ $selectProdutos = $conn->query($varSQLProdutos);
                     required
                 >
 
-                    <?php while ($produto = $selectProdutos->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <option value="">Selecione um produto</option>
 
-                        <option
-                            value="<?php echo $produto['id_produto']; ?>"
-                            <?php if ($produto['id_produto'] == $fk_produto) echo "selected"; ?>
-                        >
+                    <?php while ($produto = $select->fetch(PDO::FETCH_ASSOC)) { ?>
+
+                        <option value="<?php echo $produto['id_produto']; ?>">
                             <?php echo htmlspecialchars($produto['descricao']); ?>
                         </option>
 
@@ -126,7 +90,6 @@ $selectProdutos = $conn->query($varSQLProdutos);
                     type="number"
                     id="quantidade"
                     name="quantidade"
-                    value="<?php echo htmlspecialchars($quantidade); ?>"
                     min="1"
                     required
                 >
@@ -146,7 +109,6 @@ $selectProdutos = $conn->query($varSQLProdutos);
                     name="custo_unitario"
                     step="0.01"
                     min="0"
-                    value="<?php echo htmlspecialchars($custo_unitario); ?>"
                     required
                 >
 
@@ -163,7 +125,6 @@ $selectProdutos = $conn->query($varSQLProdutos);
                     type="text"
                     id="obs"
                     name="obs"
-                    value="<?php echo htmlspecialchars($obs ?? ''); ?>"
                 >
 
             </div>
@@ -182,7 +143,7 @@ $selectProdutos = $conn->query($varSQLProdutos);
                     type="submit"
                     class="btn-alterar"
                 >
-                    Alterar
+                    Salvar
                 </button>
 
             </div>

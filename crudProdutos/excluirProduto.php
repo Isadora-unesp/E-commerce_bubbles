@@ -1,7 +1,7 @@
 <?php
-include("../util.php");
-
 session_start();
+
+include("../util.php");
 
 SaiSeHacker();
 $conn = conecta();

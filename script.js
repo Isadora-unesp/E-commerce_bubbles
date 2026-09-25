@@ -208,8 +208,15 @@ if (campoPesquisa) {
     });
 
 }
- 
+
 function adicionarCarrinho(nomeProduto, botao) {
+
+    if (typeof usuarioLogado !== "undefined" && !usuarioLogado) {
+
+        window.location.href = (typeof caminhoBase !== "undefined" ? caminhoBase : "") + "login.php";
+
+        return;
+    }
 
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -327,55 +334,6 @@ function mostrarProdutosCarrinho() {
         const item = document.createElement("div");
 
         item.classList.add("item-carrinho");
-
-        /*item.innerHTML = `
-
-            <div class="item-carrinho-info">
-                <h3>
-                    ${nomeProduto}
-                </h3>
-
-                <span class="preco-unitario">
-                    R$ ${preco.toFixed(2).replace(".", ",")}
-                </span>
-            </div>
-
-            <div class="item-carrinho-quantidade">
-
-                <button 
-                    type="button"
-                    onclick="alterarQuantidade('${nomeProduto.replace(/'/g, "\\'")}', -1)"
-                >
-                    −
-                </button>
-
-                <span>
-                    ${quantidade}
-                </span>
-
-                <button 
-                    type="button"
-                    onclick="alterarQuantidade('${nomeProduto.replace(/'/g, "\\'")}', 1)"
-                >
-                    +
-                </button>
-
-            </div>
-
-            <div class="item-carrinho-total">
-                <strong>
-                    R$ ${totalProduto.toFixed(2).replace(".", ",")}
-                </strong>
-
-                <button 
-                    type="button"
-                    class="excluir-produto"
-                    onclick="excluirProduto('${nomeProduto.replace(/'/g, "\\'")}')"
-                >
-                    Excluir
-                </button>
-            </div>
-        `;*/
 
         item.innerHTML = `
 
