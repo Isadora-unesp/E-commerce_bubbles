@@ -29,7 +29,7 @@ $produtos = [
         "peso" => "90 g",
         "preco" => 10.80,
         "imagem" => "img/citrico.jpg",
-        "pagina" => "produtosIndividuais/sab5.php"
+        "pagina" => "produtosIndividuais/sab3.php"
     ]
 ];
 

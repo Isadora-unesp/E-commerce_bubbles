@@ -305,28 +305,9 @@
     margin: 0;
 }
 
-/* Botão "Ver todos" */
-.outros .ver-todos {
-    display: inline-flex;
-    align-items: center;
-    padding: 9px 20px;
-    border: 1.5px solid var(--verde);
-    border-radius: 30px;
-    color: var(--verde);
-    font-size: 14px;
-    font-weight: bold;
-    white-space: nowrap;
-    transition: .3s;
-}
-
-.outros .ver-todos:hover {
-    background: var(--verde);
-    color: #fff;
-}
-
 .outros-grade {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 

@@ -281,8 +281,6 @@ $base = "../";
 
                 <h2>Conheça nossos outros sabonetes</h2>
 
-                <a href="../produtos.php" class="ver-todos">Ver todos →</a>
-
             </div>
 
 
@@ -295,13 +293,6 @@ $base = "../";
                     <strong>R$ 9,00</strong>
                 </a>
 
-                <!-- MIRTILO -->
-                <a href="sab3.php" class="outro-card">
-                    <img src="../img/mirtilo.jpg" alt="Sabonete Mirtilo">
-                    <h3>Mirtilo</h3>
-                    <strong>R$ 10,00</strong>
-                </a>
-
                 <!-- Frutas Vermelhas -->
                 <a href="sab1.php" class="outro-card">
                     <img src="../img/morango.jpg" alt="Sabonete Frutas Vermelhas">
@@ -310,7 +301,7 @@ $base = "../";
                 </a>
 
                 <!-- CÍTRICO -->
-                <a href="sab5.php" class="outro-card">
+                <a href="sab3.php" class="outro-card">
                     <img src="../img/citrico.jpg" alt="Sabonete Cítrico">
                     <h3>Cítrico</h3>
                     <strong>R$ 9,00</strong>

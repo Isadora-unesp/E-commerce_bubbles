@@ -323,4 +323,4 @@ session_start();
     <script src="script.js" defer></script> 
 
 </body>
-</html>
+</html>sab3.php

@@ -281,8 +281,6 @@ $base = "../";
 
                 <h2>Conheça nossos outros sabonetes</h2>
 
-                <a href="../produtos.php" class="ver-todos">Ver todos →</a>
-
             </div>
 
 
@@ -293,13 +291,6 @@ $base = "../";
                     <img src="../img/maracuja.jpg" alt="Sabonete Maracujá">
                     <h3>Maracujá</h3>
                     <strong>R$ 9,00</strong>
-                </a>
-
-                <!-- MIRTILO -->
-                <a href="sab3.php" class="outro-card">
-                    <img src="../img/mirtilo.jpg" alt="Sabonete Mirtilo">
-                    <h3>Mirtilo</h3>
-                    <strong>R$ 10,00</strong>
                 </a>
 
                 <!-- COCO -->

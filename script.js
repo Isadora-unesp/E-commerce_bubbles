@@ -583,8 +583,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// CARROSSEL DE FOTOS DOS PRODUTO
+// PRODUTOS INDIVIDUAIS
 
+// CARROSSEL DE FOTOS DOS PRODUTO
 function iniciarCarrossel() {
 
     const fotos = document.querySelectorAll(".slide");
@@ -647,3 +648,83 @@ function iniciarCarrossel() {
 }
 
 iniciarCarrossel();
+
+// CONTROLE DE QTD E ADICIONAR AO CARRINHO
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menosQtd = document.getElementById("menosQtd");
+    const maisQtd = document.getElementById("maisQtd");
+    const qtdValor = document.getElementById("qtdValor");
+    const botaoComprar = document.getElementById("botaoComprar");
+
+    // Se não estiver em uma página de produto individual, não faz nada.
+    if (!menosQtd || !maisQtd || !qtdValor || !botaoComprar) {
+        return;
+    }
+
+    let quantidade = parseInt(qtdValor.textContent, 10) || 1;
+
+    function atualizarQuantidade() {
+        qtdValor.textContent = quantidade;
+        menosQtd.disabled = quantidade <= 1;
+    }
+
+    menosQtd.addEventListener("click", function () {
+        if (quantidade > 1) {
+            quantidade--;
+            atualizarQuantidade();
+        }
+    });
+
+    maisQtd.addEventListener("click", function () {
+        quantidade++;
+        atualizarQuantidade();
+    });
+
+    botaoComprar.addEventListener("click", function () {
+
+        const titulo = document.querySelector(".detalhe-info h1");
+        const nomeProduto = titulo
+            ? titulo.textContent.trim()
+            : "Produto";
+
+        // Recupera o carrinho atual
+        let carrinho =
+            JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        // Adiciona a quantidade escolhida
+        for (let i = 0; i < quantidade; i++) {
+            carrinho.push(nomeProduto);
+        }
+
+        // Salva novamente o carrinho
+        localStorage.setItem(
+            "carrinho",
+            JSON.stringify(carrinho)
+        );
+
+        // Atualiza o contador do carrinho
+        if (typeof atualizarContador === "function") {
+            atualizarContador();
+        }
+
+        // Feedback visual no botão
+        const textoOriginal = botaoComprar.textContent;
+
+        botaoComprar.textContent = "Produto adicionado";
+        botaoComprar.classList.add("produto-adicionado");
+
+        setTimeout(function () {
+            botaoComprar.textContent = textoOriginal;
+            botaoComprar.classList.remove("produto-adicionado");
+        }, 2000);
+
+        // Abre o carrinho lateral
+        if (typeof abrirCarrinho === "function") {
+            abrirCarrinho();
+        }
+    });
+
+    // Inicializa a quantidade
+    atualizarQuantidade();
+});
