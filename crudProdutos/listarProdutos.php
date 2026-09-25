@@ -47,11 +47,11 @@ $total = $select->rowCount();
             ?>
             <tr>
                 <td><?php echo $linha["id_produto"]; ?></td>
-                <td><?php echo $linha["nome"]; ?></td>
-                <td><?php echo $linha["descricao"]; ?></td>
-                <td><?php echo $linha["categoria"]; ?></td>
-                <td><?php echo $linha["peso"]; ?>g</td>
-                <td><?php echo $linha["fragrancia"]; ?></td>
+                <td><?php echo htmlspecialchars($linha["nome"]); ?></td>
+                <td><?php echo htmlspecialchars($linha["descricao"]); ?></td>
+                <td><?php echo htmlspecialchars($linha["categoria"] ?? ''); ?></td>
+                <td><?php echo htmlspecialchars($linha["peso"] ?? ''); ?>g</td>
+                <td><?php echo htmlspecialchars($linha["fragrancia"] ?? ''); ?></td>
                 <td>R$ <?php echo number_format($linha["valor_unitario"], 2, ",", "."); ?></td>
                 <td>
                     <a href="alterarProduto.php?id=<?php echo $id; ?>">Alterar</a>

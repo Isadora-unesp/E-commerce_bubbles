@@ -4,8 +4,6 @@ session_start();
 
 include("../util.php");
 
-SaiSeHacker();
-
 
 try {
 

@@ -3,7 +3,6 @@
 session_start();
 
 include("../util.php");
-SaiSeHacker();
 
 $conn = conecta();
 
@@ -58,7 +57,7 @@ try {
     $update->execute();
 
     if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-        header("Location: /crudUsuarios/listarUsuario.php");
+        header("Location: ../crudUsuarios/listarUsuario.php");
     } else {
         header("Location: /perfilUsuario.php");
     }

@@ -27,8 +27,17 @@ $update->bindParam(':fragrancia', $_POST['fragrancia']);
 $update->bindParam(':valor_unitario', $_POST['valor_unitario']);
 $update->bindParam(':id', $_POST['id']);
 
-$update->execute();
+try {
 
-header("Location: listarProdutos.php");
-exit;
+    $update->execute();
+
+    header("Location: listarProdutos.php");
+    exit;
+
+} catch (PDOException $e) {
+
+    echo "Erro ao alterar o produto: " . $e->getMessage();
+    exit;
+
+}
 ?>

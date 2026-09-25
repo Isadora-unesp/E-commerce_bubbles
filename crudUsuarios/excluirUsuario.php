@@ -4,8 +4,6 @@ session_start();
 
 include("../util.php");
 
-SaiSeHacker();
-
 $conn = conecta();
 
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {

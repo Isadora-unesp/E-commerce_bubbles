@@ -4,9 +4,6 @@ session_start();
 
 include("../util.php");
 
-SaiSeHacker();
-
-
 $adminEmail = "admin@gmail.com";
 $adminSenha = "123456";
 
@@ -62,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
 
 
-        header("Location: /crudUsuarios/login.php?erro=1");
+        header("Location: ../login.php?erro=1");
         exit;
 
 

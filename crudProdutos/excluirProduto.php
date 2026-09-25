@@ -4,6 +4,12 @@ session_start();
 include("../util.php");
 
 SaiSeHacker();
+
+if (!isset($_GET['id'])) {
+    header("Location: listarProdutos.php");
+    exit;
+}
+
 $conn = conecta();
 $id = $_GET['id'];
 
@@ -13,8 +19,18 @@ $varSQL = "UPDATE produto
 
 $delete = $conn->prepare($varSQL);
 $delete->bindParam(':id', $id);
-$delete->execute();
 
-header("Location: listarProdutos.php");
-exit;
+try {
+
+    $delete->execute();
+
+    header("Location: listarProdutos.php");
+    exit;
+
+} catch (PDOException $e) {
+
+    echo "Erro ao excluir o produto: " . $e->getMessage();
+    exit;
+
+}
 ?>

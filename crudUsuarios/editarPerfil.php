@@ -6,8 +6,6 @@ session_start();
 
 include("../util.php");
 
-SaiSeHacker();
-
 $conn = conecta();
 
 
@@ -140,7 +138,7 @@ $telefone = $linha['telefone'];
     </main>
 
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 
 
 </body>
