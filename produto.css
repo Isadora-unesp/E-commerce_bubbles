@@ -362,57 +362,51 @@ img {
     transform: translateY(-4px);
 
     box-shadow: 0 7px 18px rgba(50, 50, 30, .10);
-}
-
-
-
-/* =========================================================
-   IMAGEM DOS PRODUTOS
-========================================================= */
+} 
 
 .produto-imagem {
     width: 100%;
-    height: 180px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 220px;
 
     overflow: hidden;
 
     background: #f7e9df;
 }
 
-.produto-imagem span {
-    font-size: 70px;
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
 
-    transition: .3s;
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
 }
 
-.produto:hover .produto-imagem span {
-    transform: scale(1.08);
+.produto:hover .produto-imagem img {
+    transform: scale(1.05);
+} 
+
+/* LINK PARA A PÁGINA DO PRODUTO */
+
+.link-produto {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+
+    flex: 1;
 }
 
-
-/* fundos */
-
-.imagem-maracuja {
-    background: #fff1c9;
+.link-produto h3 {
+    transition: color 0.2s;
 }
 
-.imagem-pitanga {
-    background: #f9dddd;
+.link-produto:hover h3 {
+    color: #f86464;
 }
-
-.imagem-laranja {
-    background: #ffe4c8;
-}
-
-.imagem-melancia {
-    background: #dff0d9;
-}
-
-
+ 
 /* =========================================================
    INFORMAÇÕES DO PRODUTO
 ========================================================= */
@@ -452,58 +446,60 @@ img {
 }
 
 
-/* =========================================================
-   PREÇO + BOTÃO
-========================================================= */
-
 .produto-final {
     margin-top: auto;
 
+    padding: 0 15px 18px;
+
     display: flex;
+    flex-direction: column;
 
-    align-items: center;
-    justify-content: space-between;
+    align-items: stretch;
 
-    gap: 10px;
+    gap: 12px;
 }
 
 .produto-final strong {
     color: #162f29;
 
-    font-size: 17px;
-}
+    font-size: 18px;
 
+    text-align: center;
+} 
 
-/* BOTÃO + */
+/* BOTÃO ADICIONAR AO CARRINHO */
 
 .adicionar {
-    width: 34px;
-    height: 34px;
+    width: 100%;
+    min-height: 42px;
 
-    border: 0;
+    padding: 10px 14px;
 
-    border-radius: 50%;
+    border: 1px solid #f86464;
+    border-radius: 8px;
 
-    background: #66825a;
+    background: #f86464;
 
-    color: white;
+    color: #fff;
 
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    transition: .3s;
+    transition: 0.25s;
 }
 
 .adicionar:hover {
-    background: #f86464;
+    background: #e65353;
+    border-color: #e65353;
 
-    transform: scale(1.05);
-}
-
+    transform: translateY(-2px);
+} 
 
 /* =========================================================
    MENSAGEM FINAL
@@ -733,12 +729,85 @@ img {
         gap: 15px;
     }
 
+    /* 2 PRODUTOS POR LINHA */
+
     .grid-produtos {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
     }
 
+
+    /* CARD */
+
+    .produto {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    /* IMAGEM */
+
     .produto-imagem {
-        height: 200px;
+        height: 145px;
+    }
+
+
+    /* INFORMAÇÕES */
+
+    .produto-info {
+        padding: 10px 8px;
+    }
+
+    .produto-info h3 {
+        min-height: auto;
+
+        margin-bottom: 4px;
+
+        font-size: 14px;
+    }
+
+
+    /* DESCRIÇÃO */
+
+    .descricao {
+        min-height: 55px;
+
+        margin-bottom: 8px;
+
+        font-size: 10px;
+        line-height: 1.35;
+    }
+
+
+    /* PREÇO + BOTÃO */
+
+    .produto-final {
+        padding: 0 8px 10px;
+
+        gap: 8px;
+    }
+
+    .produto-final strong {
+        font-size: 15px;
+    }
+
+
+    /* BOTÃO ADICIONAR AO CARRINHO */
+
+    .adicionar {
+        min-height: 36px;
+
+        padding: 7px 4px;
+
+        border-radius: 6px;
+
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    .produtos {
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
     .titulo-secao-produtos h2 {

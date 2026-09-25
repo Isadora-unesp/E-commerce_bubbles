@@ -275,6 +275,34 @@ function fecharCarrinhoLateral() {
 
 }
 
+/* =========================================================
+   DADOS DOS PRODUTOS DO CARRINHO
+========================================================= */
+
+const dadosProdutosCarrinho = {
+
+    "Frutas Vermelhas": {
+        preco: 12.50
+    },
+
+    "Maracujá": {
+        preco: 11.90
+    },
+
+    "Mirtilo": {
+        preco: 13.20
+    },
+
+    "Cítrico": {
+        preco: 10.80
+    },
+
+    "Coco": {
+        preco: 10.50
+    }
+
+};
+
 function mostrarProdutosCarrinho() {
     const carrinho = JSON.parse(
         localStorage.getItem("carrinho")
@@ -310,21 +338,13 @@ function mostrarProdutosCarrinho() {
     Object.keys(produtos).forEach(function(nomeProduto) {
         const quantidade = produtos[nomeProduto];
 
-        const produto = Array.from(
-            document.querySelectorAll(".produto")
-        ).find(function(item) {
-
-            return item.querySelector("h3")?.textContent.trim()
-                === nomeProduto;
-
-        });
+        const dadosProduto =
+            dadosProdutosCarrinho[nomeProduto];
 
         let preco = 0;
 
-        if (produto) {
-            preco = parseFloat(
-                produto.getAttribute("data-preco")
-            ) || 0;
+        if (dadosProduto) {
+            preco = dadosProduto.preco;
         }
 
         const totalProduto = preco * quantidade;

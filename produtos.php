@@ -19,6 +19,75 @@ session_start();
     
     <?php include_once "_cabecalho.php"; ?> 
 
+    <!-- MENU MOBILE -->
+    <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
+
+    <aside class="menu-lateral-mobile" id="menuLateralMobile">
+
+        <div class="menu-mobile-cabecalho">
+
+            <h2>Menu</h2>
+
+            <button type="button" id="fecharMenuMobile" aria-label="Fechar menu">
+                ×
+            </button>
+
+        </div>
+
+        <nav class="menu-mobile-itens">
+
+            <!-- Como este arquivo está em /produtosIndividuais, os links precisam de ../ -->
+            <a href="../index.php" class="menu-mobile-item">
+                Início
+            </a>
+
+            <div class="menu-mobile-produtos">
+
+                <button type="button" id="botaoProdutosMobile" class="menu-mobile-item">
+                    <span>Produtos</span>
+                    <span class="seta">⌄</span>
+                </button>
+
+                <div class="submenu-mobile" id="submenuProdutosMobile">
+
+                    <a href="../produtos.php">
+                        Todos os produtos
+                    </a>
+
+                    <a href="../produtos.php?categoria=massageador">
+                        Sabonete massageador
+                    </a>
+
+                    <a href="../produtos.php?categoria=barra">
+                        Sabonete em barra
+                    </a>
+
+                </div>
+
+            </div>
+
+            <a href="../ingredientes.php" class="menu-mobile-item">
+                Ingredientes
+            </a>
+
+            <a href="../sobrenos.php" class="menu-mobile-item">
+                Sobre nós
+            </a>
+
+            <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
+                <a href="../perfilUsuario.php" class="menu-mobile-item">
+                    👤 Perfil
+                </a>
+            <?php } else { ?>
+                <a href="../login.php" class="menu-mobile-item">
+                    👤 Perfil
+                </a>
+            <?php } ?>
+
+        </nav>
+
+    </aside>
+
     <main>
 
 
@@ -94,188 +163,162 @@ session_start();
 
             <div id="no_results">
                 Nenhum produto encontrado. 🍃
-            </div>
-
+            </div> 
 
             <!-- CARDS -->
-
-            <div class="grid-produtos">
-
+ 
+            <div class="grid-produtos"> 
 
                 <!-- MARACUJÁ -->
 
-                <article
-                    class="produto"
-                    data-nome="passion"
-                    data-pagina="../produtosIndividuais/sab2.php"
-                >
+                <article class="produto" data-nome="passion">
 
-                    <div class="produto-imagem imagem-maracuja">
-                        <span>💛</span>
-                    </div>
-
-                    <div class="produto-info">
-
-                        <h3>
-                            Passion
-                        </h3>
-
-                        <p class="descricao">
-                            Calmante e esfoliante suave com sementes
-                            naturais de maracujá.
-                        </p>
-
-                        <div class="produto-final">
-
-                            <strong>
-                                R$ 28,00
-                            </strong>
-
-                            <button
-                                class="adicionar"
-                                data-id="1"
-                                data-nome="Sabonete de Maracujá"
-                                data-preco="28.00"
+                    <a href="produtosIndividuais/sab2.php" class="link-produto">
+                        <div class="produto-imagem">
+                            <img
+                                src="img/maracuja.jpg"
+                                alt="Sabonete Passion de Maracujá"
                             >
-                                +
-                            </button>
-
                         </div>
+
+                        <div class="produto-info">
+                            <h3>Maracujá</h3>
+
+                            <p class="descricao">
+                                Calmante e esfoliante suave com sementes
+                                naturais de maracujá.
+                            </p>
+                        </div>
+                    </a>
+
+                    <div class="produto-final">
+
+                        <strong>R$ 28,00</strong>
+
+                        <button
+                            type="button"
+                            class="adicionar"
+                            onclick="adicionarCarrinho('Maracujá', this)"
+                        >
+                            Adicionar ao carrinho
+                        </button>
 
                     </div>
 
                 </article>
 
 
-                <!-- coco -->
+                <!-- COCO -->
 
-                <article
-                    class="produto"
-                    data-nome="coconut"
-                    data-pagina="../produtosIndividuais/sab4.php"
-                >
+                <article class="produto" data-nome="coconut">
 
-                    <div class="produto-imagem imagem-pitanga">
-                        <span>🍒</span>
-                    </div>
-
-                    <div class="produto-info">
-
-                        <h3>
-                            Coconut
-                        </h3>
-
-                        <p class="descricao">
-                            Rico em vitamina C e antioxidantes
-                            para uma pele iluminada.
-                        </p>
-
-                        <div class="produto-final">
-
-                            <strong>
-                                R$ 30,00
-                            </strong>
-
-                            <button
-                                class="adicionar"
-                                data-id="2"
-                                data-nome="Sabonete de Pitanga"
-                                data-preco="30.00"
+                    <a href="produtosIndividuais/sab4.php" class="link-produto">
+                        <div class="produto-imagem">
+                            <img
+                                src="img/coco.jpg"
+                                alt="Sabonete Coconut de Coco"
                             >
-                                +
-                            </button>
-
                         </div>
+
+                        <div class="produto-info">
+                            <h3>Coco</h3>
+
+                            <p class="descricao">
+                                Sabonete artesanal de coco com fragrância
+                                suave e agradável para o cuidado da pele.
+                            </p>
+                        </div>
+                    </a>
+
+                    <div class="produto-final">
+
+                        <strong>R$ 30,00</strong>
+
+                        <button
+                            type="button"
+                            class="adicionar"
+                            onclick="adicionarCarrinho('Coco', this)"
+                        >
+                            Adicionar ao carrinho
+                        </button>
 
                     </div>
 
                 </article>
 
 
-                <!-- frutas vermelhas -->
+                <!-- FRUTAS VERMELHAS -->
 
-                <article
-                    class="produto"
-                    data-nome="fraguna"
-                    data-pagina="../produtosIndividuais/sab1.php"
-                >
+                <article class="produto" data-nome="fraguna">
 
-                    <div class="produto-imagem imagem-laranja">
-                        <span>🍊</span>
-                    </div>
-
-                    <div class="produto-info">
-
-                        <h3>
-                            Fraguna
-                        </h3>
-
-                        <p class="descricao">
-                            Aroma cítrico revigorante com toque
-                            especiado e marcante.
-                        </p>
-
-                        <div class="produto-final">
-
-                            <strong>
-                                R$ 32,00
-                            </strong>
-
-                            <button
-                                class="adicionar"
-                                data-id="3"
-                                data-nome="Sabonete Laranja & Canela"
-                                data-preco="32.00"
+                    <a href="produtosIndividuais/sab1.php" class="link-produto">
+                        <div class="produto-imagem">
+                            <img
+                                src="img/morango.jpg"
+                                alt="Sabonete Fraguna de Frutas Vermelhas"
                             >
-                                +
-                            </button>
-
                         </div>
+
+                        <div class="produto-info">
+                            <h3>Frutas Vermelhas</h3>
+
+                            <p class="descricao">
+                                Fragrância doce e frutada, com uma combinação
+                                delicada de morango e frutas vermelhas.
+                            </p>
+                        </div>
+                    </a>
+
+                    <div class="produto-final">
+
+                        <strong>R$ 32,00</strong>
+
+                        <button
+                            type="button"
+                            class="adicionar"
+                            onclick="adicionarCarrinho('Frutas Vermelhas', this)"
+                        >
+                            Adicionar ao carrinho
+                        </button>
 
                     </div>
 
                 </article>
 
 
-                <!-- cítrico -->
+                <!-- CÍTRICO -->
 
-                <article
-                    class="produto"
-                    data-nome="citrico"
-                    data-pagina="../produtosIndividuais/sab5.php"
-                >
+                <article class="produto" data-nome="citrico">
 
-                    <div class="produto-imagem imagem-melancia">
-                        <span>🍉</span>
-                    </div>
-
-                    <div class="produto-info">
-
-                        <h3>
-                            Cítrico
-                        </h3>
-
-                        <p class="descricao">
-                            Refrescância intensa e aroma frutado
-                            para um banho delicioso.
-                        </p>
-
-                        <div class="produto-final">
-
-                            <strong>
-                                R$ 29,00
-                            </strong>
-
-                            <button
-                                class="adicionar"
-                                data-id="4"
-                                data-nome="Sabonete de Melancia"
-                                data-preco="29.00"
+                    <a href="produtosIndividuais/sab5.php" class="link-produto">
+                        <div class="produto-imagem">
+                            <img
+                                src="img/citrico.jpg"
+                                alt="Sabonete Cítrico"
                             >
-                                +
-                            </button>
-
                         </div>
+
+                        <div class="produto-info">
+                            <h3>Cítrico</h3>
+
+                            <p class="descricao">
+                                Fragrância cítrica refrescante para deixar
+                                o banho mais leve e revigorante.
+                            </p>
+                        </div>
+                    </a>
+
+                    <div class="produto-final">
+
+                        <strong>R$ 29,00</strong>
+
+                        <button
+                            type="button"
+                            class="adicionar"
+                            onclick="adicionarCarrinho('Cítrico', this)"
+                        >
+                            Adicionar ao carrinho
+                        </button>
 
                     </div>
 
@@ -321,6 +364,53 @@ session_start();
     <?php include_once "_footer.php"; ?>
  
     <script src="script.js" defer></script> 
+
+    <!-- CARRINHO LATERAL -->
+    <div class="fundo-carrinho" id="fundoCarrinho"></div>
+
+    <aside class="carrinho-lateral" id="carrinhoLateral">
+
+        <div class="carrinho-cabecalho">
+
+            <h2>Seu carrinho</h2>
+
+            <button type="button" class="fechar-carrinho" id="fecharCarrinho">×</button>
+
+        </div>
+
+
+        <div class="carrinho-produtos" id="carrinhoProdutos"></div>
+
+
+        <div class="carrinho-rodape">
+
+            <div class="carrinho-total">
+
+                <span>Total:</span>
+
+                <strong id="totalCarrinho">R$ 0,00</strong>
+
+            </div>
+
+
+            <button type="button" class="continuar-comprando" id="continuarComprando">
+                Continuar comprando
+            </button>
+
+
+            <button
+                type="button"
+                class="finalizar-compra"
+                onclick="window.location.href='../carrinho.php'">
+
+                Finalizar compra
+
+            </button>
+
+        </div>
+
+    </aside>
+
 
 </body>
 </html>sab3.php
