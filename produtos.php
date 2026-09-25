@@ -193,7 +193,7 @@ session_start();
 
                     <div class="produto-final">
 
-                        <strong>R$ 28,00</strong>
+                        <strong>R$ 11,90</strong>
 
                         <button
                             type="button"
@@ -232,7 +232,7 @@ session_start();
 
                     <div class="produto-final">
 
-                        <strong>R$ 30,00</strong>
+                        <strong>R$ 10,50</strong>
 
                         <button
                             type="button"
@@ -271,7 +271,7 @@ session_start();
 
                     <div class="produto-final">
 
-                        <strong>R$ 32,00</strong>
+                        <strong>R$ 12,50</strong>
 
                         <button
                             type="button"
@@ -310,7 +310,7 @@ session_start();
 
                     <div class="produto-final">
 
-                        <strong>R$ 29,00</strong>
+                        <strong>R$ 10,80</strong>
 
                         <button
                             type="button"

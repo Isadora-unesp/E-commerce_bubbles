@@ -163,9 +163,9 @@ $base = "../";
 
                 <div>
 
-                    <span class="subtitulo">SABONETE ARTESANAL</span>
+                    <span class="subtitulo">SABONETE MASSAGEADOR ARTESANAL</span>
 
-                    <h1>Sabonete Massageador Coco</h1>
+                    <h1>Coco</h1>
 
                     <p class="resumo">
                         Sabonete artesanal com extrato natural de frutas vermelhas.
@@ -185,7 +185,7 @@ $base = "../";
 
 
                 <!-- PREÇO -->
-                <p class="preco">R$ 15,00</p>
+                <p class="preco">R$ 10,80</p>
 
 
                 <!-- PESO -->
