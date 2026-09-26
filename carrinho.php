@@ -283,7 +283,7 @@ $base = "";
                 class="botao-finalizar-pedido"
                 id="botaoFinalizarPedido"
             >
-                Finalizar reserva (indisponível no momento)
+                Finalizar reserva
             </button>
 
             <a
@@ -960,7 +960,7 @@ function renderizarCarrinhoPagina() {
 
     total.textContent =
         moeda(totalGeral);
-}
+
 
 
 /* =========================================================
