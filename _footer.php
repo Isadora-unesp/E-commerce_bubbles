@@ -44,9 +44,8 @@ $base = $base ?? "";
 
         <div class="footer-fruit-nav">
             <h3>Navegação</h3>
-            <a href="<?= $base ?>index.php">Início</a>
-            <a href="<?= $base ?>produtos.php">Produtos</a>
-            <a href="<?= $base ?>ingredientes.php">Ingredientes</a>
+            <a href="<?= $base ?>index.php">Início</a> 
+            <a href="<?= $base ?>produtos.php">Produtos</a> 
             <a href="<?= $base ?>sobrenos.php">Sobre nós</a>
         </div>
 

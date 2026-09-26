@@ -1,18 +1,6 @@
-/* =========================================================
-   PESQUISA DE PRODUTOS
-========================================================= */
+const buscaCabecalho = document.getElementById("buscaCabecalho");
 
-const buscaCabecalho =
-    document.getElementById("buscaCabecalho");
-
-const botaoAbrirBusca =
-    document.getElementById("botaoAbrirBusca");
-
-
-/* =========================================================
-   NORMALIZAR TEXTO
-   Remove acentos e transforma em minúsculo
-========================================================= */
+const botaoAbrirBusca = document.getElementById("botaoAbrirBusca");
 
 function normalizarPesquisa(texto) {
 
@@ -24,24 +12,14 @@ function normalizarPesquisa(texto) {
 
 }
 
-
-/* =========================================================
-   PESQUISAR PRODUTO
-========================================================= */
-
 function pesquisarProdutoCabecalho() {
 
     if (!buscaCabecalho) {
         return;
     }
 
-
-    const pesquisa =
-        normalizarPesquisa(buscaCabecalho.value);
-
-
-    /* Se não digitou nada */
-
+    const pesquisa = normalizarPesquisa(buscaCabecalho.value);
+ 
     if (pesquisa === "") {
 
         alert("Digite o nome de um sabonete.");
@@ -50,15 +28,8 @@ function pesquisarProdutoCabecalho() {
 
         return;
     }
-
-
-    /* =====================================================
-       PRODUTOS
-    ===================================================== */
-
+ 
     const produtos = {
-
-        /* FRUTAS VERMELHAS */
 
         "frutas vermelhas":
             "produtosIndividuais/sab1.php",
@@ -69,9 +40,6 @@ function pesquisarProdutoCabecalho() {
         "morango":
             "produtosIndividuais/sab1.php",
 
-
-        /* MARACUJÁ */
-
         "maracuja":
             "produtosIndividuais/sab2.php",
 
@@ -81,15 +49,6 @@ function pesquisarProdutoCabecalho() {
         "maracuja massageador":
             "produtosIndividuais/sab2.php",
 
-
-        /* MIRTILO */
-
-        "mirtilo":
-            "produtosIndividuais/sab3.php",
-
-
-        /* COCO */
-
         "coco":
             "produtosIndividuais/sab4.php",
 
@@ -98,9 +57,6 @@ function pesquisarProdutoCabecalho() {
 
         "coco massageador":
             "produtosIndividuais/sab4.php",
-
-
-        /* CÍTRICO */
 
         "citrico":
             "produtosIndividuais/sab5.php",
@@ -118,14 +74,8 @@ function pesquisarProdutoCabecalho() {
             "produtosIndividuais/sab5.php"
 
     };
-
-
-    /* =====================================================
-       VERIFICA SE O PRODUTO EXISTE
-    ===================================================== */
-
+ 
     const paginaProduto = produtos[pesquisa];
-
 
     if (!paginaProduto) {
 
@@ -137,23 +87,12 @@ function pesquisarProdutoCabecalho() {
 
         return;
     }
-
-
-    /* =====================================================
-       DESCOBRIR SE ESTAMOS EM produtosIndividuais
-    ===================================================== */
-
+ 
     const estaEmProdutosIndividuais =
         window.location.pathname.includes(
             "/produtosIndividuais/"
         );
-
-
-    /*
-       Se já estivermos dentro da pasta produtosIndividuais,
-       não precisamos colocar produtosIndividuais/ novamente.
-    */
-
+ 
     if (estaEmProdutosIndividuais) {
 
         const arquivo =
@@ -170,12 +109,7 @@ function pesquisarProdutoCabecalho() {
     }
 
 }
-
-
-/* =========================================================
-   ENTER
-========================================================= */
-
+ 
 if (buscaCabecalho) {
 
     buscaCabecalho.addEventListener(
@@ -194,12 +128,7 @@ if (buscaCabecalho) {
     );
 
 }
-
-
-/* =========================================================
-   CLICAR NA LUPA
-========================================================= */
-
+ 
 if (botaoAbrirBusca) {
 
     botaoAbrirBusca.addEventListener(
@@ -256,257 +185,396 @@ function atualizarContador() {
 
 atualizarContador();
 
-const botaoCarrinho = document.getElementById("botaoCarrinho");
-const carrinhoLateral = document.getElementById("carrinhoLateral");
-const fundoCarrinho = document.getElementById("fundoCarrinho");
-const fecharCarrinho = document.getElementById("fecharCarrinho");
-const continuarComprando = document.getElementById("continuarComprando");
-
-function abrirCarrinho() {
-    carrinhoLateral.classList.add("ativo");
-    fundoCarrinho.classList.add("ativo");
-    mostrarProdutosCarrinho();
-
-}
-
-function fecharCarrinhoLateral() {
-    carrinhoLateral.classList.remove("ativo");
-    fundoCarrinho.classList.remove("ativo");
-
-}
-
-/* =========================================================
-   DADOS DOS PRODUTOS DO CARRINHO
-========================================================= */
-
-const dadosProdutosCarrinho = {
+/*PÁGINA DO CARRINHO*/
+const produtosCarrinhoPagina = {
 
     "Frutas Vermelhas": {
-        preco: 12.50
+        preco: 12.50,
+        imagem: "img/morango.jpg"
     },
 
     "Maracujá": {
-        preco: 11.90
-    },
-
-    "Mirtilo": {
-        preco: 13.20
+        preco: 11.90,
+        imagem: "img/maracuja.jpg"
     },
 
     "Cítrico": {
-        preco: 10.80
+        preco: 10.80,
+        imagem: "img/citrico.jpg"
     },
 
     "Coco": {
-        preco: 10.50
+        preco: 10.50,
+        imagem: "img/coco.jpg"
     }
 
 };
 
-function mostrarProdutosCarrinho() {
-    const carrinho = JSON.parse(
+function moeda(valor) {
+
+    return "R$ " +
+        valor
+            .toFixed(2)
+            .replace(".", ",");
+
+}
+
+function lerCarrinhoPagina() {
+
+    return JSON.parse(
         localStorage.getItem("carrinho")
     ) || [];
 
-    const container = document.getElementById("carrinhoProdutos");
+}
+
+function salvarCarrinhoPagina(carrinho) {
+
+    localStorage.setItem(
+        "carrinho",
+        JSON.stringify(carrinho)
+    );
+
+
+    atualizarContador();
+
+    renderizarCarrinhoPagina();
+
+}
+
+function alterarQuantidadePagina(
+    nomeProduto,
+    diferenca
+) {
+
+    const carrinho = lerCarrinhoPagina();
+
+    if (diferenca > 0) {
+
+        carrinho.push(nomeProduto);
+
+    }
+
+    else {
+
+        const indice =
+            carrinho.indexOf(nomeProduto);
+
+
+        if (indice !== -1) {
+
+            carrinho.splice(
+                indice,
+                1
+            );
+
+        }
+
+    }
+
+    salvarCarrinhoPagina(
+        carrinho
+    );
+
+}
+
+function excluirProdutoPagina(
+    nomeProduto
+) {
+
+    const carrinho =
+        lerCarrinhoPagina()
+            .filter(
+                function(nome) {
+
+                    return nome !== nomeProduto;
+
+                }
+            );
+
+    salvarCarrinhoPagina(
+        carrinho
+    );
+
+}
+ 
+function renderizarCarrinhoPagina() {
+
+    const container =
+        document.getElementById(
+            "carrinhoPaginaProdutos"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    const carrinho =
+        lerCarrinhoPagina();
+
+    const subtotal =
+        document.getElementById(
+            "subtotalCarrinhoPagina"
+        );
+
+    const total =
+        document.getElementById(
+            "totalCarrinhoPagina"
+        );
+
+    const botaoFinalizar =
+        document.getElementById(
+            "botaoFinalizarPedido"
+        );
 
     container.innerHTML = "";
 
     if (carrinho.length === 0) {
+
         container.innerHTML = `
-            <div class="carrinho-vazio">
-                Seu carrinho está vazio.
+
+            <div class="carrinho-pagina-vazio">
+
+                <div class="vazio-icone">
+                    ○
+                </div>
+
+                <h3>
+                    Seu carrinho está vazio
+                </h3>
+
+                <p>
+                    Escolha seus sabonetes favoritos
+                    para começar seu pedido.
+                </p>
+
+                <a href="produtos.php">
+                    Conhecer produtos
+                </a>
+
             </div>
+
         `;
-        document.getElementById("totalCarrinho").textContent = "R$ 0,00";
+
+        if (subtotal) {
+            subtotal.textContent =
+                "R$ 0,00";
+        }
+
+        if (total) {
+            total.textContent =
+                "R$ 0,00";
+        }
+
+        if (botaoFinalizar) {
+            botaoFinalizar.disabled = true;
+        }
 
         return;
     }
 
-    const produtos = {};
+    const quantidades = {};
 
-    carrinho.forEach(function(nome) {
-        if (produtos[nome]) {
-            produtos[nome]++;
-        } else {
-            produtos[nome] = 1;
+    carrinho.forEach(
+        function(nome) {
+
+            quantidades[nome] =
+                (quantidades[nome] || 0) + 1;
+
         }
-    });
+    );
 
     let totalGeral = 0;
 
-    Object.keys(produtos).forEach(function(nomeProduto) {
-        const quantidade = produtos[nomeProduto];
+    Object.keys(quantidades)
+        .forEach(
+            function(nomeProduto) {
+            
+                const dados = produtosCarrinhoPagina[nomeProduto];
 
-        const dadosProduto =
-            dadosProdutosCarrinho[nomeProduto];
+                if (!dados) {
+                    return;
+                }
 
-        let preco = 0;
+                const quantidade = quantidades[nomeProduto];
 
-        if (dadosProduto) {
-            preco = dadosProduto.preco;
-        }
+                const totalProduto = dados.preco * quantidade;
 
-        const totalProduto = preco * quantidade;
+                totalGeral += totalProduto;
 
-        totalGeral += totalProduto;
+                const item = document.createElement(
+                        "article"
+                    );
 
-        const item = document.createElement("div");
+                item.className =
+                    "produto-carrinho-pagina";
 
-        item.classList.add("item-carrinho");
+                item.innerHTML = `
 
-        item.innerHTML = `
+                    <div class="produto-carrinho-imagem">
 
-            <div class="item-carrinho-topo">
-
-                <h3>
-                    ${nomeProduto}
-                </h3>
-
-                <div class="item-carrinho-acoes">
-
-                    <div class="item-carrinho-quantidade">
-
-                        <button 
-                            type="button"
-                            onclick="alterarQuantidade(
-                                '${nomeProduto.replace(/'/g, "\\'")}',
-                                -1
-                            )"
+                        <img
+                            src="${dados.imagem}"
+                            alt="${nomeProduto}"
                         >
-                            −
-                        </button>
-
-                        <span>
-                            ${quantidade}
-                        </span>
-
-                        <button 
-                            type="button"
-                            onclick="alterarQuantidade(
-                                '${nomeProduto.replace(/'/g, "\\'")}',
-                                1
-                            )"
-                        >
-                            +
-                        </button>
 
                     </div>
 
-                    <button 
-                        type="button"
-                        class="excluir-produto"
-                        onclick="excluirProduto(
-                            '${nomeProduto.replace(/'/g, "\\'")}'
-                        )"
-                    >
-                        Excluir
-                    </button>
+                    <div class="produto-carrinho-dados">
 
-                </div>
+                        <span class="produto-carrinho-tipo">
+                            SABONETE ARTESANAL
+                        </span>
 
-            </div>
+                        <h3>
+                            ${nomeProduto}
+                        </h3>
+
+                        <span class="produto-carrinho-preco">
+
+                            ${moeda(dados.preco)}
+                            cada
+
+                        </span>
+
+                        <div class="produto-carrinho-acoes">
+
+                            <div class="quantidade-pagina">
+
+                                <button
+                                    type="button"
+                                    class="diminuir-quantidade"
+                                    aria-label="Diminuir quantidade"
+                                >
+                                    −
+                                </button>
+
+                                <span>
+                                    ${quantidade}
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="aumentar-quantidade"
+                                    aria-label="Aumentar quantidade"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="excluir-pagina"
+                            >
+                                Excluir
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="produto-carrinho-subtotal">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong>
+                            ${moeda(totalProduto)}
+                        </strong>
+
+                    </div>
+
+                `;
+
+                item
+                    .querySelector(
+                        ".diminuir-quantidade"
+                    )
+                    .addEventListener(
+                        "click",
+                        function() {
+
+                            alterarQuantidadePagina(
+                                nomeProduto,
+                                -1
+                            );
+
+                        }
+                    );
+
+                item
+                    .querySelector(
+                        ".aumentar-quantidade"
+                    )
+                    .addEventListener(
+                        "click",
+                        function() {
+
+                            alterarQuantidadePagina(
+                                nomeProduto,
+                                1
+                            );
+
+                        }
+                    );
+
+                item
+                    .querySelector(
+                        ".excluir-pagina"
+                    )
+                    .addEventListener(
+                        "click",
+                        function() {
+
+                            excluirProdutoPagina(
+                                nomeProduto
+                            );
+
+                        }
+                    );
 
 
-            <div class="item-carrinho-info">
+                container.appendChild(
+                    item
+                );
 
-                <span class="preco-unitario">
-                    R$ ${preco.toFixed(2).replace(".", ",")}
-                </span>
+            }
+        );
 
-            </div>
+    if (subtotal) {
 
+        subtotal.textContent =
+            moeda(totalGeral);
 
-            <div class="item-carrinho-total">
-
-                <strong>
-                    R$ ${totalProduto.toFixed(2).replace(".", ",")}
-                </strong>
-
-            </div>
-
-        `;
-
-        container.appendChild(item);
-    });
-
-    document.getElementById("totalCarrinho").textContent =
-        "R$ " + totalGeral.toFixed(2).replace(".", ",");
-
-}
-
-function alterarQuantidade(nomeProduto, quantidade) {
-    let carrinho =
-        JSON.parse(localStorage.getItem("carrinho")) || [];
-
-    if (quantidade === 1) {
-        carrinho.push(nomeProduto);
-    } else {
-
-        const indice = carrinho.indexOf(nomeProduto);
-        if (indice !== -1) {
-
-            carrinho.splice(indice, 1);
-        }
     }
 
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
+    if (total) {
 
-    atualizarContador();
-    mostrarProdutosCarrinho();
+        total.textContent =
+            moeda(totalGeral);
 
-}
+    }
 
-function excluirProduto(nomeProduto) {
-    let carrinho =
-        JSON.parse(localStorage.getItem("carrinho")) || [];
+    if (botaoFinalizar) {
 
-    carrinho = carrinho.filter(function(nome) {
-        return nome !== nomeProduto;
-    });
+        botaoFinalizar.disabled =
+            totalGeral <= 0;
 
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
-
-    atualizarContador();
-    mostrarProdutosCarrinho();
+    }
 
 }
 
-if (botaoCarrinho) {
-    botaoCarrinho.addEventListener("click", function(event) {
-        event.preventDefault();
-        abrirCarrinho();
-    });
-}
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-if (fecharCarrinho) {
-    fecharCarrinho.addEventListener("click", function() {
-        fecharCarrinhoLateral();
-    });
-}
+        renderizarCarrinhoPagina();
 
-if (fundoCarrinho) {
-    fundoCarrinho.addEventListener("click", function() {
-        fecharCarrinhoLateral();
-    });
-}
+    }
+);
 
-if (continuarComprando) {
-    continuarComprando.addEventListener("click", function() {
-        fecharCarrinhoLateral();
-    });
-
-}
-
-/* =========================================
-   MENU MOBILE
-========================================= */
+/* MENU MOBILE */
 
 const botaoMenuMobile = document.getElementById("botaoMenuMobile");
 const menuLateralMobile = document.getElementById("menuLateralMobile");
@@ -515,24 +583,21 @@ const fecharMenuMobile = document.getElementById("fecharMenuMobile");
 
 const botaoProdutosMobile = document.getElementById("botaoProdutosMobile");
 const submenuProdutosMobile = document.getElementById("submenuProdutosMobile");
-
-
+ 
 function abrirMenuMobile() {
 
     menuLateralMobile.classList.add("ativo");
     fundoMenuMobile.classList.add("ativo");
 
 }
-
-
+ 
 function fecharMenuMobileFuncao() {
 
     menuLateralMobile.classList.remove("ativo");
     fundoMenuMobile.classList.remove("ativo");
 
 }
-
-
+ 
 if (botaoMenuMobile) {
 
     botaoMenuMobile.addEventListener("click", function() {
@@ -542,8 +607,7 @@ if (botaoMenuMobile) {
     });
 
 }
-
-
+ 
 if (fecharMenuMobile) {
 
     fecharMenuMobile.addEventListener("click", function() {
@@ -552,8 +616,7 @@ if (fecharMenuMobile) {
 
     });
 
-}
-
+} 
 
 if (fundoMenuMobile) {
 
@@ -564,10 +627,7 @@ if (fundoMenuMobile) {
     });
 
 }
-
-
-/* ABRIR PRODUTOS */
-
+ 
 if (botaoProdutosMobile) {
 
     botaoProdutosMobile.addEventListener("click", function() {
@@ -579,10 +639,7 @@ if (botaoProdutosMobile) {
     });
 
 }
-
-
-/*Confirmar exclusão de conta*/
-
+ 
 document.addEventListener("DOMContentLoaded", function () {
 
     var linksExclusao = document.querySelectorAll(".confirmar-exclusao");
@@ -602,10 +659,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
-// PRODUTOS INDIVIDUAIS
-
-// CARROSSEL DE FOTOS DOS PRODUTO
+ 
 function iniciarCarrossel() {
 
     const fotos = document.querySelectorAll(".slide");
@@ -668,8 +722,7 @@ function iniciarCarrossel() {
 }
 
 iniciarCarrossel();
-
-// CONTROLE DE QTD E ADICIONAR AO CARRINHO
+ 
 document.addEventListener("DOMContentLoaded", function () {
 
     const menosQtd = document.getElementById("menosQtd");
@@ -677,7 +730,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const qtdValor = document.getElementById("qtdValor");
     const botaoComprar = document.getElementById("botaoComprar");
 
-    // Se não estiver em uma página de produto individual, não faz nada.
     if (!menosQtd || !maisQtd || !qtdValor || !botaoComprar) {
         return;
     }
@@ -708,27 +760,22 @@ document.addEventListener("DOMContentLoaded", function () {
             ? titulo.textContent.trim()
             : "Produto";
 
-        // Recupera o carrinho atual
         let carrinho =
             JSON.parse(localStorage.getItem("carrinho")) || [];
-
-        // Adiciona a quantidade escolhida
+ 
         for (let i = 0; i < quantidade; i++) {
             carrinho.push(nomeProduto);
         }
-
-        // Salva novamente o carrinho
+ 
         localStorage.setItem(
             "carrinho",
             JSON.stringify(carrinho)
         );
-
-        // Atualiza o contador do carrinho
+ 
         if (typeof atualizarContador === "function") {
             atualizarContador();
         }
-
-        // Feedback visual no botão
+ 
         const textoOriginal = botaoComprar.textContent;
 
         botaoComprar.textContent = "Produto adicionado";
@@ -738,13 +785,8 @@ document.addEventListener("DOMContentLoaded", function () {
             botaoComprar.textContent = textoOriginal;
             botaoComprar.classList.remove("produto-adicionado");
         }, 2000);
-
-        // Abre o carrinho lateral
-        if (typeof abrirCarrinho === "function") {
-            abrirCarrinho();
-        }
+ 
     });
-
-    // Inicializa a quantidade
+ 
     atualizarQuantidade();
 });

@@ -17,84 +17,10 @@ session_start();
 
 <body>
     
-    <?php include_once "_cabecalho.php"; ?> 
-
-    <!-- MENU MOBILE -->
-    <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
-
-    <aside class="menu-lateral-mobile" id="menuLateralMobile">
-
-        <div class="menu-mobile-cabecalho">
-
-            <h2>Menu</h2>
-
-            <button type="button" id="fecharMenuMobile" aria-label="Fechar menu">
-                ×
-            </button>
-
-        </div>
-
-        <nav class="menu-mobile-itens">
-
-            <!-- Como este arquivo está em /produtosIndividuais, os links precisam de ../ -->
-            <a href="../index.php" class="menu-mobile-item">
-                Início
-            </a>
-
-            <div class="menu-mobile-produtos">
-
-                <button type="button" id="botaoProdutosMobile" class="menu-mobile-item">
-                    <span>Produtos</span>
-                    <span class="seta">⌄</span>
-                </button>
-
-                <div class="submenu-mobile" id="submenuProdutosMobile">
-
-                    <a href="../produtos.php">
-                        Todos os produtos
-                    </a>
-
-                    <a href="../produtos.php?categoria=massageador">
-                        Sabonete massageador
-                    </a>
-
-                    <a href="../produtos.php?categoria=barra">
-                        Sabonete em barra
-                    </a>
-
-                </div>
-
-            </div>
-
-            <a href="../ingredientes.php" class="menu-mobile-item">
-                Ingredientes
-            </a>
-
-            <a href="../sobrenos.php" class="menu-mobile-item">
-                Sobre nós
-            </a>
-
-            <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
-                <a href="../perfilUsuario.php" class="menu-mobile-item">
-                    👤 Perfil
-                </a>
-            <?php } else { ?>
-                <a href="../login.php" class="menu-mobile-item">
-                    👤 Perfil
-                </a>
-            <?php } ?>
-
-        </nav>
-
-    </aside>
+    <?php include_once "_cabecalho.php"; ?>  
 
     <main>
-
-
-        <!-- =================================================
-             HERO
-        ================================================== -->
-
+ 
         <section class="hero-produtos">
 
             <div class="hero-produtos-texto">
@@ -157,14 +83,7 @@ session_start();
                 </p>
 
             </div>
-
-
-            <!-- MENSAGEM CASO NÃO ENCONTRE PRODUTO -->
-
-            <div id="no_results">
-                Nenhum produto encontrado. 🍃
-            </div> 
-
+             
             <!-- CARDS -->
  
             <div class="grid-produtos"> 
@@ -327,32 +246,9 @@ session_start();
             </div>
 
         </section>
-
-
-        <!-- =================================================
-             MENSAGEM FINAL
-        ================================================== -->
-
-        <section class="mensagem-final">
-
-            <h2>
-                Um sabonete para cada momento
-            </h2>
-
-            <p>
-                Escolha sua fragrância favorita e transforme
-                seu banho em uma experiência especial.
-            </p>
-
-        </section>
-
+ 
     </main>
-
-
-    <!-- =====================================================
-         TOAST
-    ====================================================== -->
-
+ 
     <div id="toast" class="toast">
 
         <span id="toast-message">
@@ -363,54 +259,7 @@ session_start();
 
     <?php include_once "_footer.php"; ?>
  
-    <script src="script.js" defer></script> 
-
-    <!-- CARRINHO LATERAL -->
-    <div class="fundo-carrinho" id="fundoCarrinho"></div>
-
-    <aside class="carrinho-lateral" id="carrinhoLateral">
-
-        <div class="carrinho-cabecalho">
-
-            <h2>Seu carrinho</h2>
-
-            <button type="button" class="fechar-carrinho" id="fecharCarrinho">×</button>
-
-        </div>
-
-
-        <div class="carrinho-produtos" id="carrinhoProdutos"></div>
-
-
-        <div class="carrinho-rodape">
-
-            <div class="carrinho-total">
-
-                <span>Total:</span>
-
-                <strong id="totalCarrinho">R$ 0,00</strong>
-
-            </div>
-
-
-            <button type="button" class="continuar-comprando" id="continuarComprando">
-                Continuar comprando
-            </button>
-
-
-            <button
-                type="button"
-                class="finalizar-compra"
-                onclick="window.location.href='../carrinho.php'">
-
-                Finalizar compra
-
-            </button>
-
-        </div>
-
-    </aside>
-
+    <script src="script.js" defer></script>  
 
 </body>
 </html>

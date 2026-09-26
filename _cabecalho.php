@@ -26,7 +26,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
     <!-- LOGO -->
     <a href="<?= $base ?>index.php" class="logo">
-        <img src="<?= $base ?>img/logo2.png" alt="Fruit Bubbles">
+        <img src="<?= $base ?>img/logo.png" alt="Fruit Bubbles">
     </a>
 
 
@@ -45,14 +45,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             class="<?= $paginaAtual === 'produtos.php' ? 'ativo' : '' ?>"
         >
             Produtos
-        </a>
-
-        <a
-            href="<?= $base ?>ingredientes.php"
-            class="<?= $paginaAtual === 'ingredientes.php' ? 'ativo' : '' ?>"
-        >
-            Ingredientes
-        </a>
+        </a> 
 
         <a
             href="<?= $base ?>sobrenos.php"
@@ -62,7 +55,6 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         </a>
 
     </nav>
-
 
     <!-- AÇÕES -->
     <div class="acoes">
@@ -142,11 +134,10 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         <?php } ?>
 
         <!-- CARRINHO -->
-        <button
-            type="button"
+        <a href="/carrinho.php"
             class="carrinho"
             id="botaoCarrinho"
-            aria-label="Carrinho"
+            aria-label=" Ir para o carrinho"
         >
             <svg viewBox="0 0 24 24">
                 <path d="M3 4h2l2.5 11h10L20 7H6"></path>
@@ -155,8 +146,54 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             </svg>
 
             <span id="contadorCarrinho">0</span>
-        </button>
+        </a>
 
     </div>
+
+    <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
+
+    <aside class="menu-lateral-mobile" id="menuLateralMobile">
+
+        <div class="menu-mobile-cabecalho">
+
+            <h2>Menu</h2>
+
+            <button
+                type="button"
+                id="fecharMenuMobile"
+                aria-label="Fechar menu"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <nav class="menu-mobile-itens">
+
+            <a href="index.php" class="menu-mobile-item">
+                Início
+            </a> 
+
+            <a href="produtos.php" class="menu-mobile-item">
+                Produtos
+            </a>
+
+            <a href="sobrenos.php" class="menu-mobile-item">
+                Sobre nós
+            </a>
+
+            <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
+                <a href="perfilUsuario.php" class="menu-mobile-item">
+                    Perfil
+                </a>
+            <?php } else { ?>
+                <a href="login.php" class="menu-mobile-item">
+                    Perfil
+                </a>
+            <?php } ?>
+
+        </nav>
+
+    </aside>
 
 </header>

@@ -37,7 +37,7 @@ img {
 /*HEADER*/
 .header {
     width: 100%;
-    height: 100px;
+    height: 82px;
 
     padding: 0 7%;
 
@@ -57,7 +57,7 @@ img {
 /* LOGO */
 
 .logo img {
-    width: 145px;
+    width: 100px;
     height: auto;
 }
 
@@ -79,7 +79,7 @@ img {
 
     color: #162f29;
 
-    padding: 30px 0;
+    padding: 22px 0;
 
     transition: color 0.3s;
 }
@@ -93,7 +93,7 @@ img {
     position: absolute;
 
     left: 0;
-    bottom: 22px;
+    bottom: 14px;
 
     width: 0;
     height: 2px;
@@ -270,12 +270,20 @@ img {
 /*BANNER*/
 .hero {
     width: 100%;
-    height: 550px;
-    min-height: 400px;
+
+    min-height: 690px;
+    height: calc(100vh - 72px);
+
+    max-height: 850px;
+
     position: relative;
-    overflow: hidden;
+
     display: flex;
     align-items: center;
+
+    overflow: hidden;
+
+    background: var(--creme);
 }
 
 .hero-imagem {
@@ -415,7 +423,7 @@ img {
 /*PRODUTOS*/
 .produtos {
     width: 100%;
-    padding: 25px 7% 22px;
+    padding: 95px 7% 110px;
     background: #fffdf9;
 }
 
@@ -424,13 +432,13 @@ img {
     align-items: center;
     justify-content: center;
     gap: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 40px;
 }
 
 .titulo-secao h2 {
     color: #173b32;
     font-family: Georgia, serif;
-    font-size: 30px;
+    font-size: 45px;
     font-weight: 600;
     text-align: center;
 }
@@ -456,6 +464,11 @@ img {
 .produto {
     flex: 1 0 calc(16.666% - 12px);
     min-width: 175px;
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+
     background: #fffaf5;
     border: 1px solid #e7ddd4;
     border-radius: 10px;
@@ -470,7 +483,7 @@ img {
 
 .produto-imagem {
     width: 100%;
-    height: 125px;
+    height: 350px;
     background: #f7e9df;
     overflow: hidden;
 }
@@ -482,7 +495,13 @@ img {
 }
 
 .produto-info {
-    padding: 12px;
+    flex: 1;
+
+    padding: 15px 12px;
+
+    display: flex;
+    flex-direction: column;
+
     text-align: center;
 }
 
@@ -511,6 +530,7 @@ img {
 .adicionar {
     width: 100%;
     height: 31px;
+    margin-top: auto;
     border: 0;
     border-radius: 20px;
     background: #66825a;
@@ -522,302 +542,307 @@ img {
 
 .adicionar:hover {
     background: #f86464;
-}
- 
-/* INGREDIENTES*/
-.ingredientes {
+} 
+
+/* =========================================================
+   INGREDIENTES - HOME
+   ========================================================= */
+
+.ingredientes-home {
     width: 100%;
+    padding: 90px 7%;
+
+    background: #fff2e8;
+}
+
+
+/* PARTE DE CIMA */
+
+.ingredientes-home-topo {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto 55px;
+
     display: grid;
-    grid-template-columns: 47% 53%;
-    background: #eef1d8;
-    align-items: stretch;
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-areas:
+        "subtitulo subtitulo"
+        "titulo texto"
+        "titulo botao";
+
+    column-gap: 90px;
+    row-gap: 12px;
+
+    align-items: start;
 }
 
-.ingredientes-texto {
-    order: 1;
-    padding: 40px 9%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+
+.ingredientes-home-topo .subtitulo {
+    grid-area: subtitulo;
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #758c42;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
 }
 
-.ingredientes-imagem {
-    order: 2;
+
+.ingredientes-home-topo h2 {
+    grid-area: titulo;
+
+    max-width: 650px;
+
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 1.08;
+
+    color: #46220f;
+}
+
+
+.ingredientes-home-topo > p {
+    grid-area: texto;
+
+    max-width: 470px;
+
+    margin: 4px 0 0;
+
+    color: #6f5a4e;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+.ingredientes-home-topo > .botao {
+    grid-area: botao;
+
+    width: fit-content;
+
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   LISTA DOS INGREDIENTES
+   ========================================================= */
+
+.ingredientes-beneficios {
     width: 100%;
-    height: 420px;
-    min-height: 0;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid rgba(70, 34, 15, 0.18);
+}
+
+
+/* CARD */
+
+.ingrediente-card {
+    position: relative;
+
+    min-height: 190px;
+
+    padding: 32px 35px;
+
+    background: transparent;
+
+    border-right: 1px solid rgba(70, 34, 15, 0.18);
+    border-bottom: 1px solid rgba(70, 34, 15, 0.18);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* remove a borda do último de cada linha */
+
+.ingrediente-card:nth-child(3n) {
+    border-right: none;
+}
+
+
+/* detalhe pequeno no topo */
+
+.ingrediente-card::before {
+    content: "";
+
+    display: block;
+
+    width: 28px;
+    height: 3px;
+
+    margin-bottom: 24px;
+
+    border-radius: 20px;
+
+    background: #f86464;
+}
+
+
+.ingrediente-card h3 {
+    margin: 0 0 10px;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 23px;
+    font-weight: 600;
+
+    color: #46220f;
+}
+
+
+.ingrediente-card p {
+    max-width: 310px;
+
+    margin: 0;
+
+    color: #786459;
+
+    font-size: 13.5px;
+    line-height: 1.65;
+}
+
+
+/* efeito bem leve */
+
+.ingrediente-card:hover {
+    background: rgba(255, 255, 255, 0.42);
+}
+
+
+/* =========================================================
+   SOBRE A FRUIT BUBBLES
+   ========================================================= */
+
+.sobre-resumo {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    background: #fffdf9;
+
     overflow: hidden;
 }
 
-.ingredientes-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} 
 
-.ingredientes-texto h2 {
-    max-width: 600px;
-    color: #426447;
-    font-family: Georgia, serif;
-    font-size: 38px;
-    line-height: 1.08;
-    margin-bottom: 12px;
-}
-
-.ingredientes-texto h2 em {
-    color: #f86464;
-    font-style: italic;
-}
-
-.ingredientes-texto p {
-    max-width: 500px;
-    color: #365348;
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 14px;
-}
-
-.ingredientes-texto .subtitulo {
-    color: #66804d;
-    font-size: 14px;
-    margin-bottom: 7px;
-}
-
-.ingredientes-texto .botao {
-    width: fit-content;
-    padding: 11px 22px;
-    font-size: 13px;
-}
-
-/*DIFERENCIAIS*/
-.diferenciais {
-    width: 100%;
-    padding: 28px 10%;
-    background: #fffdf9;
-}
-
-.diferenciais .titulo-secao {
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.diferenciais-lista {
-    width: 100%;
-    max-width: 1150px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.diferencial {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 12px 35px;
-    min-height: 95px;
-    border-right: 1px solid #ded8d0;
-}
-
-.diferencial:last-child {
-    border-right: none;
-} 
-
-.diferencial-icone {
-    width: 58px;
-    height: 58px;
-    min-width: 58px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.diferencial-icone svg {
-    width: 38px;
-    height: 38px;
-    display: block;
-}
- 
-.diferencial-morango {
-    background: #f8d7d7;
-} 
- 
-.diferencial-laranja {
-    background: #f9e0b5;
-}
- 
-.diferencial-coco {
-    background: #e5e0c5;
-} 
-.diferencial h3 {
-    color: #173b32;
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.diferencial p {
-    max-width: 190px;
-    color: #68736e;
-    font-size: 13px;
-    line-height: 1.45;
-}
-
-/*SOBRE*/
-.sobre-resumo {
-    width: 100%;
-    min-height: 300px;
-    padding: 35px 10%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 50px;
-    background: #f7f2e8;
-}
+/* TEXTO */
 
 .sobre-resumo-texto {
-    order: 1;
-    width: 58%;
+    min-height: 570px;
+
+    padding: 85px 8%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
+
 
 .sobre-resumo-texto .subtitulo {
-    font-size: 14px;
-    margin-bottom: 6px;
+    margin-bottom: 13px;
+
+    color: #f86464;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
 }
+
 
 .sobre-resumo-texto h2 {
-    color: #456b51;
-    font-family: Georgia, serif;
-    font-size: 38px;
-    line-height: 1.08;
-    margin-bottom: 12px;
+    max-width: 570px;
+
+    margin: 0 0 25px;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 49px;
+    line-height: 1.05;
+    font-weight: 600;
+
+    color: #46220f;
 }
+
 
 .sobre-resumo-texto p {
-    max-width: 650px;
-    color: #42584e;
-    font-size: 14px;
-    line-height: 1.55;
-    margin-bottom: 7px;
+    max-width: 590px;
+
+    margin: 0 0 14px;
+
+    color: #725f54;
+
+    font-size: 14.5px;
+    line-height: 1.75;
 }
+
 
 .sobre-resumo-texto .botao {
-    padding: 10px 19px;
-    font-size: 12px;
-    margin-top: 18px;
+    margin-top: 15px;
 }
 
+
+/* =========================================================
+   LADO DIREITO DO SOBRE
+   ========================================================= */
+
 .sobre-resumo-destaque {
-    order: 2;
-    width: 42%;
-    height: 220px;
+    position: relative;
+
+    min-height: 570px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 60px;
+
+    background: #bcc3ad;
+
+    overflow: hidden;
 }
 
 .sobre-resumo-destaque img {
-    width: 100%;
-    max-width: 380px;
-    height: 220px;
+    position: relative;
+    z-index: 2;
+
+    width: min(320px, 75%);
+    height: auto;
+
     object-fit: contain;
 }
 
-/*CARRINHO*/
-.fundo-carrinho {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-    z-index: 90;
-}
-
-.fundo-carrinho.ativo {
-    opacity: 1;
-    visibility: visible;
-}
-
-.carrinho-lateral {
-    position: fixed;
-    top: 0;
-    right: -420px;
-    width: 390px;
-    height: 100vh;
-    background: #fffdf9;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-    z-index: 100;
-    transition: right 0.35s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.carrinho-lateral.ativo {
-    right: 0;
-}
-
-.carrinho-cabecalho {
-    padding: 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee2da;
-}
-
-.carrinho-cabecalho h2 {
-    color: #173b32;
-    font-family: Georgia, serif;
-    font-size: 24px;
-}
-
-.fechar-carrinho {
-    border: none;
-    background: transparent;
-    color: #173b32;
-    font-size: 32px;
-}
-
-.carrinho-produtos {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-}
-
-.carrinho-rodape {
-    padding: 20px;
-    border-top: 1px solid #eee2da;
-}
-
-.carrinho-total {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    color: #173b32;
-    font-size: 16px;
-}
-
-.continuar-comprando,
-.finalizar-compra {
-    width: 100%;
-    height: 44px;
-    border-radius: 22px;
-    font-size: 12px;
-    margin-top: 7px;
-}
-
-.continuar-comprando {
-    background: transparent;
-    border: 1px solid #66825a;
-    color: #66825a;
-}
-
-.finalizar-compra {
-    border: none;
-    background: #66825a;
+.botao.verde {
+    background: #758c42;
     color: white;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
+
+.botao.verde:hover {
+    background: #657b37;
+
+    transform: translateY(-2px);
+}
 
 /* ITENS DO CARRINHO */
 .item-carrinho {
@@ -1302,7 +1327,7 @@ img {
 
 @media (max-width: 1000px) {
 
-     .header {
+    .header {
         padding: 0 4%;
     }
 
@@ -1314,32 +1339,89 @@ img {
     .pesquisa {
         width: clamp(165px, 20vw, 220px);
     }
+
     .hero-texto {
         padding-left: 7%;
     }
+
     .hero h1 {
         font-size: 43px;
-    } 
-    .produtos, 
-    .diferenciais {
+    }
+
+
+    /* =====================================================
+       PRODUTOS
+       ===================================================== */
+
+    .produtos {
         padding-left: 4%;
         padding-right: 4%;
-    } 
+    }
+
+    .produto {
+        min-height: 440px;
+    }
+
+    .produto-imagem {
+        height: 300px;
+    }
+
+
+    /* =====================================================
+       INGREDIENTES
+       ===================================================== */
+
+    .ingredientes-home {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .ingredientes-home-topo {
+        column-gap: 45px;
+    }
+
+    .ingredientes-home-topo h2 {
+        font-size: 40px;
+    }
+
+
+    /* =====================================================
+       SOBRE
+       ===================================================== */
+
     .sobre-resumo {
-        padding-left: 7%;
-        padding-right: 7%;
-    } 
+        padding: 0;
+    }
+
+    .sobre-resumo-texto {
+        padding: 65px 7%;
+    }
+
+    .sobre-resumo-texto h2 {
+        font-size: 42px;
+    }
+
+
+    /* NÃO ALTERADO */
+
     .footer-fruit {
         padding-left: 5%;
         padding-right: 5%;
     }
 }
- 
+
+
+
+/* =========================================================
+   CELULAR / TABLET PEQUENO
+   ========================================================= */
+
 @media (max-width: 700px) {
 
+
     /* =========================================================
-   HEADER MOBILE
-    ========================================================= */
+       HEADER MOBILE
+       ========================================================= */
 
     .header {
         height: 126px;
@@ -1419,8 +1501,8 @@ img {
 
 
     /* =========================================================
-    PESQUISA NO CELULAR
-    ========================================================= */
+       PESQUISA NO CELULAR
+       ========================================================= */
 
     .pesquisa {
         display: flex;
@@ -1453,15 +1535,21 @@ img {
         height: 42px;
     }
 
-    /* BANNER */
+
+    /* =========================================================
+       BANNER
+       ========================================================= */
+
     .hero {
         height: 470px;
         min-height: 470px;
     }
+
     .hero-imagem {
         width: 100%;
         height: 470px;
     }
+
     .hero::after {
         background: linear-gradient(
             180deg,
@@ -1470,365 +1558,773 @@ img {
             rgba(255, 242, 232, 0.15) 100%
         );
     }
+
     .hero-texto {
         width: 100%;
+
         padding: 45px 25px;
+
         align-self: flex-start;
     }
+
     .hero h1 {
         font-size: 38px;
     }
+
     .hero p {
         font-size: 15px;
     }
+
     .hero .botao {
         font-size: 13px;
     }
+
     .hero-pontos {
         left: 50%;
         top: auto;
         bottom: 18px;
     }
 
-    /* PRODUTOS - 2 POR LINHA */
+
+    /* =========================================================
+       PRODUTOS
+       CORRIGIDO
+       ========================================================= */
+
     .produtos {
-        padding-left: 12px;
-        padding-right: 12px;
+        width: 100%;
+
+        padding: 55px 16px 65px;
     }
+
+    .titulo-secao {
+        margin-bottom: 25px;
+    }
+
     .titulo-secao h2 {
-        font-size: 24px;
+        font-size: 25px;
+        line-height: 1.15;
     }
+
     .produtos-scroll {
         width: 100%;
+
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+
+        gap: 14px;
+
         overflow: visible;
+
         padding: 0;
     }
+
     .produto {
         width: 100%;
+
         min-width: 0;
+        min-height: 0;
+
         margin: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 10px;
     }
+
     .produto-imagem {
         width: 100%;
-        height: 230px;
+        height: 180px;
+
         overflow: hidden;
     }
+
     .produto-imagem img {
         width: 100%;
         height: 100%;
+
         object-fit: cover;
-    }
-    .produto-info {
-        padding: 9px 7px 10px;
-    }
-    .produto-info h3 {
-        font-size: 14px;
-        line-height: 1.2;
-        margin-bottom: 4px;
-    }
-    .produto-peso {
-        font-size: 11px;
-    }
-    .produto-preco {
-        font-size: 14px;
-    }
-    .adicionar {
-        width: 100%;
-        height: auto;
-        padding: 7px 4px;
-        margin-top: 7px;
-        font-size: 10px;
-    } 
- 
-    /* INGREDIENTES */
-    .ingredientes {
-        display: flex;
-        flex-direction: column;
-    } 
-    .ingredientes-texto {
-        order: 1;
-        width: 100%;
-        padding: 38px 25px;
-    } 
-    .ingredientes-imagem {
-        order: 2;
-        width: 100%;
-        height: 320px;
-        min-height: 0;
-    } 
-    .ingredientes-imagem img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    } 
-    .ingredientes-texto h2 {
-        font-size: 28px;
-    } 
-    .ingredientes-texto p {
-        font-size: 13px;
-    } 
- 
-    /* DIFERENCIAIS */
-    .diferenciais-lista {
-        grid-template-columns: 1fr;
-    }
-    .diferencial {
-        padding: 15px 0;
-        border-right: none;
-        border-bottom: 1px solid #ded8d0;
-    } 
-    .diferencial:last-child {
-        border-bottom: none;
-    } 
- 
-    /* SOBRE */
-    .sobre-resumo {
-        flex-direction: column;
-        padding: 30px 7%;
-        gap: 20px;
-    } 
-    .sobre-resumo-texto {
-        order: 1;
-        width: 100%;
-    } 
-    .sobre-resumo-destaque {
-        order: 2;
-        width: 100%;
-        height: 150px;
-    } 
-    .sobre-resumo-destaque img {
-        height: 150px;
-    } 
-    .sobre-resumo-texto h2 {
-        font-size: 28px;
-    }
- 
-    /* CARRINHO */ 
-    .carrinho-lateral {
-        width: 90%;
-        right: -100%;
     }
 
-    /* MENU LATERAL */
+    .produto-info {
+        flex: 1;
+
+        padding: 13px 10px 14px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .produto-info h3 {
+        min-height: auto;
+
+        margin-bottom: 4px;
+
+        font-size: 14px;
+        line-height: 1.25;
+    }
+
+    .produto-peso {
+        margin-bottom: 5px;
+
+        font-size: 11px;
+    }
+
+    .produto-preco {
+        margin-bottom: 10px;
+
+        font-size: 15px;
+    }
+
+    .adicionar {
+        width: 100%;
+        height: 34px;
+
+        margin-top: auto;
+
+        padding: 6px 5px;
+
+        font-size: 10px;
+    }
+
+
+    /* =========================================================
+       INGREDIENTES
+       CORRIGIDO
+       ========================================================= */
+
+    .ingredientes-home {
+        width: 100%;
+
+        padding: 55px 22px;
+
+        overflow: hidden;
+    }
+
+    .ingredientes-home-topo {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 0;
+
+        margin: 0 0 35px;
+    }
+
+    .ingredientes-home-topo .subtitulo {
+        width: 100%;
+
+        margin-bottom: 10px;
+
+        font-size: 10px;
+        line-height: 1.3;
+        letter-spacing: 1.3px;
+    }
+
+    .ingredientes-home-topo h2 {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0 0 17px;
+
+        font-size: 32px;
+        line-height: 1.08;
+
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .ingredientes-home-topo > p {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0 0 20px;
+
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .ingredientes-home-topo > .botao {
+        width: fit-content;
+        max-width: 100%;
+
+        margin: 0;
+
+        padding: 11px 19px;
+
+        font-size: 12px;
+    }
+
+
+    /* LISTA */
+
+    .ingredientes-beneficios {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        margin: 0;
+
+        border-top: 1px solid rgba(70, 34, 15, 0.18);
+    }
+
+    .ingrediente-card,
+    .ingrediente-card:nth-child(2n),
+    .ingrediente-card:nth-child(3n) {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 25px 2px;
+
+        border-right: none;
+        border-bottom: 1px solid rgba(70, 34, 15, 0.18);
+    }
+
+    .ingrediente-card:last-child {
+        border-bottom: none;
+    }
+
+    .ingrediente-card::before {
+        width: 26px;
+        height: 2px;
+
+        margin-bottom: 15px;
+    }
+
+    .ingrediente-card h3 {
+        margin-bottom: 8px;
+
+        font-size: 21px;
+        line-height: 1.2;
+    }
+
+    .ingrediente-card p {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       SOBRE
+       CORRIGIDO
+       ========================================================= */
+
+    .sobre-resumo {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 0;
+
+        overflow: hidden;
+    }
+
+    .sobre-resumo-texto {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 55px 22px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sobre-resumo-texto .subtitulo {
+        margin-bottom: 10px;
+
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    .sobre-resumo-texto h2 {
+        width: 100%;
+        max-width: 100%;
+
+        margin-bottom: 20px;
+
+        font-size: 34px;
+        line-height: 1.08;
+    }
+
+    .sobre-resumo-texto p {
+        width: 100%;
+        max-width: 100%;
+
+        margin-bottom: 13px;
+
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .sobre-resumo-texto .botao {
+        width: fit-content;
+
+        margin-top: 10px;
+    }
+
+    .sobre-resumo-destaque {
+        width: 100%;
+
+        min-height: 300px;
+
+        padding: 40px 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sobre-resumo-destaque img {
+        width: 200px;
+        max-width: 70%;
+        height: auto;
+    }
+
+
+    /* =========================================================
+       MENU LATERAL
+       NÃO ALTERADO
+       ========================================================= */
+
     .fundo-menu-mobile {
         position: fixed;
         inset: 0;
+
         display: block;
+
         background: rgba(0, 0, 0, 0.3);
+
         opacity: 0;
         visibility: hidden;
+
         z-index: 80;
+
         transition: 0.3s;
-    } 
+    }
+
     .fundo-menu-mobile.ativo {
         opacity: 1;
         visibility: visible;
-    } 
+    }
+
     .menu-lateral-mobile {
         position: fixed;
+
         left: -300px;
         top: 0;
+
         width: 280px;
         height: 100vh;
+
         display: block;
+
         background: #fffdf9;
-        z-index: 100; 
+
+        z-index: 100;
+
         transition: left 0.3s ease;
     }
+
     .menu-lateral-mobile.ativo {
         left: 0;
-    } 
+    }
+
     .menu-mobile-cabecalho {
         padding: 20px;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         border-bottom: 1px solid #eee2da;
-    } 
+    }
+
     .menu-mobile-cabecalho h2 {
         color: #173b32;
+
         font-family: Georgia, serif;
-    } 
+    }
+
     .menu-mobile-cabecalho button {
         border: none;
+
         background: transparent;
+
         font-size: 28px;
     }
+
     .menu-mobile-item {
         width: 100%;
+
         padding: 18px 20px;
+
         display: flex;
         justify-content: space-between;
+
         border: none;
         border-bottom: 1px solid #eee2da;
+
         background: transparent;
+
         color: #173b32;
+
         font-size: 14px;
         text-align: left;
-    } 
+    }
+
     .submenu-mobile {
-        display: none; 
+        display: none;
+
         background: #f7f1e9;
-    } 
+    }
+
     .submenu-mobile.ativo {
         display: block;
-    } 
+    }
+
     .submenu-mobile a {
         display: block;
+
         padding: 14px 30px;
+
         color: #173b32;
+
         font-size: 13px;
     }
+
+
+    /* =========================================================
+       FOOTER
+       NÃO ALTERADO
+       ========================================================= */
+
     .footer-fruit {
         width: 100%;
+
         padding: 18px 15px 8px;
     }
+
     .footer-fruit-conteudo {
         width: 100%;
         max-width: 100%;
+
         display: flex;
         flex-direction: column;
         align-items: center;
+
         gap: 10px;
+
         margin: 0 auto;
+
         text-align: center;
     }
+
     .footer-fruit-marca {
         width: 100%;
+
         display: flex;
         justify-content: center;
+
         margin: 0;
     }
+
     .footer-fruit-logo {
         padding: 8px 22px;
+
         margin: 0 auto;
     }
+
     .footer-fruit-palavra {
         font-size: 28px;
     }
+
     .footer-bubbles-palavra {
         font-size: 22px;
+
         margin-left: 20px;
         margin-top: 2px;
     }
 
+
     /* BOLHAS */
+
     .footer-bolha.b1 {
         width: 6px;
         height: 6px;
+
         left: 4px;
         top: 10px;
     }
+
     .footer-bolha.b2 {
         width: 9px;
         height: 9px;
+
         right: 5px;
         top: 2px;
     }
+
     .footer-bolha.b3 {
         width: 5px;
         height: 5px;
+
         left: 10px;
         bottom: 2px;
     }
+
     .footer-bolha.b4 {
         width: 6px;
         height: 6px;
+
         right: 4px;
         bottom: 5px;
     }
 
+
     /* TEXTO */
+
     .footer-fruit-info {
         width: 100%;
         max-width: 330px;
+
         margin: 0 auto;
     }
+
     .footer-fruit-info p {
         width: 100%;
         max-width: 300px;
+
         margin: 0 auto 7px;
+
         font-size: 10px;
         line-height: 1.35;
+
         text-align: center;
     }
 
+
     /* REDES */
+
     .footer-fruit-redes {
         width: 100%;
+
         display: flex;
         justify-content: center;
+
         gap: 14px;
+
         margin: 0;
     }
+
     .footer-fruit-redes a {
         font-size: 10px;
     }
 
+
     /* NAVEGAÇÃO */
+
     .footer-fruit-nav {
         width: 100%;
+
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+
         gap: 5px 12px;
+
         margin: 2px 0 0;
     }
+
     .footer-fruit-nav h3 {
         width: 100%;
+
         margin: 0 0 2px;
+
         font-size: 14px;
         line-height: 1.1;
+
         text-align: center;
     }
+
     .footer-fruit-nav a {
         font-size: 9px;
         line-height: 1.2;
     }
 
-    /* COPYRIGHT */ 
+
+    /* COPYRIGHT */
+
     .footer-fruit-final {
-        width: 100%; 
+        width: 100%;
+
         margin: 10px auto 0;
-        padding-top: 6px; 
+
+        padding-top: 6px;
+
         text-align: center;
-    } 
+    }
+
     .footer-fruit-final p {
-        margin: 0; 
+        margin: 0;
+
         font-size: 7px;
         line-height: 1.2;
     }
 }
 
-@media (max-width: 450px) { 
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    /* =====================================================
+       NÃO ALTERADO - BANNER
+       ===================================================== */
+
     .hero {
         height: 450px;
         min-height: 450px;
-    } 
+    }
+
     .hero h1 {
         font-size: 32px;
-    } 
+    }
+
     .hero p {
         font-size: 14px;
-    } 
+    }
+
     .hero-texto {
         padding: 30px 20px;
-    } 
+    }
+
+
+    /* =====================================================
+       PRODUTOS
+       ===================================================== */
+
+    .produtos {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
     .titulo-secao h2 {
         font-size: 21px;
-    } 
+    }
+
     .titulo-decoracao {
         width: 18px;
-    } 
-    .ingredientes-texto h2 {
-        font-size: 25px;
-    } 
-    .sobre-resumo-texto h2 {
-        font-size: 25px;
     }
-} 
+
+    .produtos-scroll {
+        gap: 9px;
+    }
+
+    .produto-imagem {
+        height: 145px;
+    }
+
+    .produto-info {
+        padding: 10px 6px 12px;
+    }
+
+    .produto-info h3 {
+        font-size: 12px;
+    }
+
+    .produto-peso {
+        font-size: 9px;
+    }
+
+    .produto-preco {
+        font-size: 13px;
+    }
+
+    .adicionar {
+        min-height: 31px;
+
+        padding: 5px 3px;
+
+        font-size: 8px;
+    }
+
+
+    /* =====================================================
+       INGREDIENTES
+       ===================================================== */
+
+    .ingredientes-home {
+        padding: 45px 18px;
+    }
+
+    .ingredientes-home-topo h2 {
+        font-size: 28px;
+    }
+
+    .ingredientes-home-topo > p {
+        font-size: 13px;
+    }
+
+    .ingredientes-home-topo > .botao {
+        padding: 10px 17px;
+
+        font-size: 11px;
+    }
+
+    .ingrediente-card {
+        padding: 22px 2px;
+    }
+
+    .ingrediente-card h3 {
+        font-size: 19px;
+    }
+
+    .ingrediente-card p {
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       SOBRE
+       ===================================================== */
+
+    .sobre-resumo-texto {
+        padding: 45px 18px;
+    }
+
+    .sobre-resumo-texto h2 {
+        font-size: 30px;
+    }
+
+    .sobre-resumo-texto p {
+        font-size: 13px;
+    }
+
+    .sobre-resumo-destaque {
+        min-height: 260px;
+
+        padding: 35px 20px;
+    }
+
+    .sobre-resumo-destaque img {
+        width: 180px;
+    }
+}
