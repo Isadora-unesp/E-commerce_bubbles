@@ -145,17 +145,13 @@ $base = $base ?? "";
             <div class="essencia-image">
 
                 <img
-                    src="<?= $base ?>img/essencia.jpg"
+                    src="<?= $base ?>img/"
                     alt="Produtos Fruit Bubbles"
                 >
 
             </div>
 
             <div class="essencia-content">
-
-                <span class="section-label">
-                    • NOSSA ESSÊNCIA
-                </span>
 
                 <h2>
                     O que nos
@@ -185,10 +181,6 @@ $base = $base ?? "";
 
                     <div class="mvv-conteudo">
 
-                        <span class="mvv-label">
-                            NOSSO PROPÓSITO
-                        </span>
-
                         <h3 class="titulo-missao">
                             Missão
                         </h3>
@@ -209,10 +201,6 @@ $base = $base ?? "";
 
                     <div class="mvv-conteudo">
 
-                        <span class="mvv-label">
-                            ONDE QUEREMOS CHEGAR
-                        </span>
-
                         <h3 class="titulo-visao">
                             Visão
                         </h3>
@@ -231,10 +219,6 @@ $base = $base ?? "";
                 <div class="mvv-card valores-card">
 
                     <div class="mvv-conteudo">
-
-                        <span class="mvv-label">
-                            O QUE ACREDITAMOS
-                        </span>
 
                         <h3 class="titulo-valores">
                             Valores
@@ -279,10 +263,6 @@ $base = $base ?? "";
 
             <div class="processo-intro">
 
-                <span class="section-label">
-                    • NOSSO PROCESSO
-                </span>
-
                 <h2>
 
                     <span class="processo-verde">
@@ -319,10 +299,6 @@ $base = $base ?? "";
 
                 <div class="processo-item">
 
-                    <div class="processo-numero">
-                        01
-                    </div>
-
                     <h4>
                         Seleção dos ingredientes
                     </h4>
@@ -336,10 +312,6 @@ $base = $base ?? "";
 
 
                 <div class="processo-item">
-
-                    <div class="processo-numero processo-numero-lilas">
-                        02
-                    </div>
 
                     <h4>
                         Produção artesanal
@@ -355,10 +327,6 @@ $base = $base ?? "";
 
                 <div class="processo-item">
 
-                    <div class="processo-numero processo-numero-verde">
-                        03
-                    </div>
-
                     <h4>
                         Cura e qualidade
                     </h4>
@@ -372,10 +340,6 @@ $base = $base ?? "";
 
 
                 <div class="processo-item">
-
-                    <div class="processo-numero processo-numero-lilas">
-                        04
-                    </div>
 
                     <h4>
                         Seu momento de bem-estar
@@ -396,10 +360,6 @@ $base = $base ?? "";
         <section class="time-equipe-section">
 
             <div class="time-equipe-cabecalho">
-
-                <span class="section-label">
-                    • QUEM ESTÁ POR TRÁS
-                </span>
 
                 <h2>
                     <em>Nosso time</em>
