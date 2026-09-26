@@ -99,7 +99,7 @@ $base = "";
                 <span class="saboes-eyebrow">SABONETES ARTESANAIS BUBBLES</span>
                 <h1>Pequenos momentos,<br><em>mais especiais.</em></h1>
                 <p>Na Bubbles, acreditamos que os pequenos momentos de autocuidado podem tornar o dia mais especial. Por isso, desenvolvemos sabonetes artesanais que combinam aromas agradáveis, cuidado e uma apresentação delicada.</p>
-                <p>Nossas versões de 90 g e 120 g foram pensadas para tornar sua rotina ainda mais especial.</p>
+                <p>Nossas versões de 90 g e 150 g foram pensadas para tornar sua rotina ainda mais especial.</p>
                 <a class="saboes-link" href="#ingredientes">Conheça a composição e o processo <span aria-hidden="true">↓</span></a>
             </div>
             <figure class="saboes-hero-foto">
@@ -129,7 +129,7 @@ $base = "";
                 <article class="sabao-card sabao-card-especial">
                     <div class="sabao-card-foto"><img src="img/sabonete-foto-3.jpg" alt="Sabonete artesanal em barra"></div>
                     <div class="sabao-card-info">
-                        <span class="sabao-tamanho">120 g</span>
+                        <span class="sabao-tamanho">150 g</span>
                         <h3>Um momento ainda mais relaxante</h3>
                         <p>Uma versão maior, com a possibilidade de incluir uma esponja vegetal que complementa a apresentação do produto.</p>
                         <ul>
@@ -156,7 +156,7 @@ $base = "";
                 <div class="ingredientes-linha" role="row"><strong>Corante</strong><span>Utilizado para dar cor ao produto.</span></div>
                 <div class="ingredientes-linha" role="row"><strong>Extrato glicerinado</strong><span>Ingrediente utilizado na formulação.</span></div>
                 <div class="ingredientes-linha" role="row"><strong>Lauril</strong><span>Componente que auxilia na formação de espuma.</span></div>
-                <div class="ingredientes-linha" role="row"><strong>Esponja vegetal</strong><span>Material complementar que pode acompanhar o modelo de 120 g.</span></div>
+                <div class="ingredientes-linha" role="row"><strong>Esponja vegetal</strong><span>Material complementar que pode acompanhar o modelo de 150 g.</span></div>
                 <p class="ingredientes-observacao">Os ingredientes e suas quantidades devem ser confirmados conforme a fórmula final de cada sabonete.</p>
             </div>
         </section>

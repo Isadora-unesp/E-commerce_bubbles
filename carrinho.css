@@ -1,0 +1,772 @@
+/* =========================================================
+   CARRINHO - FRUIT BUBBLES
+========================================================= */
+
+.pagina-carrinho {
+    min-height: 70vh;
+    color: #5d5149;
+    background: #fffaf6;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.carrinho-hero {
+    padding: 72px 7% 62px;
+    background: #f9dfd1;
+    text-align: center;
+}
+
+.carrinho-eyebrow,
+.carrinho-etapa {
+    display: block;
+    margin-bottom: 12px;
+
+    color: #f06464;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.carrinho-hero h1 {
+    margin: 0 0 17px;
+
+    color: #432514;
+
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 5vw, 62px);
+    font-weight: 600;
+}
+
+.carrinho-hero h1 em {
+    color: #f06464;
+    font-style: italic;
+}
+
+.carrinho-hero p {
+    max-width: 610px;
+    margin: 0 auto;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+========================================================= */
+
+.carrinho-conteudo {
+    width: min(1180px, 86%);
+    margin: 0 auto;
+    padding: 72px 0 90px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.7fr);
+
+    gap: 34px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   ÁREAS
+========================================================= */
+
+.carrinho-lista-area,
+.resumo-pedido {
+    background: #ffffff;
+
+    border: 1px solid rgba(67, 37, 20, 0.07);
+
+    box-shadow:
+        0 12px 30px
+        rgba(67, 37, 20, 0.05);
+}
+
+
+.carrinho-lista-area {
+    padding: 30px;
+}
+
+
+/* =========================================================
+   CABEÇALHO DOS PRODUTOS
+========================================================= */
+
+.carrinho-lista-topo {
+    margin-bottom: 24px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.carrinho-lista-topo h2,
+.resumo-pedido h2 {
+    margin: 0;
+
+    color: #432514;
+
+    font-family: Georgia, serif;
+    font-size: 29px;
+    font-weight: 600;
+}
+
+
+.link-continuar {
+    color: #718442;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.link-continuar:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   LISTA DE PRODUTOS
+========================================================= */
+
+.carrinho-pagina-produtos {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   PRODUTO
+========================================================= */
+
+.produto-carrinho-pagina {
+    padding: 22px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        125px
+        minmax(0, 1fr)
+        auto;
+
+    gap: 22px;
+
+    align-items: center;
+
+    border-top: 1px solid #eadfd7;
+}
+
+
+/* =========================================================
+   IMAGEM DO PRODUTO
+========================================================= */
+
+.produto-carrinho-imagem {
+    width: 125px;
+    height: 125px;
+
+    overflow: hidden;
+
+    background: #fcece3;
+}
+
+
+.produto-carrinho-imagem img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.produto-carrinho-tipo {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #f06464;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+.produto-carrinho-dados h3 {
+    margin: 0 0 7px;
+
+    color: #432514;
+
+    font-family: Georgia, serif;
+    font-size: 23px;
+}
+
+
+.produto-carrinho-preco {
+    display: block;
+
+    margin-bottom: 17px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   AÇÕES DO PRODUTO
+========================================================= */
+
+.produto-carrinho-acoes {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   QUANTIDADE
+========================================================= */
+
+.quantidade-pagina {
+    display: inline-grid;
+
+    grid-template-columns:
+        32px
+        36px
+        32px;
+
+    align-items: center;
+
+    border: 1px solid #dfd3ca;
+}
+
+
+.quantidade-pagina button {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    background: #ffffff;
+
+    color: #432514;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.2s;
+}
+
+
+.quantidade-pagina button:hover {
+    background: #fcece3;
+}
+
+
+.quantidade-pagina span {
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   EXCLUIR
+========================================================= */
+
+.excluir-pagina {
+    border: none;
+
+    background: transparent;
+
+    color: #f06464;
+
+    cursor: pointer;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: underline;
+}
+
+
+.excluir-pagina:hover {
+    color: #df5555;
+}
+
+
+/* =========================================================
+   SUBTOTAL DO PRODUTO
+========================================================= */
+
+.produto-carrinho-subtotal {
+    min-width: 95px;
+
+    text-align: right;
+}
+
+
+.produto-carrinho-subtotal span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 10px;
+}
+
+
+.produto-carrinho-subtotal strong {
+    color: #432514;
+
+    font-family: Georgia, serif;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   RESUMO DO PEDIDO
+========================================================= */
+
+.resumo-pedido {
+    position: sticky;
+
+    top: 115px;
+
+    padding: 30px;
+
+    background: #fcece3;
+}
+
+
+.resumo-pedido h2 {
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   LINHAS DO RESUMO
+========================================================= */
+
+.resumo-linha {
+    padding: 12px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-bottom:
+        1px solid
+        rgba(67, 37, 20, 0.10);
+
+    font-size: 12px;
+}
+
+
+.resumo-linha strong {
+    color: #432514;
+}
+
+
+.resumo-divisor {
+    height: 18px;
+}
+
+
+/* =========================================================
+   TOTAL
+========================================================= */
+
+.resumo-total {
+    margin-bottom: 25px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.resumo-total span {
+    display: block;
+
+    color: #432514;
+
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+.resumo-total small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 9px;
+}
+
+
+.resumo-total strong {
+    color: #718442;
+
+    font-family: Georgia, serif;
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.botao-finalizar-pedido,
+.botao-voltar-produtos {
+    width: 100%;
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+/* FINALIZAR */
+
+.botao-finalizar-pedido {
+    border: none;
+
+    background: #f06464;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.botao-finalizar-pedido:hover {
+    background: #df5555;
+
+    transform: translateY(-1px);
+}
+
+
+.botao-finalizar-pedido:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.45;
+
+    transform: none;
+}
+
+
+/* CONTINUAR COMPRANDO */
+
+.botao-voltar-produtos {
+    margin-top: 10px;
+
+    border: 1px solid #718442;
+
+    color: #718442;
+
+    background: transparent;
+
+    transition: 0.2s;
+}
+
+
+.botao-voltar-produtos:hover {
+    background: #718442;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   AVISO
+========================================================= */
+
+.resumo-aviso {
+    margin: 18px 0 0;
+
+    font-size: 9px;
+    line-height: 1.55;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   CARRINHO VAZIO
+========================================================= */
+
+.carrinho-pagina-vazio {
+    padding: 60px 20px;
+
+    border-top: 1px solid #eadfd7;
+
+    text-align: center;
+}
+
+
+.vazio-icone {
+    margin-bottom: 10px;
+
+    color: #f06464;
+
+    font-size: 46px;
+}
+
+
+.carrinho-pagina-vazio h3 {
+    margin: 0 0 8px;
+
+    color: #432514;
+
+    font-family: Georgia, serif;
+    font-size: 25px;
+}
+
+
+.carrinho-pagina-vazio p {
+    margin: 0 auto 20px;
+
+    font-size: 12px;
+}
+
+
+.carrinho-pagina-vazio a {
+    display: inline-flex;
+
+    padding: 12px 19px;
+
+    border-radius: 6px;
+
+    background: #718442;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+.carrinho-pagina-vazio a:hover {
+    background: #627832;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .carrinho-conteudo {
+        width: min(92%, 720px);
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .resumo-pedido {
+        position: static;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE - CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+    /* HERO */
+
+    .carrinho-hero {
+        padding:
+            52px
+            22px
+            48px;
+    }
+
+
+    .carrinho-hero h1 {
+        font-size: 42px;
+    }
+
+
+    .carrinho-hero p {
+        font-size: 13px;
+    }
+
+
+    /* CONTEÚDO */
+
+    .carrinho-conteudo {
+        width: 100%;
+
+        padding:
+            35px
+            12px
+            60px;
+
+        gap: 18px;
+    }
+
+
+    .carrinho-lista-area,
+    .resumo-pedido {
+        padding:
+            18px
+            14px;
+    }
+
+
+    /* CABEÇALHO */
+
+    .carrinho-lista-topo {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .carrinho-lista-topo h2,
+    .resumo-pedido h2 {
+        font-size: 24px;
+    }
+
+
+    /* PRODUTO */
+
+    .produto-carrinho-pagina {
+        grid-template-columns:
+            92px
+            minmax(0, 1fr);
+
+        gap: 12px;
+
+        align-items: start;
+    }
+
+
+    /* IMAGEM */
+
+    .produto-carrinho-imagem {
+        width: 92px;
+        height: 105px;
+    }
+
+
+    /* NOME */
+
+    .produto-carrinho-dados h3 {
+        font-size: 18px;
+    }
+
+
+    .produto-carrinho-preco {
+        margin-bottom: 11px;
+
+        font-size: 10px;
+    }
+
+
+    /* AÇÕES */
+
+    .produto-carrinho-acoes {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    /* QUANTIDADE */
+
+    .quantidade-pagina {
+        grid-template-columns:
+            28px
+            32px
+            28px;
+    }
+
+
+    .quantidade-pagina button {
+        width: 28px;
+        height: 28px;
+    }
+
+
+    /* SUBTOTAL */
+
+    .produto-carrinho-subtotal {
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        padding-top: 10px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        border-top:
+            1px dashed
+            #dfd3ca;
+
+        text-align: left;
+    }
+
+
+    /* TOTAL */
+
+    .resumo-total strong {
+        font-size: 22px;
+    }
+
+}
