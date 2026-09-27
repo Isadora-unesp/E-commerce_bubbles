@@ -540,18 +540,6 @@ td.nome {
     transition: 0.2s;
 }
 
-
-/* Hover */
-
-.admin-bloco:hover {
-    border-color: #FFC164;
-
-    box-shadow: 0 5px 20px rgba(70, 34, 15, 0.08);
-
-    transform: translateY(-2px);
-}
-
-
 /* Ícone */
 
 .admin-icone {

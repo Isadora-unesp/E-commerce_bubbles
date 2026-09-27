@@ -50,10 +50,6 @@ $base = $base ?? "";
 
         <div class="sobre-hero-conteudo">
 
-            <span class="sobre-etiqueta">
-                NOSSO PROJETO
-            </span>
-
             <h1>
                 Muito além de um
                 <em>trabalho escolar.</em>
@@ -127,8 +123,6 @@ $base = $base ?? "";
             </p>
 
             <p>
-                Depois de muitas conversas e ideias, chegamos
-                aos sabonetes artesanais inspirados em frutas.
                 Assim nasceu a <strong>Fruit Bubbles</strong>,
                 uma marca criada e desenvolvida por nós,
                 desde a identidade visual e os produtos até
@@ -327,7 +321,7 @@ $base = $base ?? "";
 
             <h2>
                 Prazer, somos
-                <em>nós!</em>
+                <em>Fruit Bubbles!</em>
             </h2>
 
         </div>

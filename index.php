@@ -2,36 +2,49 @@
 
 session_start();
 
-$produtos = [
-    [
-        "nome" => "Frutas Vermelhas",
-        "peso" => "90 g",
-        "preco" => 12.50,
-        "imagem" => "img/morango.jpg",
-        "pagina" => "produtosIndividuais/sab1.php"
-    ],
-    [
-        "nome" => "Maracujá",
-        "peso" => "150 g",
-        "preco" => 11.90,
-        "imagem" => "img/maracuja.jpg",
-        "pagina" => "produtosIndividuais/sab2.php"
-    ], 
-    [
-        "nome" => "Coco",
-        "peso" => "150 g",
-        "preco" => 10.50,
-        "imagem" => "img/coco.jpg",
-        "pagina" => "produtosIndividuais/sab4.php"
-    ],
-    [
-        "nome" => "Cítrico",
-        "peso" => "90 g",
-        "preco" => 10.80,
-        "imagem" => "img/citrico.jpg",
-        "pagina" => "produtosIndividuais/sab3.php"
-    ]
+include("util.php");
+
+$conn = conecta();
+
+$varSQL = "SELECT id_produto, nome, peso, valor_unitario
+           FROM produto
+           WHERE (excluido = false OR excluido IS NULL)
+           ORDER BY id_produto";
+
+$select = $conn->query($varSQL);
+
+$produtosBanco = $select->fetchAll(PDO::FETCH_ASSOC);
+
+// Mapeamento temporário de imagem/página por id_produto.
+// Quando a tabela "produto" tiver uma coluna "imagem", troque isso
+// por $p['imagem'] direto do banco.
+$imagensPorId = [
+    1 => "img/morango.jpg",
+    2 => "img/maracuja.jpg",
+    3 => "img/coco.jpg",
+    5 => "img/citrico.jpg",
 ];
+
+$paginaPorId = [
+    1 => "produtosIndividuais/sab1.php",
+    2 => "produtosIndividuais/sab2.php",
+    3 => "produtosIndividuais/sab4.php",
+    5 => "produtosIndividuais/sab3.php",
+];
+
+$produtos = [];
+
+foreach ($produtosBanco as $p) {
+
+    $produtos[] = [
+        "nome"   => $p['nome'],
+        "peso"   => $p['peso'] . " g",
+        "preco"  => (float) $p['valor_unitario'],
+        "imagem" => $imagensPorId[$p['id_produto']] ?? "img/produto-padrao.jpg",
+        "pagina" => $paginaPorId[$p['id_produto']] ?? "#"
+    ];
+
+}
 
 ?>
 

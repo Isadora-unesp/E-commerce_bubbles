@@ -1,5 +1,40 @@
 <?php
 session_start();
+
+include("util.php");
+
+$conn = conecta();
+
+$varSQL = "SELECT id_produto, nome, descricao, valor_unitario
+           FROM produto
+           WHERE (excluido = false OR excluido IS NULL)
+           ORDER BY id_produto";
+
+$select = $conn->query($varSQL);
+
+$produtosBanco = $select->fetchAll(PDO::FETCH_ASSOC);
+
+// Mesmo mapeamento temporário do index.php
+$imagensPorId = [
+    1 => "img/morango.jpg",
+    2 => "img/maracuja.jpg",
+    3 => "img/coco.jpg",
+    5 => "img/citrico.jpg",
+];
+
+$paginaPorId = [
+    1 => "produtosIndividuais/sab1.php",
+    2 => "produtosIndividuais/sab2.php",
+    3 => "produtosIndividuais/sab4.php",
+    5 => "produtosIndividuais/sab3.php",
+];
+
+$dataNomePorId = [
+    1 => "fraguna",
+    2 => "passion",
+    3 => "coconut",
+    5 => "citrico",
+];
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +59,6 @@ session_start();
         <section class="hero-produtos">
 
             <div class="hero-produtos-texto">
-
-                <span class="subtitulo">
-                    FEITO COM FRUTAS. FEITO COM AMOR.
-                </span>
 
                 <h1>
                     Nossa coleção
@@ -70,10 +101,6 @@ session_start();
 
             <div class="titulo-secao-produtos">
 
-                <span class="subtitulo">
-                    ESCOLHA O SEU FAVORITO
-                </span>
-
                 <h2>
                     Nossos produtos
                 </h2>
@@ -86,162 +113,55 @@ session_start();
              
             <!-- CARDS -->
  
-            <div class="grid-produtos"> 
+            <div class="grid-produtos">
 
-                <!-- MARACUJÁ -->
+                <?php foreach ($produtosBanco as $p): ?>
 
-                <article class="produto" data-nome="passion">
+                    <?php
+                        $id = $p['id_produto'];
+                        $imagem = $imagensPorId[$id] ?? "img/produto-padrao.jpg";
+                        $pagina = $paginaPorId[$id] ?? "#";
+                        $dataNome = $dataNomePorId[$id] ?? strtolower($p['nome']);
+                    ?>
 
-                    <a href="produtosIndividuais/sab2.php" class="link-produto">
-                        <div class="produto-imagem">
-                            <img
-                                src="img/maracuja.jpg"
-                                alt="Sabonete Passion de Maracujá"
+                    <article class="produto" data-nome="<?= htmlspecialchars($dataNome) ?>">
+
+                        <a href="<?= htmlspecialchars($pagina) ?>" class="link-produto">
+                            <div class="produto-imagem">
+                                <img
+                                    src="<?= htmlspecialchars($imagem) ?>"
+                                    alt="Sabonete <?= htmlspecialchars($p['nome']) ?>"
+                                >
+                            </div>
+
+                            <div class="produto-info">
+                                <h3><?= htmlspecialchars($p['nome']) ?></h3>
+
+                                <p class="descricao">
+                                    <?= htmlspecialchars($p['descricao']) ?>
+                                </p>
+                            </div>
+                        </a>
+
+                        <div class="produto-final">
+
+                            <strong>
+                                R$ <?= number_format($p['valor_unitario'], 2, ',', '.') ?>
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="adicionar"
+                                onclick="adicionarCarrinho('<?= htmlspecialchars($p['nome'], ENT_QUOTES) ?>', this)"
                             >
+                                Adicionar ao carrinho
+                            </button>
+
                         </div>
 
-                        <div class="produto-info">
-                            <h3>Maracujá</h3>
+                    </article>
 
-                            <p class="descricao">
-                                Calmante e esfoliante suave com sementes
-                                naturais de maracujá.
-                            </p>
-                        </div>
-                    </a>
-
-                    <div class="produto-final">
-
-                        <strong>R$ 11,90</strong>
-
-                        <button
-                            type="button"
-                            class="adicionar"
-                            onclick="adicionarCarrinho('Maracujá', this)"
-                        >
-                            Adicionar ao carrinho
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- COCO -->
-
-                <article class="produto" data-nome="coconut">
-
-                    <a href="produtosIndividuais/sab4.php" class="link-produto">
-                        <div class="produto-imagem">
-                            <img
-                                src="img/coco.jpg"
-                                alt="Sabonete Coconut de Coco"
-                            >
-                        </div>
-
-                        <div class="produto-info">
-                            <h3>Coco</h3>
-
-                            <p class="descricao">
-                                Sabonete artesanal de coco com fragrância
-                                suave e agradável para o cuidado da pele.
-                            </p>
-                        </div>
-                    </a>
-
-                    <div class="produto-final">
-
-                        <strong>R$ 10,50</strong>
-
-                        <button
-                            type="button"
-                            class="adicionar"
-                            onclick="adicionarCarrinho('Coco', this)"
-                        >
-                            Adicionar ao carrinho
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FRUTAS VERMELHAS -->
-
-                <article class="produto" data-nome="fraguna">
-
-                    <a href="produtosIndividuais/sab1.php" class="link-produto">
-                        <div class="produto-imagem">
-                            <img
-                                src="img/morango.jpg"
-                                alt="Sabonete Fraguna de Frutas Vermelhas"
-                            >
-                        </div>
-
-                        <div class="produto-info">
-                            <h3>Frutas Vermelhas</h3>
-
-                            <p class="descricao">
-                                Fragrância doce e frutada, com uma combinação
-                                delicada de morango e frutas vermelhas.
-                            </p>
-                        </div>
-                    </a>
-
-                    <div class="produto-final">
-
-                        <strong>R$ 12,50</strong>
-
-                        <button
-                            type="button"
-                            class="adicionar"
-                            onclick="adicionarCarrinho('Frutas Vermelhas', this)"
-                        >
-                            Adicionar ao carrinho
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- CÍTRICO -->
-
-                <article class="produto" data-nome="citrico">
-
-                    <a href="produtosIndividuais/sab5.php" class="link-produto">
-                        <div class="produto-imagem">
-                            <img
-                                src="img/citrico.jpg"
-                                alt="Sabonete Cítrico"
-                            >
-                        </div>
-
-                        <div class="produto-info">
-                            <h3>Cítrico</h3>
-
-                            <p class="descricao">
-                                Fragrância cítrica refrescante para deixar
-                                o banho mais leve e revigorante.
-                            </p>
-                        </div>
-                    </a>
-
-                    <div class="produto-final">
-
-                        <strong>R$ 10,80</strong>
-
-                        <button
-                            type="button"
-                            class="adicionar"
-                            onclick="adicionarCarrinho('Cítrico', this)"
-                        >
-                            Adicionar ao carrinho
-                        </button>
-
-                    </div>
-
-                </article>
+                <?php endforeach; ?>
 
             </div>
 

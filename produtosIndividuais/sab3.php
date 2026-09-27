@@ -2,9 +2,55 @@
 // Carrega as funções utilitárias do sistema
 require_once "../util.php";
 
-// Esta página está dentro de /produtosIndividuais, então o cabeçalho e o
-// rodapé precisam de "../" para achar imagens e links da raiz do site
 $base = "../";
+
+$conn = conecta();
+
+$idProduto = 5; // id_produto no banco (Sabonete Cítrico)
+
+$varSQL = "SELECT nome, peso, valor_unitario, descricao
+           FROM produto
+           WHERE id_produto = :id
+           AND (excluido = false OR excluido IS NULL)";
+
+$select = $conn->prepare($varSQL);
+$select->bindParam(':id', $idProduto);
+$select->execute();
+
+$produto = $select->fetch(PDO::FETCH_ASSOC);
+
+if (!$produto) {
+    echo "Produto não encontrado.";
+    exit;
+}
+
+// Mapeamento temporário de imagem/página por id_produto (mesmo usado no index.php/produtos.php)
+$imagensPorId = [
+    1 => "../img/morango.jpg",
+    2 => "../img/maracuja.jpg",
+    3 => "../img/coco.jpg",
+    5 => "../img/citrico.jpg",
+];
+
+$paginaPorId = [
+    1 => "sab1.php",
+    2 => "sab2.php",
+    3 => "sab4.php",
+    5 => "sab3.php",
+];
+
+// Busca os outros produtos ativos (pra seção "Conheça nossos outros sabonetes")
+$varSQLOutros = "SELECT id_produto, nome, valor_unitario
+                 FROM produto
+                 WHERE id_produto != :id
+                 AND (excluido = false OR excluido IS NULL)
+                 ORDER BY id_produto";
+
+$selectOutros = $conn->prepare($varSQLOutros);
+$selectOutros->bindParam(':id', $idProduto);
+$selectOutros->execute();
+
+$outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +60,7 @@ $base = "../";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sabonete Cítrico | Fruit Bubbles</title>
+    <title>Sabonete <?= htmlspecialchars($produto['nome']) ?> | Fruit Bubbles</title>
 
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="styleSAB.css">
@@ -23,8 +69,8 @@ $base = "../";
 <body>
 
     <!-- INCLUSÃO DO CABEÇALHO EM PHP -->
-    <?php include_once "../_cabecalho.php"; ?> 
-
+    <?php include_once "../_cabecalho.php"; ?>
+ 
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="pagina-produto">
 
@@ -39,7 +85,7 @@ $base = "../";
 
             <span>/</span>
 
-            <span>Sabonete Frutas Vermelhas</span>
+            <span><?= htmlspecialchars($produto['nome']) ?></span>
 
         </nav>
 
@@ -54,17 +100,17 @@ $base = "../";
 
                     <div class="slide ativo">
                         <span class="slide-contador">1 / 3</span>
-                        <img src="../img/citrico.jpg" alt="Sabonete Cítrico, foto 1">
+                        <img src="<?= htmlspecialchars($imagensPorId[$idProduto]) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>, foto 1">
                     </div>
 
                     <div class="slide">
                         <span class="slide-contador">2 / 3</span>
-                        <img src="../img/citrico.jpg" alt="Sabonete Cítrico, foto 2">
+                        <img src="<?= htmlspecialchars($imagensPorId[$idProduto]) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>, foto 2">
                     </div>
 
                     <div class="slide">
                         <span class="slide-contador">3 / 3</span>
-                        <img src="../img/citrico.jpg" alt="Sabonete Cítrico, foto 3">
+                        <img src="<?= htmlspecialchars($imagensPorId[$idProduto]) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>, foto 3">
                     </div>
 
                     <button type="button" class="seta-slide anterior" id="slideAnterior" aria-label="Foto anterior">
@@ -95,11 +141,10 @@ $base = "../";
 
                     <span class="subtitulo">SABONETE ARTESANAL</span>
 
-                    <h1>Cítrico</h1>
+                    <h1><?= htmlspecialchars($produto['nome']) ?></h1>
 
                     <p class="resumo">
-                        Sabonete artesanal com extrato natural de frutas vermelhas.
-                        Limpa, perfuma e deixa a pele macia.
+                        <?= htmlspecialchars($produto['descricao']) ?>
                     </p>
 
                 </div>
@@ -115,7 +160,7 @@ $base = "../";
 
 
                 <!-- PREÇO -->
-                <p class="preco">R$ 10,80</p>
+                <p class="preco">R$ <?= number_format($produto['valor_unitario'], 2, ',', '.') ?></p>
 
 
                 <!-- PESO -->
@@ -123,7 +168,7 @@ $base = "../";
 
                     <span>Peso</span>
 
-                    <button type="button" class="peso-btn">90 g</button>
+                    <button type="button" class="peso-btn"><?= htmlspecialchars($produto['peso']) ?> g</button>
 
                 </div>
 
@@ -135,11 +180,21 @@ $base = "../";
 
                     <div class="quantidade">
 
-                        <button type="button" id="menosQtd" aria-label="Diminuir quantidade">−</button>
+                        <button
+                            type="button"
+                            id="menosQtd"
+                            aria-label="Diminuir quantidade">
+                            −
+                        </button>
 
                         <span id="qtdValor">1</span>
 
-                        <button type="button" id="maisQtd" aria-label="Aumentar quantidade">+</button>
+                        <button
+                            type="button"
+                            id="maisQtd"
+                            aria-label="Aumentar quantidade">
+                            +
+                        </button>
 
                     </div>
 
@@ -147,9 +202,15 @@ $base = "../";
 
 
                 <!-- ADICIONAR AO CARRINHO -->
-                <button type="button" class="comprar" id="botaoComprar">
+                <button
+                    type="button"
+                    class="comprar"
+                    id="botaoComprar">
+
                     Adicionar ao carrinho
+
                 </button>
+
 
             </div>
 
@@ -164,21 +225,8 @@ $base = "../";
                 <h2>Descrição do produto</h2>
 
                 <p>
-                    Nosso sabonete Frutas Vermelhas é feito artesanalmente com ingredientes naturais
-                    que limpam delicadamente e deixam a pele macia, hidratada e levemente perfumada.
+                    <?= htmlspecialchars($produto['descricao']) ?>
                 </p>
-
-                <p>
-                    O extrato natural de frutas vermelhas é rico em antioxidantes,
-                    trazendo um aroma doce e frutado para o seu dia a dia.
-                </p>
-
-                <ul>
-                    <li>Limpeza suave e eficaz</li>
-                    <li>Hidratação profunda</li>
-                    <li>Aroma frutado e adocicado</li>
-                    <li>Ideal para todos os tipos de pele</li>
-                </ul>
 
             </div>
 
@@ -216,26 +264,15 @@ $base = "../";
 
             <div class="outros-grade">
 
-                <!-- MARACUJÁ -->
-                <a href="sab2.php" class="outro-card">
-                    <img src="../img/maracuja.jpg" alt="Sabonete Maracujá">
-                    <h3>Maracujá</h3>
-                    <strong>R$ 9,00</strong>
-                </a>
+                <?php foreach ($outrosProdutos as $outro): ?>
 
-                <!-- COCO -->
-                <a href="sab4.php" class="outro-card">
-                    <img src="../img/coco.jpg" alt="Sabonete Coco">
-                    <h3>Coco</h3>
-                    <strong>R$ 12,00</strong>
-                </a>
+                    <a href="<?= htmlspecialchars($paginaPorId[$outro['id_produto']] ?? '#') ?>" class="outro-card">
+                        <img src="<?= htmlspecialchars($imagensPorId[$outro['id_produto']] ?? '../img/produto-padrao.jpg') ?>" alt="Sabonete <?= htmlspecialchars($outro['nome']) ?>">
+                        <h3><?= htmlspecialchars($outro['nome']) ?></h3>
+                        <strong>R$ <?= number_format($outro['valor_unitario'], 2, ',', '.') ?></strong>
+                    </a>
 
-                <!-- Frutas Vermelhas -->
-                <a href="sab1.php" class="outro-card">
-                    <img src="../img/morango.jpg" alt="Sabonete Frutas Vermelhas">
-                    <h3>Frutas Vermelhas</h3>
-                    <strong>R$ 9,00</strong>
-                </a>
+                <?php endforeach; ?>
 
             </div>
 
@@ -244,7 +281,7 @@ $base = "../";
     </main>
  
     <?php include_once "../_footer.php"; ?>
-
+ 
     <script src="../script.js" defer></script>
 
 </body>
