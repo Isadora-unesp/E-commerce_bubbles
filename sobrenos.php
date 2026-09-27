@@ -321,7 +321,7 @@ $base = $base ?? "";
 
             <h2>
                 Prazer, somos
-                <em>Fruit Bubbles!</em>
+                <em><br>Fruit Bubbles!</em>
             </h2>
 
         </div>

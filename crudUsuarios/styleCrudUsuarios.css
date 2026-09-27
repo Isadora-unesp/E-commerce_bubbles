@@ -6,11 +6,11 @@ body {
     margin: 0;
     padding: 40px 20px;
 
-    background: #ffffff;
+    background: #f7f8fa;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
 
-    color: #46220F;
+    color: #1f2937;
 }
 
 
@@ -34,37 +34,39 @@ body {
    ===================================================== */
 
 .pagina-header {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .pagina-header h1 {
-    margin: 0 0 8px;
+    margin: 0 0 6px;
 
-    font-family: Georgia, serif;
+    font-family: inherit;
 
-    font-size: 30px;
+    font-weight: 600;
 
-    color: #46220F;
+    font-size: 24px;
+
+    color: #111827;
 }
 
 .pagina-header p {
     margin: 0;
 
-    color: #758C42;
+    color: #6b7280;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .total {
     margin: 0;
 
-    color: #758C42;
+    color: #6b7280;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .total strong {
-    color: #46220F;
+    color: #111827;
 }
 
 
@@ -76,58 +78,56 @@ body {
     width: 100%;
 
     overflow-x: auto;
+
+    background: #ffffff;
+
+    border-radius: 6px;
+
+    border: 1px solid #e5e7eb;
 }
 
 table {
     width: 100%;
 
-    border-collapse: separate;
+    border-collapse: collapse;
 
     border-spacing: 0;
-
-    border: 1px solid #f0dfd2;
-
-    border-radius: 14px;
-
-    overflow: hidden;
 }
 
 
 /* Cabeçalho */
 
 thead th {
-    padding: 16px;
+    padding: 12px 16px;
 
-    background: #46220F;
+    background: #f3f4f6;
 
-    color: #FFF2E8;
+    color: #374151;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 600;
 
     text-align: left;
-}
 
-thead th:first-child {
-    border-radius: 14px 0 0 0;
-}
+    text-transform: uppercase;
 
-thead th:last-child {
-    border-radius: 0 14px 0 0;
+    letter-spacing: 0.03em;
+
+    border-bottom: 1px solid #e5e7eb;
 }
 
 
 /* Células */
 
 tbody td {
-    padding: 16px;
+    padding: 12px 16px;
 
-    border-bottom: 1px solid #f3e5db;
+    border-bottom: 1px solid #eef0f2;
 
-    font-size: 14px;
+    font-size: 13px;
 
-    color: #5a3a27;
+    color: #374151;
 }
 
 tbody tr:last-child td {
@@ -138,25 +138,25 @@ tbody tr:last-child td {
 /* Hover */
 
 tbody tr:hover {
-    background: #FFF2E8;
+    background: #f9fafb;
 }
 
 
 /* ID */
 
 td.id {
-    color: #a98d78;
+    color: #9ca3af;
 
-    font-weight: 600;
+    font-weight: 500;
 }
 
 
 /* Nome */
 
 td.nome {
-    color: #46220F;
+    color: #111827;
 
-    font-weight: 700;
+    font-weight: 600;
 }
 
 
@@ -167,27 +167,33 @@ td.nome {
 .badge {
     display: inline-block;
 
-    padding: 6px 12px;
+    padding: 3px 10px;
 
-    border-radius: 20px;
+    border-radius: 4px;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    font-weight: 700;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.02em;
 }
 
 .badge.admin {
-    background: #758C42;
+    background: #eef2ff;
 
-    color: white;
+    color: #4338ca;
+
+    border: 1px solid #c7d2fe;
 }
 
 .badge.usuario {
-    background: #FFF2E8;
+    background: #f3f4f6;
 
-    color: #46220F;
+    color: #4b5563;
 
-    border: 1px solid #f0d9c8;
+    border: 1px solid #e5e7eb;
 }
 
 
@@ -202,61 +208,65 @@ td.nome {
 .acoes a {
     display: inline-block;
 
-    padding: 8px 13px;
+    padding: 6px 12px;
 
-    margin-right: 5px;
+    margin-right: 6px;
 
-    border-radius: 8px;
+    border-radius: 4px;
 
-    font-size: 13px;
+    font-size: 12px;
 
-    font-weight: 700;
+    font-weight: 600;
 
     text-decoration: none;
 
-    transition: 0.2s;
+    border: 1px solid transparent;
+
+    transition: 0.15s;
 }
 
 
 /* Alterar */
 
 .btn-alterar {
-    background: #FFC164;
+    background: #ffffff;
 
-    color: #46220F;
+    color: #374151;
 
-    border: none;
+    border: 1px solid #d1d5db;
 
     cursor: pointer;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
 
-    font-size: 13px;
+    font-size: 12px;
 
-    font-weight: 700;
+    font-weight: 600;
 
     text-decoration: none;
 }
 
 .btn-alterar:hover {
-    background: #f5b04e;
+    background: #f3f4f6;
 
-    transform: translateY(-1px);
+    border-color: #9ca3af;
 }
 
 
 /* Excluir */
 
 .btn-excluir {
-    background: #F86464;
+    background: #ffffff;
 
-    color: white;
+    color: #b91c1c;
+
+    border: 1px solid #fca5a5;
 }
 
 .btn-excluir:hover {
-    background: #e95353;
+    background: #fef2f2;
 
-    transform: translateY(-1px);
+    border-color: #b91c1c;
 }
 
 
@@ -265,11 +275,11 @@ td.nome {
    ===================================================== */
 
 .nenhum-usuario {
-    padding: 45px !important;
+    padding: 40px !important;
 
     text-align: center;
 
-    color: #9b8170 !important;
+    color: #9ca3af !important;
 }
 
 
@@ -279,14 +289,21 @@ td.nome {
 
 .formulario {
     width: 100%;
-
-    max-width: 850px;
+    max-width: 700px;
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 20px;
+    gap: 18px;
+
+    background: #ffffff;
+
+    padding: 24px;
+
+    border-radius: 6px;
+
+    border: 1px solid #e5e7eb;
 }
 
 
@@ -297,15 +314,15 @@ td.nome {
 
     flex-direction: column;
 
-    gap: 7px;
+    gap: 6px;
 }
 
 .campo label {
-    font-size: 14px;
+    font-size: 13px;
 
-    font-weight: 700;
+    font-weight: 600;
 
-    color: #46220F;
+    color: #374151;
 }
 
 
@@ -314,46 +331,46 @@ td.nome {
 .campo input {
     width: 100%;
 
-    padding: 12px 14px;
+    padding: 9px 12px;
 
-    border: 1px solid #e2cfc1;
+    border: 1px solid #d1d5db;
 
-    border-radius: 8px;
+    border-radius: 4px;
 
     background: #ffffff;
 
-    color: #46220F;
+    color: #111827;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
 
-    font-size: 14px;
+    font-size: 13px;
 
     outline: none;
 
-    transition: 0.2s;
+    transition: 0.15s;
 }
 
 
 /* Foco */
 
 .campo input:focus {
-    border-color: #FFC164;
+    border-color: #4b5563;
 
-    box-shadow: 0 0 0 3px rgba(255, 193, 100, 0.18);
+    box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
 }
 
 
 /* Placeholder */
 
 .campo input::placeholder {
-    color: #a98d78;
+    color: #9ca3af;
 }
 
 
 /* Texto auxiliar */
 
 .campo small {
-    color: #9b8170;
+    color: #9ca3af;
 
     font-size: 12px;
 }
@@ -372,7 +389,11 @@ td.nome {
 
     gap: 10px;
 
-    margin-top: 10px;
+    margin-top: 8px;
+
+    padding-top: 16px;
+
+    border-top: 1px solid #eef0f2;
 }
 
 
@@ -381,31 +402,31 @@ td.nome {
 .acoes-formulario .btn-alterar {
     display: inline-block;
 
-    padding: 10px 20px;
+    padding: 9px 18px;
 
-    border-radius: 8px;
+    border-radius: 4px;
 
-    background: #FFC164;
+    background: #111827;
 
-    color: #46220F;
+    color: #ffffff;
 
-    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #111827;
 
-    font-size: 14px;
+    font-family: inherit;
 
-    font-weight: 700;
+    font-size: 13px;
+
+    font-weight: 600;
 
     text-decoration: none;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: 0.15s;
 }
 
 .acoes-formulario .btn-alterar:hover {
-    background: #f5b04e;
-
-    transform: translateY(-1px);
+    background: #1f2937;
 }
 
 
@@ -414,27 +435,29 @@ td.nome {
 .btn {
     display: inline-block;
 
-    padding: 10px 20px;
+    padding: 9px 18px;
 
-    border-radius: 8px;
+    border-radius: 4px;
 
-    background: #46220F;
+    background: #ffffff;
 
-    color: white;
+    color: #374151;
 
-    font-size: 14px;
+    border: 1px solid #d1d5db;
+
+    font-size: 13px;
 
     font-weight: 600;
 
     text-decoration: none;
 
-    transition: 0.2s;
+    transition: 0.15s;
 }
 
 .btn:hover {
-    background: #5d3017;
+    background: #f3f4f6;
 
-    transform: translateY(-1px);
+    border-color: #9ca3af;
 }
 
 
@@ -447,9 +470,9 @@ td.nome {
 
     justify-content: flex-end;
 
-    gap: 16px;
+    gap: 12px;
 
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 
@@ -470,12 +493,12 @@ td.nome {
     }
 
     .pagina-header h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     thead th,
     tbody td {
-        padding: 12px 10px;
+        padding: 10px 8px;
     }
 
     .acoes-formulario {
@@ -506,9 +529,9 @@ td.nome {
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 16px;
 
-    margin-top: 35px;
+    margin-top: 28px;
 }
 
 
@@ -521,23 +544,29 @@ td.nome {
 
     align-items: center;
 
-    gap: 20px;
+    gap: 16px;
 
-    min-height: 150px;
+    min-height: 130px;
 
-    padding: 25px;
+    padding: 22px;
 
     background: #ffffff;
 
-    border: 1px solid #f0dfd2;
+    border: 1px solid #e5e7eb;
 
-    border-radius: 14px;
+    border-radius: 6px;
 
     text-decoration: none;
 
-    color: #46220F;
+    color: #111827;
 
-    transition: 0.2s;
+    transition: 0.15s;
+}
+
+.admin-bloco:hover {
+    border-color: #9ca3af;
+
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 /* Ícone */
@@ -548,16 +577,16 @@ td.nome {
     align-items: center;
     justify-content: center;
 
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
 
     flex-shrink: 0;
 
-    border-radius: 12px;
+    border-radius: 6px;
 
-    background: #FFF2E8;
+    background: #f3f4f6;
 
-    font-size: 28px;
+    font-size: 22px;
 }
 
 
@@ -568,42 +597,44 @@ td.nome {
 }
 
 .admin-conteudo h2 {
-    margin: 0 0 8px;
+    margin: 0 0 6px;
 
-    font-family: Georgia, serif;
+    font-family: inherit;
 
-    font-size: 22px;
+    font-weight: 600;
 
-    color: #46220F;
+    font-size: 17px;
+
+    color: #111827;
 }
 
 .admin-conteudo p {
     margin: 0;
 
-    font-size: 14px;
+    font-size: 13px;
 
     line-height: 1.5;
 
-    color: #758C42;
+    color: #6b7280;
 }
 
 
 /* Seta */
 
 .admin-seta {
-    font-size: 25px;
+    font-size: 20px;
 
-    font-weight: 700;
+    font-weight: 600;
 
-    color: #FFC164;
+    color: #9ca3af;
 
-    transition: 0.2s;
+    transition: 0.15s;
 }
 
 .admin-bloco:hover .admin-seta {
-    transform: translateX(5px);
+    transform: translateX(3px);
 
-    color: #46220F;
+    color: #374151;
 }
 
 
@@ -616,9 +647,9 @@ td.nome {
     }
 
     .admin-bloco {
-        min-height: 130px;
+        min-height: 110px;
 
-        padding: 20px;
+        padding: 18px;
     }
 
 }
