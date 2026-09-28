@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();
@@ -47,7 +46,7 @@ $valor_unitario = $linha['valor_unitario'];
 
     <h2>Alterar Produto</h2>
 
-    <form action="updateProduto.php" method="post">
+    <form action="crudProdutos/updateProduto.php" method="post">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
         <label>Nome</label>

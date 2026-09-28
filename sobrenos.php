@@ -1,10 +1,6 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-$base = $base ?? "";
+include("util.php"); 
 
 ?>
 
@@ -14,7 +10,7 @@ $base = $base ?? "";
 <head>
 
     <meta charset="UTF-8">
-
+    <base href="<?= $_SESSION['raiz'] ?>">
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -24,12 +20,12 @@ $base = $base ?? "";
 
     <link
         rel="stylesheet"
-        href="<?= $base ?>style.css"
+        href="style.css"
     >
 
     <link
         rel="stylesheet"
-        href="<?= $base ?>styleSN.css"
+        href="styleSN.css"
     >
 
 </head>
@@ -77,7 +73,7 @@ $base = $base ?? "";
         <div class="sobre-hero-foto">
 
             <img
-                src="<?= $base ?>img/equipe.jpg"
+                src="img/equipe.jpg"
                 alt="Equipe Fruit Bubbles"
             >
 
@@ -535,7 +531,7 @@ $base = $base ?? "";
 
 <?php include_once "_footer.php"; ?>
 
-<script src="<?= $base ?>script.js"></script>
+<script src="script.js"></script>
 
 </body>
 

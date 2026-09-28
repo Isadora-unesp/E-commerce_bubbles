@@ -1,13 +1,11 @@
 <?php
-
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();
 
 if (!isset($_GET['id'])) {
-    header("Location: /crudUsuarios/listarUsuario.php");
+    header("Location: listarUsuario.php");
     exit;
 }
 

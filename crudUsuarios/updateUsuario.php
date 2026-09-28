@@ -1,7 +1,5 @@
 <?php
-
-session_start();
-
+ 
 include("../util.php");
 
 $conn = conecta();
@@ -57,12 +55,13 @@ try {
     $update->execute();
 
     if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-        header("Location: ../crudUsuarios/listarUsuario.php");
+        header("Location: listarUsuario.php");
+        exit;
     } else {
-        header("Location: /perfilUsuario.php");
+        header("Location: perfilUsuario.php");
+        exit;
     }
-
-    exit;
+ 
 
 } catch (PDOException $e) {
 

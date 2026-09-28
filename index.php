@@ -1,8 +1,8 @@
 <?php
+ 
+include("util.php"); 
 
-session_start();
-
-include("util.php");
+$_SESSION["raiz"] = "/loja3a/";
 
 $conn = conecta();
 
@@ -14,10 +14,7 @@ $varSQL = "SELECT id_produto, nome, peso, valor_unitario
 $select = $conn->query($varSQL);
 
 $produtosBanco = $select->fetchAll(PDO::FETCH_ASSOC);
-
-// Mapeamento temporário de imagem/página por id_produto.
-// Quando a tabela "produto" tiver uma coluna "imagem", troque isso
-// por $p['imagem'] direto do banco.
+ 
 $imagensPorId = [
     1 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
@@ -53,6 +50,7 @@ foreach ($produtosBanco as $p) {
 
 <head>
     <meta charset="UTF-8">
+    <base href="<?= $_SESSION['raiz'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Fruit Bubbles | Sabonetes Artesanais</title>

@@ -1,7 +1,5 @@
 <?php
-
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();
@@ -28,7 +26,7 @@ $select = $conn->query($varSQL);
 
     <title>Adicionar Entrada</title>
 
-    <link rel="stylesheet" href="styleCrudEntradas.css">
+    <link rel="stylesheet" href="crudEntradas/styleCrudEntradas.css">
 
 </head>
 
@@ -49,7 +47,7 @@ $select = $conn->query($varSQL);
 
         <form
             class="formulario"
-            action="insertEntradas.php"
+            action="crudEntradas/insertEntradas.php"
             method="post"
         >
 
@@ -133,7 +131,7 @@ $select = $conn->query($varSQL);
             <div class="acoes-formulario">
 
                 <a
-                    href="listarEntradas.php"
+                    href="crudEntradas/listarEntradas.php"
                     class="btn"
                 >
                     Voltar

@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();
@@ -68,7 +67,7 @@ $total = $select->rowCount();
 
     <div class="menu">
         <br>
-        <a href="adicionarProduto.php">Adicionar Produto</a>
+        <a href="crudProdutos/adicionarProduto.php">Adicionar Produto</a>
     </div>
     <div class="menu">
         <a href="../admin.php" class="voltar">Voltar</a>

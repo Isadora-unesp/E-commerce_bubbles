@@ -2,8 +2,8 @@
 // Carrega as funções utilitárias do sistema
 require_once "../util.php";
 
-$base = "../";
-
+$base = $base ?? "";
+ 
 $conn = conecta();
 
 $idProduto = 1; // id_produto no banco (Sabonete de Morango)
@@ -26,10 +26,10 @@ if (!$produto) {
 
 // Mapeamento temporário de imagem/página por id_produto (mesmo usado no index.php/produtos.php)
 $imagensPorId = [
-    1 => "../img/morango.jpg",
-    2 => "../img/maracuja.jpg",
-    3 => "../img/coco.jpg",
-    5 => "../img/citrico.jpg",
+    1 => "img/morango.jpg",
+    2 => "img/maracuja.jpg",
+    3 => "img/coco.jpg",
+    5 => "img/citrico.jpg",
 ];
 
 $paginaPorId = [
@@ -58,12 +58,13 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
 <head>
     <meta charset="UTF-8">
+    <base href="<?= $_SESSION['raiz'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sabonete <?= htmlspecialchars($produto['nome']) ?> | Fruit Bubbles</title>
 
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="styleSAB.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="produtosIndividuais/styleSAB.css">
 </head>
 
 <body>
@@ -77,11 +78,11 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
         <!-- CAMINHO DA PÁGINA -->
         <nav class="caminho" aria-label="Você está em">
 
-            <a href="../index.php">Início</a>
+            <a href="index.php">Início</a>
 
             <span>/</span>
 
-            <a href="../produtos.php">Produtos</a>
+            <a href="produtos.php">Produtos</a>
 
             <span>/</span>
 
@@ -267,7 +268,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($outrosProdutos as $outro): ?>
 
                     <a href="<?= htmlspecialchars($paginaPorId[$outro['id_produto']] ?? '#') ?>" class="outro-card">
-                        <img src="<?= htmlspecialchars($imagensPorId[$outro['id_produto']] ?? '../img/produto-padrao.jpg') ?>" alt="Sabonete <?= htmlspecialchars($outro['nome']) ?>">
+                        <img src="<?= htmlspecialchars($imagensPorId[$outro['id_produto']] ?? 'img/logo.png') ?>" alt="Sabonete <?= htmlspecialchars($outro['nome']) ?>">
                         <h3><?= htmlspecialchars($outro['nome']) ?></h3>
                         <strong>R$ <?= number_format($outro['valor_unitario'], 2, ',', '.') ?></strong>
                     </a>
@@ -282,7 +283,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
  
     <?php include_once "../_footer.php"; ?>
  
-    <script src="../script.js" defer></script>
+    <script src="script.js" defer></script>
 
 </body>
 

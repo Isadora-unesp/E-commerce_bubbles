@@ -1,7 +1,5 @@
 <?php
-
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();
@@ -77,7 +75,7 @@ $selectProdutos = $conn->query($varSQLProdutos);
 
         <form
             class="formulario"
-            action="updateEntradas.php"
+            action="crudEntradas/updateEntradas.php"
             method="post"
         >
 
@@ -172,7 +170,7 @@ $selectProdutos = $conn->query($varSQLProdutos);
             <div class="acoes-formulario">
 
                 <a
-                    href="listarEntradas.php"
+                    href="crudEntradas/listarEntradas.php"
                     class="btn"
                 >
                     Voltar

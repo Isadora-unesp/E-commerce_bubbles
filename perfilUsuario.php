@@ -1,14 +1,12 @@
 <?php
 
-session_start();
+include("util.php"); 
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: index.php");
     exit;
 }
-
-include("util.php");
-
+ 
 $conn = conecta();
 
 $id = $_SESSION['usuario_id'];
@@ -49,6 +47,8 @@ $telefone = $linha['telefone'];
 
 <body>
     
+    <?php include_once "_cabecalho.php"; ?>
+
     <a href="index.php" class="voltar-index" aria-label="Voltar para a página inicial">
        <span>←</span> Voltar
    </a>

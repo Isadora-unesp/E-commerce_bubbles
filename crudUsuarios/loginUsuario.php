@@ -1,11 +1,9 @@
 <?php
-
-session_start();
-
+ 
 include("../util.php");
 
 $adminEmail = "admin@gmail.com";
-$adminSenha = "123456";
+$adminSenha = "1234567";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin'] = true;
 
 
-        header("Location: /index.php");
+        header("Location: ../index.php");
         exit;
 
 

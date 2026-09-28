@@ -1,7 +1,5 @@
 <?php
-
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();
@@ -33,7 +31,7 @@ $total = count($entradas);
 
     <title>Entradas de Estoque</title>
 
-    <link rel="stylesheet" href="styleCrudEntradas.css">
+    <link rel="stylesheet" href="crudEntradas/styleCrudEntradas.css">
 
 </head>
 
@@ -58,7 +56,7 @@ $total = count($entradas);
 
 
         <div class="menu" style="justify-content: flex-start; margin-bottom: 20px;">
-            <a href="adicionarEntradas.php" class="btn">
+            <a href="crudEntradas/adicionarEntradas.php" class="btn">
                 Adicionar Entrada
             </a>
         </div>
@@ -119,14 +117,14 @@ $total = count($entradas);
 
                                     <a
                                         class="btn-alterar"
-                                        href="alterarEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
+                                        href="crudEntradas/alterarEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
                                     >
                                         Alterar
                                     </a>
 
                                     <a
                                         class="btn-excluir"
-                                        href="excluirEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
+                                        href="crudEntradas/excluirEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
                                         onclick="return confirm('Tem certeza que deseja excluir esta entrada?')"
                                     >
                                         Excluir

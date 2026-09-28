@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();
@@ -26,8 +25,8 @@ $total = $select->fetch(PDO::FETCH_ASSOC);
     <h1>Sistema de Produtos</h1>
 
     <div class="menu">
-        <a href="listarProdutos.php">Listar</a>
-        <a href="adicionarProduto.php">Adicionar</a>
+        <a href="crudProdutos/listarProdutos.php">Listar</a>
+        <a href="crudProdutos/adicionarProduto.php">Adicionar</a>
     </div>
 
     <div class="total">Total de produtos ativos: <?php echo $total['total']; ?></div>

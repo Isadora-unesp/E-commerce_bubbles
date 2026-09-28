@@ -9,6 +9,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+if (!isset($_SESSION["raiz"])) {
+    $_SESSION["raiz"] = "/loja3a/";
+}
+
 // Define estoque mínimo padrão na sessão, se ainda não existir
 if (!isset($_SESSION['estoqueMinimo'])) {
     $_SESSION['estoqueMinimo'] = 5;
@@ -127,7 +131,7 @@ function LogaAutomatico($paramLogin, $paramSenha)
 
         DefineCookie('loginCookie', $paramLogin, 60);
 
-        header('Location: /index.php');
+        header('Location: index.php');
         exit;
     }
 }

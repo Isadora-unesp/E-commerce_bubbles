@@ -134,7 +134,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         <?php } ?>
 
         <!-- CARRINHO -->
-        <a href="/carrinho.php"
+        <a href="carrinho.php"
             class="carrinho"
             id="botaoCarrinho"
             aria-label=" Ir para o carrinho"

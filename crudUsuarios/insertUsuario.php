@@ -1,18 +1,12 @@
 <?php
-
-session_start();
-
+ 
 include("../util.php");
-
 
 try {
 
-
     $conn = conecta();
 
-
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-
 
     $varSQL = "INSERT INTO usuario
                (nome, email, senha, telefone, admin, excluido)
@@ -40,7 +34,7 @@ try {
     $_SESSION['logado'] = true;
 
 
-    header("Location: /index.php");
+    header("Location: ../index.php");
     exit;
 
 
@@ -48,9 +42,11 @@ try {
 
 
     if ($e->getCode() == "23505") {
-        header("Location: /cadastro.php?erro=email");
+        header("Location: ../cadastro.php?erro=email");
+    exit;
     } else {
-        header("Location: /cadastro.php?erro=geral");
+        header("Location: ../cadastro.php?erro=geral");
+        exit;
     }
 
     exit;

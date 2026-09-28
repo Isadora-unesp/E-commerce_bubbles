@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+ 
 include("../util.php");
 
 SaiSeHacker();?>
@@ -18,7 +17,7 @@ SaiSeHacker();?>
 
     <h2>Adicionar Produto</h2>
 
-    <form action="insertProduto.php" method="post">
+    <form action="crudProdutos/insertProduto.php" method="post">
         <label>Nome</label>
         <input type="text" name="nome" required>
 
