@@ -134,6 +134,21 @@ $base = $base ?? "";
     </section>
 
     <!-- =========================================
+         FRASE DE DESTAQUE
+    ========================================== -->
+
+    <section class="sobre-frase">
+
+        <span>FRUIT BUBBLES</span>
+
+        <p>
+            “Cada parte deste projeto representa
+            alguma coisa que aprendemos no caminho.”
+        </p>
+
+    </section>
+
+    <!-- =========================================
          O QUE APRENDEMOS
     ========================================== -->
 
