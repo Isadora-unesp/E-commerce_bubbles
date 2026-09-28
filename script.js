@@ -185,30 +185,7 @@ function atualizarContador() {
 
 atualizarContador();
 
-/*PÁGINA DO CARRINHO*/
-const produtosCarrinhoPagina = {
 
-    "Frutas Vermelhas": {
-        preco: 12.50,
-        imagem: "img/morango.jpg"
-    },
-
-    "Maracujá": {
-        preco: 11.90,
-        imagem: "img/maracuja.jpg"
-    },
-
-    "Cítrico": {
-        preco: 10.80,
-        imagem: "img/citrico.jpg"
-    },
-
-    "Coco": {
-        preco: 10.50,
-        imagem: "img/coco.jpg"
-    }
-
-};
 
 function moeda(valor) {
 
@@ -388,16 +365,37 @@ function renderizarCarrinhoPagina() {
     Object.keys(quantidades)
         .forEach(
             function(nomeProduto) {
-            
-                const dados = produtosCarrinhoPagina[nomeProduto];
+
+                const dados = produtosBanco.find(
+                    function(produto) {
+                        return produto.nome === nomeProduto;
+                    }
+                );
 
                 if (!dados) {
+                    console.log(
+                        "Produto não encontrado no banco:",
+                        nomeProduto
+                    );
+
                     return;
                 }
 
                 const quantidade = quantidades[nomeProduto];
 
-                const totalProduto = dados.preco * quantidade;
+                const preco = parseFloat(dados.valor_unitario);
+
+                const imagensProdutos = {
+                    1: "img/morango.jpg",
+                    2: "img/maracuja.jpg",
+                    3: "img/coco.jpg",
+                    5: "img/citrico.jpg"
+                };
+
+                const imagemProduto =
+                    imagensProdutos[dados.id_produto] || "img/logo.png";
+
+                const totalProduto = preco * quantidade;
 
                 totalGeral += totalProduto;
 
@@ -413,7 +411,7 @@ function renderizarCarrinhoPagina() {
                     <div class="produto-carrinho-imagem">
 
                         <img
-                            src="${dados.imagem}"
+                            src="${imagemProduto}"
                             alt="${nomeProduto}"
                         >
 
@@ -431,7 +429,7 @@ function renderizarCarrinhoPagina() {
 
                         <span class="produto-carrinho-preco">
 
-                            ${moeda(dados.preco)}
+                            ${moeda(preco)}
                             cada
 
                         </span>

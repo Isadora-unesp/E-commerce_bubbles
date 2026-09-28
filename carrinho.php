@@ -1,9 +1,25 @@
 <?php
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$base = "";
+include("util.php");
+
+$conn = conecta();
+
+$sql = "SELECT
+            id_produto,
+            nome,
+            valor_unitario
+        FROM produto
+        WHERE excluido = false OR excluido IS NULL
+        ORDER BY id_produto";
+
+$stmt = $conn->query($sql);
+
+$produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -169,6 +185,13 @@ $base = "";
         </main>
 
         <?php include "_footer.php"; ?>
+
+        <script>
+            const produtosBanco = <?= json_encode(
+                $produtosBanco,
+                JSON_UNESCAPED_UNICODE
+            ) ?>;
+        </script>
 
         <script src="script.js"></script>
 
