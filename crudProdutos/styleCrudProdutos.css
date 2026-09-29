@@ -1,40 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     margin: 30px;
     background: #f7f8fa;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     color: #1f2937;
 }
 
-h1, h2 {
+h1 {
     color: #111827;
-    font-family: inherit;
+    font-size: 28px;
     font-weight: 600;
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #ffffff;
+p {
+    color: #6b7280;
+    font-size: 14px;
 }
 
-th, td {
-    border: none;
-    border-bottom: 1px solid #eef0f2;
-    padding: 12px 16px;
-    text-align: left;
+.container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.formulario {
+    max-width: 850px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    font-weight: 600;
+    color: #374151;
     font-size: 13px;
 }
 
-tr:last-child td {
-    border-bottom: none;
+.campo input,
+.campo select {
+    width: 350px;
+    max-width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 13px;
 }
 
-tr:hover td {
-    background: #f9fafb;
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #4b5563;
+    box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    border-bottom: 1px solid #eef0f2;
 }
 
 th {
@@ -43,63 +83,95 @@ th {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border-bottom: 1px solid #e5e7eb;
 }
 
-input[type="text"],
-input[type="number"] {
-    padding: 9px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
-    width: 250px;
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    outline: none;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-    border-color: #4b5563;
-    box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
-}
-
-input[type="submit"],
-.menu a,
-table a {
-    display: inline-block;
-    padding: 6px 14px;
-    background: #ffffff;
-    color: #374151;
-    border: 1px solid #d1d5db;
-    cursor: pointer;
-    text-decoration: none;
-    margin: 4px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 12px;
-    transition: 0.15s;
-}
-
-input[type="submit"]:hover,
-.menu a:hover,
-table a:hover {
-    background: #f3f4f6;
-    border-color: #9ca3af;
+tr:hover td {
+    background: #f9fafb;
 }
 
 .total {
-    background: #f3f4f6;
+    display: inline-block;
     padding: 6px 12px;
+    background: #f3f4f6;
     color: #6b7280;
     font-size: 13px;
     border-radius: 4px;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: 600;
+.menu,
+.acoes-formulario {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn,
+.menu a,
+.acoes a,
+.acoes button,
+input[type="submit"] {
+    display: inline-block;
+    padding: 7px 14px;
+    background: #fff;
     color: #374151;
-    font-size: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover,
+.menu a:hover,
+.acoes a:hover,
+.acoes button:hover,
+input[type="submit"]:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.btn-excluir {
+    color: #dc2626 !important;
+    border-color: #fca5a5 !important;
+}
+
+/* responsividade */
+
+@media (max-width: 700px) {
+
+    body {
+        margin: 15px;
+    }
+
+    .pagina-header h1,
+    h1 {
+        font-size: 22px;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+    }
+
+    .campo input,
+    .campo select {
+        width: 100%;
+    }
+
+    .acoes-formulario {
+        justify-content: stretch;
+    }
+
+    .acoes-formulario .btn,
+    .acoes-formulario input[type="submit"] {
+        flex: 1;
+        text-align: center;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }

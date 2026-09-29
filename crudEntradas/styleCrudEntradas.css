@@ -10,11 +10,6 @@ body {
     color: #1f2937;
 }
 
-
-/* =====================================================
-   CONTAINER
-   ===================================================== */
-
 .container.grande,
 .container {
     width: 100%;
@@ -22,11 +17,6 @@ body {
     margin: 0 auto;
     padding: 0;
 }
-
-
-/* =====================================================
-   CABEÇALHO
-   ===================================================== */
 
 .pagina-header {
     margin-bottom: 30px;
@@ -60,11 +50,6 @@ body {
     color: #111827;
 }
 
-
-/* =====================================================
-   TABELA
-   ===================================================== */
-
 .tabela-container {
     width: 100%;
     overflow-x: auto;
@@ -79,9 +64,6 @@ table {
     overflow: hidden;
     background: #ffffff;
 }
-
-
-/* Cabeçalho */
 
 thead th {
     padding: 12px 16px;
@@ -103,9 +85,6 @@ thead th:last-child {
     border-radius: 0 6px 0 0;
 }
 
-
-/* Células */
-
 tbody td {
     padding: 12px 16px;
     border: none;
@@ -118,33 +97,19 @@ tbody tr:last-child td {
     border-bottom: none;
 }
 
-
-/* Hover */
-
 tbody tr:hover td {
     background: #f9fafb;
 }
-
-
-/* ID */
 
 td.id {
     color: #6b7280;
     font-weight: 600;
 }
 
-
-/* Nome */
-
 td.nome {
     color: #111827;
     font-weight: 600;
 }
-
-
-/* =====================================================
-   BADGES
-   ===================================================== */
 
 .badge {
     display: inline-block;
@@ -165,11 +130,6 @@ td.nome {
     border: 1px solid #d1d5db;
 }
 
-
-/* =====================================================
-   AÇÕES DA TABELA
-   ===================================================== */
-
 .acoes {
     white-space: nowrap;
 }
@@ -187,9 +147,6 @@ td.nome {
     cursor: pointer;
 }
 
-
-/* Alterar */
-
 .btn-alterar {
     background: #ffffff;
     color: #374151;
@@ -203,9 +160,6 @@ td.nome {
     transform: none;
 }
 
-
-/* Excluir */
-
 .btn-excluir {
     background: #ffffff;
     color: #dc2626;
@@ -218,21 +172,11 @@ td.nome {
     transform: none;
 }
 
-
-/* =====================================================
-   NENHUM REGISTRO
-   ===================================================== */
-
 .nenhum-usuario {
     padding: 30px !important;
     text-align: center;
     color: #6b7280 !important;
 }
-
-
-/* =====================================================
-   FORMULÁRIO
-   ===================================================== */
 
 .formulario {
     width: 100%;
@@ -241,9 +185,6 @@ td.nome {
     flex-direction: column;
     gap: 16px;
 }
-
-
-/* Campo */
 
 .campo {
     display: flex;
@@ -258,9 +199,6 @@ td.nome {
     color: #374151;
     font-size: 13px;
 }
-
-
-/* Inputs */
 
 .campo input[type="text"],
 .campo input[type="number"],
@@ -280,34 +218,20 @@ td.nome {
     transition: 0.15s;
 }
 
-
-/* Foco */
-
 .campo input:focus,
 .campo select:focus {
     border-color: #4b5563;
     box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
 }
 
-
-/* Placeholder */
-
 .campo input::placeholder {
     color: #9ca3af;
 }
-
-
-/* Texto auxiliar */
 
 .campo small {
     color: #6b7280;
     font-size: 12px;
 }
-
-
-/* =====================================================
-   BOTÕES DO FORMULÁRIO
-   ===================================================== */
 
 .acoes-formulario {
     display: flex;
@@ -316,9 +240,6 @@ td.nome {
     gap: 10px;
     margin-top: 10px;
 }
-
-
-/* Botão genérico / Enviar */
 
 .btn,
 input[type="submit"],
@@ -345,11 +266,6 @@ input[type="submit"]:hover,
     transform: none;
 }
 
-
-/* =====================================================
-   MENU
-   ===================================================== */
-
 .menu {
     display: flex;
     justify-content: flex-end;
@@ -374,11 +290,6 @@ input[type="submit"]:hover,
     background: #f3f4f6;
     border-color: #9ca3af;
 }
-
-
-/* =====================================================
-   RESPONSIVIDADE
-   ===================================================== */
 
 @media (max-width: 700px) {
 
