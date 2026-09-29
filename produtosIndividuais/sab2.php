@@ -1,12 +1,12 @@
 <?php
-// Carrega as funções utilitárias do sistema
+
 require_once "../util.php";
 
 $base = $base ?? "";
  
 $conn = conecta();
 
-$idProduto = 2; // id_produto no banco (Sabonete de Maracujá)
+$idProduto = 2; 
 
 $varSQL = "SELECT nome, peso, valor_unitario, descricao
            FROM produto
@@ -24,7 +24,6 @@ if (!$produto) {
     exit;
 }
 
-// Mapeamento temporário de imagem/página por id_produto (mesmo usado no index.php/produtos.php)
 $imagensPorId = [
     1 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
@@ -39,7 +38,6 @@ $paginaPorId = [
     5 => "sab3.php",
 ];
 
-// Busca os outros produtos ativos (pra seção "Conheça nossos outros sabonetes")
 $varSQLOutros = "SELECT id_produto, nome, valor_unitario
                  FROM produto
                  WHERE id_produto != :id
@@ -69,13 +67,10 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-    <!-- INCLUSÃO DO CABEÇALHO EM PHP -->
     <?php include_once "../_cabecalho.php"; ?>
  
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="pagina-produto">
 
-        <!-- CAMINHO DA PÁGINA -->
         <nav class="caminho" aria-label="Você está em">
 
             <a href="index.php">Início</a>
@@ -90,11 +85,8 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
         </nav>
 
-
-        <!-- DETALHES DO PRODUTO -->
         <section class="detalhe">
 
-            <!-- CARROSSEL DE FOTOS -->
             <div class="slideshow-coluna">
 
                 <div class="slideshow">
@@ -124,8 +116,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                 </div>
 
-
-                <!-- PONTOS DO CARROSSEL -->
                 <div class="pontos">
                     <button type="button" class="ponto ativo" aria-label="Foto 1"></button>
                     <button type="button" class="ponto" aria-label="Foto 2"></button>
@@ -134,8 +124,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
             </div>
 
-
-            <!-- INFORMAÇÕES DO PRODUTO -->
             <div class="detalhe-info">
 
                 <div>
@@ -150,8 +138,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                 </div>
 
-
-                <!-- BENEFÍCIOS -->
                 <ul class="beneficios">
                     <li>Ingredientes naturais</li>
                     <li>Não testado em animais</li>
@@ -159,12 +145,8 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                     <li>Hidratação natural</li>
                 </ul>
 
-
-                <!-- PREÇO -->
                 <p class="preco">R$ <?= number_format($produto['valor_unitario'], 2, ',', '.') ?></p>
 
-
-                <!-- PESO -->
                 <div class="bloco-opcao">
 
                     <span>Peso</span>
@@ -173,8 +155,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                 </div>
 
-
-                <!-- QUANTIDADE -->
                 <div class="bloco-opcao">
 
                     <span>Quantidade</span>
@@ -201,8 +181,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                 </div>
 
-
-                <!-- ADICIONAR AO CARRINHO -->
                 <button
                     type="button"
                     class="comprar"
@@ -212,13 +190,10 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                 </button>
 
-
             </div>
 
         </section>
 
-
-        <!-- DESCRIÇÃO -->
         <section class="info-card">
 
             <div class="coluna">
@@ -230,7 +205,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 </p>
 
             </div>
-
 
             <div class="coluna">
 
@@ -252,8 +226,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
         </section>
 
-
-        <!-- OUTROS SABONETES (não inclui o produto desta página) -->
         <section class="outros">
 
             <div class="titulo-secao">
@@ -261,7 +233,6 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Conheça nossos outros sabonetes</h2>
 
             </div>
-
 
             <div class="outros-grade">
 

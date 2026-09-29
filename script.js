@@ -573,7 +573,6 @@ document.addEventListener(
 );
 
 /* MENU MOBILE */
-
 const botaoMenuMobile = document.getElementById("botaoMenuMobile");
 const menuLateralMobile = document.getElementById("menuLateralMobile");
 const fundoMenuMobile = document.getElementById("fundoMenuMobile");

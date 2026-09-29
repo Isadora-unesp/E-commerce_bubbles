@@ -31,7 +31,7 @@ $total = count($entradas);
 
     <title>Entradas de Estoque</title>
 
-    <link rel="stylesheet" href="crudEntradas/styleCrudEntradas.css">
+    <link rel="stylesheet" href="styleCrudEntradas.css">
 
 </head>
 

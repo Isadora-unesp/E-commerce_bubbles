@@ -62,7 +62,6 @@ foreach ($produtosBanco as $p) {
 
     <?php include '_cabecalho.php'; ?>
 
-    <!-- PESQUISA -->
     <div class="fundo-pesquisa" id="fundoPesquisa"></div>
 
     <section class="painel-pesquisa" id="painelPesquisa">
@@ -188,14 +187,12 @@ foreach ($produtosBanco as $p) {
 
     </section>
 
-
-    <!-- MENU MOBILE -->
     <div
         class="fundo-menu-mobile"
         id="fundoMenuMobile"
     ></div>
 
-    <aside
+    <aside 
         class="menu-lateral-mobile"
         id="menuLateralMobile"
     >
@@ -291,10 +288,8 @@ foreach ($produtosBanco as $p) {
 
     </aside>
 
-
     <main>
 
-        <!-- BANNER -->
         <section class="hero">
 
             <div class="hero-texto">
@@ -350,8 +345,6 @@ foreach ($produtosBanco as $p) {
 
         </section>
 
-
-        <!-- PRODUTOS -->
         <section
             class="produtos"
             id="produtos"
@@ -437,8 +430,6 @@ foreach ($produtosBanco as $p) {
 
         </section>
 
-
-        <!-- INGREDIENTES UTILIZADOS -->
         <section class="ingredientes-home">
 
             <div class="ingredientes-home-topo">
@@ -562,8 +553,6 @@ foreach ($produtosBanco as $p) {
 
         </section>
 
-
-        <!-- SOBRE -->
         <section class="sobre-resumo">
 
             <div class="sobre-resumo-texto">
@@ -615,8 +604,6 @@ foreach ($produtosBanco as $p) {
 
     </main>
 
-
-    <!-- RODAPÉ -->
     <?php include '_footer.php'; ?>
 
 

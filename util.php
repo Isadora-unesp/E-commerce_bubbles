@@ -1,10 +1,8 @@
 <?php
 
-// Exibe todos os erros do PHP
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Inicia ou retoma a sessão HTTP
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -13,12 +11,10 @@ if (!isset($_SESSION["raiz"])) {
     $_SESSION["raiz"] = "/loja3a/";
 }
 
-// Define estoque mínimo padrão na sessão, se ainda não existir
 if (!isset($_SESSION['estoqueMinimo'])) {
     $_SESSION['estoqueMinimo'] = 5;
 }
 
-// Conecta ao banco de dados
 function conecta($paramStringConexao = "")
 {
     if ($paramStringConexao == "") {
@@ -39,16 +35,11 @@ function conecta($paramStringConexao = "")
     return $c;
 }
 
-
-
-// Retorna o caminho físico da raiz do projeto
 function Raiz()
 {
-    // Para a versão publicada:
     if (isset($_SESSION['raiz'])) {
         return str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']) . $_SESSION['raiz'];
     }
-    // Para o ambiente de desenvolvimento local:
     return str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
 }
 

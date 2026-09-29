@@ -12,19 +12,13 @@
     --sn-texto: #62544c;
     --sn-branco: #ffffff;
 }
-
-
+ 
 .sobre-page {
     width: 100%;
     overflow: hidden;
     background: #fffdf9;
 }
-
-
-/* =========================================================
-   ELEMENTOS GERAIS
-========================================================= */
-
+ 
 .sobre-etiqueta {
     display: block;
 
@@ -36,8 +30,7 @@
     letter-spacing: 2.2px;
 
     color: var(--sn-rosa);
-}
-
+} 
 
 .sobre-botao {
     width: fit-content;
@@ -66,7 +59,6 @@
         background 0.25s ease;
 }
 
-
 .sobre-botao:hover {
     transform: translateY(-2px);
 
@@ -77,12 +69,6 @@
 .sobre-botao span {
     font-size: 18px;
 }
-
-
-
-/* =========================================================
-   HERO
-========================================================= */
 
 .sobre-hero {
     width: 100%;
@@ -98,7 +84,6 @@
     background: var(--sn-rosa-claro);
 }
 
-
 .sobre-hero-conteudo {
     display: flex;
     flex-direction: column;
@@ -107,7 +92,6 @@
 
     padding: 90px 8%;
 }
-
 
 .sobre-hero h1 {
     max-width: 780px;
@@ -127,7 +111,6 @@
     color: var(--sn-marrom);
 }
 
-
 .sobre-hero h1 em {
     display: block;
 
@@ -135,7 +118,6 @@
 
     font-weight: 500;
 }
-
 
 .sobre-hero-conteudo > p {
     max-width: 650px;
@@ -151,7 +133,6 @@
 
 
 /* LADO DIREITO */
-
 .sobre-hero-destaque {
     display: flex;
     flex-direction: column;
@@ -166,7 +147,6 @@
     color: white;
 }
 
-
 .sobre-hero-destaque > span {
     margin-bottom: 13px;
 
@@ -177,7 +157,6 @@
 
     opacity: 0.8;
 }
-
 
 .sobre-hero-destaque strong {
     display: block;
@@ -192,7 +171,6 @@
 
     line-height: 0.9;
 }
-
 
 .sobre-hero-destaque p {
     max-width: 260px;
@@ -215,7 +193,6 @@
     background: var(--sn-verde);
 }
 
-
 .sobre-hero-foto img {
     width: 100%;
     height: 100%;
@@ -227,10 +204,7 @@
     object-position: center;
 }
 
-/* =========================================================
-   NOSSA HISTÓRIA
-========================================================= */
-
+/*NOSSA HISTÓRIA*/
 .nossa-historia {
     max-width: 1350px;
 
@@ -247,7 +221,6 @@
     gap: 100px;
 }
 
-
 .historia-titulo h2 {
     margin: 0;
 
@@ -262,16 +235,13 @@
     color: var(--sn-marrom);
 }
 
-
 .historia-titulo h2 em {
     color: var(--sn-rosa);
 }
 
-
 .historia-texto {
     padding-top: 20px;
 }
-
 
 .historia-texto p {
     margin: 0 0 25px;
@@ -283,15 +253,11 @@
     color: var(--sn-texto);
 }
 
-
 .historia-texto strong {
     color: var(--sn-marrom);
 }
 
-/* =========================================================
-   FRASE
-========================================================= */
-
+/*FRASE*/
 .sobre-frase {
     padding: 40px 7%;
 
@@ -299,7 +265,6 @@
 
     background: var(--sn-rosa);
 }
-
 
 .sobre-frase span {
     display: block;
@@ -316,7 +281,6 @@
     opacity: 0.75;
 }
 
-
 .sobre-frase p {
     max-width: 1000px;
 
@@ -331,10 +295,7 @@
     color: white;
 }
 
-/* =========================================================
-   APRENDIZADO
-========================================================= */
-
+/*APRENDIZADO*/
 .aprendizado-section {
     max-width: 1350px;
 
@@ -343,13 +304,11 @@
     padding: 110px 5%;
 }
 
-
 .aprendizado-intro {
     max-width: 720px;
 
     margin-bottom: 60px;
 }
-
 
 .aprendizado-intro h2 {
     margin: 0 0 23px;
@@ -365,11 +324,9 @@
     color: var(--sn-marrom);
 }
 
-
 .aprendizado-intro h2 em {
     color: var(--sn-verde);
 }
-
 
 .aprendizado-intro p {
     max-width: 650px;
@@ -380,7 +337,6 @@
 
     color: var(--sn-texto);
 }
-
 
 .aprendizado-grid {
     display: grid;
@@ -406,21 +362,17 @@
     background: var(--sn-rosa-claro);
 }
 
-
 .card-verde {
     background: var(--sn-verde-claro);
 }
-
 
 .card-lilas {
     background: var(--sn-lilas);
 }
 
-
 .card-amarelo {
     background: #ffe2a7;
 }
-
 
 .numero {
     display: block;
@@ -434,7 +386,6 @@
     color: var(--sn-rosa);
 }
 
-
 .aprendizado-card h3 {
     margin: 0 0 15px;
 
@@ -446,7 +397,6 @@
 
     color: var(--sn-marrom);
 }
-
 
 .aprendizado-card p {
     max-width: 500px;
@@ -460,12 +410,7 @@
     color: var(--sn-texto);
 }
 
-
-
-/* =========================================================
-   PROCESSO
-========================================================= */ 
-
+/* PROCESSO*/
 .processo-section {
     width: 100%;
     padding: 65px 7%;
@@ -499,11 +444,9 @@
     color: var(--sn-marrom);
 }
 
-
 .processo-cabecalho h2 em {
     color: var(--sn-rosa);
 }
-
 
 .processo-cabecalho p {
     font-size: 16px;
@@ -527,7 +470,6 @@
     border-right: none;
 }
 
-
 .processo-item > span {
     display: block;
 
@@ -538,7 +480,6 @@
 
     color: var(--sn-rosa);
 }
-
 
 .processo-item h3 {
     margin: 0 0 15px;
@@ -552,7 +493,6 @@
     color: var(--sn-marrom);
 }
 
-
 .processo-item p {
     margin: 0;
 
@@ -563,10 +503,7 @@
     color: var(--sn-texto);
 }
 
-/* =========================================================
-   NOSSA EQUIPE
-========================================================= */
-
+/*NOSSA EQUIPE*/
 .time-equipe-section {
     max-width: 1350px;
 
@@ -575,7 +512,6 @@
     padding: 110px 50px 120px;
 }
 
-
 .time-equipe-cabecalho {
     max-width: 720px;
 
@@ -583,7 +519,6 @@
 
     text-align: center;
 }
-
 
 .time-equipe-cabecalho h2 {
     margin: 0 0 20px;
@@ -597,11 +532,9 @@
     color: var(--sn-marrom);
 }
 
-
 .time-equipe-cabecalho h2 em {
     color: var(--sn-lilas-forte);
 }
-
 
 .time-equipe-cabecalho p {
     max-width: 620px;
@@ -615,7 +548,6 @@
     color: var(--sn-texto);
 }
 
-
 .time-cards {
     display: grid;
 
@@ -624,7 +556,6 @@
 
     gap: 22px;
 }
-
 
 .time-card {
     overflow: hidden;
@@ -638,18 +569,15 @@
         box-shadow 0.25s ease;
 }
 
-
 .time-card:nth-child(2),
 .time-card:nth-child(5) {
     background: var(--sn-lilas);
 }
 
-
 .time-card:nth-child(3),
 .time-card:nth-child(6) {
     background: var(--sn-verde-claro);
 }
-
 
 .time-card:hover {
     transform: translateY(-5px);
@@ -657,7 +585,6 @@
     box-shadow:
         0 16px 30px rgba(67, 37, 20, 0.08);
 }
-
 
 .time-card-foto {
     width: 100%;
@@ -669,7 +596,6 @@
     background: #eadfd7;
 }
 
-
 .time-card-foto img {
     width: 100%;
     height: 100%;
@@ -679,11 +605,9 @@
     object-fit: cover;
 }
 
-
 .time-card-info {
     padding: 27px 27px 31px;
 }
-
 
 .time-card-cargo {
     display: block;
@@ -700,7 +624,6 @@
     color: var(--sn-rosa);
 }
 
-
 .time-card h3 {
     margin: 0 0 11px;
 
@@ -712,7 +635,6 @@
 
     color: var(--sn-marrom);
 }
-
 
 .time-card p {
     margin: 0;
@@ -748,34 +670,28 @@
         padding: 90px 7%;
     }
 
-
     .historia-texto {
         padding-top: 0;
     }
-
 
     .processo-etapas {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
 
-
     .processo-item:nth-child(2) {
         border-right: none;
     }
-
 
     .processo-item {
         border-bottom:
             1px solid rgba(67, 37, 20, 0.14);
     }
 
-
     .time-cards {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
-
 
     .sobre-final {
         align-items: flex-start;
@@ -803,13 +719,11 @@
         font-size: 15px;
     }
 
-
     .sobre-hero-destaque {
         min-height: 260px;
 
         padding: 45px 23px;
     }
-
 
     .sobre-hero-destaque strong {
         font-size: 60px;
@@ -821,7 +735,6 @@
         min-height: 330px;
     }
 
-
     .sobre-hero-foto img {
         width: 100%;
         height: 100%;
@@ -830,43 +743,31 @@
         object-position: center;
     }
 
-    /* HISTÓRIA */
-
     .nossa-historia {
         padding: 75px 23px;
 
         gap: 35px;
     }
 
-
     .historia-titulo h2 {
         font-size: 38px;
     }
-
 
     .historia-texto p {
         font-size: 15px;
     }
 
-
-    /* FRASE */
-
     .sobre-frase {
         padding: 65px 23px;
     }
-
 
     .sobre-frase p {
         font-size: 29px;
     }
 
-
-    /* APRENDIZADO */
-
     .aprendizado-section {
         padding: 75px 15px;
     }
-
 
     .aprendizado-intro {
         padding: 0 8px;
@@ -874,16 +775,13 @@
         margin-bottom: 38px;
     }
 
-
     .aprendizado-intro h2 {
         font-size: 37px;
     }
 
-
     .aprendizado-intro p {
         font-size: 14px;
     }
-
 
     .aprendizado-grid {
         grid-template-columns: 1fr;
@@ -891,44 +789,34 @@
         gap: 13px;
     }
 
-
     .aprendizado-card {
         min-height: 200px;
         padding: 25px 22px;
     }
 
-
     .aprendizado-card h3 {
         font-size: 26px;
     }
-
-
-    /* PROCESSO */
 
     .processo-section {
         padding: 75px 23px;
     }
 
-
     .processo-cabecalho {
         margin-bottom: 40px;
     }
-
 
     .processo-cabecalho h2 {
         font-size: 37px;
     }
 
-
     .processo-cabecalho p {
         font-size: 14px;
     }
 
-
     .processo-etapas {
         grid-template-columns: 1fr;
     }
-
 
     .processo-item,
     .processo-item:nth-child(2) {
@@ -942,23 +830,17 @@
             1px solid rgba(67, 37, 20, 0.14);
     }
 
-
     .processo-item:last-child {
         border-bottom: none;
     }
-
 
     .processo-item > span {
         margin-bottom: 30px;
     }
 
-
-    /* EQUIPE */
-
     .time-equipe-section {
         padding: 75px 12px 85px;
     }
-
 
     .time-equipe-cabecalho {
         padding: 0 10px;
@@ -966,16 +848,13 @@
         margin-bottom: 35px;
     }
 
-
     .time-equipe-cabecalho h2 {
         font-size: 37px;
     }
 
-
     .time-equipe-cabecalho p {
         font-size: 14px;
     }
-
 
     .time-cards {
         grid-template-columns:
@@ -984,21 +863,17 @@
         gap: 12px;
     }
 
-
     .time-card {
         border-radius: 16px;
     }
-
 
     .time-card-foto {
         height: 170px;
     }
 
-
     .time-card-info {
         padding: 15px 11px 18px;
     }
-
 
     .time-card-cargo {
         margin-bottom: 5px;
@@ -1008,7 +883,6 @@
         letter-spacing: 0.7px;
     }
 
-
     .time-card h3 {
         margin-bottom: 7px;
 
@@ -1017,15 +891,11 @@
         line-height: 1.15;
     }
 
-
     .time-card p {
         font-size: 10px;
 
         line-height: 1.5;
     }
-
-
-    /* FINAL */
 
     .sobre-final {
         padding: 70px 23px;
@@ -1033,11 +903,9 @@
         gap: 35px;
     }
 
-
     .sobre-final h2 {
         font-size: 37px;
     }
-
 
     .sobre-final p {
         font-size: 14px;
@@ -1050,7 +918,6 @@
     .sobre-hero h1 {
         font-size: 40px;
     }
-
 
     .sobre-hero-destaque strong {
         font-size: 52px;
@@ -1072,7 +939,6 @@
     .time-card-foto {
         height: 150px;
     }
-
 
     .time-card h3 {
         font-size: 16px;

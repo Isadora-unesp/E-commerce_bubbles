@@ -35,10 +35,7 @@ img {
     display: block;
 }
  
-/* =========================================================
-   HERO
-========================================================= */
-
+/*HERO*/
 .hero-produtos {
     width: 86%;
     max-width: 1300px;
@@ -105,9 +102,7 @@ img {
     line-height: 1.7;
 }
 
-
 /* DECORAÇÃO DO HERO */
-
 .hero-produtos-decoracao {
     width: 350px;
     height: 260px;
@@ -165,11 +160,7 @@ img {
     right: 20px;
 }
 
-
-/* =========================================================
-   BOTÕES
-========================================================= */
-
+/*BOTÕES*/
 .botao {
     display: inline-flex;
 
@@ -200,11 +191,7 @@ img {
     line-height: 10px;
 }
 
-
-/* =========================================================
-   BENEFÍCIOS
-========================================================= */
-
+/*BENEFÍCIOS*/
 .beneficios {
     width: 86%;
 
@@ -262,11 +249,7 @@ img {
     font-size: 11px;
 }
 
-
-/* =========================================================
-   SEÇÃO DE PRODUTOS
-========================================================= */
-
+/*SEÇÃO DE PRODUTOS*/
 .produtos {
     width: 100%;
 
@@ -298,11 +281,7 @@ img {
     font-size: 14px;
 }
 
-
-/* =========================================================
-   SEM RESULTADOS
-========================================================= */
-
+/* SEM RESULTADOS*/
 #no_results {
     display: none;
 
@@ -323,11 +302,7 @@ img {
     font-size: 14px;
 }
 
-
-/* =========================================================
-   GRID DE PRODUTOS
-========================================================= */
-
+/* GRID DE PRODUTOS*/
 .grid-produtos {
     width: 100%;
 
@@ -340,7 +315,6 @@ img {
 
 
 /* CARD */
-
 .produto {
     position: relative;
 
@@ -389,7 +363,6 @@ img {
 } 
 
 /* LINK PARA A PÁGINA DO PRODUTO */
-
 .link-produto {
     display: block;
 
@@ -407,10 +380,7 @@ img {
     color: #f86464;
 }
  
-/* =========================================================
-   INFORMAÇÕES DO PRODUTO
-========================================================= */
-
+/*INFORMAÇÕES DO PRODUTO*/
 .produto-info {
     padding: 15px;
 
@@ -445,7 +415,6 @@ img {
     line-height: 1.5;
 }
 
-
 .produto-final {
     margin-top: auto;
 
@@ -468,7 +437,6 @@ img {
 } 
 
 /* BOTÃO ADICIONAR AO CARRINHO */
-
 .adicionar {
     width: 100%;
     min-height: 42px;
@@ -501,10 +469,7 @@ img {
     transform: translateY(-2px);
 } 
 
-/* =========================================================
-   MENSAGEM FINAL
-========================================================= */
-
+/* MENSAGEM FINAL*/
 .mensagem-final {
     width: 86%;
 
@@ -533,11 +498,7 @@ img {
     font-size: 14px;
 }
 
-
-/* =========================================================
-   TOAST
-========================================================= */
-
+/* TOAST*/
 .toast {
     position: fixed;
 
@@ -569,10 +530,7 @@ img {
     opacity: 1;
 } 
 
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
-
+/* RESPONSIVIDADE*/
 @media (max-width: 1100px) {
 
     .menu {
@@ -593,11 +551,6 @@ img {
     }
 
 }
-
-
-/* =========================================================
-   TABLET
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -666,11 +619,6 @@ img {
 
 }
 
-
-/* =========================================================
-   CELULAR
-========================================================= */
-
 @media (max-width: 500px) {
 
     .header {
@@ -729,30 +677,19 @@ img {
         gap: 15px;
     }
 
-    /* 2 PRODUTOS POR LINHA */
-
     .grid-produtos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
     }
-
-
-    /* CARD */
 
     .produto {
         width: 100%;
         min-width: 0;
     }
 
-
-    /* IMAGEM */
-
     .produto-imagem {
         height: 145px;
     }
-
-
-    /* INFORMAÇÕES */
 
     .produto-info {
         padding: 10px 8px;
@@ -766,9 +703,6 @@ img {
         font-size: 14px;
     }
 
-
-    /* DESCRIÇÃO */
-
     .descricao {
         min-height: 55px;
 
@@ -777,9 +711,6 @@ img {
         font-size: 10px;
         line-height: 1.35;
     }
-
-
-    /* PREÇO + BOTÃO */
 
     .produto-final {
         padding: 0 8px 10px;
@@ -790,9 +721,6 @@ img {
     .produto-final strong {
         font-size: 15px;
     }
-
-
-    /* BOTÃO ADICIONAR AO CARRINHO */
 
     .adicionar {
         min-height: 36px;

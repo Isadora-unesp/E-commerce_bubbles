@@ -13,7 +13,6 @@ $select = $conn->query($varSQL);
 
 $produtosBanco = $select->fetchAll(PDO::FETCH_ASSOC);
 
-// Mesmo mapeamento temporário do index.php
 $imagensPorId = [
     1 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
@@ -93,10 +92,6 @@ $dataNomePorId = [
 
         </section>
 
-        <!-- =================================================
-             PRODUTOS
-        ================================================== -->
-
         <section class="produtos" id="produtos">
 
             <div class="titulo-secao-produtos">
@@ -110,9 +105,7 @@ $dataNomePorId = [
                 </p>
 
             </div>
-             
-            <!-- CARDS -->
- 
+            
             <div class="grid-produtos">
 
                 <?php foreach ($produtosBanco as $p): ?>

@@ -1,6 +1,7 @@
 <?php
-// Prefixo dos caminhos: "" nas páginas da raiz, "../" nas páginas de subpastas.
+
 $base = $base ?? "";
+
 ?>
 
 <footer class="footer-fruit" id="contato">

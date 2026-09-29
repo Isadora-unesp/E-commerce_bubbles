@@ -30,10 +30,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
         <section class="admin-opcoes">
 
-            <!-- Usuários -->
-
             <a href="crudUsuarios/listarUsuario.php" class="admin-bloco">
-
 
                 <div class="admin-conteudo">
 
@@ -46,8 +43,6 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
                 </div>
 
             </a>
-
-            <!-- Produtos -->
 
             <a href="crudProdutos/listarProdutos.php" class="admin-bloco">
 
@@ -63,8 +58,6 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
             </a>
 
-            <!-- Entradas -->
-
             <a href="crudEntradas/listarEntradas.php" class="admin-bloco">
 
                 <div class="admin-conteudo">
@@ -79,7 +72,6 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
             </a>
 
         </section>
-
 
         <footer class="menu">
 

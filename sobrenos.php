@@ -37,11 +37,6 @@ include("util.php");
 
 <main class="sobre-page">
 
-
-    <!-- =========================================
-         HERO
-    ========================================== -->
-
     <section class="sobre-hero">
 
         <div class="sobre-hero-conteudo">
@@ -80,12 +75,6 @@ include("util.php");
         </div>
 
     </section>
-
-
-
-    <!-- =========================================
-         NOSSA HISTÓRIA
-    ========================================== -->
 
     <section
         class="nossa-historia"
@@ -129,10 +118,6 @@ include("util.php");
 
     </section>
 
-    <!-- =========================================
-         FRASE DE DESTAQUE
-    ========================================== -->
-
     <section class="sobre-frase">
 
         <span>FRUIT BUBBLES</span>
@@ -143,10 +128,6 @@ include("util.php");
         </p>
 
     </section>
-
-    <!-- =========================================
-         O QUE APRENDEMOS
-    ========================================== -->
 
     <section class="aprendizado-section">
 
@@ -233,12 +214,6 @@ include("util.php");
         </div>
 
     </section>
-
-
-
-    <!-- =========================================
-         PROCESSO
-    ========================================== -->
 
     <section class="processo-section">
 

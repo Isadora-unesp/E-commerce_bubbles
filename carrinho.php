@@ -69,7 +69,6 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <div class="carrinho-lista-area">
 
-
                     <div class="carrinho-lista-topo">
 
                         <div>
@@ -79,7 +78,6 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </h2>
 
                         </div>
-
 
                         <a
                             href="produtos.php"
@@ -95,7 +93,6 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         class="carrinho-pagina-produtos"
                     ></div>
 
-
                 </div>
 
                 <aside class="resumo-pedido">
@@ -103,8 +100,6 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <h2>
                         Resumo do pedido
                     </h2>
-
-
 
                     <div class="resumo-linha">
 
@@ -118,8 +113,6 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                     </div>
 
-
-
                     <div class="resumo-linha">
 
                         <span>
@@ -132,11 +125,7 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                     </div>
 
-
-
                     <div class="resumo-divisor"></div>
-
-
 
                     <div class="resumo-total">
 
@@ -151,7 +140,6 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </small>
 
                         </div>
-
 
                         <strong id="totalCarrinhoPagina">
                             R$ 0,00

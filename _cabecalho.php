@@ -5,13 +5,11 @@ if (session_status() === PHP_SESSION_NONE) {
  
 $base = $base ?? "";
 
-/* Descobre qual página está aberta */
 $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 ?>
 
 <header class="header">
 
-    <!-- BOTÃO DO MENU MOBILE -->
     <button
         type="button"
         class="menu-mobile"
@@ -23,14 +21,10 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         <span></span>
     </button>
 
-
-    <!-- LOGO -->
     <a href="<?= $base ?>index.php" class="logo">
         <img src="<?= $base ?>img/logo.png" alt="Fruit Bubbles">
     </a>
 
-
-    <!-- MENU -->
     <nav class="menu">
 
         <a
@@ -56,10 +50,8 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
     </nav>
 
-    <!-- AÇÕES -->
     <div class="acoes">
 
-        <!-- BARRA DE PESQUISA -->
         <div class="pesquisa">
 
             <input
@@ -83,8 +75,6 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
         </div>
 
-
-        <!-- ADMIN -->
         <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) { ?>
 
             <a
@@ -102,8 +92,6 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
         <?php } ?>
 
-
-        <!-- PERFIL -->
         <?php if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) { ?>
 
             <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
@@ -133,7 +121,6 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
         <?php } ?>
 
-        <!-- CARRINHO -->
         <a href="carrinho.php"
             class="carrinho"
             id="botaoCarrinho"

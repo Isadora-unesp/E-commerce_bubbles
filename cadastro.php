@@ -15,15 +15,12 @@
 
    <main class="container">
 
-
        <div class="cadastro">
-
 
            <h1>Cadastre-se na<br><span>Fruit Bubbles</span></h1>
            <p class="subtitulo">
                Crie sua conta e descubra nossos produtos!
            </p>
-
 
            <?php if (isset($_GET['erro']) && $_GET['erro'] === 'email') { ?>
 
@@ -39,58 +36,38 @@
 
            <?php } ?>
 
-
-           <form action="crudUsuarios/insertUsuario.php" method="post">
+            <form action="crudUsuarios/insertUsuario.php" method="post">
                <div class="campo">
                    <label for="nome">Nome completo</label>
-
-
-
 
                    <input type="text" name="nome" maxlength="80"
                    placeholder="Digite seu nome" required>
                </div>
 
-
                <div class="campo">
                    <label for="email">Email</label>
-
 
                    <input type="email" name="email"
                    placeholder="Digite seu email" required>
                </div>
 
-
-
-
                <div class="campo">
                    <label for="senha">Senha</label>
-
-
-
 
                    <input type="password" name="senha"
                    placeholder="Crie uma senha" required>
                </div>
 
-
                <div class="campo">
                    <label for="telefone">Telefone</label>
-
-
-
 
                    <input type="tel" name="telefone"
                    placeholder="(00) 00000-0000" required>
                </div>
 
-
                <button type="submit">Cadastrar</button>
 
-
-
-
-           </form>
+            </form>
 
            <p class="login">
                Já possui uma conta?
