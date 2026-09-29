@@ -52,7 +52,6 @@ $total = count($usuarios);
 
         </header>
 
-
         <section class="tabela-container">
 
             <table>
@@ -70,7 +69,6 @@ $total = count($usuarios);
 
                 </thead>
 
-
                 <tbody>
 
                     <?php if ($total > 0) { ?>
@@ -83,21 +81,17 @@ $total = count($usuarios);
                                     <?php echo $linha['id_usuario']; ?>
                                 </td>
 
-
                                 <td class="nome">
                                     <?php echo htmlspecialchars($linha['nome']); ?>
                                 </td>
-
 
                                 <td>
                                     <?php echo htmlspecialchars($linha['email']); ?>
                                 </td>
 
-
                                 <td>
                                     <?php echo htmlspecialchars($linha['telefone']); ?>
                                 </td>
-
 
                                 <td>
 
@@ -117,7 +111,6 @@ $total = count($usuarios);
 
                                 </td>
 
-
                                 <td class="acoes">
 
                                     <a
@@ -126,7 +119,6 @@ $total = count($usuarios);
                                     >
                                         Alterar
                                     </a>
-
 
                                     <?php if (!$linha['admin']) { ?>
 
@@ -163,7 +155,6 @@ $total = count($usuarios);
             </table>
 
         </section>
-
 
         <footer class="menu">
 

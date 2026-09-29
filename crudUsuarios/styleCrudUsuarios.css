@@ -13,11 +13,6 @@ body {
     color: #1f2937;
 }
 
-
-/* =====================================================
-   CONTAINER
-   ===================================================== */
-
 .container.grande,
 .container {
     width: 100%;
@@ -27,11 +22,6 @@ body {
 
     padding: 0;
 }
-
-
-/* =====================================================
-   CABEÇALHO
-   ===================================================== */
 
 .pagina-header {
     margin-bottom: 24px;
@@ -69,11 +59,6 @@ body {
     color: #111827;
 }
 
-
-/* =====================================================
-   TABELA
-   ===================================================== */
-
 .tabela-container {
     width: 100%;
 
@@ -93,9 +78,6 @@ table {
 
     border-spacing: 0;
 }
-
-
-/* Cabeçalho */
 
 thead th {
     padding: 12px 16px;
@@ -117,9 +99,6 @@ thead th {
     border-bottom: 1px solid #e5e7eb;
 }
 
-
-/* Células */
-
 tbody td {
     padding: 12px 16px;
 
@@ -134,15 +113,9 @@ tbody tr:last-child td {
     border-bottom: none;
 }
 
-
-/* Hover */
-
 tbody tr:hover {
     background: #f9fafb;
 }
-
-
-/* ID */
 
 td.id {
     color: #9ca3af;
@@ -150,19 +123,11 @@ td.id {
     font-weight: 500;
 }
 
-
-/* Nome */
-
 td.nome {
     color: #111827;
 
     font-weight: 600;
 }
-
-
-/* =====================================================
-   BADGES
-   ===================================================== */
 
 .badge {
     display: inline-block;
@@ -196,11 +161,6 @@ td.nome {
     border: 1px solid #e5e7eb;
 }
 
-
-/* =====================================================
-   AÇÕES DA TABELA
-   ===================================================== */
-
 .acoes {
     white-space: nowrap;
 }
@@ -224,9 +184,6 @@ td.nome {
 
     transition: 0.15s;
 }
-
-
-/* Alterar */
 
 .btn-alterar {
     background: #ffffff;
@@ -252,9 +209,6 @@ td.nome {
     border-color: #9ca3af;
 }
 
-
-/* Excluir */
-
 .btn-excluir {
     background: #ffffff;
 
@@ -269,11 +223,6 @@ td.nome {
     border-color: #b91c1c;
 }
 
-
-/* =====================================================
-   NENHUM USUÁRIO
-   ===================================================== */
-
 .nenhum-usuario {
     padding: 40px !important;
 
@@ -281,11 +230,6 @@ td.nome {
 
     color: #9ca3af !important;
 }
-
-
-/* =====================================================
-   FORMULÁRIO DE ALTERAÇÃO
-   ===================================================== */
 
 .formulario {
     width: 100%;
@@ -306,9 +250,6 @@ td.nome {
     border: 1px solid #e5e7eb;
 }
 
-
-/* Campo */
-
 .campo {
     display: flex;
 
@@ -324,9 +265,6 @@ td.nome {
 
     color: #374151;
 }
-
-
-/* Inputs */
 
 .campo input {
     width: 100%;
@@ -350,35 +288,21 @@ td.nome {
     transition: 0.15s;
 }
 
-
-/* Foco */
-
 .campo input:focus {
     border-color: #4b5563;
 
     box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
 }
 
-
-/* Placeholder */
-
 .campo input::placeholder {
     color: #9ca3af;
 }
-
-
-/* Texto auxiliar */
 
 .campo small {
     color: #9ca3af;
 
     font-size: 12px;
 }
-
-
-/* =====================================================
-   BOTÕES DO FORMULÁRIO
-   ===================================================== */
 
 .acoes-formulario {
     display: flex;
@@ -395,9 +319,6 @@ td.nome {
 
     border-top: 1px solid #eef0f2;
 }
-
-
-/* Botão Alterar do formulário */
 
 .acoes-formulario .btn-alterar {
     display: inline-block;
@@ -429,9 +350,6 @@ td.nome {
     background: #1f2937;
 }
 
-
-/* Botão */
-
 .btn {
     display: inline-block;
 
@@ -460,11 +378,6 @@ td.nome {
     border-color: #9ca3af;
 }
 
-
-/* =====================================================
-   MENU
-   ===================================================== */
-
 .menu {
     display: flex;
 
@@ -474,12 +387,6 @@ td.nome {
 
     margin-top: 20px;
 }
-
-
-
-/* =====================================================
-   RESPONSIVIDADE
-   ===================================================== */
 
 @media (max-width: 700px) {
 
@@ -513,16 +420,9 @@ td.nome {
     }
 }
 
-/* =====================================================
-   PAINEL ADMINISTRATIVO
-   ===================================================== */
-
 .admin-container {
     max-width: 1150px;
 }
-
-
-/* Área dos blocos */
 
 .admin-opcoes {
     display: grid;
@@ -533,9 +433,6 @@ td.nome {
 
     margin-top: 28px;
 }
-
-
-/* Bloco */
 
 .admin-bloco {
     position: relative;
@@ -569,8 +466,6 @@ td.nome {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
-/* Ícone */
-
 .admin-icone {
     display: flex;
 
@@ -588,9 +483,6 @@ td.nome {
 
     font-size: 22px;
 }
-
-
-/* Conteúdo */
 
 .admin-conteudo {
     flex: 1;
@@ -618,9 +510,6 @@ td.nome {
     color: #6b7280;
 }
 
-
-/* Seta */
-
 .admin-seta {
     font-size: 20px;
 
@@ -637,8 +526,6 @@ td.nome {
     color: #374151;
 }
 
-
-/* Responsividade */
 
 @media (max-width: 700px) {
 

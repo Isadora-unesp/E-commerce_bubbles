@@ -14,32 +14,24 @@ try {
                (:nome, :email, :senha, :telefone, false, false)
                RETURNING id_usuario";
 
-
     $insert = $conn->prepare($varSQL);
-
 
     $insert->bindParam(':nome', $_POST['nome']);
     $insert->bindParam(':email', $_POST['email']);
     $insert->bindParam(':senha', $senha);
     $insert->bindParam(':telefone', $_POST['telefone']);
 
-
     $insert->execute();
 
-
     $id_usuario = $insert->fetchColumn();
-
 
     $_SESSION['usuario_id'] = $id_usuario;
     $_SESSION['logado'] = true;
 
-
     header("Location: ../index.php");
     exit;
 
-
 } catch (PDOException $e) {
-
 
     if ($e->getCode() == "23505") {
         header("Location: ../cadastro.php?erro=email");

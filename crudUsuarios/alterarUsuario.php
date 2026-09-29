@@ -9,7 +9,6 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-
 $conn = conecta();
 
 $id = $_GET['id'];
@@ -68,7 +67,6 @@ $telefone = $linha['telefone'];
 
         </header>
 
-
         <form
             class="formulario"
             action="updateUsuario.php"
@@ -80,7 +78,6 @@ $telefone = $linha['telefone'];
                 name="id"
                 value="<?php echo htmlspecialchars($id); ?>"
             >
-
 
             <div class="campo">
 
@@ -99,7 +96,6 @@ $telefone = $linha['telefone'];
 
             </div>
 
-
             <div class="campo">
 
                 <label for="email">
@@ -116,7 +112,6 @@ $telefone = $linha['telefone'];
                 >
 
             </div>
-
 
             <div class="campo">
 
@@ -137,7 +132,6 @@ $telefone = $linha['telefone'];
 
             </div>
 
-
             <div class="campo">
 
                 <label for="telefone">
@@ -153,7 +147,6 @@ $telefone = $linha['telefone'];
                 >
 
             </div>
-
 
             <div class="acoes-formulario">
 

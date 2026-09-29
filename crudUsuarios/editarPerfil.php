@@ -4,9 +4,7 @@ include("../util.php");
 
 $conn = conecta();
 
-
 $id = $_SESSION['usuario_id'];
-
 
 $varSQL = "SELECT *
            FROM usuario
@@ -16,34 +14,26 @@ $varSQL = "SELECT *
 
 $select = $conn->prepare($varSQL);
 
-
 $select->bindParam(':id', $id);
-
 
 $select->execute();
 
-
 $linha = $select->fetch(PDO::FETCH_ASSOC);
-
 
 if (!$linha) {
     echo "Usuário não encontrado.";
     exit;
 }
 
-
 $id = $linha['id_usuario'];
 $nome = $linha['nome'];
 $email = $linha['email'];
 $telefone = $linha['telefone'];
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 
 <head>
     <meta charset="UTF-8">
@@ -52,24 +42,18 @@ $telefone = $linha['telefone'];
     <link rel="stylesheet" href="../styleCLP.css">
 </head>
 
-
 <body>
-
 
     <main class="container">
 
-
         <section class="perfil">
-
 
             <h1>Editar Perfil</h1>
             <p class="mensagem">
                 Atualize suas informações pessoais
             </p>
 
-
             <form class="informacoes" action="updateUsuario.php" method="post">
-
 
                 <div class="campo">
                     <span class="titulo">Nome</span>
@@ -88,7 +72,6 @@ $telefone = $linha['telefone'];
                            required>
                 </div>
 
-
                 <div class="campo">
                     <span class="titulo">Telefone</span>
                     <input type="text"
@@ -103,41 +86,28 @@ $telefone = $linha['telefone'];
                            placeholder="Deixe vazio para manter a senha atual">
                 </div>
 
-
                 <div class="botoes">
-
 
                     <input class="editar" type="submit" value="Salvar">
 
-
                     <a class="sair" href="../perfilUsuario.php">Cancelar</a>
-
 
                 </div>
 
-
             </form>
-
 
             <div class="botoes">
 
-
                 <a class="excluir confirmar-exclusao" href="excluirUsuario.php">Excluir Conta</a>
-
 
             </div>
 
-
         </section>
-
 
     </main>
 
-
     <script src="../script.js"></script>
 
-
 </body>
-
 
 </html>
