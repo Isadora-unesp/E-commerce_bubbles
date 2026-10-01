@@ -503,7 +503,7 @@ include("util.php");
         </div>
 
     </section>
- 
+<?php include_once "_footer.php"; ?>
 
 <script src="script.js"></script>
 
