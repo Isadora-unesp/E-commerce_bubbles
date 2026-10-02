@@ -3,7 +3,7 @@
 include("../util.php");
 
 $adminEmail = "admin@gmail.com";
-$adminSenha = "1234567";
+$adminSenha = "fruit21115172025";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

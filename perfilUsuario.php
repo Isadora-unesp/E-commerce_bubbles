@@ -47,8 +47,6 @@ $telefone = $linha['telefone'];
 
 <body>
     
-    <?php include_once "_cabecalho.php"; ?>
-
     <a href="index.php" class="voltar-index" aria-label="Voltar para a página inicial">
        <span>←</span> Voltar
    </a>

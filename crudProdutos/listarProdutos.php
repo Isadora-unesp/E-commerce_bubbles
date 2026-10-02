@@ -34,6 +34,7 @@ $total = $select->rowCount();
             <th>Categoria</th>
             <th>Peso</th>
             <th>Fragrancia</th>
+            <th>Imagem</th>
             <th>Valor</th>
             <th>Acoes</th>
         </tr>
@@ -52,6 +53,14 @@ $total = $select->rowCount();
                 <td><?php echo htmlspecialchars($linha["peso"] ?? ''); ?>g</td>
                 <td><?php echo htmlspecialchars($linha["fragrancia"] ?? ''); ?></td>
                 <td>R$ <?php echo number_format($linha["valor_unitario"], 2, ",", "."); ?></td>
+                <td> 
+                    <?php if (!empty($linha["imagem"])): ?> 
+                        <img src="<?php echo htmlspecialchars($linha["imagem"]); ?>" 
+                            alt="<?php echo htmlspecialchars($linha["nome"]); ?>" 
+                            width="80"> 
+                    <?php else: ?> Sem imagem 
+                    <?php endif; ?> 
+                </td>
                 <td>
                     <a href="alterarProduto.php?id=<?php echo $id; ?>">Alterar</a>
                     <a href="excluirProduto.php?id=<?php echo $id; ?>" onclick="return confirm('Tem certeza?')">Excluir</a>
@@ -60,7 +69,7 @@ $total = $select->rowCount();
             <?php
         }
         if (!$tem) {
-            echo "<tr><td colspan='8'>Nenhum produto cadastrado</td></tr>";
+            echo "<tr><td colspan='9'>Nenhum produto cadastrado</td></tr>";
         }
         ?>
     </table>
