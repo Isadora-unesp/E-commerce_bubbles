@@ -175,6 +175,15 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $produtosBanco,
                 JSON_UNESCAPED_UNICODE
             ) ?>;
+
+            const usuarioLogado =
+                <?= isset($_SESSION['logado']) && $_SESSION['logado'] === true
+                    ? 'true'
+                    : 'false' ?>;
+
+            const caminhoBase =
+                <?= json_encode($_SESSION['raiz'] ?? '/') ?>;
+                
         </script>
 
         <script src="script.js"></script>

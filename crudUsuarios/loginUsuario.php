@@ -2,7 +2,7 @@
  
 include("../util.php");
 
-$adminEmail = "admin@gmail.com";
+$adminEmail = "bhiilm@gmail.com";
 $adminSenha = "fruit21115172025";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,6 +36,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['logado'] = true;
         $_SESSION['usuario_id'] = $linha['id_usuario'];
+
+        if (
+            isset($_POST['retorno']) &&
+            $_POST['retorno'] === 'carrinho'
+        ) {
+
+            header("Location: ../carrinho.php");
+            exit;
+
+        }
 
         header("Location: ../index.php");
         exit;

@@ -138,14 +138,7 @@ if (botaoAbrirBusca) {
 
 }
 
-function adicionarCarrinho(nomeProduto, botao) {
-
-    if (typeof usuarioLogado !== "undefined" && !usuarioLogado) {
-
-        window.location.href = (typeof caminhoBase !== "undefined" ? caminhoBase : "") + "login.php";
-
-        return;
-    }
+function adicionarCarrinho(nomeProduto, botao) { 
 
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -786,4 +779,60 @@ document.addEventListener("DOMContentLoaded", function () {
     });
  
     atualizarQuantidade();
+});
+
+function finalizarReserva() {
+
+    const carrinho =
+        JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    if (carrinho.length === 0) {
+        return;
+    }
+
+    alert("Login realizado! Sua reserva pode ser finalizada.");
+
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botaoFinalizar =
+        document.getElementById("botaoFinalizarPedido");
+
+    if (!botaoFinalizar) {
+        return;
+    }
+
+    botaoFinalizar.addEventListener("click", function () {
+
+        const carrinho =
+            JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        if (carrinho.length === 0) {
+            return;
+        }
+
+        if (
+            typeof usuarioLogado === "undefined" ||
+            !usuarioLogado
+        ) {
+
+            sessionStorage.setItem(
+                "finalizarAposLogin",
+                "true"
+            );
+
+            window.location.href =
+                (typeof caminhoBase !== "undefined"
+                    ? caminhoBase
+                    : "")
+                + "login.php?retorno=carrinho";
+
+            return;
+        }
+
+        finalizarReserva();
+
+    });
+
 });

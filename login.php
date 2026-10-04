@@ -35,8 +35,21 @@
 
            <?php } ?>
 
-           <form method="post" action="crudUsuarios/loginUsuario.php">
+            <form method="post" action="crudUsuarios/loginUsuario.php">
 
+                <?php if (
+                    isset($_GET['retorno']) &&
+                    $_GET['retorno'] === 'carrinho'
+                ) { ?>
+
+                    <input
+                        type="hidden"
+                        name="retorno"
+                        value="carrinho"
+                    >
+
+                <?php } ?>
+                
                <div class="campo">
                    <label for="email">Email</label>
 
@@ -63,9 +76,9 @@
                    Esqueceu sua senha?
                </a>
 
-               <button type="submit">Entrar</button>
+               <button type="submit">Entrar</button> 
 
-           </form>
+            </form>
 
 
            <br>
