@@ -31,10 +31,10 @@ $imagensPorId = [
 ];
 
 $paginaPorId = [
-    1 => "sab1.php",
-    2 => "sab2.php",
-    3 => "sab4.php",
-    5 => "sab3.php",
+    1 => "produtosIndividuais/sab1.php",
+    2 => "produtosIndividuais/sab2.php",
+    3 => "produtosIndividuais/sab4.php",
+    5 => "produtosIndividuais/sab3.php",
 ];
 
 $varSQLOutros = "SELECT id_produto, nome, valor_unitario

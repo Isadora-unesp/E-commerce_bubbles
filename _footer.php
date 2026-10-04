@@ -50,10 +50,23 @@ $base = $base ?? "";
             <a href="<?= $base ?>sobrenos.php">Sobre nós</a>
         </div>
 
+        <div class="footer-desenvolvedoras">
+            <h3>Desenvolvedoras</h3>
+
+            <ul>
+                <li>Bianca Penteado Pinheiro</li>
+                <li>Heloysa dos Santos Moraes</li>
+                <li>Isabella Meirelles Cury</li>
+                <li>Isadora Adorno da Silva</li>
+                <li>Lívia Comora Ponga</li>
+                <li>Mirella de Oliveira e Quadros</li>
+            </ul>
+        </div>
+
     </div>
 
     <div class="footer-fruit-final">
-        <p>2026 Fruit Bubbles — E-commerce.</p>
+        <p>Fruit Bubbles — E-commerce 2026</p>
     </div>
 
 </footer>

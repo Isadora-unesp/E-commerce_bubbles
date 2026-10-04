@@ -388,11 +388,7 @@ foreach ($produtosBanco as $p) {
 
                             <h3>
                                 <?= $produto['nome'] ?>
-                            </h3>
-
-                            <span class="produto-peso">
-                                <?= $produto['peso'] ?>
-                            </span>
+                            </h3> 
 
                             <strong class="produto-preco">
 

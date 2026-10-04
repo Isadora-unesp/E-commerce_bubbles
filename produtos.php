@@ -55,38 +55,31 @@ $dataNomePorId = [
 
     <main>
  
-        <section class="hero-produtos">
+        <section class="colecao-banner">
 
-            <div class="hero-produtos-texto">
+            <div class="colecao-conteudo">
 
-                <h1>
-                    Nossa coleção
-                    <strong>frutada</strong>
-                </h1>
+                <div class="colecao-texto">
+                    <h1>
+                        Nossa coleção <span>frutada</span>
+                    </h1>
 
-                <p>
-                    Descubra sabonetes artesanais feitos com
-                    ingredientes naturais e fragrâncias frutadas
-                    para transformar seu banho em um momento especial.
-                </p>
+                    <p>
+                        Descubra sabonetes artesanais feitos com ingredientes naturais
+                        e fragrâncias frutadas para transformar seu banho em um momento especial.
+                    </p>
 
-                <a href="#produtos" class="botao">
-                    Explorar produtos
-                    <span>↓</span>
-                </a>
+                    <a href="#produtos" class="btn-explorar">
+                        Explorar produtos ↓
+                    </a>
+                </div>
 
-            </div>
-
-
-            <div class="hero-produtos-decoracao">
-
-                <div class="bolha bolha1">●</div>
-                <div class="bolha bolha2">●</div>
-                <div class="bolha bolha3">●</div>
-
-                <div class="fruta fruta1">🍓</div>
-                <div class="fruta fruta2">🍊</div>
-                <div class="fruta fruta3">🍉</div>
+                <div class="colecao-imagem">
+                    <img 
+                        src="img/todos-produtos.png" 
+                        alt="Coleção de sabonetes Fruit Bubbles"
+                    >
+                </div>
 
             </div>
 
