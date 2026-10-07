@@ -26,7 +26,7 @@ $select = $conn->query($varSQL);
 
     <title>Adicionar Entrada</title>
 
-    <link rel="stylesheet" href="crudEntradas/styleCrudEntradas.css">
+    <link rel="stylesheet" href="styleCrudEntradas.css">
 
 </head>
 
@@ -47,7 +47,7 @@ $select = $conn->query($varSQL);
 
         <form
             class="formulario"
-            action="crudEntradas/insertEntradas.php"
+            action="insertEntradas.php"
             method="post"
         >
 
@@ -131,7 +131,7 @@ $select = $conn->query($varSQL);
             <div class="acoes-formulario">
 
                 <a
-                    href="crudEntradas/listarEntradas.php"
+                    href="listarEntradas.php"
                     class="btn"
                 >
                     Voltar

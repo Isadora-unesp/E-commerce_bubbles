@@ -46,7 +46,7 @@ $valor_unitario = $linha['valor_unitario'];
 
     <h2>Alterar Produto</h2>
 
-    <form action="crudProdutos/updateProduto.php" method="post">
+    <form action="updateProduto.php" method="post">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
         <label>Nome</label>
@@ -66,6 +66,13 @@ $valor_unitario = $linha['valor_unitario'];
 
         <label>Valor Unitario</label>
         <input type="number" step="0.01" min="0" name="valor_unitario" value="<?php echo htmlspecialchars($valor_unitario); ?>" required>
+
+        <label>Imagem (caminho ou URL)</label>
+        <input
+            type="text"
+            name="imagem"
+            value="<?php echo htmlspecialchars($linha['imagem'] ?? ''); ?>"
+        >
 
         <br><br>
         <input type="submit" value="Alterar">

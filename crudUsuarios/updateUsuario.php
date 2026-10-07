@@ -58,7 +58,7 @@ try {
         header("Location: listarUsuario.php");
         exit;
     } else {
-        header("Location: perfilUsuario.php");
+        header("Location: ../perfilUsuario.php");
         exit;
     }
  

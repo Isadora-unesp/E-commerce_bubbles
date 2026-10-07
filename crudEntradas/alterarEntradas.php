@@ -5,7 +5,7 @@ include("../util.php");
 SaiSeHacker();
 
 if (!isset($_GET['id'])) {
-    header("Location: entradas.php");
+    header("Location: listarEntradas.php");
     exit;
 }
 
@@ -75,7 +75,7 @@ $selectProdutos = $conn->query($varSQLProdutos);
 
         <form
             class="formulario"
-            action="crudEntradas/updateEntradas.php"
+            action="updateEntradas.php"
             method="post"
         >
 
@@ -170,7 +170,7 @@ $selectProdutos = $conn->query($varSQLProdutos);
             <div class="acoes-formulario">
 
                 <a
-                    href="crudEntradas/listarEntradas.php"
+                    href="listarEntradas.php"
                     class="btn"
                 >
                     Voltar

@@ -59,7 +59,8 @@ try {
     $insert->bindParam(':peso', $_POST['peso']);
     $insert->bindParam(':fragrancia', $_POST['fragrancia']);
     $insert->bindParam(':valor_unitario', $_POST['valor_unitario']);
-
+    $insert->bindValue(':imagem', trim($_POST['imagem'] ?? ''));
+    
     $insert->execute();
 
     header("Location: listarProdutos.php");

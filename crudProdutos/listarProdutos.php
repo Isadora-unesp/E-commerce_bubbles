@@ -52,14 +52,20 @@ $total = $select->rowCount();
                 <td><?php echo htmlspecialchars($linha["categoria"] ?? ''); ?></td>
                 <td><?php echo htmlspecialchars($linha["peso"] ?? ''); ?>g</td>
                 <td><?php echo htmlspecialchars($linha["fragrancia"] ?? ''); ?></td>
-                <td>R$ <?php echo number_format($linha["valor_unitario"], 2, ",", "."); ?></td>
-                <td> 
-                    <?php if (!empty($linha["imagem"])): ?> 
-                        <img src="<?php echo htmlspecialchars($linha["imagem"]); ?>" 
-                            alt="<?php echo htmlspecialchars($linha["nome"]); ?>" 
-                            width="80"> 
-                    <?php else: ?> Sem imagem 
-                    <?php endif; ?> 
+                <td>
+                    <?php if (!empty($linha["imagem"])): ?>
+                        <img
+                            src="<?php echo htmlspecialchars($linha["imagem"]); ?>"
+                            alt="Imagem do produto"
+                            width="80"
+                        >
+                    <?php else: ?>
+                        Sem imagem
+                    <?php endif; ?>
+                </td>
+
+                <td>
+                    R$ <?php echo number_format($linha["valor_unitario"], 2, ",", "."); ?>
                 </td>
                 <td>
                     <a href="alterarProduto.php?id=<?php echo $id; ?>">Alterar</a>
@@ -76,7 +82,7 @@ $total = $select->rowCount();
 
     <div class="menu">
         <br>
-        <a href="crudProdutos/adicionarProduto.php">Adicionar Produto</a>
+        <a href="adicionarProduto.php">Adicionar Produto</a>
     </div>
     <div class="menu">
         <a href="../admin.php" class="voltar">Voltar</a>

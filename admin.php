@@ -79,7 +79,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
                 Voltar
             </a>
             <a href="logout.php" class="btn">
-                Logout
+                Sair
             </a>
 
         </footer>

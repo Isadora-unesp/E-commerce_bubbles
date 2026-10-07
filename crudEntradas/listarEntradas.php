@@ -56,7 +56,7 @@ $total = count($entradas);
 
 
         <div class="menu" style="justify-content: flex-start; margin-bottom: 20px;">
-            <a href="crudEntradas/adicionarEntradas.php" class="btn">
+            <a href="adicionarEntradas.php" class="btn">
                 Adicionar Entrada
             </a>
         </div>
@@ -117,14 +117,14 @@ $total = count($entradas);
 
                                     <a
                                         class="btn-alterar"
-                                        href="crudEntradas/alterarEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
+                                        href="alterarEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
                                     >
                                         Alterar
                                     </a>
 
                                     <a
                                         class="btn-excluir"
-                                        href="crudEntradas/excluirEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
+                                        href="excluirEntradas.php?id=<?php echo $linha['id_entrada']; ?>"
                                         onclick="return confirm('Tem certeza que deseja excluir esta entrada?')"
                                     >
                                         Excluir
