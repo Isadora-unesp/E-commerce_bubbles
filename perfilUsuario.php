@@ -81,7 +81,7 @@ $telefone = $linha['telefone'];
 
                 <a class="editar" href="crudUsuarios/editarPerfil.php">Editar Perfil</a>
 
-                <a class="sair" href="logout.php">Logout</a>
+                <a class="sair" href="logout.php">Sair</a>
 
             </div>
 

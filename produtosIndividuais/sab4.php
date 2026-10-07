@@ -132,8 +132,11 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                     <h1><?= htmlspecialchars($produto['nome']) ?></h1>
 
-                    <p class="resumo">
-                        <?= htmlspecialchars($produto['descricao']) ?>
+                    <p>
+                        Com fragrância de coco, este sabonete apresenta um aroma tropical, suave e levemente adocicado, trazendo uma 
+                        sensação aconchegante durante o banho. Sua base glicerinada proporciona uma limpeza delicada, enquanto o 
+                        extrato glicólico complementa o cuidado com a pele. O lauril auxilia na formação de uma espuma agradável e 
+                        a essência de coco deixa um perfume cremoso e característico durante o uso.
                     </p>
 
                 </div>

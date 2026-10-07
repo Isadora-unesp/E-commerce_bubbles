@@ -74,11 +74,10 @@ $dataNomePorId = [
                     </a>
                 </div>
 
-                <div class="colecao-imagem">
-                    <img 
-                        src="img/todos-produtos.png" 
-                        alt="Coleção de sabonetes Fruit Bubbles"
-                    >
+                <div 
+                    class="colecao-imagem" 
+                    role="img" 
+                    aria-label="Coleção de sabonetes artesanais Fruit Bubbles">
                 </div>
 
             </div>

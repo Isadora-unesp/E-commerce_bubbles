@@ -31,13 +31,13 @@ function pesquisarProdutoCabecalho() {
  
     const produtos = {
 
-        "frutas vermelhas":
+        "melancia":
             "produtosIndividuais/sab1.php",
 
-        "frutas vermelha":
+        "melância":
             "produtosIndividuais/sab1.php",
 
-        "morango":
+        "sabonete de melância":
             "produtosIndividuais/sab1.php",
 
         "maracuja":
@@ -58,16 +58,10 @@ function pesquisarProdutoCabecalho() {
         "coco massageador":
             "produtosIndividuais/sab4.php",
 
-        "citrico":
+        "citrina":
             "produtosIndividuais/sab5.php",
 
         "laranja":
-            "produtosIndividuais/sab5.php",
-
-        "limao":
-            "produtosIndividuais/sab5.php",
-
-        "laranja limao":
             "produtosIndividuais/sab5.php",
 
         "laranja e limao":

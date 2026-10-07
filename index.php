@@ -390,6 +390,10 @@ foreach ($produtosBanco as $p) {
                                 <?= $produto['nome'] ?>
                             </h3> 
 
+                            <p class="descricao">
+                                <?= htmlspecialchars($produto['descricao']) ?>
+                            </p>
+
                             <strong class="produto-preco">
 
                                 R$

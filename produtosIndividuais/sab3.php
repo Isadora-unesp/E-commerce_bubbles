@@ -201,7 +201,10 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Descrição do produto</h2>
 
                 <p>
-                    <?= htmlspecialchars($produto['descricao']) ?>
+                    Com uma fragrância cítrica inspirada na combinação de laranja e limão, o sabonete Citrina apresenta um aroma 
+                    fresco, vibrante e levemente adocicado. A base glicerinada proporciona uma limpeza suave, enquanto o extrato 
+                    glicólico complementa o cuidado com a pele. O lauril auxilia na formação da espuma e a essência cítrica 
+                    proporciona uma sensação de frescor e um perfume leve durante o banho.
                 </p>
 
             </div>
