@@ -118,6 +118,34 @@ include("util.php");
 
     </section> 
 
+    <section class="sn-proposito" aria-labelledby="sn-proposito-titulo">
+        <div class="sn-proposito-cabecalho">
+            <span class="sobre-etiqueta">O QUE NOS MOVE</span>
+            <h2 id="sn-proposito-titulo">Nossa essência <em>Fruit Bubbles</em></h2>
+            <p>Mais do que produzir sabonetes, queremos colocar criatividade, cuidado e dedicação em cada etapa do nosso projeto.</p>
+        </div>
+        <div class="sn-proposito-grid">
+            <article class="sn-proposito-card">
+                <h3>Missão</h3>
+                <p>Oferecer sabonetes artesanais de qualidade, com fragrâncias inspiradas em frutas, proporcionando uma experiência agradável de cuidado e bem-estar, com produtos feitos com carinho e atenção aos detalhes.</p>
+            </article>
+            <article class="sn-proposito-card">
+                <h3>Visão</h3>
+                <p>Ser uma empresa reconhecida pela qualidade, criatividade e inovação em sabonetes artesanais, conquistando cada vez mais os clientes.</p>
+            </article>
+            <article class="sn-proposito-card">
+                <h3>Valores</h3>
+                <ul>
+                    <li>Qualidade</li>
+                    <li>Criatividade e inovação</li>
+                    <li>Cuidado</li>
+                    <li>Respeito</li>
+                    <li>Transparência</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
     <section class="time-equipe-section">
 
         <div class="time-equipe-cabecalho">

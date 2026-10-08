@@ -94,7 +94,7 @@ $total = count($entradas);
                                 </td>
 
                                 <td class="nome">
-                                    <?php echo htmlspecialchars($linha['descricao']); ?>
+                                    <?php echo htmlspecialchars($linha['nome']); ?>
                                 </td>
 
                                 <td>

@@ -634,16 +634,6 @@ img {
     border-right: none;
 }
 
-.ingrediente-card::before {
-    content: ""; 
-    display: block;
-    width: 28px; 
-    height: 3px; 
-    margin-bottom: 24px;
-    border-radius: 20px; 
-
-} 
-
 .ingrediente-card h3 {
     margin: 0 0 10px;
 
@@ -871,9 +861,9 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.35fr 0.65fr 1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 0.65fr) minmax(0, 1.15fr);
+    gap: 24px;
+    align-items: start;
 }
 
 .footer-fruit-marca {

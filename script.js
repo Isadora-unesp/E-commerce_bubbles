@@ -59,13 +59,13 @@ function pesquisarProdutoCabecalho() {
             "produtosIndividuais/sab4.php",
 
         "citrina":
-            "produtosIndividuais/sab5.php",
+            "produtosIndividuais/sab3.php",
 
         "laranja":
-            "produtosIndividuais/sab5.php",
+            "produtosIndividuais/sab3.php",
 
-        "laranja e limao":
-            "produtosIndividuais/sab5.php"
+        "citrico":
+            "produtosIndividuais/sab3.php"
 
     };
  
