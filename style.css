@@ -74,9 +74,7 @@ img {
     transition: color 0.3s;
 }
 
-
 /* LINHA EMBAIXO */
-
 .menu a::after {
     content: "";
 
@@ -93,9 +91,7 @@ img {
     transition: width 0.3s;
 }
 
-
 /* HOVER */
-
 .menu a:hover {
     color: #f86464;
 }
@@ -104,9 +100,7 @@ img {
     width: 100%;
 }
 
-
 /* PÁGINA ATUAL */
-
 .menu a.ativo { 
     color: #f86464;
 }
@@ -141,9 +135,7 @@ img {
         box-shadow 0.2s;
 }
 
-
 /* QUANDO CLICAR NA PESQUISA */
-
 .pesquisa:focus-within {
     border-color: #f86464;
 
@@ -151,9 +143,7 @@ img {
         0 0 0 3px rgba(248, 100, 100, 0.08);
 }
 
-
 /* CAMPO DE TEXTO */
-
 .pesquisa input {
     display: block;
 
@@ -174,16 +164,12 @@ img {
     font-size: 14px;
 }
 
-
 /* TEXTO "BUSCAR SABONETE..." */
-
 .pesquisa input::placeholder {
     color: #7c7773;
 }
 
-
 /* BOTÕES / ÍCONES */
-
 .pesquisa button,
 .icone,
 .carrinho {
@@ -534,10 +520,7 @@ img {
     background: #f86464;
 } 
 
-/* =========================================================
-   INGREDIENTES - HOME
-   ========================================================= */
-
+/*INGREDIENTES*/
 .ingredientes-home {
     width: 100%;
     padding: 90px 7%;
@@ -545,9 +528,7 @@ img {
     background: #fff2e8;
 }
 
-
 /* PARTE DE CIMA */
-
 .ingredientes-home-topo {
     width: 100%;
     max-width: 1250px;
@@ -567,7 +548,6 @@ img {
     align-items: start;
 }
 
-
 .ingredientes-home-topo .subtitulo {
     grid-area: subtitulo;
 
@@ -582,7 +562,6 @@ img {
 
     letter-spacing: 1.5px;
 }
-
 
 .ingredientes-home-topo h2 {
     grid-area: titulo;
@@ -599,7 +578,6 @@ img {
     color: #46220f;
 }
 
-
 .ingredientes-home-topo > p {
     grid-area: texto;
 
@@ -613,7 +591,6 @@ img {
     line-height: 1.7;
 }
 
-
 .ingredientes-home-topo > .botao {
     grid-area: botao;
 
@@ -622,11 +599,7 @@ img {
     margin-top: 12px;
 }
 
-
-/* =========================================================
-   LISTA DOS INGREDIENTES
-   ========================================================= */
-
+/*LISTA DOS INGREDIENTES*/
 .ingredientes-beneficios {
     width: 100%;
     max-width: 1250px;
@@ -639,9 +612,7 @@ img {
     border-top: 1px solid rgba(70, 34, 15, 0.18);
 }
 
-
 /* CARD */
-
 .ingrediente-card {
     position: relative;
 
@@ -659,31 +630,19 @@ img {
         transform 0.25s ease;
 }
 
-
-/* remove a borda do último de cada linha */
-
 .ingrediente-card:nth-child(3n) {
     border-right: none;
 }
 
-
-/* detalhe pequeno no topo */
-
 .ingrediente-card::before {
-    content: "";
-
+    content: ""; 
     display: block;
-
-    width: 28px;
-    height: 3px;
-
+    width: 28px; 
+    height: 3px; 
     margin-bottom: 24px;
+    border-radius: 20px; 
 
-    border-radius: 20px;
-
-    background: #f86464;
-}
-
+} 
 
 .ingrediente-card h3 {
     margin: 0 0 10px;
@@ -694,7 +653,6 @@ img {
 
     color: #46220f;
 }
-
 
 .ingrediente-card p {
     max-width: 310px;
@@ -707,18 +665,7 @@ img {
     line-height: 1.65;
 }
 
-
-/* efeito bem leve */
-
-.ingrediente-card:hover {
-    background: rgba(255, 255, 255, 0.42);
-}
-
-
-/* =========================================================
-   SOBRE A FRUIT BUBBLES
-   ========================================================= */
-
+/*SOBRE A FRUIT BUBBLES*/
 .sobre-resumo {
     width: 100%;
 
@@ -730,9 +677,7 @@ img {
     overflow: hidden;
 }
 
-
 /* TEXTO */
-
 .sobre-resumo-texto {
     min-height: 570px;
 
@@ -744,7 +689,6 @@ img {
     justify-content: center;
 }
 
-
 .sobre-resumo-texto .subtitulo {
     margin-bottom: 13px;
 
@@ -755,7 +699,6 @@ img {
 
     letter-spacing: 1.5px;
 }
-
 
 .sobre-resumo-texto h2 {
     max-width: 570px;
@@ -770,7 +713,6 @@ img {
     color: #46220f;
 }
 
-
 .sobre-resumo-texto p {
     max-width: 590px;
 
@@ -782,16 +724,11 @@ img {
     line-height: 1.75;
 }
 
-
 .sobre-resumo-texto .botao {
     margin-top: 15px;
 }
 
-
-/* =========================================================
-   LADO DIREITO DO SOBRE
-   ========================================================= */
-
+/*LADO DIREITO DO SOBRE*/
 .sobre-resumo-destaque {
     position: relative;
 
@@ -826,7 +763,6 @@ img {
         background 0.25s ease,
         transform 0.25s ease;
 }
-
 
 .botao.verde:hover {
     background: #657b37;
