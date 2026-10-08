@@ -206,3 +206,73 @@ input[type="submit"]:hover {
     }
 }
 
+/* Ajustes responsivos do SGE */
+@media (max-width: 768px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        margin: 0;
+        padding: 14px 10px;
+    }
+
+    .container,
+    .container.grande,
+    .formulario {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0;
+    }
+
+    h1, h2, .pagina-header h1 {
+        font-size: 22px;
+        overflow-wrap: anywhere;
+    }
+
+    .tabela-container {
+        overflow-x: auto;
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    th, td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    form, .container form {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    input:not([type=checkbox]):not([type=radio]),
+    select,
+    textarea,
+    .campo input,
+    .campo select {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .acoes, .botoes, .buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    a, button, input[type=submit] {
+        overflow-wrap: anywhere;
+    }
+}
+

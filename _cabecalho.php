@@ -169,14 +169,24 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
                 Sobre nós
             </a>
 
-            <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
+            <?php if (!empty($_SESSION['admin'])) { ?>
+
+                <a href="admin.php" class="menu-mobile-item">
+                    Administrador
+                </a>
+
+            <?php } elseif (!empty($_SESSION['logado'])) { ?>
+
                 <a href="perfilUsuario.php" class="menu-mobile-item">
-                    Perfil
+                    Meu perfil
                 </a>
+
             <?php } else { ?>
+
                 <a href="login.php" class="menu-mobile-item">
-                    Perfil
+                    Login
                 </a>
+
             <?php } ?>
 
         </nav>

@@ -559,6 +559,40 @@ document.addEventListener(
     }
 );
 
+function verificarValidadeCarrinho() {
+    const chave = "fruitCarrinhoCriadoEm";
+    const carrinho = JSON.parse(
+        localStorage.getItem("carrinho") || "[]"
+    );
+
+    const criado = Number(localStorage.getItem(chave));
+
+    if (carrinho.length === 0) {
+        localStorage.removeItem(chave);
+        return;
+    }
+
+    if (!criado) {
+        localStorage.setItem(chave, String(Date.now()));
+        return;
+    }
+
+    if (Date.now() - criado >= 24 * 60 * 60 * 1000) {
+        localStorage.removeItem("carrinho");
+        localStorage.removeItem(chave);
+        window.location.reload();
+    }
+}
+
+verificarValidadeCarrinho();
+
+if (!localStorage.getItem("fruitCarrinhoCriadoEm")) {
+    localStorage.setItem(
+        "fruitCarrinhoCriadoEm",
+        String(Date.now())
+    );
+}
+
 /* MENU MOBILE */
 const botaoMenuMobile = document.getElementById("botaoMenuMobile");
 const menuLateralMobile = document.getElementById("menuLateralMobile");
@@ -775,17 +809,54 @@ document.addEventListener("DOMContentLoaded", function () {
     atualizarQuantidade();
 });
 
-function finalizarReserva() {
+async function finalizarReserva() {
+    const carrinho = JSON.parse(
+        localStorage.getItem("carrinho") || "[]"
+    );
 
-    const carrinho =
-        JSON.parse(localStorage.getItem("carrinho")) || [];
+    if (carrinho.length === 0) return;
 
-    if (carrinho.length === 0) {
-        return;
+    const botao = document.getElementById(
+        "botaoFinalizarPedido"
+    );
+
+    if (botao) botao.disabled = true;
+
+    try {
+        const resposta = await fetch("registrarReserva.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                produtos: carrinho
+            })
+        });
+
+        const dados = await resposta.json();
+
+        if (!resposta.ok || !dados.ok) {
+            throw new Error(
+                dados.erro || "Erro ao registrar reserva."
+            );
+        }
+
+        localStorage.removeItem("carrinho");
+        localStorage.removeItem("fruitCarrinhoCriadoEm");
+
+        alert(
+            "Reserva nº " + dados.id +
+            " realizada com sucesso!"
+        );
+
+        window.location.reload();
+
+    } catch (erro) {
+        alert(erro.message);
+    } finally {
+        if (botao) botao.disabled = false;
     }
-
-    alert("Login realizado! Sua reserva pode ser finalizada.");
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
