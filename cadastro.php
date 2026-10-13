@@ -1,80 +1,89 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> Cadastro </title>
-   <link rel="stylesheet" href="styleCLP.css">
-</head>
-<body>
+<form action="crudUsuarios/insertUsuario.php"
+      method="post"
+      enctype="multipart/form-data">
 
-   <a href="index.php" class="voltar-index" aria-label="Voltar para a página inicial">
-       <span>←</span> Voltar
-   </a>
+    <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome"
+               maxlength="80"
+               placeholder="Digite seu nome" required>
+    </div>
 
-   <main class="container">
+    <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"
+               placeholder="Digite seu email" required>
+    </div>
 
-       <div class="cadastro">
+    <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha"
+               placeholder="Crie uma senha" required>
+    </div>
 
-           <h1>Cadastre-se na<br><span>Fruit Bubbles</span></h1>
-           <p class="subtitulo">
-               Crie sua conta e descubra nossos produtos!
-           </p>
+    <div class="campo">
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone"
+               placeholder="(00) 00000-0000" required>
+    </div>
 
-           <?php if (isset($_GET['erro']) && $_GET['erro'] === 'email') { ?>
+    <div class="foto-perfil-container">
+        <label for="foto" class="foto-perfil-label">
+            <img
+                src="https://placehold.co/120x120/fff2e8/46220f?text=Foto"
+                alt="Prévia da foto de perfil"
+                id="preview-foto"
+                class="foto-perfil"
+            >
+            <span class="foto-editar">+</span>
+        </label>
 
-               <p class="erro">
-                   Este email já está cadastrado.
-               </p>
+        <input
+            type="file"
+            id="foto"
+            name="foto"
+            accept="image/jpeg,image/png,image/webp"
+            class="input-foto"
+        >
 
-           <?php } elseif (isset($_GET['erro'])) { ?>
+        <p>Adicione sua foto de perfil</p>
+    </div>
 
-               <p class="erro">
-                   Não foi possível concluir o cadastro. Tente novamente.
-               </p>
+    <button type="submit">Cadastrar</button>
 
-           <?php } ?>
-
-            <form action="crudUsuarios/insertUsuario.php" method="post">
-               <div class="campo">
-                   <label for="nome">Nome completo</label>
-
-                   <input type="text" name="nome" maxlength="80"
-                   placeholder="Digite seu nome" required>
-               </div>
-
-               <div class="campo">
-                   <label for="email">Email</label>
-
-                   <input type="email" name="email"
-                   placeholder="Digite seu email" required>
-               </div>
-
-               <div class="campo">
-                   <label for="senha">Senha</label>
-
-                   <input type="password" name="senha"
-                   placeholder="Crie uma senha" required>
-               </div>
-
-               <div class="campo">
-                   <label for="telefone">Telefone</label>
-
-                   <input type="tel" name="telefone"
-                   placeholder="(00) 00000-0000" required>
-               </div>
-
-               <button type="submit">Cadastrar</button>
-
-            </form>
-
+</form>
            <p class="login">
                Já possui uma conta?
                <a href="login.php">Entrar</a>
            </p>
 
        </div>
+
+<script>
+const campoFoto = document.getElementById('foto');
+const previewFoto = document.getElementById('preview-foto');
+
+campoFoto.addEventListener('change', function () {
+    const arquivo = this.files[0];
+
+    if (!arquivo) return;
+
+    if (!arquivo.type.startsWith('image/')) {
+        alert('Selecione um arquivo de imagem válido.');
+        this.value = '';
+        return;
+    }
+
+    if (arquivo.size > 2 * 1024 * 1024) {
+        alert('A imagem deve ter no máximo 2 MB.');
+        this.value = '';
+        return;
+    }
+
+    previewFoto.src = URL.createObjectURL(arquivo);
+});
+</script>
 
    </main>
 

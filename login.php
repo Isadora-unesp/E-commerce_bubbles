@@ -1,39 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <title>Login</title>
+    <title>Login | Fruit Bubbles</title>
 
-   <link rel="stylesheet" href="styleCLP.css">
+    <link rel="stylesheet" href="styleCLP.css">
 </head>
 
 <body>
 
-   <a href="index.php" class="voltar-index" aria-label="Voltar para a página inicial">
-       <span>←</span> Voltar
-   </a>
+    <a href="index.php" class="voltar-index"
+       aria-label="Voltar para a página inicial">
+        <span>←</span> Voltar
+    </a>
 
-   <main class="container">
+    <main class="container">
 
-       <section class="cadastro">
+        <section class="cadastro">
 
-           <h1>Login</h1>
-           <br>
-           <p class="mensagem">
-               Entre na sua conta para continuar
-           </p>
-           <br>
+            <h1>Login</h1>
 
-           <?php if (isset($_GET['erro'])) { ?>
+            <div class="foto-perfil-container">
+                <img
+                    src="https://placehold.co/120x120/fff2e8/46220f?text=FB"
+                    alt="Imagem padrão da Fruit Bubbles"
+                    class="foto-perfil"
+                >
+            </div>
 
-               <p class="erro">
-                   Email ou senha incorretos.
-               </p>
+            <p class="mensagem">
+                Entre na sua conta para continuar
+            </p>
 
-           <?php } ?>
+            <?php if (isset($_GET['erro'])) { ?>
+                <p class="erro">
+                    Email ou senha incorretos.
+                </p>
+            <?php } ?>
 
             <form method="post" action="crudUsuarios/loginUsuario.php">
 
@@ -41,55 +48,51 @@
                     isset($_GET['retorno']) &&
                     $_GET['retorno'] === 'carrinho'
                 ) { ?>
-
                     <input
                         type="hidden"
                         name="retorno"
                         value="carrinho"
                     >
-
                 <?php } ?>
-                
-               <div class="campo">
-                   <label for="email">Email</label>
 
-                   <input
-                       type="email"
-                       name="email"
-                       placeholder="Digite seu email"
-                       required
-                   >
-               </div>
+                <div class="campo">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu email"
+                        required
+                    >
+                </div>
 
-               <div class="campo">
-                   <label for="senha">Senha</label>
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+                </div>
 
-                   <input
-                       type="password"
-                       name="senha"
-                       placeholder="Digite sua senha"
-                       required
-                   >
-               </div>
+                <a href="#" class="esqueceu-senha">
+                    Esqueceu sua senha?
+                </a>
 
-               <a href="#" class="esqueceu-senha">
-                   Esqueceu sua senha?
-               </a>
-
-               <button type="submit">Entrar</button> 
+                <button type="submit">Entrar</button>
 
             </form>
 
-
-           <br>
-           <p>
+            <p class="login">
                 Ainda não possui uma conta?
                 <a href="cadastro.php">Cadastre-se</a>
-           </p>
+            </p>
 
-       </section>
+        </section>
 
-   </main>
+    </main>
 
 </body>
 
