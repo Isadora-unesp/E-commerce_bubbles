@@ -256,4 +256,165 @@ button:hover {
 .botoes .editar:hover,
 .botoes .sair:hover {
     transform: translateY(-2px);
+
+    
+/* FOTO DE PERFIL REDONDA */
+.foto-perfil-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 24px;
+}
+
+.foto-perfil-label {
+    position: relative;
+    display: block;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.foto-perfil {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #F86464;
+    background-color: #fff2e8;
+}
+
+.foto-editar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #F86464;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    border: 3px solid #fffaf5;
+}
+
+.input-foto {
+    display: none;
+}
+
+.foto-perfil-container p {
+    margin-top: 12px;
+    color: #5d534d;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* MEUS PEDIDOS */
+
+body:has(.meus-pedidos) .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.meus-pedidos {
+    width: 100%;
+    max-width: 700px;
+    background: #fff2e8;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(132, 117, 186, 0.12);
+}
+
+.meus-pedidos h2 {
+    color: #46220f;
+    margin: 0 0 8px;
+}
+
+.meus-pedidos > p {
+    color: #6b5b52;
+}
+
+.pedido-card {
+    margin-top: 18px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ead9d2;
+    border-radius: 12px;
+}
+
+.pedido-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.pedido-topo strong {
+    color: #bb2357;
+}
+
+.pedido-status {
+    color: #52775e;
+    font-weight: 700;
+}
+
+.pedido-card h3 {
+    margin: 14px 0 8px;
+    font-size: 1rem;
+    color: #46220f;
+}
+
+.pedido-card ul {
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.pedido-total {
+    color: #bb2357;
+    display: block;
+    margin-top: 10px;
+}
+
+.pedido-retirada {
+    color: #6b5b52;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+
+    .meus-pedidos {
+        padding: 18px;
+    }
+
+    .pedido-card {
+        padding: 14px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .foto-perfil-label,
+    .foto-perfil {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.foto-perfil {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #F86464;
+    margin: 0 auto 20px;
+}
+
 }

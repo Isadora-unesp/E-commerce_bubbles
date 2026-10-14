@@ -6,7 +6,7 @@ SaiSeHacker();
 
 $conn = conecta();
 
-$varSQL = "SELECT entrada.*, produto.descricao
+$varSQL = "SELECT entrada.*, produto.nome
            FROM entrada
            INNER JOIN produto
            ON entrada.fk_produto = produto.id_produto
@@ -94,7 +94,7 @@ $total = count($entradas);
                                 </td>
 
                                 <td class="nome">
-                                    <?php echo htmlspecialchars($linha['descricao']); ?>
+                                    <?php echo htmlspecialchars($linha['nome']); ?>
                                 </td>
 
                                 <td>

@@ -17,6 +17,7 @@ $total = $select->rowCount();
     <meta charset="UTF-8">
     <title>Lista de Produtos</title>
     <link rel="stylesheet" href="styleCrudProdutos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -26,59 +27,61 @@ $total = $select->rowCount();
 
     <div class="total">Total: <?php echo $total; ?></div>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Descricao</th>
-            <th>Categoria</th>
-            <th>Peso</th>
-            <th>Fragrancia</th>
-            <th>Imagem</th>
-            <th>Valor</th>
-            <th>Acoes</th>
-        </tr>
-
-        <?php
-        $tem = false;
-        while ($linha = $select->fetch(PDO::FETCH_ASSOC)) {
-            $tem = true;
-            $id = $linha["id_produto"];
-            ?>
+    <div class="tabela-container">
+        <table>
             <tr>
-                <td><?php echo $linha["id_produto"]; ?></td>
-                <td><?php echo htmlspecialchars($linha["nome"]); ?></td>
-                <td><?php echo htmlspecialchars($linha["descricao"]); ?></td>
-                <td><?php echo htmlspecialchars($linha["categoria"] ?? ''); ?></td>
-                <td><?php echo htmlspecialchars($linha["peso"] ?? ''); ?>g</td>
-                <td><?php echo htmlspecialchars($linha["fragrancia"] ?? ''); ?></td>
-                <td>
-                    <?php if (!empty($linha["imagem"])): ?>
-                        <img
-                            src="<?php echo htmlspecialchars($linha["imagem"]); ?>"
-                            alt="Imagem do produto"
-                            width="80"
-                        >
-                    <?php else: ?>
-                        Sem imagem
-                    <?php endif; ?>
-                </td>
-
-                <td>
-                    R$ <?php echo number_format($linha["valor_unitario"], 2, ",", "."); ?>
-                </td>
-                <td>
-                    <a href="alterarProduto.php?id=<?php echo $id; ?>">Alterar</a>
-                    <a href="excluirProduto.php?id=<?php echo $id; ?>" onclick="return confirm('Tem certeza?')">Excluir</a>
-                </td>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descricao</th>
+                <th>Categoria</th>
+                <th>Peso</th>
+                <th>Fragrancia</th>
+                <th>Imagem</th>
+                <th>Valor</th>
+                <th>Acoes</th>
             </tr>
+
             <?php
-        }
-        if (!$tem) {
-            echo "<tr><td colspan='9'>Nenhum produto cadastrado</td></tr>";
-        }
-        ?>
-    </table>
+            $tem = false;
+            while ($linha = $select->fetch(PDO::FETCH_ASSOC)) {
+                $tem = true;
+                $id = $linha["id_produto"];
+                ?>
+                <tr>
+                    <td><?php echo $linha["id_produto"]; ?></td>
+                    <td><?php echo htmlspecialchars($linha["nome"]); ?></td>
+                    <td><?php echo htmlspecialchars($linha["descricao"]); ?></td>
+                    <td><?php echo htmlspecialchars($linha["categoria"] ?? ''); ?></td>
+                    <td><?php echo htmlspecialchars($linha["peso"] ?? ''); ?>g</td>
+                    <td><?php echo htmlspecialchars($linha["fragrancia"] ?? ''); ?></td>
+                    <td>
+                        <?php if (!empty($linha["imagem"])): ?>
+                            <img
+                                src="<?php echo htmlspecialchars("../" . ltrim($linha["imagem"], "/")); ?>"
+                                alt="Imagem do produto"
+                                width="80"
+                            >
+                        <?php else: ?>
+                            Sem imagem
+                        <?php endif; ?>
+                    </td>
+
+                    <td>
+                        R$ <?php echo number_format($linha["valor_unitario"], 2, ",", "."); ?>
+                    </td>
+                    <td>
+                        <a href="alterarProduto.php?id=<?php echo $id; ?>">Alterar</a>
+                        <a href="excluirProduto.php?id=<?php echo $id; ?>" onclick="return confirm('Tem certeza?')">Excluir</a>
+                    </td>
+                </tr>
+                <?php
+            }
+            if (!$tem) {
+                echo "<tr><td colspan='9'>Nenhum produto cadastrado</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
 
     <div class="menu">
         <br>

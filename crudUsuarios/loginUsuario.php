@@ -32,10 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $linha = $select->fetch(PDO::FETCH_ASSOC);
 
-    if ($linha && password_verify($senha, $linha['senha'])) {
+    
+if ($linha && password_verify($senha, $linha['senha'])) {
 
-        $_SESSION['logado'] = true;
-        $_SESSION['usuario_id'] = $linha['id_usuario'];
+    $_SESSION['logado'] = true;
+    $_SESSION['usuario_id'] = $linha['id_usuario'];
+    $_SESSION['foto_perfil'] = $linha['foto_perfil'] ?? null;
 
         if (
             isset($_POST['retorno']) &&

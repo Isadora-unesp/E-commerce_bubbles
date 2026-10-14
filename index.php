@@ -6,7 +6,7 @@ $_SESSION["raiz"] = "/loja3a/";
 
 $conn = conecta();
 
-$varSQL = "SELECT id_produto, nome, peso, valor_unitario
+$varSQL = "SELECT id_produto, nome, peso, valor_unitario, imagem
            FROM produto
            WHERE (excluido = false OR excluido IS NULL)
            ORDER BY id_produto";
@@ -37,7 +37,7 @@ foreach ($produtosBanco as $p) {
         "nome"   => $p['nome'],
         "peso"   => $p['peso'] . " g",
         "preco"  => (float) $p['valor_unitario'],
-        "imagem" => $imagensPorId[$p['id_produto']] ?? "img/produto-padrao.jpg",
+        "imagem" => !empty($p['imagem']) ? $p['imagem'] : ($imagensPorId[$p['id_produto']] ?? "img/produto-padrao.jpg"),
         "pagina" => $paginaPorId[$p['id_produto']] ?? "#"
     ];
 

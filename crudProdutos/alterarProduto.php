@@ -39,6 +39,7 @@ $valor_unitario = $linha['valor_unitario'];
     <meta charset="UTF-8">
     <title>Alterar Produto</title>
     <link rel="stylesheet" href="styleCrudProdutos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -46,7 +47,7 @@ $valor_unitario = $linha['valor_unitario'];
 
     <h2>Alterar Produto</h2>
 
-    <form action="updateProduto.php" method="post">
+    <form action="updateProduto.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
         <label>Nome</label>
@@ -67,12 +68,13 @@ $valor_unitario = $linha['valor_unitario'];
         <label>Valor Unitario</label>
         <input type="number" step="0.01" min="0" name="valor_unitario" value="<?php echo htmlspecialchars($valor_unitario); ?>" required>
 
-        <label>Imagem (caminho ou URL)</label>
+        <label>Trocar imagem (opcional)</label>
         <input
-            type="text"
+            type="file"
             name="imagem"
-            value="<?php echo htmlspecialchars($linha['imagem'] ?? ''); ?>"
+            accept="image/jpeg,image/png,image/webp,image/gif"
         >
+        <small>Deixe vazio para manter a imagem atual.</small>
 
         <br><br>
         <input type="submit" value="Alterar">

@@ -166,113 +166,147 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-/* responsividade */
-
-@media (max-width: 700px) {
-
-    body {
-        margin: 15px;
-    }
-
-    .pagina-header h1,
-    h1 {
-        font-size: 22px;
-    }
-
-    th,
-    td {
-        padding: 10px 8px;
-    }
-
-    .campo input,
-    .campo select {
-        width: 100%;
-    }
-
-    .acoes-formulario {
-        justify-content: stretch;
-    }
-
-    .acoes-formulario .btn,
-    .acoes-formulario input[type="submit"] {
-        flex: 1;
-        text-align: center;
-    }
-
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
+.tabela-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Ajustes responsivos do SGE */
+.container form input[type="file"] {
+    min-width: 0;
+    max-width: 100%;
+}
+
 @media (max-width: 768px) {
-    html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
 
-    body {
-        margin: 0;
-        padding: 14px 10px;
-    }
-
-    .container,
-    .container.grande,
-    .formulario {
+    .container {
         width: 100%;
         max-width: 100%;
-        min-width: 0;
-        padding: 0;
-    }
-
-    h1, h2, .pagina-header h1 {
-        font-size: 22px;
-        overflow-wrap: anywhere;
-    }
-
-    .tabela-container {
-        overflow-x: auto;
-        max-width: 100%;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    table {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        white-space: nowrap;
-    }
-
-    th, td {
-        padding: 10px 8px;
-        font-size: 12px;
-    }
-
-    form, .container form {
-        max-width: 100%;
-        min-width: 0;
-    }
-
-    input:not([type=checkbox]):not([type=radio]),
-    select,
-    textarea,
-    .campo input,
-    .campo select {
-        max-width: 100%;
+        padding: 10px;
         box-sizing: border-box;
     }
 
-    .acoes, .botoes, .buttons {
+    .container form {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        box-sizing: border-box;
+    }
+
+    .container form input,
+    .container form select,
+    .container form textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .container form input[type="submit"],
+    .container form button[type="submit"] {
+        width: 100%;
+        min-height: 44px;
+        cursor: pointer;
+    }
+
+    .container form input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .tabela-container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .tabela-container table {
+        display: table;
+        width: max-content;
+        min-width: 100%;
+        overflow: visible;
+        border-collapse: collapse;
+    }
+
+    .tabela-container th,
+    .tabela-container td {
+        padding: 10px;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .tabela-container img {
+        max-width: 65px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .menu {
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+}
+ 
+@media (max-width: 480px) {
+
+    .container {
+        padding: 8px;
+    }
+
+    .container h1,
+    .container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .container form {
+        gap: 10px;
+    }
+
+    .container form label {
+        font-size: 14px;
+    }
+
+    .container form input,
+    .container form select,
+    .container form textarea {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .container form input[type="submit"],
+    .container form button[type="submit"] {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .tabela-container th,
+    .tabela-container td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .tabela-container img {
+        max-width: 50px;
+    }
+
+    .menu {
         gap: 8px;
     }
 
-    a, button, input[type=submit] {
-        overflow-wrap: anywhere;
+    .menu a {
+        font-size: 14px;
     }
 }
 

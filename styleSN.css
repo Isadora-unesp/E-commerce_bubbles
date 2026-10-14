@@ -717,3 +717,120 @@
     }
 
 }
+
+/* Ajustes exclusivos de layout da equipe - sem alterar o PHP */
+.time-equipe-section { max-width: 1700px; padding: 75px clamp(18px, 4vw, 65px) 90px; }
+.time-cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; align-items: stretch; }
+.time-card { min-width: 0; display: flex; flex-direction: column; }
+.time-card-foto { height: auto; aspect-ratio: 4 / 4.2; flex-shrink: 0; }
+.time-card-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.time-card-info { padding: 20px 16px 24px; flex: 1; }
+.time-card h3 { font-size: clamp(19px, 1.7vw, 26px); line-height: 1.12; overflow-wrap: break-word; }
+.time-card p { font-size: 13px; line-height: 1.6; }
+.time-card-cargo { font-size: 10px; line-height: 1.35; }
+@media (max-width: 1100px) {
+  .time-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .time-card-foto { aspect-ratio: 4 / 3.5; }
+  .time-card-info { padding: 20px; }
+  .time-card h3 { font-size: 24px; }
+  .time-card p { font-size: 13px; }
+}
+@media (max-width: 700px) {
+  .time-equipe-section { padding: 65px 14px 75px; }
+  .time-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .time-card-foto { aspect-ratio: 4 / 4.3; height: auto; }
+  .time-card-info { padding: 15px 12px 20px; }
+  .time-card h3 { font-size: clamp(17px, 4vw, 21px); }
+  .time-card p { font-size: 12px; line-height: 1.5; }
+  .time-card-cargo { font-size: 9px; letter-spacing: .5px; }
+}
+@media (max-width: 360px) {
+  .time-cards { gap: 9px; }
+  .time-card-info { padding: 12px 9px 16px; }
+  .time-card h3 { font-size: 16px; }
+  .time-card p { font-size: 11px; }
+}
+
+.sn-proposito {
+    padding: 90px 7% 105px;
+    background: #fff2e8;
+}
+.sn-proposito-cabecalho {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+.sn-proposito-cabecalho h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 500;
+    line-height: 1.12;
+    color: #46220f;
+}
+.sn-proposito-cabecalho h2 em { color: #f06464; }
+.sn-proposito-cabecalho p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #62544c;
+}
+.sn-proposito-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1250px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+.sn-proposito-card {
+    position: relative;
+    min-width: 0;
+    padding: 42px 32px 38px;
+    border-radius: 24px;
+    background: #fffaf6;
+    border: 1px solid #f1ded6;
+    box-shadow: 0 8px 28px rgba(70,34,15,.04);
+}
+.sn-proposito-card:nth-child(2) { background: #f9e1df; }
+.sn-proposito-card:nth-child(3) { background: #e7edda; }
+.sn-proposito-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 32px;
+}
+.sn-proposito-card h3 {
+    margin: 0 0 18px;
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #46220f;
+}
+.sn-proposito-card p,
+.sn-proposito-card li {
+    color: #62544c;
+    font-size: 15px;
+    line-height: 1.75;
+}
+.sn-proposito-card ul { padding-left: 21px; margin: 0; }
+.sn-proposito-card li { padding-left: 3px; margin-bottom: 5px; }
+@media (max-width: 1000px) {
+    .sn-proposito-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sn-proposito-card:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+    .sn-proposito { padding: 65px 22px 75px; }
+    .sn-proposito-cabecalho { margin-bottom: 32px; }
+    .sn-proposito-cabecalho h2 { font-size: 36px; }
+    .sn-proposito-cabecalho p { font-size: 14px; }
+    .sn-proposito-grid { grid-template-columns: 1fr; gap: 15px; }
+    .sn-proposito-card:last-child { grid-column: auto; }
+    .sn-proposito-card { padding: 30px 25px; border-radius: 20px; }
+    .sn-proposito-card h3 { font-size: 28px; }
+    .sn-proposito-card p, .sn-proposito-card li { font-size: 14px; }
+}

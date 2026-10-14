@@ -3,42 +3,94 @@
 }
 
 body {
-    margin: 0;
-    padding: 30px;
+    margin: 30px;
     background: #f7f8fa;
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     color: #1f2937;
 }
 
-.container.grande,
-.container {
-    width: 100%;
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.pagina-header {
-    margin-bottom: 30px;
-}
-
-.pagina-header h1 {
-    margin: 0 0 8px;
-    font-family: inherit;
+h1 {
+    color: #111827;
     font-size: 28px;
     font-weight: 600;
-    color: #111827;
 }
 
-.pagina-header p {
-    margin: 0;
+p {
     color: #6b7280;
     font-size: 14px;
 }
 
+.container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.formulario {
+    max-width: 850px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 13px;
+}
+
+.campo input,
+.campo select {
+    width: 350px;
+    max-width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #4b5563;
+    box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    border-bottom: 1px solid #eef0f2;
+}
+
+th {
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tr:hover td {
+    background: #f9fafb;
+}
+
 .total {
     display: inline-block;
-    margin: 0;
     padding: 6px 12px;
     background: #f3f4f6;
     color: #6b7280;
@@ -46,272 +98,95 @@ body {
     border-radius: 4px;
 }
 
-.total strong {
-    color: #111827;
-}
-
-.tabela-container {
-    width: 100%;
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #ffffff;
-}
-
-thead th {
-    padding: 12px 16px;
-    background: #f3f4f6;
-    color: #374151;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-thead th:first-child {
-    border-radius: 6px 0 0 0;
-}
-
-thead th:last-child {
-    border-radius: 0 6px 0 0;
-}
-
-tbody td {
-    padding: 12px 16px;
-    border: none;
-    border-bottom: 1px solid #eef0f2;
-    font-size: 13px;
-    color: #1f2937;
-}
-
-tbody tr:last-child td {
-    border-bottom: none;
-}
-
-tbody tr:hover td {
-    background: #f9fafb;
-}
-
-td.id {
-    color: #6b7280;
-    font-weight: 600;
-}
-
-td.nome {
-    color: #111827;
-    font-weight: 600;
-}
-
-.badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.badge.admin {
-    background: #111827;
-    color: #ffffff;
-}
-
-.badge.usuario {
-    background: #f3f4f6;
-    color: #374151;
-    border: 1px solid #d1d5db;
-}
-
-.acoes {
-    white-space: nowrap;
-}
-
-.acoes a,
-.acoes button {
-    display: inline-block;
-    padding: 6px 14px;
-    margin: 2px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.15s;
-    cursor: pointer;
-}
-
-.btn-alterar {
-    background: #ffffff;
-    color: #374151;
-    border: 1px solid #d1d5db;
-    font-family: inherit;
-}
-
-.btn-alterar:hover {
-    background: #f3f4f6;
-    border-color: #9ca3af;
-    transform: none;
-}
-
-.btn-excluir {
-    background: #ffffff;
-    color: #dc2626;
-    border: 1px solid #fca5a5;
-}
-
-.btn-excluir:hover {
-    background: #fef2f2;
-    border-color: #f87171;
-    transform: none;
-}
-
-.nenhum-usuario {
-    padding: 30px !important;
-    text-align: center;
-    color: #6b7280 !important;
-}
-
-.formulario {
-    width: 100%;
-    max-width: 850px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.campo label {
-    display: block;
-    margin-top: 4px;
-    font-weight: 600;
-    color: #374151;
-    font-size: 13px;
-}
-
-.campo input[type="text"],
-.campo input[type="number"],
-.campo input[type="email"],
-.campo input[type="password"],
-.campo select {
-    width: 100%;
-    max-width: 350px;
-    padding: 9px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
-    background: #ffffff;
-    color: #1f2937;
-    font-family: inherit;
-    font-size: 13px;
-    outline: none;
-    transition: 0.15s;
-}
-
-.campo input:focus,
-.campo select:focus {
-    border-color: #4b5563;
-    box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
-}
-
-.campo input::placeholder {
-    color: #9ca3af;
-}
-
-.campo small {
-    color: #6b7280;
-    font-size: 12px;
-}
-
+.menu,
 .acoes-formulario {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .btn,
-input[type="submit"],
-.acoes-formulario .btn-alterar {
+.menu a,
+.acoes a,
+.acoes button,
+input[type="submit"] {
     display: inline-block;
-    padding: 8px 16px;
-    border-radius: 4px;
-    background: #ffffff;
+    padding: 7px 14px;
+    background: #fff;
     color: #374151;
     border: 1px solid #d1d5db;
-    font-family: inherit;
-    font-size: 13px;
+    border-radius: 4px;
+    font-size: 12px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: 0.15s;
 }
 
 .btn:hover,
-input[type="submit"]:hover,
-.acoes-formulario .btn-alterar:hover {
+.menu a:hover,
+.acoes a:hover,
+.acoes button:hover,
+input[type="submit"]:hover {
     background: #f3f4f6;
     border-color: #9ca3af;
-    transform: none;
 }
 
-.menu {
+.btn-excluir {
+    color: #dc2626 !important;
+    border-color: #fca5a5 !important;
+}
+
+/* Campos do formulário em coluna */
+.container form {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+    max-width: 560px;
 }
 
-.menu a {
-    display: inline-block;
-    padding: 6px 14px;
-    background: #ffffff;
-    color: #374151;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
+.container form label {
+    display: block;
     font-weight: 600;
-    font-size: 12px;
-    text-decoration: none;
-    transition: 0.15s;
+    margin-top: 8px;
 }
 
-.menu a:hover {
-    background: #f3f4f6;
-    border-color: #9ca3af;
+.container form input:not([type=hidden]),
+.container form textarea,
+.container form select {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
 }
+
+.container form input[type=submit] {
+    width: auto;
+    cursor: pointer;
+}
+
+/* responsividade */
 
 @media (max-width: 700px) {
 
     body {
-        padding: 15px;
+        margin: 15px;
     }
 
-    .pagina-header h1 {
+    .pagina-header h1,
+    h1 {
         font-size: 22px;
     }
 
-    thead th,
-    tbody td {
+    th,
+    td {
         padding: 10px 8px;
     }
 
-    .campo input[type="text"],
-    .campo input[type="number"],
-    .campo input[type="email"],
-    .campo input[type="password"],
+    .campo input,
     .campo select {
-        max-width: 100%;
+        width: 100%;
     }
 
     .acoes-formulario {
@@ -319,10 +194,15 @@ input[type="submit"]:hover,
     }
 
     .acoes-formulario .btn,
-    .acoes-formulario .btn-alterar,
     .acoes-formulario input[type="submit"] {
         flex: 1;
         text-align: center;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
 
@@ -394,4 +274,29 @@ input[type="submit"]:hover,
     a, button, input[type=submit] {
         overflow-wrap: anywhere;
     }
+}
+@media screen and (max-width: 768px) {
+    html { width: 100%; }
+    body { margin: 0; padding: 16px 12px; min-width: 0; }
+    .container { width: 100%; max-width: 100%; min-width: 0; }
+    .container h2 { font-size: clamp(20px, 5vw, 26px); line-height: 1.25; }
+    .container form { width: 100%; max-width: 100%; min-width: 0; }
+    .container form label { max-width: 100%; overflow-wrap: anywhere; }
+    .container form input:not([type="hidden"]),
+    .container form select,
+    .container form textarea { display: block; width: 100%; max-width: 100%; min-width: 0; font-size: 16px; }
+    .container form input[type="submit"] { width: 100%; min-height: 44px; margin-top: 8px; }
+    .container .menu { display: flex; flex-wrap: wrap; max-width: 100%; }
+    .container .menu a { max-width: 100%; text-align: center; }
+    /* A tabela original não tem wrapper: a rolagem fica no próprio table. */
+    .container > table { display: block; width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+    .container > table th, .container > table td { padding: 10px 9px; font-size: 12px; }
+    .container > table td:nth-child(3) { white-space: normal; min-width: 160px; max-width: 240px; overflow-wrap: anywhere; }
+    .container > table td img { max-width: 70px; height: auto; }
+    .container > table td:last-child a { display: inline-block; margin: 3px 2px; }
+}
+@media screen and (max-width: 420px) {
+    body { padding: 12px 8px; }
+    .container .menu a { flex: 1 1 100%; }
+    .container > table th, .container > table td { padding: 9px 7px; }
 }

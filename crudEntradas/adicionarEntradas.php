@@ -6,10 +6,10 @@ SaiSeHacker();
 
 $conn = conecta();
 
-$varSQL = "SELECT id_produto, descricao
+$varSQL = "SELECT id_produto, nome
            FROM produto
            WHERE (excluido = false OR excluido IS NULL)
-           ORDER BY descricao";
+           ORDER BY nome";
 
 $select = $conn->query($varSQL);
 
@@ -68,7 +68,7 @@ $select = $conn->query($varSQL);
                     <?php while ($produto = $select->fetch(PDO::FETCH_ASSOC)) { ?>
 
                         <option value="<?php echo $produto['id_produto']; ?>">
-                            <?php echo htmlspecialchars($produto['descricao']); ?>
+                            <?php echo htmlspecialchars($produto['nome']); ?>
                         </option>
 
                     <?php } ?>

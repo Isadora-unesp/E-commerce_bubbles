@@ -634,16 +634,6 @@ img {
     border-right: none;
 }
 
-.ingrediente-card::before {
-    content: ""; 
-    display: block;
-    width: 28px; 
-    height: 3px; 
-    margin-bottom: 24px;
-    border-radius: 20px; 
-
-} 
-
 .ingrediente-card h3 {
     margin: 0 0 10px;
 
@@ -871,9 +861,9 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.35fr 0.65fr 1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 0.65fr) minmax(0, 1.15fr);
+    gap: 24px;
+    align-items: start;
 }
 
 .footer-fruit-marca {
@@ -1279,6 +1269,15 @@ img {
     margin-top: 45px;
 }
 
+.foto-usuario-header {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2px solid #e9c7d3;
+}
+
 @media (max-width: 1000px) {
 
     .header {
@@ -1301,12 +1300,7 @@ img {
     .hero h1 {
         font-size: 43px;
     }
-
-
-    /* =====================================================
-       PRODUTOS
-       ===================================================== */
-
+ 
     .produtos {
         padding-left: 4%;
         padding-right: 4%;
@@ -1319,12 +1313,7 @@ img {
     .produto-imagem {
         height: 300px;
     }
-
-
-    /* =====================================================
-       INGREDIENTES
-       ===================================================== */
-
+ 
     .ingredientes-home {
         padding-left: 5%;
         padding-right: 5%;
@@ -1337,12 +1326,7 @@ img {
     .ingredientes-home-topo h2 {
         font-size: 40px;
     }
-
-
-    /* =====================================================
-       SOBRE
-       ===================================================== */
-
+ 
     .sobre-resumo {
         padding: 0;
     }
@@ -1354,22 +1338,14 @@ img {
     .sobre-resumo-texto h2 {
         font-size: 42px;
     }
-
-
-    /* NÃO ALTERADO */
-
+ 
     .footer-fruit {
         padding-left: 5%;
         padding-right: 5%;
     }
 }
 
-
-
-/* =========================================================
-   CELULAR / TABLET PEQUENO
-   ========================================================= */
-
+ 
 @media (max-width: 700px) {
 
     .header {
@@ -1427,9 +1403,6 @@ img {
     .header .logo img {
         width: 110px;
     }
-
-
-    /* ESCONDE MENU NORMAL E PERFIL */
 
     .menu,
     .icone {
@@ -1678,9 +1651,6 @@ img {
 
         font-size: 12px;
     }
-
-
-    /* LISTA */
 
     .ingredientes-beneficios {
         width: 100%;
@@ -2018,9 +1988,6 @@ img {
         text-align: center;
     }
 
-
-    /* REDES */
-
     .footer-fruit-redes {
         width: 100%;
 
@@ -2035,9 +2002,6 @@ img {
     .footer-fruit-redes a {
         font-size: 10px;
     }
-
-
-    /* NAVEGAÇÃO */
 
     .footer-fruit-nav {
         width: 100%;
@@ -2068,9 +2032,6 @@ img {
         font-size: 9px;
         line-height: 1.2;
     }
-
-
-    /* COPYRIGHT */
 
     .footer-fruit-final {
         width: 100%;

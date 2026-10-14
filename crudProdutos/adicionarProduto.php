@@ -10,6 +10,7 @@ SaiSeHacker();?>
     <meta charset="UTF-8">
     <title>Adicionar Produto</title>
     <link rel="stylesheet" href="styleCrudProdutos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -17,7 +18,7 @@ SaiSeHacker();?>
 
     <h2>Adicionar Produto</h2>
 
-    <form action="insertProduto.php" method="post">
+    <form action="insertProduto.php" method="post" enctype="multipart/form-data">
         <label>Nome</label>
         <input type="text" name="nome" required>
 
@@ -36,8 +37,12 @@ SaiSeHacker();?>
         <label>Valor Unitario</label>
         <input type="number" step="0.01" min="0" name="valor_unitario" required>
 
-        <label>Imagem (caminho ou URL)</label>
-        <input type="text" name="imagem" value="">
+        <label>Imagem do produto</label>
+        <input
+            type="file"
+            name="imagem"
+            accept="image/jpeg,image/png,image/webp,image/gif"
+        >
 
         <br><br>
         <input type="submit" value="Salvar">

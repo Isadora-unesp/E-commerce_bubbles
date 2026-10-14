@@ -4,47 +4,17 @@ include("../util.php");
 
 SaiSeHacker();
 
+require_once __DIR__ . "/uploadImagem.php";
+
 if (empty($_POST)) {
     header("Location: adicionarProduto.php");
     exit;
 }
 
 try {
-    $conn = conecta();
+    $conn = conecta(); 
 
-    /* TESTE DE POR IMAGEM
-    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-
-        $nomeOriginal = $_FILES['imagem']['name'];
-        $arquivoTemporario = $_FILES['imagem']['tmp_name'];
-
-        $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
-
-        $extensoesPermitidas = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-
-        if (!in_array($extensao, $extensoesPermitidas)) {
-            die("Formato de imagem não permitido.");
-        }
-
-        $novoNome = uniqid() . "." . $extensao;
-
-        // Pasta física onde a imagem será salva
-        $pasta = "../img/";
-
-        if (!is_dir($pasta)) {
-            mkdir($pasta, 0755, true);
-        }
-
-        $caminhoArquivo = $pasta . $novoNome;
-
-        if (!move_uploaded_file($arquivoTemporario, $caminhoArquivo)) {
-            die("Erro ao salvar a imagem.");
-        }
-
-        // Caminho que será salvo no banco
-        $caminhoBanco = "img/" . $novoNome;
-
-    }*/
+    $caminhoBanco = salvarImagemProduto($_FILES['imagem'] ?? null) ?? '';
 
     $varSQL = "INSERT INTO produto 
                (nome, descricao, categoria, peso, fragrancia, valor_unitario, imagem, excluido) 
@@ -59,14 +29,14 @@ try {
     $insert->bindParam(':peso', $_POST['peso']);
     $insert->bindParam(':fragrancia', $_POST['fragrancia']);
     $insert->bindParam(':valor_unitario', $_POST['valor_unitario']);
-    $insert->bindValue(':imagem', trim($_POST['imagem'] ?? ''));
+    $insert->bindValue(':imagem', $caminhoBanco);
     
     $insert->execute();
 
     header("Location: listarProdutos.php");
     exit;
 
-} catch (PDOException $e) {
+} catch (Throwable $e) {
     echo "Erro: " . $e->getMessage();
 }
 ?>
