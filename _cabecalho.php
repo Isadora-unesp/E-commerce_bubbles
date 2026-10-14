@@ -112,10 +112,30 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
             <?php } ?>
 
-                <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="8" r="4"></circle>
-                    <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
-                </svg>
+                <?php if (
+                    !empty($_SESSION['foto_perfil']) &&
+                    !empty($_SESSION['logado']) &&
+                    $_SESSION['logado'] === true
+                ) { ?>
+
+                    <img
+                        src="<?= $base . htmlspecialchars(
+                            $_SESSION['foto_perfil'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ) ?>"
+                        alt="Foto de perfil"
+                        class="foto-usuario-header"
+                    >
+
+                <?php } else { ?>
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4"></circle>
+                        <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
+                    </svg>
+
+                <?php } ?>
 
             </a>
 
