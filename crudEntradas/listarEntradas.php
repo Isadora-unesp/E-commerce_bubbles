@@ -6,7 +6,7 @@ SaiSeHacker();
 
 $conn = conecta();
 
-$varSQL = "SELECT entrada.*, produto.descricao
+$varSQL = "SELECT entrada.*, produto.nome
            FROM entrada
            INNER JOIN produto
            ON entrada.fk_produto = produto.id_produto

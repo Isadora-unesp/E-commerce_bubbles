@@ -8,7 +8,7 @@ $conn = conecta();
 
 $idProduto = 2; 
 
-$varSQL = "SELECT nome, peso, valor_unitario, descricao
+$varSQL = "SELECT nome, peso, valor_unitario, descricao, imagem
            FROM produto
            WHERE id_produto = :id
            AND (excluido = false OR excluido IS NULL)";
@@ -38,7 +38,7 @@ $paginaPorId = [
     5 => "produtosIndividuais/sab3.php",
 ];
 
-$varSQLOutros = "SELECT id_produto, nome, valor_unitario
+$varSQLOutros = "SELECT id_produto, nome, valor_unitario, imagem
                  FROM produto
                  WHERE id_produto != :id
                  AND (excluido = false OR excluido IS NULL)
@@ -88,41 +88,17 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
         <section class="detalhe">
 
             <div class="slideshow-coluna">
-
                 <div class="slideshow">
-
-                    <div class="slide ativo">
-                        <span class="slide-contador">1 / 3</span>
-                        <img src="<?= htmlspecialchars($imagensPorId[$idProduto]) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>, foto 1">
-                    </div>
-
-                    <div class="slide">
-                        <span class="slide-contador">2 / 3</span>
-                        <img src="<?= htmlspecialchars($imagensPorId[$idProduto]) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>, foto 2">
-                    </div>
-
-                    <div class="slide">
-                        <span class="slide-contador">3 / 3</span>
-                        <img src="<?= htmlspecialchars($imagensPorId[$idProduto]) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>, foto 3">
-                    </div>
-
-                    <button type="button" class="seta-slide anterior" id="slideAnterior" aria-label="Foto anterior">
-                        &#10094;
-                    </button>
-
-                    <button type="button" class="seta-slide proximo" id="slideProximo" aria-label="Próxima foto">
-                        &#10095;
-                    </button>
-
+                    <img
+                        src="<?= htmlspecialchars(
+                            !empty($produto['imagem'])
+                                ? ltrim($produto['imagem'], '/')
+                                : ($imagensPorId[$idProduto] ?? 'img/logo.png')
+                        ) ?>"
+                        alt="<?= htmlspecialchars($produto['nome']) ?>"
+                    >
                 </div>
-
-                <div class="pontos">
-                    <button type="button" class="ponto ativo" aria-label="Foto 1"></button>
-                    <button type="button" class="ponto" aria-label="Foto 2"></button>
-                    <button type="button" class="ponto" aria-label="Foto 3"></button>
-                </div>
-
-            </div>
+            </div> 
 
             <div class="detalhe-info">
 
@@ -218,8 +194,8 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Ingredientes</h2>
 
                 <p>
-                    Base vegetal, óleo de coco, óleo de palma, extrato natural de frutas vermelhas,
-                    manteiga de karité, glicerina vegetal, fragrância natural e vitamina E.
+                    Glicerina branca, glicerina transparente, essência de marácuja, álcool de cereais, extrato 
+                    glicólico de aloe vera, pigmento cosmético, lauril e semente de couza.
                 </p>
 
             </div>
@@ -239,7 +215,14 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($outrosProdutos as $outro): ?>
 
                     <a href="<?= htmlspecialchars($paginaPorId[$outro['id_produto']] ?? '#') ?>" class="outro-card">
-                        <img src="<?= htmlspecialchars($imagensPorId[$outro['id_produto']] ?? 'img/logo.png') ?>" alt="Sabonete <?= htmlspecialchars($outro['nome']) ?>">
+                        <img
+                            src="<?= htmlspecialchars(
+                                !empty($outro['imagem'])
+                                    ? ltrim($outro['imagem'], '/')
+                                    : ($imagensPorId[$outro['id_produto']] ?? 'img/logo.png')
+                            ) ?>"
+                            alt="<?= htmlspecialchars($outro['nome']) ?>"
+                        >
                         <h3><?= htmlspecialchars($outro['nome']) ?></h3>
                         <strong>R$ <?= number_format($outro['valor_unitario'], 2, ',', '.') ?></strong>
                     </a>

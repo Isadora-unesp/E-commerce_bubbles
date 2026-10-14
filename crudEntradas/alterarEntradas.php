@@ -34,10 +34,10 @@ $custo_unitario = $linha['custo_unitario'];
 $obs = $linha['obs'];
 $fk_produto = $linha['fk_produto'];
 
-$varSQLProdutos = "SELECT id_produto, descricao
+$varSQLProdutos = "SELECT id_produto, nome
                    FROM produto
                    WHERE (excluido = false OR excluido IS NULL)
-                   ORDER BY descricao";
+                   ORDER BY nome";
 
 $selectProdutos = $conn->query($varSQLProdutos);
 
@@ -104,7 +104,7 @@ $selectProdutos = $conn->query($varSQLProdutos);
                             value="<?php echo $produto['id_produto']; ?>"
                             <?php if ($produto['id_produto'] == $fk_produto) echo "selected"; ?>
                         >
-                            <?php echo htmlspecialchars($produto['descricao']); ?>
+                            <?php echo htmlspecialchars($produto['nome']); ?>
                         </option>
 
                     <?php } ?>

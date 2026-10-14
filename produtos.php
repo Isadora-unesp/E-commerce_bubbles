@@ -4,7 +4,7 @@ include("util.php");
 
 $conn = conecta();
 
-$varSQL = "SELECT id_produto, nome, descricao, valor_unitario
+$varSQL = "SELECT id_produto, nome, descricao, valor_unitario, imagem
            FROM produto
            WHERE (excluido = false OR excluido IS NULL)
            ORDER BY id_produto";
@@ -67,11 +67,7 @@ $dataNomePorId = [
                     <p>
                         Descubra sabonetes artesanais feitos com ingredientes naturais
                         e fragrâncias frutadas para transformar seu banho em um momento especial.
-                    </p>
-
-                    <a href="#produtos" class="btn-explorar">
-                        Explorar produtos ↓
-                    </a>
+                    </p> 
                 </div>
 
                 <div 
@@ -104,7 +100,7 @@ $dataNomePorId = [
 
                     <?php
                         $id = $p['id_produto'];
-                        $imagem = $imagensPorId[$id] ?? "img/produto-padrao.jpg";
+                        $imagem = !empty($p['imagem']) ? $p['imagem'] : ($imagensPorId[$id] ?? "img/produto-padrao.jpg");
                         $pagina = $paginaPorId[$id] ?? "#";
                         $dataNome = $dataNomePorId[$id] ?? strtolower($p['nome']);
                     ?>
