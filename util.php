@@ -44,7 +44,7 @@ function Raiz()
 }
 
 //FUNÇÕES COMENTADAS ATÉ BAIXAR A BIBLIOTECA PHPMAILER
-/*
+
 // Verifica se o arquivo de imagem existe no sistema de arquivos.
 function ImagemJaExiste($paramImagem)
 {
@@ -192,7 +192,6 @@ function EnviaEmail($pEmailDestino, $pAssunto, $pHtml,
 
     return $enviado;
 }
-*/
 
 function SaiSeHacker() {
     if (session_status() === PHP_SESSION_NONE) {

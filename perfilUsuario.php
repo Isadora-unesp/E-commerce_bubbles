@@ -33,6 +33,47 @@ $email = $linha['email'];
 $telefone = $linha['telefone'];
 $fotoPerfil = $linha['foto_perfil'] ?? null;
 
+// Busca as reservas do usuário conectado
+$consultaPedidos = $conn->prepare("
+    SELECT
+        c.id_compra,
+        c.status,
+        cp.quantidade,
+        cp.valor_unitario,
+        p.nome AS produto
+    FROM compra c
+    INNER JOIN compra_produto cp
+        ON cp.fk_compra = c.id_compra
+    INNER JOIN produto p
+        ON p.id_produto = cp.fk_produto
+    WHERE c.fk_usuario = :usuario
+    ORDER BY c.id_compra DESC, p.nome
+");
+
+$consultaPedidos->execute([
+    ':usuario' => $id
+]);
+
+$pedidos = [];
+
+foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
+
+    $numero = $item['id_compra'];
+
+    if (!isset($pedidos[$numero])) {
+        $pedidos[$numero] = [
+            'status' => $item['status'],
+            'itens' => [],
+            'total' => 0
+        ];
+    }
+
+    $pedidos[$numero]['itens'][] = $item;
+
+    $pedidos[$numero]['total'] +=
+        $item['quantidade'] * $item['valor_unitario'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -116,6 +157,95 @@ $fotoPerfil = $linha['foto_perfil'] ?? null;
                 </a>
 
             </div>
+
+        </section>
+
+        <section class="meus-pedidos" id="meus-pedidos">
+
+            <h2>Meus pedidos</h2>
+
+            <p>
+                Acompanhe suas reservas e confira
+                os produtos escolhidos.
+            </p>
+
+            <?php if (empty($pedidos)): ?>
+
+                <p class="pedidos-vazios">
+                    Você ainda não realizou nenhuma reserva.
+                </p>
+
+            <?php else: ?>
+
+                <?php foreach ($pedidos as $numero => $pedido): ?>
+
+                    <article class="pedido-card">
+
+                        <div class="pedido-topo">
+
+                            <strong>
+                                Reserva #<?= (int)$numero ?>
+                            </strong>
+
+                            <span class="pedido-status">
+                                <?= htmlspecialchars(
+                                    ucfirst($pedido['status']),
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>
+                            </span>
+
+                        </div>
+
+                        <h3>Produtos reservados</h3>
+
+                        <ul>
+
+                            <?php foreach ($pedido['itens'] as $item): ?>
+
+                                <li>
+                                    <?= htmlspecialchars(
+                                        $item['produto'],
+                                        ENT_QUOTES,
+                                        'UTF-8'
+                                    ) ?>
+
+                                    —
+                                    <?= (int)$item['quantidade'] ?> x
+
+                                    R$
+                                    <?= number_format(
+                                        (float)$item['valor_unitario'],
+                                        2,
+                                        ',',
+                                        '.'
+                                    ) ?>
+                                </li>
+
+                            <?php endforeach; ?>
+
+                        </ul>
+
+                        <strong class="pedido-total">
+                            Total: R$
+                            <?= number_format(
+                                $pedido['total'],
+                                2,
+                                ',',
+                                '.'
+                            ) ?>
+                        </strong>
+
+                        <p class="pedido-retirada">
+                            Retirada: consulte o local e horário
+                            informados pela loja.
+                        </p>
+
+                    </article>
+
+                <?php endforeach; ?>
+
+            <?php endif; ?>
 
         </section>
 

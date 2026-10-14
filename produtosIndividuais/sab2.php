@@ -200,11 +200,8 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                 <h2>Descrição do produto</h2>
 
-                <p>
-                    Com fragrância tropical de maracujá, este sabonete possui um aroma frutado que combina notas doces e levemente 
-                    cítricas. A base glicerinada proporciona uma limpeza suave, enquanto o extrato glicólico complementa o cuidado 
-                    com a pele. O lauril contribui para uma espuma agradável e a essência de maracujá deixa seu aroma característico, 
-                    tornando o banho mais perfumado e refrescante.
+                <p class="resumo">
+                    <?= htmlspecialchars($produto['descricao']) ?>
                 </p>
 
             </div>

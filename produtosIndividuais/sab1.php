@@ -199,11 +199,8 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                 <h2>Descrição do produto</h2>
 
-                <p>
-                    Com fragrância doce, fresca e frutada de melancia, este sabonete traz um aroma leve e refrescante para o banho. 
-                    Sua composição com base glicerinada ajuda a proporcionar uma limpeza suave, enquanto o extrato glicólico 
-                    complementa o cuidado com a pele. O lauril auxilia na formação de uma espuma agradável e a essência de 
-                    melancia deixa um perfume frutado e delicado durante o uso.
+                <p class="resumo">
+                    <?= htmlspecialchars($produto['descricao']) ?>
                 </p>
 
             </div>

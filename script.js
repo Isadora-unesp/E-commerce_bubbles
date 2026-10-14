@@ -845,6 +845,8 @@ async function finalizarReserva() {
         localStorage.removeItem("carrinho");
         localStorage.removeItem("fruitCarrinhoCriadoEm");
 
+        mostrarConfirmacaoReserva(dados.id);
+
         alert(
             "Reserva nº " + dados.id +
             " realizada com sucesso!"
@@ -901,3 +903,93 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+function mostrarConfirmacaoReserva(numero) {
+
+    const anterior = document.getElementById(
+        "modalReservaConfirmada"
+    );
+
+    if (anterior) anterior.remove();
+
+    const fundo = document.createElement("div");
+
+    fundo.id = "modalReservaConfirmada";
+    fundo.className = "reserva-modal-fundo";
+
+    fundo.innerHTML = `
+        <div class="reserva-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="reservaTitulo">
+
+            <button type="button"
+                    class="reserva-fechar"
+                    aria-label="Fechar">
+                &times;
+            </button>
+
+            <div class="reserva-check">✓</div>
+
+            <h2 id="reservaTitulo">
+                Pedido Reservado!
+            </h2>
+
+            <p>
+                Sua reserva
+                <strong>#${Number(numero)}</strong>
+                foi realizada com sucesso.
+            </p>
+
+            <div class="reserva-detalhe">
+                📦
+                <span>
+                    <strong>Produtos reservados</strong>
+                    <small>
+                        Confira os itens e valores
+                        no seu perfil.
+                    </small>
+                </span>
+            </div>
+
+            <div class="reserva-detalhe">
+                📍
+                <span>
+                    <strong>Retirada do pedido</strong>
+                    <small>
+                        Consulte as orientações
+                        da loja para a retirada.
+                    </small>
+                </span>
+            </div>
+
+            <a class="reserva-ver-pedidos"
+               href="perfilUsuario.php#meus-pedidos">
+                Ver meus pedidos
+            </a>
+
+            <button type="button"
+                    class="reserva-entendi">
+                Entendi
+            </button>
+
+            <p class="reserva-agradecimento">
+                Obrigada por escolher a Fruit Bubbles!
+            </p>
+
+        </div>
+    `;
+
+    document.body.appendChild(fundo);
+
+    const fechar = () => {
+        fundo.remove();
+        window.location.reload();
+    };
+
+    fundo.querySelector(".reserva-fechar")
+        .addEventListener("click", fechar);
+
+    fundo.querySelector(".reserva-entendi")
+        .addEventListener("click", fechar);
+}
