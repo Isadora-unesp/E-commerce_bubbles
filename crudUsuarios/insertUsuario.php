@@ -93,6 +93,7 @@ try {
 
     $_SESSION['usuario_id'] = $id_usuario;
     $_SESSION['logado'] = true;
+    $_SESSION['foto_perfil'] = $caminhoFoto;
 
     header("Location: ../index.php");
     exit;

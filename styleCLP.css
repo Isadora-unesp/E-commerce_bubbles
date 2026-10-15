@@ -253,10 +253,228 @@ button:hover {
     color: #fff;
 }
 
+
+/* CADASTRO FRUIT BUBBLES */
+
+.pagina-cadastro-fb .container {
+    padding: 88px 18px 35px;
+    align-items: flex-start;
+}
+
+.pagina-cadastro-fb .cadastro {
+    max-width: 500px;
+    background: #fff;
+    border-radius: 22px;
+    padding: 36px 38px;
+    box-shadow: 0 12px 38px rgba(70, 34, 15, 0.09);
+}
+
+.pagina-cadastro-fb .cadastro h1 {
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.pagina-cadastro-fb .subtitulo {
+    margin-bottom: 24px;
+}
+
+.pagina-cadastro-fb .cadastro-foto-area {
+    margin-bottom: 26px;
+}
+
+.pagina-cadastro-fb .foto-perfil-label {
+    width: 126px;
+    height: 126px;
+    cursor: default;
+}
+
+.pagina-cadastro-fb .foto-perfil {
+    width: 126px;
+    height: 126px;
+    background: #fff2e8;
+    border: 4px solid #ffe1dc;
+}
+
+.pagina-cadastro-fb .acoes-foto-cadastro {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.pagina-cadastro-fb .botao-foto {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 130px;
+    padding: 12px 15px;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;
+    background: #ffe7e4;
+    color: #a93448;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+}
+
+.pagina-cadastro-fb .botao-foto:hover {
+    background: #ffd5d0;
+    color: #8c2337;
+}
+
+.pagina-cadastro-fb .campo {
+    margin-bottom: 17px;
+}
+
+.pagina-cadastro-fb .campo-senha {
+    position: relative;
+}
+
+.pagina-cadastro-fb .campo-senha input {
+    padding-right: 54px;
+}
+
+.pagina-cadastro-fb .botao-olho {
+    position: absolute;
+    right: 6px;
+    top: 4px;
+    width: 42px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    color: #a77b75;
+    font-size: 1.3rem;
+}
+
+.pagina-cadastro-fb .botao-olho:hover {
+    background: transparent;
+    color: #f86464;
+}
+
+.pagina-cadastro-fb .botao-criar-conta {
+    margin-top: 8px;
+    background: #f86464;
+}
+
+.pagina-cadastro-fb .login {
+    border-top: 1px solid #f0dfda;
+    margin-top: 24px;
+    padding-top: 22px;
+}
+
+.pagina-cadastro-fb .erro-cadastro {
+    color: #a11f36;
+    background: #fff0f0;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 540px) {
+    .pagina-cadastro-fb .cadastro {
+        padding: 28px 20px;
+    }
+
+    .pagina-cadastro-fb .container {
+        padding: 75px 12px 25px;
+    }
+}
+
+
 .botoes .editar:hover,
 .botoes .sair:hover {
     transform: translateY(-2px);
 
+/* PERFIL E PEDIDOS CENTRALIZADOS */
+
+body:has(.meus-pedidos) .container {
+    width: 100%;
+    max-width: 900px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 90px 20px 55px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 28px;
+}
+
+/* CARTÕES */
+
+body:has(.meus-pedidos) .perfil,
+body:has(.meus-pedidos) .meus-pedidos {
+    width: 100%;
+    max-width: 760px;
+    margin: 0;
+    padding: clamp(22px, 5vw, 44px);
+
+    border-radius: 26px;
+    box-shadow: 0 12px 35px rgba(70, 34, 15, 0.09);
+}
+
+/* FOTO DO USUÁRIO */
+
+body:has(.meus-pedidos) .foto-perfil-container {
+    text-align: center;
+    margin: 0 auto 18px;
+}
+
+body:has(.meus-pedidos) .foto-perfil {
+    margin: 0 auto 16px;
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+}
+
+/* INFORMAÇÕES DO PERFIL */
+
+body:has(.meus-pedidos) .mensagem {
+    text-align: center;
+}
+
+/* PEDIDOS */
+
+body:has(.meus-pedidos) .pedido-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px;
+    margin-top: 18px;
+}
+
+body:has(.meus-pedidos) .pedido-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+body:has(.meus-pedidos) .pedido-card li {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+    body:has(.meus-pedidos) .container {
+        padding: 85px 14px 35px;
+    }
+
+    body:has(.meus-pedidos) .perfil,
+    body:has(.meus-pedidos) .meus-pedidos {
+        padding: 22px 18px;
+    }
+}
     
 /* FOTO DE PERFIL REDONDA */
 .foto-perfil-container {

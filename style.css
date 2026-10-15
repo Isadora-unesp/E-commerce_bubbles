@@ -1278,6 +1278,50 @@ img {
     border: 2px solid #e9c7d3;
 }
 
+
+/* FOTO E SAUDAÇÃO NO CABEÇALHO */
+
+.header .usuario-header-saudacao {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    width: auto;
+    text-decoration: none;
+    color: #46220f;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.header .usuario-header-saudacao .foto-usuario-header {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f86464;
+}
+
+.header .usuario-header-saudacao .usuario-header-inicial {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #fff2e8;
+    color: #46220f;
+}
+
+.header .usuario-header-saudacao .usuario-header-inicial svg {
+    width: 22px;
+    height: 22px;
+}
+
+@media (max-width: 800px) {
+    .header .usuario-header-saudacao .usuario-header-texto {
+        display: none;
+    }
+}
+
+
 @media (max-width: 1000px) {
 
     .header {

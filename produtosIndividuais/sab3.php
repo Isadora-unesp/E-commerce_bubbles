@@ -19,20 +19,46 @@ $select->execute();
 
 $produto = $select->fetch(PDO::FETCH_ASSOC);
 
+// Quantidade disponível = entradas - reservas ativas
+$consultaEstoque = $conn->prepare("
+    SELECT
+        COALESCE((
+            SELECT SUM(e.quantidade)
+            FROM entrada e
+            WHERE e.fk_produto = :id
+        ), 0)
+        -
+        COALESCE((
+            SELECT SUM(cp.quantidade)
+            FROM compra_produto cp
+            JOIN compra c
+                ON c.id_compra = cp.fk_compra
+            WHERE cp.fk_produto = :id
+              AND LOWER(c.status::text) = 'reservado'
+        ), 0) AS disponivel
+");
+
+$consultaEstoque->execute([':id' => $idProduto]);
+
+$quantidadeDisponivel = max(
+    0,
+    (int) $consultaEstoque->fetchColumn()
+);
+
 if (!$produto) {
     echo "Produto não encontrado.";
     exit;
 }
 
 $imagensPorId = [
-    1 => "img/morango.jpg",
+    12 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
     3 => "img/coco.jpg",
     5 => "img/citrico.jpg",
 ];
 
 $paginaPorId = [
-    1 => "produtosIndividuais/sab1.php",
+    12 => "produtosIndividuais/sab1.php",
     2 => "produtosIndividuais/sab2.php",
     3 => "produtosIndividuais/sab4.php",
     5 => "produtosIndividuais/sab3.php",
@@ -107,6 +133,10 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                     <span class="subtitulo">SABONETE ARTESANAL</span>
 
                     <h1><?= htmlspecialchars($produto['nome']) ?></h1>
+
+                    <p class="estoque-disponivel">
+                        Disponível: <?= $quantidadeDisponivel ?> unidade(s)
+                    </p>
 
                     <p class="resumo">
                         <?= htmlspecialchars($produto['descricao']) ?>

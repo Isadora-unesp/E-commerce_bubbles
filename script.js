@@ -1,3 +1,40 @@
+if (
+    window.fruitUsuarioId &&
+    sessionStorage.getItem("fruitTransferirCarrinho") === "1"
+) {
+    const origem = JSON.parse(
+        localStorage.getItem("carrinho_visitante") || "[]"
+    );
+
+    const destino = "carrinho_usuario_" + window.fruitUsuarioId;
+
+    const atual = JSON.parse(
+        localStorage.getItem(destino) || "[]"
+    );
+
+    if (origem.length > 0) {
+        localStorage.setItem(
+            destino,
+            JSON.stringify([...atual, ...origem])
+        );
+
+        localStorage.removeItem("carrinho_visitante");
+    }
+
+    sessionStorage.removeItem("fruitTransferirCarrinho");
+}
+
+function chaveCarrinho() {
+    return window.fruitUsuarioId
+        ? 'carrinho_usuario_' + window.fruitUsuarioId
+        : 'carrinho_visitante';
+}
+
+function chaveDataCarrinho() {
+    return 'fruitCarrinhoCriadoEm_' +
+        (window.fruitUsuarioId || 'visitante');
+}
+
 const buscaCabecalho = document.getElementById("buscaCabecalho");
 
 const botaoAbrirBusca = document.getElementById("botaoAbrirBusca");
@@ -82,25 +119,10 @@ function pesquisarProdutoCabecalho() {
         return;
     }
  
-    const estaEmProdutosIndividuais =
-        window.location.pathname.includes(
-            "/produtosIndividuais/"
-        );
- 
-    if (estaEmProdutosIndividuais) {
-
-        const arquivo =
-            paginaProduto.split("/").pop();
-
-        window.location.href = arquivo;
-
-    }
-
-    else {
-
-        window.location.href = paginaProduto;
-
-    }
+    window.location.href = new URL(
+        paginaProduto,
+        "https://eq.projetoscti.com.br/loja3a/"
+    ).href;
 
 }
  
@@ -134,11 +156,11 @@ if (botaoAbrirBusca) {
 
 function adicionarCarrinho(nomeProduto, botao) { 
 
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    let carrinho = JSON.parse(localStorage.getItem(chaveCarrinho())) || [];
 
     carrinho.push(nomeProduto);
 
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    localStorage.setItem(chaveCarrinho(), JSON.stringify(carrinho));
 
     atualizarContador();
 
@@ -160,7 +182,7 @@ function adicionarCarrinho(nomeProduto, botao) {
 
 function atualizarContador() {
 
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    let carrinho = JSON.parse(localStorage.getItem(chaveCarrinho())) || [];
 
     const contador = document.getElementById("contadorCarrinho");
 
@@ -186,7 +208,7 @@ function moeda(valor) {
 function lerCarrinhoPagina() {
 
     return JSON.parse(
-        localStorage.getItem("carrinho")
+        localStorage.getItem(chaveCarrinho())
     ) || [];
 
 }
@@ -194,7 +216,7 @@ function lerCarrinhoPagina() {
 function salvarCarrinhoPagina(carrinho) {
 
     localStorage.setItem(
-        "carrinho",
+        chaveCarrinho(),
         JSON.stringify(carrinho)
     );
 
@@ -373,14 +395,16 @@ function renderizarCarrinhoPagina() {
                 const preco = parseFloat(dados.valor_unitario);
 
                 const imagensProdutos = {
-                    1: "img/morango.jpg",
+                    12: "img/morango.jpg",
                     2: "img/maracuja.jpg",
                     3: "img/coco.jpg",
                     5: "img/citrico.jpg"
                 };
 
                 const imagemProduto =
-                    imagensProdutos[dados.id_produto] || "img/logo.png";
+                    dados.imagem ||
+                    imagensProdutos[dados.id_produto] ||
+                    "img/logo.png";
 
                 const totalProduto = preco * quantidade;
 
@@ -560,9 +584,9 @@ document.addEventListener(
 );
 
 function verificarValidadeCarrinho() {
-    const chave = "fruitCarrinhoCriadoEm";
+    const chave = chaveDataCarrinho();
     const carrinho = JSON.parse(
-        localStorage.getItem("carrinho") || "[]"
+        localStorage.getItem(chaveCarrinho()) || "[]"
     );
 
     const criado = Number(localStorage.getItem(chave));
@@ -578,7 +602,7 @@ function verificarValidadeCarrinho() {
     }
 
     if (Date.now() - criado >= 24 * 60 * 60 * 1000) {
-        localStorage.removeItem("carrinho");
+        localStorage.removeItem(chaveCarrinho());
         localStorage.removeItem(chave);
         window.location.reload();
     }
@@ -586,9 +610,9 @@ function verificarValidadeCarrinho() {
 
 verificarValidadeCarrinho();
 
-if (!localStorage.getItem("fruitCarrinhoCriadoEm")) {
+if (!localStorage.getItem(chaveDataCarrinho())) {
     localStorage.setItem(
-        "fruitCarrinhoCriadoEm",
+        chaveDataCarrinho(),
         String(Date.now())
     );
 }
@@ -716,14 +740,14 @@ document.addEventListener("DOMContentLoaded", function () {
             : "Produto";
 
         let carrinho =
-            JSON.parse(localStorage.getItem("carrinho")) || [];
+            JSON.parse(localStorage.getItem(chaveCarrinho())) || [];
  
         for (let i = 0; i < quantidade; i++) {
             carrinho.push(nomeProduto);
         }
  
         localStorage.setItem(
-            "carrinho",
+            chaveCarrinho(),
             JSON.stringify(carrinho)
         );
  
@@ -748,7 +772,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function finalizarReserva() {
     const carrinho = JSON.parse(
-        localStorage.getItem("carrinho") || "[]"
+        localStorage.getItem(chaveCarrinho()) || "[]"
     );
 
     if (carrinho.length === 0) return;
@@ -779,8 +803,8 @@ async function finalizarReserva() {
             );
         }
 
-        localStorage.removeItem("carrinho");
-        localStorage.removeItem("fruitCarrinhoCriadoEm");
+        localStorage.removeItem(chaveCarrinho());
+        localStorage.removeItem(chaveDataCarrinho());
 
         mostrarConfirmacaoReserva(dados.id);
 
@@ -810,7 +834,7 @@ document.addEventListener("DOMContentLoaded", function () {
     botaoFinalizar.addEventListener("click", function () {
 
         const carrinho =
-            JSON.parse(localStorage.getItem("carrinho")) || [];
+            JSON.parse(localStorage.getItem(chaveCarrinho())) || [];
 
         if (carrinho.length === 0) {
             return;
@@ -824,6 +848,11 @@ document.addEventListener("DOMContentLoaded", function () {
             sessionStorage.setItem(
                 "finalizarAposLogin",
                 "true"
+            );
+
+            sessionStorage.setItem(
+                "fruitTransferirCarrinho",
+                "1"
             );
 
             window.location.href =

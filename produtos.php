@@ -14,21 +14,21 @@ $select = $conn->query($varSQL);
 $produtosBanco = $select->fetchAll(PDO::FETCH_ASSOC);
 
 $imagensPorId = [
-    1 => "img/morango.jpg",
+    12 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
     3 => "img/coco.jpg",
     5 => "img/citrico.jpg",
 ];
 
 $paginaPorId = [
-    1 => "produtosIndividuais/sab1.php",
+    12 => "produtosIndividuais/sab1.php",
     2 => "produtosIndividuais/sab2.php",
     3 => "produtosIndividuais/sab4.php",
     5 => "produtosIndividuais/sab3.php",
 ];
 
 $dataNomePorId = [
-    1 => "fraguna",
+    12 => "fraguna",
     2 => "passion",
     3 => "coconut",
     5 => "citrico",

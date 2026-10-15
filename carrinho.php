@@ -7,7 +7,8 @@ $conn = conecta();
 $sql = "SELECT
             id_produto,
             nome,
-            valor_unitario
+            valor_unitario,
+            imagem
         FROM produto
         WHERE excluido = false OR excluido IS NULL
         ORDER BY id_produto";
