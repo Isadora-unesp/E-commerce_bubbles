@@ -37,7 +37,7 @@ if ($linha && password_verify($senha, $linha['senha'])) {
 
     $_SESSION['logado'] = true;
     $_SESSION['usuario_id'] = $linha['id_usuario'];
-    $_SESSION['foto_perfil'] = $linha['foto_perfil'] ?? null;
+    $_SESSION['foto_perfil'] = $linha['imagem'] ?? null;
 
         if (
             isset($_POST['retorno']) &&

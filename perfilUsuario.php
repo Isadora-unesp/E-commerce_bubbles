@@ -31,7 +31,7 @@ if (!$linha) {
 $nome = $linha['nome'];
 $email = $linha['email'];
 $telefone = $linha['telefone'];
-$fotoPerfil = $linha['foto_perfil'] ?? null;
+$fotoPerfil = $linha['imagem'] ?? null;
 
 // Busca as reservas do usuário conectado
 $consultaPedidos = $conn->prepare("
@@ -112,7 +112,7 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
                 <?php } else { ?>
 
                     <img
-                        src="https://placehold.co/120x120/fff2e8/46220f?text=FB"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b08968' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4 3.5-7 8-7s8 3 8 7'/%3E%3C/svg%3E"
                         alt="Foto padrão do perfil"
                         class="foto-perfil"
                     >

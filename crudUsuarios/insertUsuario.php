@@ -1,31 +1,35 @@
-
 <?php
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 include("../util.php");
 
+$destino = null;
+
 try {
+    $nome      = trim($_POST['nome'] ?? '');
+    $email     = trim($_POST['email'] ?? '');
+    $telefone  = trim($_POST['telefone'] ?? '');
+    $senhaPura = $_POST['senha'] ?? '';
+
+    if ($nome === '' || $email === '' || $telefone === '' || $senhaPura === '') {
+        header("Location: ../cadastro.php?erro=geral");
+        exit;
+    }
 
     $conn = conecta();
-
-    // Verifica se uma foto foi enviada
     $caminhoFoto = null;
 
-    if (
-        isset($_FILES['foto']) &&
-        $_FILES['foto']['error'] === UPLOAD_ERR_OK &&
-        $_FILES['foto']['size'] > 0
-    ) {
+    if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK && $_FILES['foto']['size'] > 0) {
 
         $arquivo = $_FILES['foto'];
 
-        // Limite de 2 MB
         if ($arquivo['size'] > 2 * 1024 * 1024) {
             header("Location: ../cadastro.php?erro=foto");
             exit;
         }
 
-        // Confere o tipo real do arquivo
         $tiposPermitidos = [
             'image/jpeg' => 'jpg',
             'image/png'  => 'png',
@@ -33,66 +37,62 @@ try {
         ];
 
         $finfo = new finfo(FILEINFO_MIME_TYPE);
-        $tipo = $finfo->file($arquivo['tmp_name']);
+        $tipo  = $finfo->file($arquivo['tmp_name']);
 
         if (!isset($tiposPermitidos[$tipo])) {
             header("Location: ../cadastro.php?erro=foto");
             exit;
         }
 
-        // Cria um nome aleatório para evitar conflitos
-        $nomeArquivo = bin2hex(random_bytes(16))
-                     . '.'
-                     . $tiposPermitidos[$tipo];
-
-        // A pasta uploads fica na raiz do projeto
+        $nomeArquivo  = bin2hex(random_bytes(16)) . '.' . $tiposPermitidos[$tipo];
         $pastaUploads = dirname(__DIR__) . '/uploads/';
 
-        if (!is_dir($pastaUploads) ||
-            !is_writable($pastaUploads)) {
+        if (!is_dir($pastaUploads)) {
+            @mkdir($pastaUploads, 0755, true);
+        }
+
+        if (!is_dir($pastaUploads) || !is_writable($pastaUploads)) {
+            error_log('uploads/ nao existe ou sem permissao: ' . $pastaUploads);
             header("Location: ../cadastro.php?erro=geral");
             exit;
         }
 
         $destino = $pastaUploads . $nomeArquivo;
 
-        if (!move_uploaded_file(
-            $arquivo['tmp_name'],
-            $destino
-        )) {
+        if (!move_uploaded_file($arquivo['tmp_name'], $destino)) {
+            $destino = null;
             header("Location: ../cadastro.php?erro=geral");
             exit;
         }
 
-        // Caminho que será guardado no banco
         $caminhoFoto = 'uploads/' . $nomeArquivo;
+
+    } elseif (isset($_FILES['foto']) && $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE) {
+        // arquivo grande demais pro php.ini ou upload interrompido
+        header("Location: ../cadastro.php?erro=foto");
+        exit;
     }
 
-    $senha = password_hash(
-        $_POST['senha'],
-        PASSWORD_DEFAULT
+    $senha = password_hash($senhaPura, PASSWORD_DEFAULT);
+
+    $insert = $conn->prepare(
+        "INSERT INTO usuario
+         (nome, email, senha, telefone, admin, excluido, imagem)
+         VALUES
+         (:nome, :email, :senha, :telefone, false, false, :foto)
+         RETURNING id_usuario"
     );
 
-    $varSQL = "INSERT INTO usuario
-               (nome, email, senha, telefone, admin, excluido, foto_perfil)
-               VALUES
-               (:nome, :email, :senha, :telefone, false, false, :foto)
-               RETURNING id_usuario";
-
-    $insert = $conn->prepare($varSQL);
-
-    $insert->bindParam(':nome', $_POST['nome']);
-    $insert->bindParam(':email', $_POST['email']);
+    $insert->bindParam(':nome', $nome);
+    $insert->bindParam(':email', $email);
     $insert->bindParam(':senha', $senha);
-    $insert->bindParam(':telefone', $_POST['telefone']);
+    $insert->bindParam(':telefone', $telefone);
     $insert->bindParam(':foto', $caminhoFoto);
 
     $insert->execute();
 
-    $id_usuario = $insert->fetchColumn();
-
-    $_SESSION['usuario_id'] = $id_usuario;
-    $_SESSION['logado'] = true;
+    $_SESSION['usuario_id']  = $insert->fetchColumn();
+    $_SESSION['logado']      = true;
     $_SESSION['foto_perfil'] = $caminhoFoto;
 
     header("Location: ../index.php");
@@ -100,17 +100,26 @@ try {
 
 } catch (PDOException $e) {
 
+    if ($destino && file_exists($destino)) {
+        unlink($destino);
+    }
+
+    error_log($e->getMessage());
+
     if ($e->getCode() == "23505") {
         header("Location: ../cadastro.php?erro=email");
-        exit;
     } else {
         header("Location: ../cadastro.php?erro=geral");
-        exit;
     }
+    exit;
 
 } catch (Throwable $e) {
 
+    if ($destino && file_exists($destino)) {
+        unlink($destino);
+    }
+
+    error_log($e->getMessage());
     header("Location: ../cadastro.php?erro=geral");
     exit;
 }
-?>

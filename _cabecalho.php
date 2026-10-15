@@ -108,7 +108,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
                     require_once __DIR__ . '/util.php';
 
                     $consultaHeader = conecta()->prepare(
-                        'SELECT nome, foto_perfil
+                        'SELECT nome, imagem
                         FROM usuario
                         WHERE id_usuario = :id'
                     );
@@ -126,7 +126,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
                             explode(' ', $usuarioHeader['nome'])[0]
                         );
 
-                        $fotoHeader = $usuarioHeader['foto_perfil'];
+                        $fotoHeader = $usuarioHeader['imagem'];
                     }
 
                 } catch (Throwable $e) {
@@ -191,7 +191,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         <?php } ?>
 
 
-        <a href="carrinho.php"
+        <a href="<?= $base ?>carrinho.php"
             class="carrinho"
             id="botaoCarrinho"
             aria-label=" Ir para o carrinho"
@@ -227,33 +227,33 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
         <nav class="menu-mobile-itens">
 
-            <a href="index.php" class="menu-mobile-item">
+            <a href="<?= $base ?>index.php" class="menu-mobile-item">
                 Início
             </a> 
 
-            <a href="produtos.php" class="menu-mobile-item">
+            <a href="<?= $base ?>produtos.php" class="menu-mobile-item">
                 Produtos
             </a>
 
-            <a href="sobrenos.php" class="menu-mobile-item">
+            <a href="<?= $base ?>sobrenos.php" class="menu-mobile-item">
                 Sobre nós
             </a>
 
             <?php if (!empty($_SESSION['admin'])) { ?>
 
-                <a href="admin.php" class="menu-mobile-item">
+                <a href="<?= $base ?>admin.php" class="menu-mobile-item">
                     Administrador
                 </a>
 
             <?php } elseif (!empty($_SESSION['logado'])) { ?>
 
-                <a href="perfilUsuario.php" class="menu-mobile-item">
+                <a href="<?= $base ?>perfilUsuario.php" class="menu-mobile-item">
                     Meu perfil
                 </a>
 
             <?php } else { ?>
 
-                <a href="login.php" class="menu-mobile-item">
+                <a href="<?= $base ?>login.php" class="menu-mobile-item">
                     Login
                 </a>
 
@@ -266,7 +266,8 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 </header>
 
 <script>
-window.fruitUsuarioId = <?= json_encode(
-    $_SESSION['usuario_id'] ?? null
-) ?>;
+    window.fruitUsuarioId = <?= json_encode(
+        $_SESSION['usuario_id'] ?? null
+    ) ?>;
+    window.fruitBase = <?= json_encode($base) ?>;
 </script>

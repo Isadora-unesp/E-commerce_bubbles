@@ -395,16 +395,14 @@ function renderizarCarrinhoPagina() {
                 const preco = parseFloat(dados.valor_unitario);
 
                 const imagensProdutos = {
-                    12: "img/morango.jpg",
+                    12: "img/melancia.jpg",
                     2: "img/maracuja.jpg",
                     3: "img/coco.jpg",
-                    5: "img/citrico.jpg"
+                    5: "img/citrina.jpg"
                 };
 
-                const imagemProduto =
-                    dados.imagem ||
-                    imagensProdutos[dados.id_produto] ||
-                    "img/logo.png";
+                const imagemProduto = 
+                    dados.imagem?.trim() || "";
 
                 const totalProduto = preco * quantidade;
 
@@ -420,12 +418,11 @@ function renderizarCarrinhoPagina() {
                 item.innerHTML = `
 
                     <div class="produto-carrinho-imagem">
-
                         <img
-                            src="${imagemProduto}"
-                            alt="${nomeProduto}"
+                            src="${imagemProduto.replace(/"/g, "&quot;")}"
+                            alt="${nomeProduto.replace(/"/g, "&quot;")}"
+                            onerror="this.style.display='none'"
                         >
-
                     </div>
 
                     <div class="produto-carrinho-dados">

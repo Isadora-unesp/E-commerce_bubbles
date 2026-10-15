@@ -70,3 +70,52 @@ $base = $base ?? "";
     </div>
 
 </footer>
+
+<button type="button" id="botaoTopo" class="botao-topo" aria-label="Voltar ao topo">↑</button>
+
+<style>
+    .botao-topo {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 100;
+
+        width: 44px;
+        height: 44px;
+
+        border: none;
+        border-radius: 50%;
+        background: #fb6666;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s, transform 0.2s;
+    }
+
+    .botao-topo.visivel {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .botao-topo:hover {
+        transform: translateY(-3px);
+    }
+</style>
+
+<script>
+    (function () {
+        const botaoTopo = document.getElementById('botaoTopo');
+
+        window.addEventListener('scroll', function () {
+            botaoTopo.classList.toggle('visivel', window.scrollY > 300);
+        });
+
+        botaoTopo.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+</script>

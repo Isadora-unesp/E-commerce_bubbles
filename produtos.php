@@ -28,9 +28,9 @@ $paginaPorId = [
 ];
 
 $dataNomePorId = [
-    12 => "fraguna",
-    2 => "passion",
-    3 => "coconut",
+    12 => "melancia",
+    2 => "maracujá",
+    3 => "coco",
     5 => "citrico",
 ];
 ?>

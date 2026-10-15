@@ -29,7 +29,7 @@ if (!$linha) {
 $nome = $linha['nome'];
 $email = $linha['email'];
 $telefone = $linha['telefone'];
-$fotoPerfil = $linha['foto_perfil'] ?? null;
+$fotoPerfil = $linha['imagem'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ $fotoPerfil = $linha['foto_perfil'] ?? null;
                             src="<?php
                                 echo !empty($fotoPerfil)
                                     ? '../' . htmlspecialchars($fotoPerfil, ENT_QUOTES, 'UTF-8')
-                                    : 'https://placehold.co/120x120/fff2e8/46220f?text=FB';
+                                    : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b08968' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4 3.5-7 8-7s8 3 8 7'/%3E%3C/svg%3E";
                             ?>"
                             alt="Foto de perfil"
                         >
@@ -80,7 +80,7 @@ $fotoPerfil = $linha['foto_perfil'] ?? null;
                         id="foto"
                         name="foto"
                         class="input-foto"
-                        accept="image/*"
+                        accept="image/jpeg,image/png,image/webp"
                     >
 
                     <p>Toque na foto para escolher outra (máximo 2 MB).</p>

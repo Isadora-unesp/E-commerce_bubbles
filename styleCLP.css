@@ -16,6 +16,7 @@ a {
     font-family: inherit;
 }
 
+/* BOTÃO VOLTAR */
 .voltar-index {
     position: fixed;
     top: 20px;
@@ -223,7 +224,7 @@ button:hover {
     background: #fff;
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid rgba(70,34,15,0.08);
+    border: 1px solid rgba(70, 34, 15, 0.08);
 }
 
 .informacoes .titulo {
@@ -233,13 +234,15 @@ button:hover {
     margin-bottom: 6px;
 }
 
+/* BOTÕES DO PERFIL */
 .botoes {
     margin-top: 20px;
     display: flex;
     gap: 12px;
 }
 
-.botoes .editar, .botoes .sair {
+.botoes .editar,
+.botoes .sair {
     flex: 1;
     display: inline-block;
     padding: 12px;
@@ -253,6 +256,93 @@ button:hover {
     color: #fff;
 }
 
+.botoes .excluir {
+    flex: 1;
+    display: inline-block;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background: #fff;
+    color: #F86464;
+    border: 1px solid #F86464;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.botoes .excluir:hover {
+    background: #F86464;
+    color: #fff;
+}
+
+.botoes .editar:hover,
+.botoes .sair:hover,
+.botoes .excluir:hover {
+    transform: translateY(-2px);
+}
+
+/* FOTO DE PERFIL REDONDA */
+.foto-perfil-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 24px;
+}
+
+.foto-perfil-label {
+    position: relative;
+    display: block;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.foto-perfil {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #F86464;
+    background-color: #fff2e8;
+    margin: 0 auto 20px;
+}
+
+.foto-editar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #F86464;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    border: 3px solid #fffaf5;
+}
+
+.input-foto {
+    display: none;
+}
+
+.foto-perfil-container p {
+    margin-top: 12px;
+    color: #5d534d;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .foto-perfil-label,
+    .foto-perfil {
+        width: 100px;
+        height: 100px;
+    }
+}
 
 /* CADASTRO FRUIT BUBBLES */
 
@@ -375,8 +465,6 @@ button:hover {
     margin-bottom: 16px;
 }
 
-/* RESPONSIVIDADE */
-
 @media (max-width: 540px) {
     .pagina-cadastro-fb .cadastro {
         padding: 28px 20px;
@@ -386,11 +474,6 @@ button:hover {
         padding: 75px 12px 25px;
     }
 }
-
-
-.botoes .editar:hover,
-.botoes .sair:hover {
-    transform: translateY(-2px);
 
 /* PERFIL E PEDIDOS CENTRALIZADOS */
 
@@ -405,7 +488,7 @@ body:has(.meus-pedidos) .container {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 28px;
+    gap: 24px;
 }
 
 /* CARTÕES */
@@ -441,7 +524,7 @@ body:has(.meus-pedidos) .mensagem {
     text-align: center;
 }
 
-/* PEDIDOS */
+/* PEDIDOS (ajustes da página de perfil) */
 
 body:has(.meus-pedidos) .pedido-card {
     background: #fff;
@@ -463,80 +546,7 @@ body:has(.meus-pedidos) .pedido-card li {
     line-height: 1.5;
 }
 
-/* RESPONSIVIDADE */
-
-@media (max-width: 600px) {
-    body:has(.meus-pedidos) .container {
-        padding: 85px 14px 35px;
-    }
-
-    body:has(.meus-pedidos) .perfil,
-    body:has(.meus-pedidos) .meus-pedidos {
-        padding: 22px 18px;
-    }
-}
-    
-/* FOTO DE PERFIL REDONDA */
-.foto-perfil-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto 24px;
-}
-
-.foto-perfil-label {
-    position: relative;
-    display: block;
-    width: 120px;
-    height: 120px;
-    cursor: pointer;
-}
-
-.foto-perfil {
-    display: block;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #F86464;
-    background-color: #fff2e8;
-}
-
-.foto-editar {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: #F86464;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    border: 3px solid #fffaf5;
-}
-
-.input-foto {
-    display: none;
-}
-
-.foto-perfil-container p {
-    margin-top: 12px;
-    color: #5d534d;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
 /* MEUS PEDIDOS */
-
-body:has(.meus-pedidos) .container {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-}
 
 .meus-pedidos {
     width: 100%;
@@ -548,8 +558,9 @@ body:has(.meus-pedidos) .container {
 }
 
 .meus-pedidos h2 {
+    font-family: Georgia, serif;
+    font-weight: 600;
     color: #46220f;
-    margin: 0 0 8px;
 }
 
 .meus-pedidos > p {
@@ -574,11 +585,11 @@ body:has(.meus-pedidos) .container {
 }
 
 .pedido-topo strong {
-    color: #bb2357;
+    color: #46220f;
 }
 
 .pedido-status {
-    color: #52775e;
+    color: #66825a;
     font-weight: 700;
 }
 
@@ -594,7 +605,7 @@ body:has(.meus-pedidos) .container {
 }
 
 .pedido-total {
-    color: #bb2357;
+    color: #173b32;
     display: block;
     margin-top: 10px;
 }
@@ -604,35 +615,19 @@ body:has(.meus-pedidos) .container {
     font-size: 0.9rem;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 600px) {
+/* RESPONSIVIDADE DOS PEDIDOS */
 
-    .meus-pedidos {
-        padding: 18px;
+@media (max-width: 600px) {
+    body:has(.meus-pedidos) .container {
+        padding: 85px 14px 35px;
+    }
+
+    body:has(.meus-pedidos) .perfil,
+    body:has(.meus-pedidos) .meus-pedidos {
+        padding: 22px 18px;
     }
 
     .pedido-card {
         padding: 14px;
     }
-
-}
-
-@media (max-width: 480px) {
-    .foto-perfil-label,
-    .foto-perfil {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-.foto-perfil {
-    display: block;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #F86464;
-    margin: 0 auto 20px;
-}
-
 }

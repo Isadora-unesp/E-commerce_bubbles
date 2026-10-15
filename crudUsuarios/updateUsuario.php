@@ -34,7 +34,7 @@ try {
 
     // Busca a foto atual para mantê-la se nenhuma nova for enviada
     $consulta = $conn->prepare(
-        "SELECT foto_perfil FROM usuario WHERE id_usuario = :id"
+        "SELECT imagem FROM usuario WHERE id_usuario = :id"
     );
     $consulta->bindParam(':id', $id);
     $consulta->execute();
@@ -45,7 +45,7 @@ try {
         exit("Usuário não encontrado.");
     }
 
-    $fotoPerfil = $usuarioAtual['foto_perfil'] ?? null;
+    $fotoPerfil = $usuarioAtual['imagem'] ?? null;
 
     // Verifica se uma nova foto foi enviada
     if (isset($_FILES['foto']) &&
@@ -99,7 +99,7 @@ try {
     $campos = "nome = :nome,
                email = :email,
                telefone = :telefone,
-               foto_perfil = :foto_perfil";
+               imagem = :foto_perfil";
 
     if ($senhaNova !== '') {
         $senha = password_hash($senhaNova, PASSWORD_DEFAULT);

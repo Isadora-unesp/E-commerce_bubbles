@@ -68,7 +68,7 @@ include("util.php");
         <div class="sobre-hero-foto">
 
             <img
-                src="img/equipe.jpg"
+                src="img/equipe.jpeg"
                 alt="Equipe Fruit Bubbles"
             >
 
