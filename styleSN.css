@@ -78,8 +78,8 @@
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.4fr)
-        minmax(300px, 0.6fr);
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
     background: var(--sn-rosa-claro);
 }
@@ -100,7 +100,7 @@
 
     font-family: Georgia, serif;
 
-    font-size: clamp(52px, 6vw, 82px);
+    font-size: clamp(46px, 4.6vw, 68px);
 
     font-weight: 500;
 

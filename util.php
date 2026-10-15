@@ -35,6 +35,40 @@ function conecta($paramStringConexao = "")
     return $c;
 }
 
+/**
+ * Estoque disponível de um produto.
+ *
+ * disponível = entradas - tudo que já saiu ou está reservado
+ *
+ * Conta como baixa toda compra que NÃO está cancelada:
+ *   - reservado (reserva feita no site, ainda não retirada)
+ *   - entregue  (saída registrada pelo SGE / venda física)
+ * Compras canceladas devolvem o produto ao estoque.
+ */
+function estoqueDisponivel(PDO $conn, int $idProduto): int
+{
+    $sql = "SELECT
+                COALESCE((
+                    SELECT SUM(e.quantidade)
+                    FROM entrada e
+                    WHERE e.fk_produto = :id
+                ), 0)
+                -
+                COALESCE((
+                    SELECT SUM(cp.quantidade)
+                    FROM compra_produto cp
+                    JOIN compra c
+                        ON c.id_compra = cp.fk_compra
+                    WHERE cp.fk_produto = :id
+                      AND LOWER(c.status::text) <> 'cancelado'
+                ), 0) AS disponivel";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':id' => $idProduto]);
+
+    return (int) $stmt->fetchColumn();
+}
+
 function Raiz()
 {
     if (isset($_SESSION['raiz'])) {
@@ -205,4 +239,3 @@ function SaiSeHacker() {
 }
 
 ?>
-

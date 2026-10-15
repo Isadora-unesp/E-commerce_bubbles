@@ -1,4 +1,3 @@
-
 <?php
 
 require_once __DIR__ . '/util.php';
@@ -84,6 +83,30 @@ try {
 
         if (!$produto) {
             throw new Exception('Produto não encontrado: ' . $nome);
+        }
+
+        // Trava o produto para duas reservas simultâneas
+        // não passarem do estoque
+        $travar = $pdo->prepare(
+            "SELECT id_produto FROM produto
+             WHERE id_produto = :id FOR UPDATE"
+        );
+        $travar->execute([':id' => $produto['id_produto']]);
+
+        $disponivel = max(
+            0,
+            estoqueDisponivel($pdo, (int) $produto['id_produto'])
+        );
+
+        if ($quantidade > $disponivel) {
+            $pdo->rollBack();
+
+            responder(409, [
+                'ok' => false,
+                'erro' => $disponivel > 0
+                    ? "Estoque insuficiente de {$nome}: restam apenas {$disponivel} unidade(s)."
+                    : "{$nome} está sem estoque no momento."
+            ]);
         }
 
         $inserir->execute([

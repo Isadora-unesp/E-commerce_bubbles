@@ -19,31 +19,8 @@ $select->execute();
 
 $produto = $select->fetch(PDO::FETCH_ASSOC);
 
-// Quantidade disponível = entradas - reservas ativas
-$consultaEstoque = $conn->prepare("
-    SELECT
-        COALESCE((
-            SELECT SUM(e.quantidade)
-            FROM entrada e
-            WHERE e.fk_produto = :id
-        ), 0)
-        -
-        COALESCE((
-            SELECT SUM(cp.quantidade)
-            FROM compra_produto cp
-            JOIN compra c
-                ON c.id_compra = cp.fk_compra
-            WHERE cp.fk_produto = :id
-              AND LOWER(c.status::text) = 'reservado'
-        ), 0) AS disponivel
-");
-
-$consultaEstoque->execute([':id' => $idProduto]);
-
-$quantidadeDisponivel = max(
-    0,
-    (int) $consultaEstoque->fetchColumn()
-);
+// Quantidade disponível = entradas - saídas (reservado/entregue)
+$quantidadeDisponivel = max(0, estoqueDisponivel($conn, (int) $idProduto));
 
 if (!$produto) {
     echo "Produto não encontrado.";
