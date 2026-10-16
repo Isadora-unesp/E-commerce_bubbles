@@ -71,6 +71,20 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
             </a>
 
+            <a href="crudVendas/monitorVendas.php" class="admin-bloco">
+
+                <div class="admin-conteudo">
+
+                    <h2>Vendas</h2>
+
+                    <p>
+                        Acompanhar as compras e o faturamento por período.
+                    </p>
+
+                </div>
+
+            </a>
+
         </section>
 
         <footer class="menu">

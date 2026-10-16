@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -77,7 +76,7 @@
                     >
                 </div>
 
-                <a href="#" class="esqueceu-senha">
+                <a href="esqueci.php" class="esqueceu-senha">
                     Esqueceu sua senha?
                 </a>
 

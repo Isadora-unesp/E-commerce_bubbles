@@ -1,5 +1,15 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+
+require_once __DIR__ . '/phpmailer/phpmailer/src/Exception.php';
+require_once __DIR__ . '/phpmailer/phpmailer/src/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/phpmailer/src/SMTP.php';
+
+// Configurações da recuperação de senha
+const RECUPERACAO_SEGREDO = 'troque-por-um-texto-longo-e-aleatorio-123!@#';
+const RECUPERACAO_MINUTOS = 60; // validade do link
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -183,48 +193,82 @@ function SalvaUpload2($paramFiles, $paramCampo)
     return "";
 }
 
-// Dispara e-mails em HTML utilizando a biblioteca PHPMailer via SMTP.
-function EnviaEmail($pEmailDestino, $pAssunto, $pHtml, 
-                    $pUsuario = "marcelocabello@projetoscti.com.br", 
-                    $pSenha = "MarceloC@belo", 
-                    $pSMTP = "smtp.projetoscti.com.br")
+// Dispara e-mails em HTML utilizando a biblioteca PHPMailer 6 via SMTP.
+// Retorna true se enviou, false se falhou (o motivo vai para o error_log).
+function EnviaEmail($pEmailDestino, $pAssunto, $pHtml,
+                    $pUsuario = "alunocti@efesonet.com",
+                    $pSenha = "Cti2025!",
+                    $pSMTP = "smtp.kinghost.net")
 {
-    // Certifique-se de que o PHPMailer está na raiz do projeto
-    require_once Raiz() . '/PHPMailer/PHPMailerAutoload.php';
-
-    echo "<br>Tentando enviar para $pEmailDestino...";
-    
-    $mail = new PHPMailer();
-    $mail->IsSMTP(); // Configura o servidor como SMTP
-    $mail->Host = $pSMTP;
-    $mail->SMTPAuth = true; // Requer autenticação
-    $mail->SMTPSecure = 'tls'; // Nível de segurança TLS
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true
-        )
-    );
-    $mail->Port = 587; // Porta do serviço SMTP
-    $mail->Username = $pUsuario;
-    $mail->Password = $pSenha;
-    $mail->From = $pUsuario;
-    $mail->FromName = "Suporte de senhas";
-    $mail->AddAddress($pEmailDestino, "Usuario");
-    $mail->IsHTML(true); // Define o formato em HTML
-    $mail->Subject = $pAssunto;
-    $mail->Body = $pHtml;
-
-    $enviado = $mail->Send(); // Envia a mensagem
-
-    if (!$enviado) {
-        echo "<br>Erro: " . $mail->ErrorInfo;
-    } else {
-        echo "<br><b>Enviado!</b>";
+    try {
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host       = $pSMTP;
+        $mail->SMTPAuth   = true;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+        $mail->CharSet    = 'UTF-8';
+        $mail->Username   = $pUsuario;
+        $mail->Password   = $pSenha;
+        $mail->setFrom($pUsuario, 'Fruit Bubbles');
+        $mail->addAddress($pEmailDestino);
+        $mail->isHTML(true);
+        $mail->Subject = $pAssunto;
+        $mail->Body    = $pHtml;
+        $mail->send();
+        return true;
+    } catch (\Throwable $e) {
+        error_log('EnviaEmail: ' . $e->getMessage());
+        return false;
     }
+}
 
-    return $enviado;
+// ---------------------------------------------------------
+// Recuperação de senha
+// Token: base64url(email|expiracao) . "." . assinatura HMAC
+//  - não pode ser forjado para outro e-mail
+//  - expira em RECUPERACAO_MINUTOS
+//  - perde a validade assim que a senha muda (uso único)
+// ---------------------------------------------------------
+function GeraTokenRecuperacao($email, $hashSenhaAtual)
+{
+    $payload = $email . '|' . (time() + RECUPERACAO_MINUTOS * 60);
+    $sig = hash_hmac('sha256', $payload . '|' . $hashSenhaAtual, RECUPERACAO_SEGREDO);
+    return rtrim(strtr(base64_encode($payload), '+/', '-_'), '=') . '.' . $sig;
+}
+
+// Retorna o e-mail se o token for válido; senão retorna null
+function ValidaTokenRecuperacao($conn, $token)
+{
+    $partes = explode('.', (string) $token);
+    if (count($partes) !== 2) return null;
+
+    $payload = base64_decode(strtr($partes[0], '-_', '+/'), true);
+    if ($payload === false) return null;
+
+    $pos = strrpos($payload, '|');
+    if ($pos === false) return null;
+
+    $email = substr($payload, 0, $pos);
+    $exp   = (int) substr($payload, $pos + 1);
+    if ($exp < time()) return null;
+
+    $st = $conn->prepare("SELECT senha FROM usuario
+                          WHERE email = :e AND (excluido = false OR excluido IS NULL)");
+    $st->execute([':e' => $email]);
+    $hash = $st->fetchColumn();
+    if ($hash === false) return null;
+
+    $esperada = hash_hmac('sha256', $payload . '|' . $hash, RECUPERACAO_SEGREDO);
+    return hash_equals($esperada, $partes[1]) ? $email : null;
+}
+
+// URL base do site (funciona em /loja3a/, localhost, etc.)
+function UrlBaseSite()
+{
+    $https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+    $pasta = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
+    return ($https ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $pasta;
 }
 
 function SaiSeHacker() {
