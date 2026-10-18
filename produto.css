@@ -723,3 +723,45 @@ img {
     }
 
 }
+
+/* Banner "Nossa coleção" maior (computador) */
+@media (min-width: 1101px) {
+
+    .colecao-banner {
+        padding: 60px 4%;
+    }
+
+    .colecao-conteudo {
+        width: min(1400px, 100%);
+        min-height: 520px;
+        padding: 60px 6%;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 55px;
+    }
+
+    .colecao-conteudo h1 {
+        font-size: 54px;
+    }
+
+    .colecao-conteudo p {
+        max-width: 560px;
+        font-size: 17px;
+    }
+
+    .colecao-imagem {
+        aspect-ratio: 3 / 2;      /* mesma proporção da imagem (1536x1024) */
+        min-height: 0;
+        align-self: center;
+        background-position: center;
+    }
+}
+
+/* Banner maior no tablet e no celular */
+@media (max-width: 1100px) {
+
+    .colecao-imagem {
+        aspect-ratio: 3 / 2;
+        min-height: 0;
+        background-position: center;
+    }
+}

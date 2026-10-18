@@ -3,6 +3,14 @@
 
 include("util.php");
 
+$localRetirada = "CTI, sala 7";
+
+$horariosRetirada = [
+    "21/10" => "das 19h às 22h",
+    "22/10" => "das 8h às 12h e das 19h às 22h",
+    "23/10" => "das 8h às 12h",
+];
+
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: index.php");
     exit;
@@ -169,6 +177,23 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
                 os produtos escolhidos.
             </p>
 
+            <div class="retirada-info">
+
+                <strong>Local de retirada</strong>
+                <p><?= htmlspecialchars($localRetirada, ENT_QUOTES, 'UTF-8') ?></p>
+
+                <strong>Horários</strong>
+                <ul>
+                    <?php foreach ($horariosRetirada as $dia => $horario): ?>
+                        <li>
+                            <span><?= htmlspecialchars($dia, ENT_QUOTES, 'UTF-8') ?></span>
+                            <?= htmlspecialchars($horario, ENT_QUOTES, 'UTF-8') ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+
+            </div>
+
             <?php if (empty($pedidos)): ?>
 
                 <p class="pedidos-vazios">
@@ -237,8 +262,8 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
                         </strong>
 
                         <p class="pedido-retirada">
-                            Retirada: consulte o local e horário
-                            informados pela loja.
+                            Retirada: <?= htmlspecialchars($localRetirada, ENT_QUOTES, 'UTF-8') ?>
+                            (confira os horários acima).
                         </p>
 
                     </article>

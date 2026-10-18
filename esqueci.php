@@ -1,6 +1,5 @@
 <?php
 include "util.php";
-include "util_email.php";
 
 $msg = "";
 

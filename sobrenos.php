@@ -1,6 +1,7 @@
 <?php
 
 include("util.php"); 
+$base = "";
 
 ?>
 

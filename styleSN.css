@@ -400,6 +400,10 @@
 
     color: var(--sn-texto);
 }
+
+.time-card-foto {
+    margin-top: 28px;
+}
  
 @media (max-width: 1000px) {
 

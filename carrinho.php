@@ -121,7 +121,7 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </span>
 
                         <strong>
-                            RETIRADA NO CTI
+                            RETIRADA NO CTI, SALA 7
                         </strong>
 
                     </div>

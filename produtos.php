@@ -117,10 +117,6 @@ $dataNomePorId = [
 
                             <div class="produto-info">
                                 <h3><?= htmlspecialchars($p['nome']) ?></h3>
-
-                                <p class="descricao">
-                                    <?= htmlspecialchars($p['descricao']) ?>
-                                </p>
                             </div>
                         </a>
 

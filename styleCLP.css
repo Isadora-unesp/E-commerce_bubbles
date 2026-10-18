@@ -631,3 +631,56 @@ body:has(.meus-pedidos) .pedido-card li {
         padding: 14px;
     }
 }
+
+/* Informações de retirada */
+.retirada-info {
+    margin-top: 18px;
+    padding: 16px 20px;
+    background: #fff;
+    border: 1px solid #ead9d2;
+    border-left: 4px solid #f86464;
+    border-radius: 12px;
+}
+
+.retirada-info strong {
+    display: block;
+    color: #46220f;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.retirada-info p {
+    margin: 4px 0 12px;
+    color: #6b5b52;
+    font-size: 0.95rem;
+}
+
+.retirada-info p:last-child {
+    margin-bottom: 0;
+}
+
+.retirada-info ul {
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.retirada-info li {
+    padding: 6px 0;
+    color: #6b5b52;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f3e6df;
+}
+
+.retirada-info li:last-child {
+    border-bottom: none;
+}
+
+.retirada-info li span {
+    display: inline-block;
+    min-width: 52px;
+    margin-right: 6px;
+    font-weight: 700;
+    color: #46220f;
+}

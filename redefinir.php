@@ -1,6 +1,5 @@
 <?php
 include "util.php";
-include "util_email.php";
 
 $conn  = conecta();
 $token = $_GET['token'] ?? '';

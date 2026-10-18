@@ -19,7 +19,6 @@ $select->execute();
 
 $produto = $select->fetch(PDO::FETCH_ASSOC);
 
-// Quantidade disponível = entradas - saídas (reservado/entregue)
 $quantidadeDisponivel = max(0, estoqueDisponivel($conn, (int) $idProduto));
 
 if (!$produto) {
