@@ -258,7 +258,7 @@ $base = "";
                 <div class="time-card-foto">
 
                     <img
-                        src="<?= $base ?>img/time/mirella.jpg"
+                        src="<?= $base ?>img/time/mirella.jpeg"
                         alt="Foto de Mirella Quadros"
                     >
 
