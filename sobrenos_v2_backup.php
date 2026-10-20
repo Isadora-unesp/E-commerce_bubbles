@@ -450,7 +450,7 @@ $base = $base ?? "";
                     <div class="time-card-foto">
 
                         <img
-                            src="<?= $base ?>img/mirella.jpg"
+                            src="<?= $base ?>img/mirella.jpeg"
                             alt="Foto de Mirella Quadros"
                         >
 
