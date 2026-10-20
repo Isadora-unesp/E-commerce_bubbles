@@ -165,7 +165,7 @@ $base = "";
                 <div class="time-card-foto">
 
                     <img
-                        src="<?= $base ?>img/bianca.png"
+                        src="<?= $base ?>img/bianca.jpg"
                         alt="Foto de Bianca Penteado"
                     >
 
@@ -196,7 +196,7 @@ $base = "";
                 <div class="time-card-foto">
 
                     <img
-                        src="<?= $base ?>img/time/livia.jpg"
+                        src="<?= $base ?>img/livia.jpg"
                         alt="Foto de Lívia Comora"
                     >
 
@@ -227,7 +227,7 @@ $base = "";
                 <div class="time-card-foto">
 
                     <img
-                        src="<?= $base ?>img/time/isadora.jpg"
+                        src="<?= $base ?>img/isadora.jpg"
                         alt="Foto de Isadora Adorno"
                     >
 
@@ -258,7 +258,7 @@ $base = "";
                 <div class="time-card-foto">
 
                     <img
-                        src="<?= $base ?>img/time/mirella.jpeg"
+                        src="<?= $base ?>img/mirella.jpeg"
                         alt="Foto de Mirella Quadros"
                     >
 
@@ -289,7 +289,7 @@ $base = "";
                 <div class="time-card-foto">
 
                     <img
-                        src="<?= $base ?>img/time/isabella.jpg"
+                        src="<?= $base ?>img/isabella.jpg"
                         alt="Foto de Isabella Cury"
                     >
 
@@ -320,7 +320,7 @@ $base = "";
                 <div class="time-card-foto">
 
                     <img
-                        src="<?= $base ?>img/time/heloysa.jpg"
+                        src="<?= $base ?>img/heloysa.jpg"
                         alt="Foto de Heloysa Moraes"
                     >
 
