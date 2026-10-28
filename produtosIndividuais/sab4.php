@@ -71,8 +71,10 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
     <?php include_once "../_cabecalho.php"; ?>
  
+    <!-- Conteúdo principal da página -->
     <main class="pagina-produto">
 
+        <!-- Caminho de navegação -->
         <nav class="caminho" aria-label="Você está em">
 
             <a href="index.php">Início</a>
@@ -86,9 +88,11 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
             <span><?= htmlspecialchars($produto['nome']) ?></span>
 
         </nav>
-
+        
+        <!-- Detalhes do produto -->
         <section class="detalhe">
 
+            <!-- Coluna com a imagem do produto -->
             <div class="slideshow-coluna">
                 <div class="slideshow">
                     <img
@@ -102,6 +106,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div> 
 
+            <!-- Coluna com as informações do produto -->
             <div class="detalhe-info">
 
                 <div>
@@ -141,6 +146,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                     <span>Quantidade</span>
 
+                    <!-- Botões para ajustar a quantidade do produto -->
                     <div class="quantidade">
 
                         <button
@@ -177,6 +183,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
         </section>
 
+        <!-- Seção com informações adicionais sobre o produto -->
         <section class="info-card">
 
             <div class="coluna">
@@ -219,6 +226,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="outros-grade">
 
+                <!-- Lista de outros produtos -->
                 <?php foreach ($outrosProdutos as $outro): ?>
 
                     <a href="<?= htmlspecialchars($paginaPorId[$outro['id_produto']] ?? '#') ?>" class="outro-card">

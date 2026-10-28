@@ -7,6 +7,7 @@ $conn = conecta();
 
 $idProduto = 12; 
 
+// Consulta para obter os detalhes do produto específico
 $varSQL = "SELECT nome, peso, valor_unitario, descricao, imagem
            FROM produto
            WHERE id_produto = :id
@@ -18,6 +19,7 @@ $select->execute();
 
 $produto = $select->fetch(PDO::FETCH_ASSOC);
 
+// Calcula a quantidade disponível do produto
 $quantidadeDisponivel = max(0, estoqueDisponivel($conn, (int) $idProduto));
 
 if (!$produto) {
@@ -25,6 +27,7 @@ if (!$produto) {
     exit;
 }
 
+// Mapeamento de imagens, páginas e nomes para produtos específicos
 $imagensPorId = [
     12 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
@@ -32,6 +35,7 @@ $imagensPorId = [
     5 => "img/citrico.jpg",
 ];
 
+// Mapeamento de páginas e nomes para produtos específicos
 $paginaPorId = [
     12 => "produtosIndividuais/sab1.php",
     2 => "produtosIndividuais/sab2.php",
@@ -39,6 +43,7 @@ $paginaPorId = [
     5 => "produtosIndividuais/sab3.php",
 ];
 
+// Mapeamento de nomes para produtos específicos
 $varSQLOutros = "SELECT id_produto, nome, valor_unitario, imagem
                  FROM produto
                  WHERE id_produto != :id
@@ -70,8 +75,10 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
     <?php include_once "../_cabecalho.php"; ?>
  
+    <!-- Conteúdo principal da página -->
     <main class="pagina-produto">
 
+        <!-- Caminho de navegação -->
         <nav class="caminho" aria-label="Você está em">
 
             <a href="index.php">Início</a>
@@ -86,8 +93,10 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
         </nav>
 
+        <!-- Detalhes do produto -->
         <section class="detalhe">
 
+            <!-- Coluna com a imagem do produto -->
             <div class="slideshow-coluna">
                 <div class="slideshow">
                     <img
@@ -101,6 +110,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div> 
 
+            <!-- Coluna com as informações do produto -->
             <div class="detalhe-info">
 
                 <div>
@@ -140,6 +150,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
                     <span>Quantidade</span>
 
+                    <!-- Botões para ajustar a quantidade do produto -->
                     <div class="quantidade">
 
                         <button
@@ -175,6 +186,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
         </section>
 
+        <!-- Seção com informações adicionais sobre o produto -->
         <section class="info-card">
 
             <div class="coluna">
@@ -218,6 +230,7 @@ $outrosProdutos = $selectOutros->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="outros-grade">
 
+                <!-- Lista de outros produtos -->
                 <?php foreach ($outrosProdutos as $outro): ?>
 
                     <a href="<?= htmlspecialchars($paginaPorId[$outro['id_produto']] ?? '#') ?>" class="outro-card">
