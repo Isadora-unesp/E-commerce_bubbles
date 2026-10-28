@@ -1,4 +1,5 @@
 <?php
+// Arquivo:  cabecalho
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -8,6 +9,7 @@ $base = $base ?? "";
 $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 ?>
 
+<!-- Seção: Cabeçalho da seção -->
 <header class="header">
 
     <button
@@ -25,6 +27,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         <img src="<?= $base ?>img/logo.png" alt="Fruit Bubbles">
     </a>
 
+    <!-- Menu de navegação -->
     <nav class="menu">
 
         <a
@@ -50,8 +53,10 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
     </nav>
 
+    <!-- Ações disponíveis -->
     <div class="acoes">
 
+        <!--Pesquisa de produtos -->
         <div class="pesquisa">
 
             <input
@@ -207,10 +212,12 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
     </div>
 
+    <!-- Menu de navegação(celular) -->
     <div class="fundo-menu-mobile" id="fundoMenuMobile"></div>
 
     <aside class="menu-lateral-mobile" id="menuLateralMobile">
 
+        <!-- Cabeçalho e navegação -->
         <div class="menu-mobile-cabecalho">
 
             <h2>Menu</h2>
@@ -225,6 +232,7 @@ $paginaAtual = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
         </div>
 
+        <!-- Itens do menu -->
         <nav class="menu-mobile-itens">
 
             <a href="<?= $base ?>index.php" class="menu-mobile-item">

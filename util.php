@@ -280,6 +280,5 @@ function SaiSeHacker() {
         header("Location: ../index.php");
         exit;
     }
-}
-
-?>
+} 
+?> 

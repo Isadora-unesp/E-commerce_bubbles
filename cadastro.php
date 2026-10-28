@@ -10,229 +10,234 @@
 
 <body class="pagina-cadastro-fb">
 
-<a href="index.php" class="voltar-index">
-    <span>←</span> Voltar
-</a>
+    <a href="index.php" class="voltar-index">
+        <span>←</span> Voltar
+    </a>
 
-<main class="container">
-    <section class="cadastro">
+    <!-- Conteúdo principal da página -->
+    <main class="container">
 
-        <h1>Criar cadastro</h1>
-        <p class="subtitulo">
-            Crie sua conta para continuar.
-        </p>
+        <!-- Formulário de cadastro -->
+        <section class="cadastro">
 
-        <?php
-        $erros = [
-            'email' => 'Este e-mail já está cadastrado.',
-            'foto' => 'A foto deve ser JPG, PNG ou WebP e ter até 2 MB.',
-            'geral' => 'Não foi possível concluir o cadastro. Tente novamente.'
-        ];
-
-        $erro = $_GET['erro'] ?? '';
-
-        if (isset($erros[$erro])):
-        ?>
-            <p class="erro-cadastro" role="alert">
-                <?= htmlspecialchars($erros[$erro], ENT_QUOTES, 'UTF-8') ?>
+            <h1>Criar cadastro</h1>
+            <p class="subtitulo">
+                Crie sua conta para continuar.
             </p>
-        <?php endif; ?>
 
-        <form
-            action="crudUsuarios/insertUsuario.php"
-            method="post"
-            enctype="multipart/form-data"
-        >
+            <?php
+            $erros = [
+                'email' => 'Este e-mail já está cadastrado.',
+                'foto' => 'A foto deve ser JPG, PNG ou WebP e ter até 2 MB.',
+                'geral' => 'Não foi possível concluir o cadastro. Tente novamente.'
+            ];
 
-            <div class="foto-perfil-container cadastro-foto-area">
+            $erro = $_GET['erro'] ?? '';
 
-                <div class="foto-perfil-label">
-                    <img
-                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' 
-                            fill='none' stroke='%23b08968' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4 3.5-7 8-7s8 3 8 7'/%3E%3C/svg%3E"
-                        alt="Prévia da foto de perfil"
-                        id="preview-foto"
-                        class="foto-perfil"
-                    >
-                </div>
+            if (isset($erros[$erro])):
+            ?>
+                <p class="erro-cadastro" role="alert">
+                    <?= htmlspecialchars($erros[$erro], ENT_QUOTES, 'UTF-8') ?>
+                </p>
+            <?php endif; ?>
 
-                <div class="acoes-foto-cadastro">
+            <form
+                action="crudUsuarios/insertUsuario.php"
+                method="post"
+                enctype="multipart/form-data"
+            >
 
-                    <label for="foto" class="botao-foto">
-                        ▣ Escolher foto
-                    </label>
+                <div class="foto-perfil-container cadastro-foto-area">
 
-                    <button
-                        type="button"
-                        class="botao-foto"
-                        id="botaoTirarFoto"
-                    >
-                        ▣ Tirar foto
-                    </button>
+                    <div class="foto-perfil-label">
+                        <img
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' 
+                                fill='none' stroke='%23b08968' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4 3.5-7 8-7s8 3 8 7'/%3E%3C/svg%3E"
+                            alt="Prévia da foto de perfil"
+                            id="preview-foto"
+                            class="foto-perfil"
+                        >
+                    </div>
 
-                </div>
+                    <div class="acoes-foto-cadastro">
 
-                <input
-                    type="file"
-                    id="foto"
-                    name="foto"
-                    accept="image/jpeg,image/png,image/webp"
-                    class="input-foto"
-                >
+                        <label for="foto" class="botao-foto">
+                            ▣ Escolher foto
+                        </label>
 
-                <input
-                    type="file"
-                    id="fotoCamera"
-                    accept="image/jpeg,image/png,image/webp"
-                    capture="user"
-                    class="input-foto"
-                >
+                        <button
+                            type="button"
+                            class="botao-foto"
+                            id="botaoTirarFoto"
+                        >
+                            ▣ Tirar foto
+                        </button>
 
-            </div>
+                    </div>
 
-            <div class="campo">
-                <label for="nome">Nome completo</label>
-                <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    maxlength="80"
-                    placeholder="Digite seu nome"
-                    required
-                    autocomplete="name"
-                >
-            </div>
-
-            <div class="campo">
-                <label for="telefone">Telefone</label>
-                <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    maxlength="20"
-                    placeholder="(14) 99999-9999"
-                    required
-                    autocomplete="tel"
-                >
-            </div>
-
-            <div class="campo">
-                <label for="email">E-mail</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    maxlength="100"
-                    placeholder="Digite seu e-mail"
-                    required
-                    autocomplete="email"
-                >
-            </div>
-
-            <div class="campo">
-
-                <label for="senha">Senha</label>
-
-                <div class="campo-senha">
                     <input
-                        type="password"
-                        id="senha"
-                        name="senha"
-                        placeholder="Crie uma senha"
-                        required
-                        autocomplete="new-password"
+                        type="file"
+                        id="foto"
+                        name="foto"
+                        accept="image/jpeg,image/png,image/webp"
+                        class="input-foto"
                     >
 
-                    <button
-                        type="button"
-                        id="mostrarSenha"
-                        class="botao-olho"
-                        aria-label="Mostrar senha"
-                        aria-pressed="false"
+                    <input
+                        type="file"
+                        id="fotoCamera"
+                        accept="image/jpeg,image/png,image/webp"
+                        capture="user"
+                        class="input-foto"
                     >
-                        ◉
-                    </button>
+
                 </div>
 
-            </div>
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        maxlength="80"
+                        placeholder="Digite seu nome"
+                        required
+                        autocomplete="name"
+                    >
+                </div>
 
-            <button type="submit" class="botao-criar-conta">
-                Criar conta
-            </button>
+                <div class="campo">
+                    <label for="telefone">Telefone</label>
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        maxlength="20"
+                        placeholder="(14) 99999-9999"
+                        required
+                        autocomplete="tel"
+                    >
+                </div>
 
-        </form>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        maxlength="100"
+                        placeholder="Digite seu e-mail"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
 
-        <p class="login">
-            Já possui uma conta?
-            <a href="login.php">Entrar</a>
-        </p>
+                <div class="campo">
 
-    </section>
-</main>
+                    <label for="senha">Senha</label>
 
-<script>
-const foto = document.getElementById('foto');
-const camera = document.getElementById('fotoCamera');
-const previa = document.getElementById('preview-foto');
+                    <div class="campo-senha">
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Crie uma senha"
+                            required
+                            autocomplete="new-password"
+                        >
 
-let urlAnterior = null;
+                        <button
+                            type="button"
+                            id="mostrarSenha"
+                            class="botao-olho"
+                            aria-label="Mostrar senha"
+                            aria-pressed="false"
+                        >
+                            ◉
+                        </button>
+                    </div>
 
-function validarFoto(arquivo) {
-    if (!arquivo) return false;
+                </div>
 
-    if (
-        !['image/jpeg', 'image/png', 'image/webp'].includes(arquivo.type) ||
-        arquivo.size > 2 * 1024 * 1024
-    ) {
-        alert('Escolha uma foto JPG, PNG ou WebP de até 2 MB.');
-        return false;
-    }
+                <button type="submit" class="botao-criar-conta">
+                    Criar conta
+                </button>
 
-    if (urlAnterior) {
-        URL.revokeObjectURL(urlAnterior);
-    }
+            </form>
 
-    urlAnterior = URL.createObjectURL(arquivo);
-    previa.src = urlAnterior;
+            <p class="login">
+                Já possui uma conta?
+                <a href="login.php">Entrar</a>
+            </p>
 
-    return true;
-}
+        </section>
+    </main>
 
-foto.addEventListener('change', () => {
-    if (!validarFoto(foto.files[0])) {
-        foto.value = '';
-    }
-});
+    <!-- Inclusão do rodapé -->
+    <script>
+        const foto = document.getElementById('foto');
+        const camera = document.getElementById('fotoCamera');
+        const previa = document.getElementById('preview-foto');
 
-document.getElementById('botaoTirarFoto')
-    .addEventListener('click', () => camera.click());
+        let urlAnterior = null;
 
-camera.addEventListener('change', () => {
-    if (!validarFoto(camera.files[0])) {
-        camera.value = '';
-        return;
-    }
+        // Função para validar o arquivo de foto selecionado
+        function validarFoto(arquivo) {
+            if (!arquivo) return false;
 
-    const transferencia = new DataTransfer();
-    transferencia.items.add(camera.files[0]);
-    foto.files = transferencia.files;
-});
+            if (
+                !['image/jpeg', 'image/png', 'image/webp'].includes(arquivo.type) ||
+                arquivo.size > 2 * 1024 * 1024
+            ) {
+                alert('Escolha uma foto JPG, PNG ou WebP de até 2 MB.');
+                return false;
+            }
 
-document.getElementById('mostrarSenha')
-    .addEventListener('click', function () {
+            if (urlAnterior) {
+                URL.revokeObjectURL(urlAnterior);
+            }
 
-        const campo = document.getElementById('senha');
-        const visivel = campo.type === 'password';
+            urlAnterior = URL.createObjectURL(arquivo);
+            previa.src = urlAnterior;
 
-        campo.type = visivel ? 'text' : 'password';
+            return true;
+        }
 
-        this.setAttribute('aria-pressed', String(visivel));
-        this.setAttribute(
-            'aria-label',
-            visivel ? 'Ocultar senha' : 'Mostrar senha'
-        );
-    });
-</script>
+        foto.addEventListener('change', () => {
+            if (!validarFoto(foto.files[0])) {
+                foto.value = '';
+            }
+        });
+
+        document.getElementById('botaoTirarFoto')
+            .addEventListener('click', () => camera.click());
+
+        camera.addEventListener('change', () => {
+            if (!validarFoto(camera.files[0])) {
+                camera.value = '';
+                return;
+            }
+
+            const transferencia = new DataTransfer();
+            transferencia.items.add(camera.files[0]);
+            foto.files = transferencia.files;
+        });
+
+        document.getElementById('mostrarSenha')
+            .addEventListener('click', function () {
+
+                const campo = document.getElementById('senha');
+                const visivel = campo.type === 'password';
+
+                campo.type = visivel ? 'text' : 'password';
+
+                this.setAttribute('aria-pressed', String(visivel));
+                this.setAttribute(
+                    'aria-label',
+                    visivel ? 'Ocultar senha' : 'Mostrar senha'
+                );
+            });
+    </script>
 
 </body>
 </html>

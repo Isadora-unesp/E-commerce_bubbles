@@ -6,6 +6,7 @@ $_SESSION["raiz"] = "/loja3a/";
 
 $conn = conecta();
 
+// Consulta para obter os produtos disponíveis
 $varSQL = "SELECT id_produto, nome, peso, valor_unitario, imagem
            FROM produto
            WHERE (excluido = false OR excluido IS NULL)
@@ -15,6 +16,7 @@ $select = $conn->query($varSQL);
 
 $produtosBanco = $select->fetchAll(PDO::FETCH_ASSOC);
  
+// Mapeamento de imagens, páginas e nomes para produtos específicos
 $imagensPorId = [
     12 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
@@ -31,6 +33,7 @@ $paginaPorId = [
 
 $produtos = [];
 
+// Itera sobre os produtos do banco de dados e cria um array com informações relevantes
 foreach ($produtosBanco as $p) {
 
     $produtos[] = [
@@ -62,8 +65,10 @@ foreach ($produtosBanco as $p) {
 
     <?php include '_cabecalho.php'; ?>
 
+    <!-- Fundo de pesquisa -->
     <div class="fundo-pesquisa" id="fundoPesquisa"></div>
 
+    <!-- Painel de pesquisa -->
     <section class="painel-pesquisa" id="painelPesquisa">
 
         <div class="pesquisa-topo">
@@ -101,6 +106,7 @@ foreach ($produtosBanco as $p) {
 
         </div>
 
+        <!-- Conteúdo da pesquisa -->
         <div class="pesquisa-conteudo">
 
             <p class="pesquisa-instrucao" id="pesquisaInstrucao">
@@ -124,6 +130,7 @@ foreach ($produtosBanco as $p) {
                         data-nome="<?= htmlspecialchars(strtolower($produto['nome'])) ?>"
                     >
 
+                        <!-- Produtos e informações do catálogo -->
                         <div class="produto-pesquisa-imagem">
 
                             <img
@@ -187,109 +194,10 @@ foreach ($produtosBanco as $p) {
 
     </section>
 
-    <div
-        class="fundo-menu-mobile"
-        id="fundoMenuMobile"
-    ></div>
-
-    <aside 
-        class="menu-lateral-mobile"
-        id="menuLateralMobile"
-    >
-
-        <div class="menu-mobile-cabecalho">
-
-            <h2>Menu</h2>
-
-            <button
-                type="button"
-                id="fecharMenuMobile"
-                aria-label="Fechar menu"
-            >
-                ×
-            </button>
-
-        </div>
-
-        <nav class="menu-mobile-itens">
-
-            <a
-                href="index.php"
-                class="menu-mobile-item"
-            >
-                Início
-            </a>
-
-            <div class="menu-mobile-produtos">
-
-                <button
-                    type="button"
-                    id="botaoProdutosMobile"
-                    class="menu-mobile-item"
-                >
-                    <span>Produtos</span>
-                    <span class="seta">⌄</span>
-                </button>
-
-                <div
-                    class="submenu-mobile"
-                    id="submenuProdutosMobile"
-                >
-
-                    <a href="produtos.php">
-                        Todos os produtos
-                    </a>
-
-                    <a href="produtos.php?categoria=massageador">
-                        Sabonete massageador
-                    </a>
-
-                    <a href="produtos.php?categoria=barra">
-                        Sabonete em barra
-                    </a>
-
-                </div>
-
-            </div>
-
-            <a
-                href="sobrenos.php"
-                class="menu-mobile-item"
-            >
-                Sobre nós
-            </a>
-
-            <?php
-            if (
-                isset($_SESSION['logado'])
-                && $_SESSION['logado'] === true
-            ) {
-            ?>
-
-                <a
-                    href="perfilUsuario.php"
-                    class="menu-mobile-item"
-                >
-                    👤 Perfil
-                </a>
-
-            <?php } else { ?>
-
-                <a
-                    href="login.php"
-                    class="menu-mobile-item"
-                >
-                    👤 Perfil
-                </a>
-
-            <?php } ?>
-
-        </nav>
-
-    </aside>
-
+    <!-- Conteúdo principal da página -->
     <main>
 
+        <!-- Destaque inicial da pág -->
         <section class="hero">
 
             <div class="hero-texto">
@@ -320,6 +228,7 @@ foreach ($produtosBanco as $p) {
 
             </div>
 
+            <!-- Imagem de destaque da pág -->
             <div class="hero-imagem">
 
                 <img
@@ -345,6 +254,7 @@ foreach ($produtosBanco as $p) {
 
         </section>
 
+        <!-- Seção de produtos -->
         <section
             class="produtos"
             id="produtos"
@@ -363,6 +273,7 @@ foreach ($produtosBanco as $p) {
 
             </div>
 
+            <!-- Produtos e informações do catálogo -->
             <div class="produtos-scroll">
 
                 <?php foreach ($produtos as $indice => $produto): ?>
@@ -426,6 +337,7 @@ foreach ($produtosBanco as $p) {
 
         </section>
 
+        <!-- Seção de ingredientes e benefícios -->
         <section class="ingredientes-home">
 
             <div class="ingredientes-home-topo">
@@ -549,6 +461,7 @@ foreach ($produtosBanco as $p) {
 
         </section>
 
+        <!-- Seção sobre a marca -->
         <section class="sobre-resumo">
 
             <div class="sobre-resumo-texto">

@@ -3,6 +3,7 @@ include "util.php";
 
 $msg = "";
 
+// Se o formulário de recuperação de senha for enviado, processa a solicitação
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $email = trim($_POST['email'] ?? '');
@@ -44,7 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <a href="login.php" class="voltar-index"><span>←</span> Voltar</a>
 
+    <!-- Conteúdo principal da página -->
     <main class="container">
+
+        <!-- Formulário de recuperação de senha -->
         <section class="cadastro">
 
             <h1>Recuperar senha</h1>
@@ -59,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </p>
             <?php } ?>
 
+            <!-- Formulário de preenchimento e envio -->
             <form method="post" action="">
                 <div class="campo">
                     <label for="email">Email</label>

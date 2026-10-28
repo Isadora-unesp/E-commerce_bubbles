@@ -1,6 +1,7 @@
 <?php
 include "util.php";
 
+// Conecta ao banco de dados e valida o token de recuperação de senha
 $conn  = conecta();
 $token = $_GET['token'] ?? '';
 $email = ValidaTokenRecuperacao($conn, $token);
@@ -8,6 +9,7 @@ $email = ValidaTokenRecuperacao($conn, $token);
 $erro    = "";
 $sucesso = false;
 
+// Se o token for válido e o formulário for enviado, processa a redefinição de senha
 if ($email !== null && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $senha1 = $_POST['senha1'] ?? '';
@@ -27,6 +29,7 @@ if ($email !== null && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,7 +42,10 @@ if ($email !== null && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <a href="login.php" class="voltar-index"><span>←</span> Voltar</a>
 
+    <!-- Conteúdo principal da página -->
     <main class="container">
+
+        <!-- Formulário de redefinição de senha -->
         <section class="cadastro">
 
             <h1>Redefinir senha</h1>

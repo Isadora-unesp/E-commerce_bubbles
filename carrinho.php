@@ -4,6 +4,7 @@ include("util.php");
 
 $conn = conecta();
 
+// Consulta para obter os produtos disponíveis
 $sql = "SELECT
             id_produto,
             nome,
@@ -47,8 +48,10 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php include "_cabecalho.php"; ?>
         
+        <!-- Carrinho de compras -->
         <main class="pagina-carrinho">
 
+            <!-- Destaque inicial da pág -->
             <section class="carrinho-hero">
 
                 <span class="carrinho-eyebrow">
@@ -66,6 +69,7 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             </section>
 
+            <!-- Conteúdo principal da pág -->
             <section class="carrinho-conteudo">
 
                 <div class="carrinho-lista-area">
@@ -96,6 +100,7 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 </div>
 
+                <!-- Resumo do pedido -->
                 <aside class="resumo-pedido">
 
                     <h2>
@@ -125,6 +130,7 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </strong>
 
                     </div>
+
 
                     <div class="resumo-divisor"></div>
 
@@ -171,6 +177,7 @@ $produtosBanco = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php include "_footer.php"; ?>
 
+        <!-- Toast de confirmação de adição ao carrinho -->
         <script>
             const produtosBanco = <?= json_encode(
                 $produtosBanco,

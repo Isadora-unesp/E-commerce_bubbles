@@ -4,6 +4,7 @@ include("util.php");
 
 $conn = conecta();
 
+// Consulta para obter os produtos disponíveis
 $varSQL = "SELECT id_produto, nome, descricao, valor_unitario, imagem
            FROM produto
            WHERE (excluido = false OR excluido IS NULL)
@@ -13,6 +14,7 @@ $select = $conn->query($varSQL);
 
 $produtosBanco = $select->fetchAll(PDO::FETCH_ASSOC);
 
+// Mapeamento de imagens, páginas e nomes para produtos específicos
 $imagensPorId = [
     12 => "img/morango.jpg",
     2 => "img/maracuja.jpg",
@@ -20,6 +22,7 @@ $imagensPorId = [
     5 => "img/citrico.jpg",
 ];
 
+// Mapeamento de páginas e nomes para produtos específicos
 $paginaPorId = [
     12 => "produtosIndividuais/sab1.php",
     2 => "produtosIndividuais/sab2.php",
@@ -27,6 +30,7 @@ $paginaPorId = [
     5 => "produtosIndividuais/sab3.php",
 ];
 
+// Mapeamento de nomes para produtos específicos
 $dataNomePorId = [
     12 => "melancia",
     2 => "maracujá",
@@ -55,6 +59,7 @@ $dataNomePorId = [
 
     <main>
  
+        <!-- Banner da coleção de produtos -->
         <section class="colecao-banner">
 
             <div class="colecao-conteudo">
@@ -80,6 +85,7 @@ $dataNomePorId = [
 
         </section>
 
+        <!-- Seção de produtos -->
         <section class="produtos" id="produtos">
 
             <div class="titulo-secao-produtos">
@@ -94,6 +100,7 @@ $dataNomePorId = [
 
             </div>
             
+            <!-- Lista de produtos -->
             <div class="grid-produtos">
 
                 <?php foreach ($produtosBanco as $p): ?>
@@ -146,6 +153,7 @@ $dataNomePorId = [
  
     </main>
  
+    <!-- Toast de confirmação de adição ao carrinho -->
     <div id="toast" class="toast">
 
         <span id="toast-message">

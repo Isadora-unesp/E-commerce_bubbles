@@ -17,12 +17,14 @@
         <span>←</span> Voltar
     </a>
 
+    <!-- Conteúdo principal da página -->
     <main class="container">
 
         <section class="cadastro">
 
             <h1>Login</h1>
 
+            <!-- Informações do perfil -->
             <div class="foto-perfil-container">
                 <img
                     src="https://placehold.co/120x120/fff2e8/46220f?text=FB"
@@ -41,6 +43,7 @@
                 </p>
             <?php } ?>
 
+            <!-- Formulário de login -->
             <form method="post" action="crudUsuarios/loginUsuario.php">
 
                 <?php if (

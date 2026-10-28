@@ -3,9 +3,9 @@
 
 include("util.php");
 
-$localRetirada = "CTI, sala 7";
+$localRetirada = "CTI, sala 7"; // Local de retirada dos produtos
 
-$horariosRetirada = [
+$horariosRetirada = [ // horários de retirada dos produtos
     "21/10" => "das 19h às 22h",
     "22/10" => "das 8h às 12h e das 19h às 22h",
     "23/10" => "das 8h às 12h",
@@ -20,11 +20,13 @@ $conn = conecta();
 
 $id = $_SESSION['usuario_id'];
 
-$varSQL = "SELECT *
+// Consulta para obter os dados do usuário
+$varSQL = "SELECT * 
            FROM usuario
            WHERE id_usuario = :id
            AND (excluido = false OR excluido IS NULL)";
 
+// Preparando e executando a consulta
 $select = $conn->prepare($varSQL);
 $select->bindParam(':id', $id);
 $select->execute();
@@ -36,6 +38,7 @@ if (!$linha) {
     exit;
 }
 
+// Armazena os dados do usuário em variáveis
 $nome = $linha['nome'];
 $email = $linha['email'];
 $telefone = $linha['telefone'];
@@ -64,6 +67,7 @@ $consultaPedidos->execute([
 
 $pedidos = [];
 
+// Agrupa os pedidos por número de compra
 foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
 
     $numero = $item['id_compra'];
@@ -103,10 +107,12 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
         <span>←</span> Voltar
     </a>
 
+    <!-- Conteúdo principal da página -->
     <main class="container">
 
         <section class="perfil">
 
+            <!-- Foto de perfil do usuário -->
             <div class="foto-perfil-container">
 
                 <?php if (!empty($fotoPerfil)) { ?>
@@ -135,6 +141,7 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
                 Veja suas informações pessoais
             </p>
 
+            <!-- Informações do usuário -->
             <div class="informacoes">
 
                 <div class="campo">
@@ -154,6 +161,7 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
 
             </div>
 
+            <!-- Botões de ação do perfil -->
             <div class="botoes">
 
                 <a class="editar" href="crudUsuarios/editarPerfil.php">
@@ -168,6 +176,7 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
 
         </section>
 
+        <!-- Seção de pedidos do usuário -->
         <section class="meus-pedidos" id="meus-pedidos">
 
             <h2>Meus pedidos</h2>
@@ -194,6 +203,7 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
 
             </div>
 
+            <!-- Lista de pedidos do usuário -->
             <?php if (empty($pedidos)): ?>
 
                 <p class="pedidos-vazios">
@@ -202,6 +212,7 @@ foreach ($consultaPedidos->fetchAll(PDO::FETCH_ASSOC) as $item) {
 
             <?php else: ?>
 
+                <!-- Itera sobre os pedidos do usuário e exibe cada um -->
                 <?php foreach ($pedidos as $numero => $pedido): ?>
 
                     <article class="pedido-card">

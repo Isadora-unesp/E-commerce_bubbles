@@ -57,7 +57,7 @@ try {
          FROM produto
          WHERE nome = :nome AND excluido = false"
     );
-
+   
     $inserir = $pdo->prepare(
         "INSERT INTO compra_produto
          (fk_produto, fk_compra, quantidade, valor_unitario)

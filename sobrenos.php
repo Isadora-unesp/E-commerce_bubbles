@@ -33,325 +33,331 @@ $base = "";
 
 <body>
 
-<?php include_once "_cabecalho.php"; ?>
-
-
-<main class="sobre-page">
-
-    <section class="sobre-hero">
-
-        <div class="sobre-hero-conteudo">
-
-            <h1>
-                Muito além de um
-                <em>trabalho escolar.</em>
-            </h1>
-
-            <p>
-                A Fruit Bubbles nasceu dentro da escola,
-                a partir do desafio de criar um e-commerce
-                do zero. Entre ideias, pesquisas, códigos
-                e sabonetes, transformamos um projeto em
-                uma experiência que tem um pouquinho de
-                cada uma de nós.
-            </p>
-
-            <a
-                href="#nossa-historia"
-                class="sobre-botao"
-            >
-                Conheça nossa história
-                <span>↓</span>
-            </a>
-
-        </div>
-
-        <div class="sobre-hero-foto">
-
-            <img
-                src="img/equipe.jpeg"
-                alt="Equipe Fruit Bubbles"
-            >
-
-        </div>
-
-    </section>
-
-    <section
-        class="nossa-historia"
-        id="nossa-historia"
-    >
+    <?php include_once "_cabecalho.php"; ?>
+
+    <!-- Apresentação da marca e da equipe -->
+    <main class="sobre-page">
+
+        <section class="sobre-hero">
+
+            <!-- Conteúdo textual da seção -->
+            <div class="sobre-hero-conteudo">
+
+                <h1>
+                    Muito além de um
+                    <em>trabalho escolar.</em>
+                </h1>
+
+                <p>
+                    A Fruit Bubbles nasceu dentro da escola,
+                    a partir do desafio de criar um e-commerce
+                    do zero. Entre ideias, pesquisas, códigos
+                    e sabonetes, transformamos um projeto em
+                    uma experiência que tem um pouquinho de
+                    cada uma de nós.
+                </p>
+
+                <a
+                    href="#nossa-historia"
+                    class="sobre-botao"
+                >
+                    Conheça nossa história
+                    <span>↓</span>
+                </a>
+
+            </div>
+
+            <!-- Foto da equipe -->
+            <div class="sobre-hero-foto">
+
+                <img
+                    src="img/equipe.jpeg"
+                    alt="Equipe Fruit Bubbles"
+                >
+
+            </div>
+
+        </section>
+
+        <!-- Seção sobre a história da marca -->
+        <section
+            class="nossa-historia"
+            id="nossa-historia"
+        >
+
+            <div class="historia-titulo">
+
+                <span class="sobre-etiqueta">
+                    COMO TUDO COMEÇOU
+                </span>
+
+                <h2>
+                    Uma ideia que saiu
+                    <em>da sala de aula.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="historia-texto">
+
+                <p>
+                    Tudo começou como um projeto escolar:
+                    nossa turma recebeu a proposta de desenvolver
+                    uma empresa e criar seu próprio e-commerce.
+                    Foi então que começamos a pensar no que
+                    poderíamos produzir, como seria nossa marca
+                    e de que maneira poderíamos unir criatividade,
+                    tecnologia e empreendedorismo.
+                </p>
+
+                <p>
+                    Assim nasceu a <strong>Fruit Bubbles</strong>,
+                    uma marca criada e desenvolvida por nós,
+                    desde a identidade visual e os produtos até
+                    este site que você está acessando agora.
+                </p>
 
-        <div class="historia-titulo">
-
-            <span class="sobre-etiqueta">
-                COMO TUDO COMEÇOU
-            </span>
-
-            <h2>
-                Uma ideia que saiu
-                <em>da sala de aula.</em>
-            </h2>
+            </div>
+
+        </section> 
+
+        <!-- missão, visão e valores da marca --> 
+        <section class="sn-proposito" aria-labelledby="sn-proposito-titulo">
+            <div class="sn-proposito-cabecalho">
+                <span class="sobre-etiqueta">O QUE NOS MOVE</span>
+                <h2 id="sn-proposito-titulo">Nossa essência <em>Fruit Bubbles</em></h2>
+                <p>Mais do que produzir sabonetes, queremos colocar criatividade, cuidado e dedicação em cada etapa do nosso projeto.</p>
+            </div>
+            <div class="sn-proposito-grid">
+                <article class="sn-proposito-card">
+                    <h3>Missão</h3>
+                    <p>Oferecer sabonetes artesanais de qualidade, com fragrâncias inspiradas em frutas, proporcionando uma experiência agradável de cuidado e bem-estar, com produtos feitos com carinho e atenção aos detalhes.</p>
+                </article>
+                <article class="sn-proposito-card">
+                    <h3>Visão</h3>
+                    <p>Ser uma empresa reconhecida pela qualidade, criatividade e inovação em sabonetes artesanais, conquistando cada vez mais os clientes.</p>
+                </article>
+                <article class="sn-proposito-card">
+                    <h3>Valores</h3>
+                    <ul>
+                        <li>Qualidade</li>
+                        <li>Criatividade e inovação</li>
+                        <li>Cuidado</li>
+                        <li>Respeito</li>
+                        <li>Transparência</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
 
-        </div>
+        <!-- Foto das integrantes da equipe e descrição de cada uma -->
+        <section class="time-equipe-section">
 
+            <div class="time-equipe-cabecalho">
 
-        <div class="historia-texto">
+                <h2>
+                    Prazer, somos
+                    <em><br>Fruit Bubbles!</em>
+                </h2>
 
-            <p>
-                Tudo começou como um projeto escolar:
-                nossa turma recebeu a proposta de desenvolver
-                uma empresa e criar seu próprio e-commerce.
-                Foi então que começamos a pensar no que
-                poderíamos produzir, como seria nossa marca
-                e de que maneira poderíamos unir criatividade,
-                tecnologia e empreendedorismo.
-            </p>
+            </div>
 
-            <p>
-                Assim nasceu a <strong>Fruit Bubbles</strong>,
-                uma marca criada e desenvolvida por nós,
-                desde a identidade visual e os produtos até
-                este site que você está acessando agora.
-            </p>
+            <div class="time-cards">
 
-        </div>
+                <article class="time-card">
 
-    </section> 
+                    <div class="time-card-foto">
 
-    <section class="sn-proposito" aria-labelledby="sn-proposito-titulo">
-        <div class="sn-proposito-cabecalho">
-            <span class="sobre-etiqueta">O QUE NOS MOVE</span>
-            <h2 id="sn-proposito-titulo">Nossa essência <em>Fruit Bubbles</em></h2>
-            <p>Mais do que produzir sabonetes, queremos colocar criatividade, cuidado e dedicação em cada etapa do nosso projeto.</p>
-        </div>
-        <div class="sn-proposito-grid">
-            <article class="sn-proposito-card">
-                <h3>Missão</h3>
-                <p>Oferecer sabonetes artesanais de qualidade, com fragrâncias inspiradas em frutas, proporcionando uma experiência agradável de cuidado e bem-estar, com produtos feitos com carinho e atenção aos detalhes.</p>
-            </article>
-            <article class="sn-proposito-card">
-                <h3>Visão</h3>
-                <p>Ser uma empresa reconhecida pela qualidade, criatividade e inovação em sabonetes artesanais, conquistando cada vez mais os clientes.</p>
-            </article>
-            <article class="sn-proposito-card">
-                <h3>Valores</h3>
-                <ul>
-                    <li>Qualidade</li>
-                    <li>Criatividade e inovação</li>
-                    <li>Cuidado</li>
-                    <li>Respeito</li>
-                    <li>Transparência</li>
-                </ul>
-            </article>
-        </div>
-    </section>
+                        <img
+                            src="<?= $base ?>img/bianca.jpg"
+                            alt="Foto de Bianca Penteado"
+                        >
 
-    <section class="time-equipe-section">
+                    </div>
 
-        <div class="time-equipe-cabecalho">
+                    <div class="time-card-info">
 
-            <h2>
-                Prazer, somos
-                <em><br>Fruit Bubbles!</em>
-            </h2>
+                        <span class="time-card-cargo">
+                            Gerente financeiro
+                        </span>
 
-        </div>
+                        <h3>
+                            Bianca Penteado
+                        </h3>
 
-        <div class="time-cards">
+                        <p>
+                            Cuida das finanças, planilhas,
+                            custos e organização dos resultados
+                            do projeto.
+                        </p>
 
-            <article class="time-card">
+                    </div>
 
-                <div class="time-card-foto">
+                </article>
 
-                    <img
-                        src="<?= $base ?>img/bianca.jpg"
-                        alt="Foto de Bianca Penteado"
-                    >
+                <article class="time-card">
 
-                </div>
+                    <div class="time-card-foto">
 
-                <div class="time-card-info">
+                        <img
+                            src="<?= $base ?>img/livia.jpg"
+                            alt="Foto de Lívia Comora"
+                        >
 
-                    <span class="time-card-cargo">
-                        Gerente financeiro
-                    </span>
+                    </div>
 
-                    <h3>
-                        Bianca Penteado
-                    </h3>
+                    <div class="time-card-info">
 
-                    <p>
-                        Cuida das finanças, planilhas,
-                        custos e organização dos resultados
-                        do projeto.
-                    </p>
+                        <span class="time-card-cargo">
+                            Gerente de produção
+                        </span>
 
-                </div>
+                        <h3>
+                            Lívia Comora
+                        </h3>
 
-            </article>
+                        <p>
+                            Organiza os ingredientes e acompanha
+                            o processo de produção dos nossos
+                            sabonetes.
+                        </p>
 
-            <article class="time-card">
+                    </div>
 
-                <div class="time-card-foto">
+                </article>
 
-                    <img
-                        src="<?= $base ?>img/livia.jpg"
-                        alt="Foto de Lívia Comora"
-                    >
+                <article class="time-card">
 
-                </div>
+                    <div class="time-card-foto">
 
-                <div class="time-card-info">
+                        <img
+                            src="<?= $base ?>img/isadora.jpg"
+                            alt="Foto de Isadora Adorno"
+                        >
 
-                    <span class="time-card-cargo">
-                        Gerente de produção
-                    </span>
+                    </div>
 
-                    <h3>
-                        Lívia Comora
-                    </h3>
+                    <div class="time-card-info">
 
-                    <p>
-                        Organiza os ingredientes e acompanha
-                        o processo de produção dos nossos
-                        sabonetes.
-                    </p>
+                        <span class="time-card-cargo">
+                            Gerente de informática
+                        </span>
 
-                </div>
+                        <h3>
+                            Isadora Adorno
+                        </h3>
 
-            </article>
+                        <p>
+                            Cuida do e-commerce, do estoque,
+                            das redes sociais e da parte
+                            tecnológica do projeto.
+                        </p>
 
-            <article class="time-card">
+                    </div>
 
-                <div class="time-card-foto">
+                </article>
 
-                    <img
-                        src="<?= $base ?>img/isadora.jpg"
-                        alt="Foto de Isadora Adorno"
-                    >
+                <article class="time-card">
 
-                </div>
+                    <div class="time-card-foto">
 
-                <div class="time-card-info">
+                        <img
+                            src="<?= $base ?>img/mirella.jpeg"
+                            alt="Foto de Mirella Quadros"
+                        >
 
-                    <span class="time-card-cargo">
-                        Gerente de informática
-                    </span>
+                    </div>
 
-                    <h3>
-                        Isadora Adorno
-                    </h3>
+                    <div class="time-card-info">
 
-                    <p>
-                        Cuida do e-commerce, do estoque,
-                        das redes sociais e da parte
-                        tecnológica do projeto.
-                    </p>
+                        <span class="time-card-cargo">
+                            Gerente de recursos humanos
+                        </span>
 
-                </div>
+                        <h3>
+                            Mirella Quadros
+                        </h3>
 
-            </article>
+                        <p>
+                            Ajuda na organização da equipe
+                            e no bom funcionamento do trabalho
+                            entre todas nós.
+                        </p>
 
-            <article class="time-card">
+                    </div>
 
-                <div class="time-card-foto">
+                </article>
 
-                    <img
-                        src="<?= $base ?>img/mirella.jpeg"
-                        alt="Foto de Mirella Quadros"
-                    >
+                <article class="time-card">
 
-                </div>
+                    <div class="time-card-foto">
 
-                <div class="time-card-info">
+                        <img
+                            src="<?= $base ?>img/isabella.jpg"
+                            alt="Foto de Isabella Cury"
+                        >
 
-                    <span class="time-card-cargo">
-                        Gerente de recursos humanos
-                    </span>
+                    </div>
 
-                    <h3>
-                        Mirella Quadros
-                    </h3>
+                    <div class="time-card-info">
 
-                    <p>
-                        Ajuda na organização da equipe
-                        e no bom funcionamento do trabalho
-                        entre todas nós.
-                    </p>
+                        <span class="time-card-cargo">
+                            Gerente de vendas
+                        </span>
 
-                </div>
+                        <h3>
+                            Isabella Cury
+                        </h3>
 
-            </article>
+                        <p>
+                            Cuida dos preços, das estratégias
+                            de venda e de como nossos produtos
+                            chegam aos clientes.
+                        </p>
 
-            <article class="time-card">
+                    </div>
 
-                <div class="time-card-foto">
+                </article>
 
-                    <img
-                        src="<?= $base ?>img/isabella.jpg"
-                        alt="Foto de Isabella Cury"
-                    >
+                <article class="time-card">
 
-                </div>
+                    <div class="time-card-foto">
 
-                <div class="time-card-info">
+                        <img
+                            src="<?= $base ?>img/heloysa.jpg"
+                            alt="Foto de Heloysa Moraes"
+                        >
 
-                    <span class="time-card-cargo">
-                        Gerente de vendas
-                    </span>
+                    </div>
 
-                    <h3>
-                        Isabella Cury
-                    </h3>
+                    <div class="time-card-info">
 
-                    <p>
-                        Cuida dos preços, das estratégias
-                        de venda e de como nossos produtos
-                        chegam aos clientes.
-                    </p>
+                        <span class="time-card-cargo">
+                            Gerente de qualidade
+                        </span>
 
-                </div>
+                        <h3>
+                            Heloysa Moraes
+                        </h3>
 
-            </article>
+                        <p>
+                            Acompanha a qualidade dos produtos
+                            e ajuda a identificar o que podemos
+                            melhorar.
+                        </p>
 
-            <article class="time-card">
+                    </div>
 
-                <div class="time-card-foto">
+                </article>
 
-                    <img
-                        src="<?= $base ?>img/heloysa.jpg"
-                        alt="Foto de Heloysa Moraes"
-                    >
+            </div>
 
-                </div>
+        </section>
 
-                <div class="time-card-info">
+    <?php include_once "_footer.php"; ?>
 
-                    <span class="time-card-cargo">
-                        Gerente de qualidade
-                    </span>
-
-                    <h3>
-                        Heloysa Moraes
-                    </h3>
-
-                    <p>
-                        Acompanha a qualidade dos produtos
-                        e ajuda a identificar o que podemos
-                        melhorar.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-<?php include_once "_footer.php"; ?>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 

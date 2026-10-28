@@ -1,15 +1,17 @@
 <?php
-
+// Arquivo:  footer
 $base = $base ?? "";
 
 ?>
 
+<!-- Seção: rodapé -->
 <footer class="footer-fruit" id="contato">
 
     <div class="footer-fruit-conteudo">
 
         <div class="footer-fruit-marca">
 
+            <!-- Logo da marca -->
             <div class="footer-fruit-logo">
 
                 <span class="footer-bolha b1"></span>
@@ -29,6 +31,7 @@ $base = $base ?? "";
 
         </div>
 
+        <!-- Informações da marca -->
         <div class="footer-fruit-info">
 
             <p>
@@ -50,6 +53,7 @@ $base = $base ?? "";
             <a href="<?= $base ?>sobrenos.php">Sobre nós</a>
         </div>
 
+        <!-- Pessoas que desenvolveram o site -->
         <div class="footer-desenvolvedoras">
             <h3>Desenvolvedoras</h3>
 

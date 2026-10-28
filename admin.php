@@ -30,6 +30,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
         <section class="admin-opcoes">
 
+            <!-- Blocos de opções do painel do administrador -->
             <a href="crudUsuarios/listarUsuario.php" class="admin-bloco">
 
                 <div class="admin-conteudo">
@@ -87,6 +88,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
         </section>
 
+        <!-- Rodapé da pág do admin -->
         <footer class="menu">
 
             <a href="index.php" class="btn">
